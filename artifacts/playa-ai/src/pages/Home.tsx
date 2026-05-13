@@ -1,5 +1,5 @@
-import React from "react";
-import { motion, type Variants } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import gatheringScreenImg from "../assets/images/gathering-screen.png";
 import salonDiscussionImg from "../assets/images/salon-discussion.png";
 import abstractArtImg from "../assets/images/abstract-art.png";
@@ -17,7 +17,115 @@ const staggerContainer = {
   },
 };
 
+const PLEDGE_ITEMS = [
+  "We hold these truths to be self-evident.",
+  "That our humanness is foundational to wellbeing.",
+  "That trust is essential, especially in the digital age.",
+  "That hope is the antidote to fear, and is built through creativity, connection, and community.",
+  "That our values must be evident in how we design and engage with technology.",
+  "That consent is a precondition, not a checkbox.",
+  "That identity belongs to the person, not the platform.",
+  "That participation is the difference between an audience and a community.",
+  "That stories are infrastructure and deserve to be protected as such.",
+  "That a future worth living in must be designed with the people who will live in it.",
+  "We pledge to build, fund, and adopt AI that earns this future.",
+];
+
+function PledgeModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open, onClose]);
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          className="fixed inset-0 z-50 flex items-start md:items-center justify-center px-4 py-12 md:py-16 overflow-y-auto"
+          style={{ backgroundColor: "rgba(14, 13, 11, 0.55)" }}
+          onClick={onClose}
+          data-testid="pledge-modal-backdrop"
+        >
+          <motion.div
+            initial={{ y: 24, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 12, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-2xl bg-background border border-foreground"
+            data-testid="pledge-modal"
+          >
+            <div className="flex items-start justify-between hairline-b border-border px-8 py-6">
+              <div>
+                <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                  Layer 0 / Founding signers
+                </div>
+                <div className="font-serif text-3xl md:text-4xl leading-none">The Pledge</div>
+              </div>
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close"
+                className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
+                data-testid="button-close-pledge"
+              >
+                Close ×
+              </button>
+            </div>
+
+            <div className="px-8 py-8">
+              <p className="text-base md:text-lg leading-relaxed mb-6 text-foreground">
+                A short, plain-language commitment to the kind of AI we will build, fund, and adopt. Sign it as an institution, a funder, or a person.
+              </p>
+
+              <ul className="space-y-4 mb-10">
+                {PLEDGE_ITEMS.map((item, i) => (
+                  <li key={i} className="flex gap-4">
+                    <span className="font-mono text-xs text-muted-foreground pt-1.5 shrink-0 w-6">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-base md:text-lg leading-snug text-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="hairline-t border-border pt-6 flex flex-wrap items-center justify-between gap-4">
+                <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                  Filed · Spring 2026 · Black Rock Desert
+                </div>
+                <a
+                  href="#fund"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background font-mono text-xs uppercase tracking-widest border border-foreground hover:bg-background hover:text-foreground transition-colors"
+                  data-testid="button-send-pledge"
+                >
+                  Send The Pledge →
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function Home() {
+  const [pledgeOpen, setPledgeOpen] = useState(false);
+
   return (
     <main className="min-h-screen w-full font-sans text-foreground bg-background overflow-x-hidden selection:bg-foreground selection:text-background">
       
@@ -45,8 +153,8 @@ export default function Home() {
         </div>
         
         <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-6xl">
-          <motion.h1 variants={fadeInUp} className="font-serif text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tight text-foreground mb-12">
-            The ethical standard for <i className="italic font-light">human-centered</i> AI.
+          <motion.h1 variants={fadeInUp} className="font-serif text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] leading-[0.88] tracking-tight text-foreground mb-12">
+            The ethical<br />standard for<br /><i className="italic font-normal">human-centered</i><br />AI.
           </motion.h1>
           
           <motion.p variants={fadeInUp} className="text-xl md:text-3xl max-w-3xl leading-relaxed mb-16 text-foreground">
@@ -54,16 +162,24 @@ export default function Home() {
           </motion.p>
           
           <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-6 font-mono text-sm uppercase">
-            <a href="#standard" className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300">
+            <a href="#standard" className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300" data-testid="link-adopt-standard">
               Adopt the Standard
             </a>
-            <a href="#fund" className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300">
+            <a href="#fund" className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300" data-testid="link-fund-year-1">
               Fund Year 1
             </a>
-            <a href="#manifesto" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors">
+            <button
+              type="button"
+              onClick={() => setPledgeOpen(true)}
+              className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300 font-mono text-sm uppercase"
+              data-testid="button-take-pledge"
+            >
+              Take The Pledge
+            </button>
+            <a href="#manifesto" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors" data-testid="link-read-manifesto">
               Read Manifesto
             </a>
-            <a href="#oracle" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors">
+            <a href="#oracle" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors" data-testid="link-meet-oracle">
               Meet the Oracle
             </a>
           </motion.div>
@@ -470,6 +586,7 @@ export default function Home() {
         </div>
       </footer>
 
+      <PledgeModal open={pledgeOpen} onClose={() => setPledgeOpen(false)} />
     </main>
   );
 }
