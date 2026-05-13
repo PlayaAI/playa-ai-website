@@ -1,12 +1,12 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import gatheringScreenImg from "../assets/images/gathering-screen.png";
 import salonDiscussionImg from "../assets/images/salon-discussion.png";
 import abstractArtImg from "../assets/images/abstract-art.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 const staggerContainer = {
@@ -46,7 +46,7 @@ export default function Home() {
         
         <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-6xl">
           <motion.h1 variants={fadeInUp} className="font-serif text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tight text-foreground mb-12">
-            Theethicalstandardfor_<br className="hidden md:block"/><i className="italic font-light">human-centered_</i>AI.
+            The ethical standard for <i className="italic font-light">human-centered</i> AI.
           </motion.h1>
           
           <motion.p variants={fadeInUp} className="text-xl md:text-3xl max-w-3xl leading-relaxed mb-16 text-foreground">
