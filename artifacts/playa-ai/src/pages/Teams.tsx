@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import alexAzziPortrait from "@assets/image_1778692884554.png";
 import tinaWoodsPortrait from "@assets/tina-woods.jpg";
 import richardRothenbergPortrait from "@assets/image_1778693180155.png";
+import jennaSeidenPortrait from "@assets/image_1778693297348.png";
+import davidRockPortrait from "@assets/image_1778693303199.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -98,6 +100,7 @@ const COUNCIL: Council[] = [
     first: "Jenna",
     last: "Seiden",
     role: "Strategic Guardian",
+    photo: jennaSeidenPortrait,
     paragraphs: [
       "Jenna is a senior emerging-technology executive whose career spans interactive entertainment, immersive media, strategic partnerships, publishing, and global business development. She is also an animal-rights activist and leads the Temple Guardians in Black Rock City.",
       "Vice President, Head of Business Development for LEGO GAME at The LEGO Group, with prior senior roles across Skydance Interactive, Niantic Labs, CAA, Xbox, HTC, Maker Studios, NBC, Meta, and the NBA. Her work has centered on building new forms of play, storytelling, IP, and immersive experiences across platforms. She holds a degree from the University of Pennsylvania and an MBA from UCLA Anderson.",
@@ -109,6 +112,7 @@ const COUNCIL: Council[] = [
     first: "Dr. David",
     last: "Rock",
     role: "Head of Neuro",
+    photo: davidRockPortrait,
     paragraphs: [
       "Dr. David Rock is a pioneer in applying neuroscience to leadership, culture, motivation, and organizational change.",
       "Co-founder of the NeuroLeadership Institute, a global consultancy bringing cognitive science into leadership development, he is widely credited with coining the term neuroleadership. His work has helped move neuroscience into practical use across business, education, coaching, and change management — including through his books Your Brain at Work and Coaching with the Brain in Mind. David holds a professional doctorate in the Neuroscience of Leadership from Middlesex University.",
