@@ -146,6 +146,9 @@ export default function Home() {
             <Link href="/events" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors" data-testid="link-events">
               Events →
             </Link>
+            <Link href="/teams" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors" data-testid="link-teams">
+              Teams →
+            </Link>
           </div>
         </div>
       </div>

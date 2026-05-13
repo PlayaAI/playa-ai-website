@@ -1,0 +1,96 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Fraunces",
+      "role": "heading"
+    },
+    {
+      "family": "Georgia",
+      "role": "body"
+    },
+    {
+      "family": "Instrument Serif",
+      "role": "body"
+    },
+    {
+      "family": "JetBrains Mono",
+      "role": "monospace"
+    },
+    {
+      "family": "unknown",
+      "role": "unknown"
+    }
+  ],
+  "colors": {
+    "primary": "#D8CAB4",
+    "secondary": "#F0E5CD",
+    "accent": "#4A4239",
+    "background": "#F4EFE6",
+    "textPrimary": "#4A4239",
+    "link": "#4A4239"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Georgia",
+      "heading": "Fraunces"
+    },
+    "fontStacks": {
+      "heading": [
+        "Fraunces",
+        "Georgia",
+        "serif"
+      ],
+      "body": [
+        "Fraunces",
+        "Georgia",
+        "serif"
+      ],
+      "paragraph": [
+        "Fraunces",
+        "Georgia",
+        "serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "74px",
+      "h2": "88px",
+      "body": "15px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {},
+  "images": {
+    "logo": null,
+    "favicon": null,
+    "ogImage": null
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "medium",
+    "targetAudience": "unknown"
+  },
+  "designSystem": {
+    "framework": "unknown",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0,
+    "colors": 0.9,
+    "overall": 0.45
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": false,
+      "llmSucceeded": false,
+      "finalSource": "none"
+    },
+    "buttonClassification": {
+      "llmCalled": false,
+      "llmSucceeded": false
+    }
+  }
+}
