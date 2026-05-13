@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import gatheringScreenImg from "../assets/images/gathering-screen.png";
-import salonDiscussionImg from "../assets/images/salon-discussion.png";
-import abstractArtImg from "../assets/images/abstract-art.png";
+import gatheringScreenImg from "@assets/image_1778690528207.png";
+import salonDiscussionImg from "@assets/image_1778690538108.png";
+import abstractArtImg from "@assets/image_1778690543179.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
