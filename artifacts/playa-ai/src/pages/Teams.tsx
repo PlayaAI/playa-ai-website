@@ -350,41 +350,87 @@ export default function Teams() {
             </div>
           </div>
 
+          {/* Founder hero row */}
+          {(() => {
+            const alex = LEADERSHIP[0];
+            return (
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeInUp}
+                className="hairline-t hairline-b border-border py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center"
+                data-testid={`leadership-${alex.n}`}
+              >
+                <div className="md:col-span-3 flex md:justify-start justify-center">
+                  <div className="w-[180px] h-[180px] md:w-[200px] md:h-[200px] rounded-full overflow-hidden bg-secondary ring-1 ring-border">
+                    {alex.photo ? (
+                      <img
+                        src={alex.photo}
+                        alt={alex.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover grayscale"
+                      />
+                    ) : (
+                      <PortraitFallback name={alex.name} />
+                    )}
+                  </div>
+                </div>
+                <div className="md:col-span-7">
+                  <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
+                    {alex.n} · {alex.role}
+                  </div>
+                  <h3 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-4">
+                    {alex.name}
+                  </h3>
+                  <div className="font-serif italic text-xl md:text-2xl lg:text-3xl text-muted-foreground">
+                    {alex.title}
+                  </div>
+                </div>
+                <div className="md:col-span-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground md:text-right space-y-1">
+                  {alex.lines.map((l, i) => (
+                    <div key={i}>{l}</div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })()}
+
+          {/* Other leaders */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 hairline-t border-border"
+            className="grid grid-cols-1 md:grid-cols-3 hairline-b border-border"
           >
-            {LEADERSHIP.map((m) => (
+            {LEADERSHIP.slice(1).map((m) => (
               <motion.div
                 key={m.n}
                 variants={fadeInUp}
-                className="hairline-b lg:hairline-r last:lg:border-r-0 border-border p-6 md:p-8 flex flex-col"
+                className="md:hairline-r last:md:border-r-0 hairline-b md:border-b-0 border-border p-8 md:p-12 flex flex-col items-center text-center"
                 data-testid={`leadership-${m.n}`}
               >
-                <div className="aspect-[3/4] w-full mb-6 overflow-hidden bg-secondary">
+                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] mb-8 rounded-full overflow-hidden bg-secondary ring-1 ring-border">
                   {m.photo ? (
                     <img
                       src={m.photo}
                       alt={m.name}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover grayscale"
                     />
                   ) : (
                     <PortraitFallback name={m.name} />
                   )}
                 </div>
-                <div className="flex items-center justify-between mb-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                  <span>{m.n}</span>
-                  <span>· {m.role}</span>
+                <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
+                  {m.n} · {m.role}
                 </div>
                 <h3 className="font-serif text-3xl md:text-4xl leading-[0.95] mb-3">{m.name}</h3>
-                <div className="font-serif italic text-base md:text-lg text-muted-foreground mb-5">
+                <div className="font-serif italic text-base md:text-lg text-[#9C7B3F] mb-5">
                   {m.title}
                 </div>
-                <ul className="text-base leading-relaxed text-foreground space-y-1 mt-auto">
+                <ul className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground space-y-1 mt-auto">
                   {m.lines.map((l, i) => (
                     <li key={i}>{l}</li>
                   ))}
@@ -446,14 +492,14 @@ export default function Teams() {
               className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 hairline-t border-border pt-12 md:pt-16"
               data-testid={`council-${c.ref}`}
             >
-              <div className="md:col-span-4">
+              <div className="md:col-span-4 flex flex-col md:items-start items-center md:text-left text-center">
                 {c.photo && (
-                  <div className="aspect-square w-full max-w-[260px] mb-6 overflow-hidden bg-secondary">
+                  <div className="w-[200px] h-[200px] mb-8 rounded-full overflow-hidden bg-secondary ring-1 ring-border">
                     <img
                       src={c.photo}
                       alt={`${c.first} ${c.last}`}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover grayscale"
                     />
                   </div>
                 )}
@@ -461,9 +507,9 @@ export default function Teams() {
                   {c.ref} · Council Member
                 </div>
                 <h3 className="font-serif text-4xl md:text-6xl leading-[0.92] mb-3">
-                  {c.first} <i className="italic font-normal">{c.last}</i>
+                  {c.first} <i className="italic font-normal text-[#9C7B3F]">{c.last}</i>
                 </h3>
-                <div className="font-mono text-xs uppercase tracking-widest text-foreground border-b border-foreground inline-block pb-1">
+                <div className="font-serif italic text-base md:text-lg text-muted-foreground">
                   {c.role}
                 </div>
               </div>
