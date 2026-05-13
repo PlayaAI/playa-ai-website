@@ -5,6 +5,8 @@ import tinaWoodsPortrait from "@assets/tina-woods.jpg";
 import richardRothenbergPortrait from "@assets/image_1778693180155.png";
 import jennaSeidenPortrait from "@assets/image_1778693297348.png";
 import davidRockPortrait from "@assets/image_1778693303199.png";
+import alvinGraylinPortrait from "@assets/image_1778693315898.png";
+import robGriffittsPortrait from "@assets/image_1778693321677.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -123,6 +125,7 @@ const COUNCIL: Council[] = [
     ref: "A·005",
     first: "Alvin",
     last: "Wang Graylin",
+    photo: alvinGraylinPortrait,
     role: "Senior AI Advisor",
     paragraphs: [
       "Alvin is a global technology strategist, author, and AI pioneer whose work sits at the intersection of artificial intelligence, spatial computing, and society-scale transformation.",
@@ -134,6 +137,7 @@ const COUNCIL: Council[] = [
     ref: "A·006",
     first: "Rob",
     last: "Griffitts",
+    photo: robGriffittsPortrait,
     role: "Legal & Policy",
     paragraphs: [
       "Rob is a corporate and technology attorney who has spent his career advising founders, investors, and operating companies at the intersection of emerging technology and venture capital.",
