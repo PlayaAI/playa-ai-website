@@ -168,6 +168,14 @@
   .hairline-r {
     border-right: 1px solid hsl(var(--border));
   }
+  .hairline-y {
+    border-top: 1px solid hsl(var(--border));
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  .hairline-x {
+    border-left: 1px solid hsl(var(--border));
+    border-right: 1px solid hsl(var(--border));
+  }
 }
 
 @keyframes marquee {
