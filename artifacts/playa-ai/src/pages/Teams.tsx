@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import alexAzziPortrait from "@assets/image_1778692884554.png";
+import tinaWoodsPortrait from "@assets/tina-woods.jpg";
+import richardRothenbergPortrait from "@assets/image_1778693180155.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -26,7 +28,7 @@ const LEADERSHIP = [
     role: "Research",
     name: "Tina Woods",
     title: "Head of Research",
-    photo: null,
+    photo: tinaWoodsPortrait,
     lines: ["Research & Science."],
   },
   {
@@ -63,6 +65,7 @@ type Council = {
   last: string;
   role: string;
   paragraphs: string[];
+  photo?: string;
 };
 
 const COUNCIL: Council[] = [
@@ -71,6 +74,7 @@ const COUNCIL: Council[] = [
     first: "Tina",
     last: "Woods",
     role: "Science & Research Lead",
+    photo: tinaWoodsPortrait,
     paragraphs: [
       "Tina is a social entrepreneur, author, and system architect working at the intersection of longevity science, AI, health policy, and data governance. Founder & CEO of Collider Health and Business for Health, she builds cross-sector ecosystems focused on preventative health, healthy longevity, and responsible innovation — across the UK National Innovation Centre for Ageing, the International Institute of Longevity, the XPRIZE Global Visioneering Brain Trust, and the Global Exposome Forum.",
       "Her book Live Longer with AI explores how artificial intelligence can extend healthspan and reshape preventative health — directly aligned with Playa AI's focus on human-centered governance. She co-founded Longevity Rave, weaving longevity, music, and intergenerational connection in a way that resonates naturally with Burning Man culture, and leads the JoyScore Experiment, a global open-science project measuring how human connection drives flourishing — using Playa AI's Connect app as its technology layer.",
@@ -82,6 +86,7 @@ const COUNCIL: Council[] = [
     first: "Richard",
     last: "Rothenberg",
     role: "Senior AI Advisor",
+    photo: richardRothenbergPortrait,
     paragraphs: [
       "Richard is an AI, quantitative finance, and systemic-risk strategist working at the intersection of big data, investment research, policy, and sustainable development.",
       "CEO and Co-founder of Global A.I. Corporation, an AI-driven quantitative research company generating investment and policy insights for governments and institutional investors. His earlier work includes advising DARPA and the UN on financial vulnerabilities, curating high-profile events in Davos and across the Ivy League, and research roles at Deutsche Bank and Man Investments.",
@@ -434,6 +439,16 @@ export default function Teams() {
               data-testid={`council-${c.ref}`}
             >
               <div className="md:col-span-4">
+                {c.photo && (
+                  <div className="aspect-square w-full max-w-[260px] mb-6 overflow-hidden bg-secondary">
+                    <img
+                      src={c.photo}
+                      alt={`${c.first} ${c.last}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
                   {c.ref} · Council Member
                 </div>
