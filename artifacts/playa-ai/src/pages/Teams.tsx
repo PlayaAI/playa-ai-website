@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import alexAzziPortrait from "@assets/image_1778692884554.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -17,7 +18,7 @@ const LEADERSHIP = [
     role: "Founder",
     name: "Alex Azzi",
     title: "Founder & Executive Director",
-    photo: "https://playaai.github.io/Playa-AI/team-page-assets/alex-azzi.jpg",
+    photo: alexAzziPortrait,
     lines: ["Holds the vision.", "Tends the flame.", "Calls the meeting."],
   },
   {
@@ -102,7 +103,7 @@ const COUNCIL: Council[] = [
     ref: "A·004",
     first: "Dr. David",
     last: "Rock",
-    role: "NeuroLeadership Lead",
+    role: "Head of Neuro",
     paragraphs: [
       "Dr. David Rock is a pioneer in applying neuroscience to leadership, culture, motivation, and organizational change.",
       "Co-founder of the NeuroLeadership Institute, a global consultancy bringing cognitive science into leadership development, he is widely credited with coining the term neuroleadership. His work has helped move neuroscience into practical use across business, education, coaching, and change management — including through his books Your Brain at Work and Coaching with the Brain in Mind. David holds a professional doctorate in the Neuroscience of Leadership from Middlesex University.",
@@ -131,7 +132,117 @@ const COUNCIL: Council[] = [
       "At Playa AI, Rob brings legal, governance, and transaction experience to help shape responsible AI initiatives into durable institutions, partnerships, and operating frameworks.",
     ],
   },
+  {
+    ref: "A·007",
+    first: "Timothy",
+    last: "Johnson",
+    role: "Ethics & Principles",
+    paragraphs: [
+      "Timothy anchors the ethics and principles dimension of the Council — translating the Foundation's consent-first commitments into the durable rules, review practices, and decision tests that govern how the work is built, funded, and adopted.",
+      "His role on the Council is to keep first principles legible across every program: the Oracle, EELP, the Data Trust, ELK, and the Community Layer. When a tradeoff arrives, Timothy is the voice that returns the conversation to what the standard is for, and what it refuses to be.",
+    ],
+  },
 ];
+
+type RadialNode = {
+  name: string;
+  role: string;
+  ring: "center" | "leadership" | "council";
+  angle: number;
+};
+
+const RADIAL: RadialNode[] = [
+  { name: "Alex Azzi", role: "Founder & Executive Director", ring: "center", angle: 0 },
+  { name: "Tina Woods", role: "Head of Research", ring: "leadership", angle: 210 },
+  { name: "Rebecca Nelson", role: "Director", ring: "leadership", angle: 270 },
+  { name: "Raed Marji", role: "Chief Technology Officer", ring: "leadership", angle: 330 },
+  { name: "Timothy Johnson", role: "Ethics & Principles", ring: "council", angle: 200 },
+  { name: "Dr David Rock", role: "Head of Neuro", ring: "council", angle: 270 },
+  { name: "Jenna Seiden", role: "Strategic Guardian", ring: "council", angle: 340 },
+  { name: "Alvin Graylin", role: "Senior AI Advisor", ring: "council", angle: 160 },
+  { name: "Richard Rothenberg", role: "Senior AI Advisor", ring: "council", angle: 90 },
+  { name: "Rob Griffitts", role: "Legal Lead", ring: "council", angle: 20 },
+];
+
+function RadialMap() {
+  const size = 560;
+  const center = size / 2;
+  const leadershipR = 130;
+  const councilR = 230;
+
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-auto">
+      {/* Outer frame */}
+      <rect x="2" y="2" width={size - 4} height={size - 4} fill="none" stroke="#0E0D0B" strokeWidth="1" opacity="0.25" />
+      <rect x="14" y="14" width={size - 28} height={size - 28} fill="none" stroke="#0E0D0B" strokeWidth="1" opacity="0.15" />
+
+      {/* Concentric rings */}
+      <circle cx={center} cy={center} r={leadershipR} fill="none" stroke="#0E0D0B" strokeWidth="0.5" opacity="0.18" />
+      <circle cx={center} cy={center} r={councilR} fill="none" stroke="#0E0D0B" strokeWidth="0.5" opacity="0.18" />
+      <circle cx={center} cy={center} r={leadershipR + (councilR - leadershipR) / 2} fill="none" stroke="#0E0D0B" strokeWidth="0.5" opacity="0.08" strokeDasharray="2 4" />
+
+      {/* Cross lines */}
+      <line x1={center} y1="20" x2={center} y2={size - 20} stroke="#0E0D0B" strokeWidth="0.5" opacity="0.08" />
+      <line x1="20" y1={center} x2={size - 20} y2={center} stroke="#0E0D0B" strokeWidth="0.5" opacity="0.08" />
+
+      {/* Sun mark above Alex */}
+      <g transform={`translate(${center}, ${center - 70})`}>
+        <circle r="9" fill="#9C5A2C" />
+        {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
+          <line
+            key={a}
+            x1={Math.cos((a * Math.PI) / 180) * 14}
+            y1={Math.sin((a * Math.PI) / 180) * 14}
+            x2={Math.cos((a * Math.PI) / 180) * 22}
+            y2={Math.sin((a * Math.PI) / 180) * 22}
+            stroke="#9C5A2C"
+            strokeWidth="1.2"
+          />
+        ))}
+      </g>
+
+      {/* Center label: Alex Azzi */}
+      <text x={center} y={center - 6} textAnchor="middle" className="fill-foreground" style={{ fontFamily: "'Instrument Serif', serif", fontSize: "30px" }}>
+        Alex Azzi
+      </text>
+      <text x={center} y={center + 18} textAnchor="middle" className="fill-foreground" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "8px", letterSpacing: "0.18em" }}>
+        FOUNDER & EXECUTIVE DIRECTOR
+      </text>
+
+      {/* Ring labels */}
+      <text x={center} y={center - leadershipR + 8} textAnchor="middle" className="fill-muted-foreground" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "8px", letterSpacing: "0.22em" }}>
+        — LEADERSHIP —
+      </text>
+      <text x={center} y={center - councilR + 8} textAnchor="middle" className="fill-muted-foreground" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "8px", letterSpacing: "0.22em" }}>
+        — ADVISORY COUNCIL —
+      </text>
+
+      {/* Nodes */}
+      {RADIAL.filter((n) => n.ring !== "center").map((n) => {
+        const r = n.ring === "leadership" ? leadershipR : councilR;
+        const rad = ((n.angle - 90) * Math.PI) / 180;
+        const x = center + Math.cos(rad) * r;
+        const y = center + Math.sin(rad) * r;
+        const labelOffset = n.ring === "leadership" ? 30 : 30;
+        const ly = y + labelOffset;
+        return (
+          <g key={n.name}>
+            <circle cx={x} cy={y} r="2.5" fill="#0E0D0B" />
+            <text x={x} y={ly} textAnchor="middle" className="fill-foreground" style={{ fontFamily: "'Instrument Serif', serif", fontSize: "16px" }}>
+              {n.name}
+            </text>
+            <text x={x} y={ly + 14} textAnchor="middle" className="fill-muted-foreground" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "7px", letterSpacing: "0.2em" }}>
+              {n.role.toUpperCase()}
+            </text>
+          </g>
+        );
+      })}
+
+      {/* Bottom dot */}
+      <circle cx={center} cy={size - 22} r="2" fill="#9C5A2C" />
+    </svg>
+  );
+}
 
 function MonoLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -205,15 +316,9 @@ export default function Teams() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="hairline-y hairline-x border-border p-6 md:p-10 bg-secondary/40 relative"
+              data-testid="radial-map"
             >
-              <img
-                src="https://playaai.github.io/Playa-AI/team-page-assets/leadership-council-radial.svg?v=4"
-                alt="Leadership and the Playa AI Council radial map"
-                className="w-full h-auto"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = "none";
-                }}
-              />
+              <RadialMap />
             </motion.div>
           </div>
         </div>
