@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { Link } from "wouter";
 import gatheringScreenImg from "@assets/image_1778690528207.png";
 import salonDiscussionImg from "@assets/image_1778690538108.png";
 import abstractArtImg from "@assets/image_1778690543179.png";
@@ -140,8 +141,11 @@ export default function Home() {
           <div className="hidden md:block text-center">
             Dispatch No. / 07 · Spring 2026 · Black Rock Desert ⇄ Worldwide
           </div>
-          <div className="hidden md:flex justify-end">
-            Filed Under / Standard · Governance · Reference Implementation
+          <div className="hidden md:flex justify-end items-center gap-4">
+            <span>Filed Under / Standard · Governance · Reference Implementation</span>
+            <Link href="/events" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors" data-testid="link-events">
+              Events →
+            </Link>
           </div>
         </div>
       </div>

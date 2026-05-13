@@ -1,0 +1,143 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Georgia",
+      "role": "body"
+    },
+    {
+      "family": "Fraunces",
+      "role": "heading"
+    },
+    {
+      "family": "JetBrains Mono",
+      "role": "monospace"
+    },
+    {
+      "family": "Instrument Serif",
+      "role": "display"
+    }
+  ],
+  "colors": {
+    "primary": "#655D55",
+    "secondary": "#F1E6DF",
+    "accent": "#11100D",
+    "background": "#F5EFE3",
+    "textPrimary": "#11100D",
+    "link": "#F1E6DF"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Georgia",
+      "heading": "Fraunces"
+    },
+    "fontStacks": {
+      "heading": [
+        "Instrument Serif",
+        "Georgia",
+        "serif"
+      ],
+      "body": [
+        "Fraunces",
+        "Georgia",
+        "serif"
+      ],
+      "paragraph": [
+        "Fraunces",
+        "Georgia",
+        "serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "168px",
+      "h2": "106px",
+      "body": "30px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#11100D",
+      "textColor": "#F5EFE3",
+      "borderColor": "#11100D",
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#EDF3F4",
+      "textColor": "#655D55",
+      "borderColor": "#A7A39A",
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "favicon": null,
+    "ogImage": null,
+    "logoHref": "index.html"
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Selected #0 because it is located in the header, is visible, and links to the homepage, matching the brand 'Playa AI Foundation'.",
+    "confidence": 0.95,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 5,
+      "text": "Share the next event",
+      "reasoning": "Button #5 has a distinct dark background color (#11100D) and action-oriented text 'Share the next event', making it stand out as the primary CTA."
+    },
+    "secondary": {
+      "index": 3,
+      "text": "View on Luma",
+      "reasoning": "Button #3 has a different background color (#EDF3F4) and serves as a secondary action with the text 'View on Luma'."
+    },
+    "confidence": 0.9
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "event organizers and attendees"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.9,
+    "colors": 0.9,
+    "overall": 0.9
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 0,
+        "selectedLogoReasoning": "Selected #0 because it is located in the header, is visible, and links to the homepage, matching the brand 'Playa AI Foundation'.",
+        "confidence": 0.95
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}
