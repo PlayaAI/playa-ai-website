@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "N1snDKBChbsJprqf0pxsz"
+uri = "file://artifacts/playa-ai/src/assets/images/gathering-screen.png"
+type = "image"
+title = "Presentation screen at gathering"
+
+[[generated]]
+id = "V1o0Tr1wwXMxHNnJktA2N"
+uri = "file://artifacts/playa-ai/src/assets/images/salon-discussion.png"
+type = "image"
+title = "Salon discussion in warm room"
+
+[[generated]]
+id = "ldDgUEPrzpVJdXXeEWn14"
+uri = "file://artifacts/playa-ai/src/assets/images/abstract-art.png"
+type = "image"
+title = "Abstract cultural art installation"
