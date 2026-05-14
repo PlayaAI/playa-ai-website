@@ -343,21 +343,21 @@ export default function Home() {
             <div className="aspect-[3/2] overflow-hidden bg-secondary ring-1 ring-border">
               <img src={gatheringScreenImg} alt="Field gathering" className="w-full h-full object-cover grayscale" />
             </div>
-            <div className="font-mono text-xs uppercase tracking-wider">Field gathering · Playa AI in session</div>
+            <MonoLabel>Field gathering · Playa AI in session</MonoLabel>
             <p className="text-lg leading-snug">Proof belongs in rooms: people gathered around language, ethics, tools, and the social conditions of human-centered AI.</p>
           </div>
           <div className="space-y-4">
             <div className="aspect-[3/2] overflow-hidden bg-secondary ring-1 ring-border">
               <img src={salonDiscussionImg} alt="Salon documentation" className="w-full h-full object-cover grayscale" />
             </div>
-            <div className="font-mono text-xs uppercase tracking-wider">Salon documentation · Community assembly</div>
+            <MonoLabel>Salon documentation · Community assembly</MonoLabel>
             <p className="text-lg leading-snug">The standard begins in listening, dialogue, consent, and shared inquiry.</p>
           </div>
           <div className="space-y-4">
             <div className="aspect-[3/2] overflow-hidden bg-secondary ring-1 ring-border">
               <img src={abstractArtImg} alt="Cultural context" className="w-full h-full object-cover grayscale" />
             </div>
-            <div className="font-mono text-xs uppercase tracking-wider">Cultural context · Art as signal</div>
+            <MonoLabel>Cultural context · Art as signal</MonoLabel>
             <p className="text-lg leading-snug">Playa culture gives AI ethics a place to become embodied, strange, social, and human.</p>
           </div>
         </div>
@@ -452,7 +452,7 @@ export default function Home() {
             { tag: "Path 03 / Community", id: "partners", title: "Join the Layer 0", desc: "For builders, artists, facilitators, burners, researchers. Join the people helping shape how AI meets human experience — through salons, calls, Field Notes, Oracle volunteer cohorts, and Experience Lab Kit testing. Layer 0 consent is its own thing. No extraction.", link: "Join the Community →" }
           ].map((path, i) => (
             <div key={i} id={path.id} className={`border p-8 md:p-12 flex flex-col ${path.bg || 'bg-background text-foreground border-border'}`}>
-              <div className="font-mono text-xs uppercase tracking-wider mb-16 opacity-70">{path.tag}</div>
+              <MonoLabel className="mb-16 opacity-70 text-current">{path.tag}</MonoLabel>
               <h3 className="font-serif text-4xl mb-6">{path.title}</h3>
               <p className={`text-lg leading-relaxed mb-16 ${path.bg ? 'text-[#E2D9C5]' : 'text-muted-foreground'}`}>{path.desc}</p>
               <a href="#" className={`mt-auto font-mono text-sm uppercase tracking-wider inline-block border-b pb-1 transition-colors w-fit ${path.bg ? 'border-background hover:text-[#E2D9C5] hover:border-[#E2D9C5]' : 'border-foreground hover:text-muted-foreground hover:border-muted-foreground'}`}>
