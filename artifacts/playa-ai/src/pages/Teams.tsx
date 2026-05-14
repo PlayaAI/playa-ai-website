@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import alexAzziPortrait from "@assets/image_1778692884554.png";
 import tinaWoodsPortrait from "@assets/tina-woods.jpg";
 import richardRothenbergPortrait from "@assets/image_1778693180155.png";
@@ -282,20 +284,18 @@ function PortraitFallback({ name }: { name: string }) {
 export default function Teams() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Top bar */}
-      <header className="hairline-b border-border">
-        <div className="max-w-[1400px] mx-auto px-4 py-5 flex items-center justify-between font-mono text-xs uppercase tracking-widest">
-          <Link href="/" className="flex items-center gap-3 font-bold" data-testid="link-home">
-            <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
-            Playa AI Foundation
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#leadership" className="hover:text-muted-foreground transition-colors">Leadership</a>
-            <a href="#council" className="hover:text-muted-foreground transition-colors">Council</a>
-          </nav>
-          <div className="text-muted-foreground">MMXXVI</div>
-        </div>
-      </header>
+      <SiteHeader
+        active="teams"
+        contextLine={
+          <>
+            <span>A field guide · Edition 01 · 2026</span>
+            <span className="hidden md:inline">·</span>
+            <a href="#leadership" className="hidden md:inline hover:text-foreground transition-colors">Leadership</a>
+            <span className="hidden md:inline">·</span>
+            <a href="#council" className="hidden md:inline hover:text-foreground transition-colors">Council</a>
+          </>
+        }
+      />
 
       {/* Field guide intro */}
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-32 pb-16 md:pb-24">
@@ -537,21 +537,7 @@ export default function Teams() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-foreground text-background px-4 pt-16 pb-12">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 font-mono text-xs uppercase tracking-widest">
-          <div>
-            <div className="mb-4 text-[#E2D9C5]">Playa AI Foundation</div>
-            <Link href="/" className="text-[#A7A39A] hover:text-background transition-colors">← Back to dispatch</Link>
-          </div>
-          <div className="text-[#A7A39A]">
-            Field guide · Edition 01 · 2026
-          </div>
-          <div className="text-[#A7A39A]">
-            © 2026 Playa AI Foundation · Fiscal sponsorship via Mystic Arts Foundation · 501(c)(3)
-          </div>
-        </div>
-      </footer>
+      <SiteFooter contextLine="Field guide · Edition 01 · 2026" />
     </main>
   );
 }

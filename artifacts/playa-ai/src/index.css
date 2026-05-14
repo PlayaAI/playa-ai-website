@@ -140,6 +140,19 @@
 }
 
 @layer utilities {
+  .text-accent-gold {
+    color: #9C7B3F;
+  }
+  .border-accent-gold {
+    border-color: #9C7B3F;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   .text-ink {
     color: hsl(var(--primary));
   }

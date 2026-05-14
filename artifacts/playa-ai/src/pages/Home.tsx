@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { Link } from "wouter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import gatheringScreenImg from "@assets/image_1778690528207.png";
 import salonDiscussionImg from "@assets/image_1778690538108.png";
 import abstractArtImg from "@assets/image_1778690543179.png";
@@ -130,28 +131,18 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full font-sans text-foreground bg-background overflow-x-hidden selection:bg-foreground selection:text-background">
       
-      {/* 1. Dispatch top bar */}
-      <div className="sticky top-0 z-50 bg-background/90 backdrop-blur-md hairline-b font-mono text-xs uppercase tracking-wider text-muted-foreground">
-        <div className="max-w-[1400px] mx-auto px-4 py-3 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="flex items-center gap-2">
+      <SiteHeader
+        active="home"
+        contextLine={
+          <>
             <span>Field Status / Layer 0 active</span>
-            <div className="w-1.5 h-1.5 rounded-full bg-foreground animate-pulse-slow"></div>
-            <span className="hidden md:inline">· Salons in session</span>
-          </div>
-          <div className="hidden md:block text-center">
-            Dispatch No. / 07 · Spring 2026 · Black Rock Desert ⇄ Worldwide
-          </div>
-          <div className="hidden md:flex justify-end items-center gap-4">
-            <span>Filed Under / Standard · Governance · Reference Implementation</span>
-            <Link href="/events" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors" data-testid="link-events">
-              Events →
-            </Link>
-            <Link href="/teams" className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors" data-testid="link-teams">
-              Teams →
-            </Link>
-          </div>
-        </div>
-      </div>
+            <span>·</span>
+            <span>Dispatch No. 07 · Spring 2026 · Black Rock Desert ⇄ Worldwide</span>
+            <span className="hidden lg:inline">·</span>
+            <span className="hidden lg:inline">Filed Under / Standard · Governance · Reference</span>
+          </>
+        }
+      />
 
       {/* 2. Hero */}
       <section className="pt-8 pb-24 md:pt-16 md:pb-32 px-4 max-w-[1400px] mx-auto">
@@ -161,7 +152,7 @@ export default function Home() {
         
         <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-6xl">
           <motion.h1 variants={fadeInUp} className="font-serif text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] leading-[0.88] tracking-tight text-foreground mb-12">
-            The ethical<br />standard for<br /><i className="italic font-normal">human-centered</i><br />AI.
+            The ethical<br />standard for<br /><i className="italic font-normal text-accent-gold">human-centered</i><br />AI.
           </motion.h1>
           
           <motion.p variants={fadeInUp} className="text-xl md:text-3xl max-w-3xl leading-relaxed mb-16 text-foreground">
@@ -343,27 +334,27 @@ export default function Home() {
         </p>
 
         <div className="py-6 border-y border-border mb-16 overflow-x-auto whitespace-nowrap scrollbar-hide">
-          <span className="font-serif text-3xl md:text-4xl italic">New York · London · Dubai · San Francisco · Black Rock City · — next: Berlin</span>
+          <span className="font-serif text-3xl md:text-4xl italic">New York · London · Dubai · San Francisco · Black Rock City · <span className="text-accent-gold">— next: Berlin</span></span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
-            <div className="aspect-[3/2] overflow-hidden bg-secondary">
-              <img src={gatheringScreenImg} alt="Field gathering" className="w-full h-full object-cover grayscale-[20%] sepia-[10%] opacity-90" />
+            <div className="aspect-[3/2] overflow-hidden bg-secondary ring-1 ring-border">
+              <img src={gatheringScreenImg} alt="Field gathering" className="w-full h-full object-cover grayscale" />
             </div>
             <div className="font-mono text-xs uppercase tracking-wider">Field gathering · Playa AI in session</div>
             <p className="text-lg leading-snug">Proof belongs in rooms: people gathered around language, ethics, tools, and the social conditions of human-centered AI.</p>
           </div>
           <div className="space-y-4">
-            <div className="aspect-[3/2] overflow-hidden bg-secondary">
-              <img src={salonDiscussionImg} alt="Salon documentation" className="w-full h-full object-cover grayscale-[20%] sepia-[10%] opacity-90" />
+            <div className="aspect-[3/2] overflow-hidden bg-secondary ring-1 ring-border">
+              <img src={salonDiscussionImg} alt="Salon documentation" className="w-full h-full object-cover grayscale" />
             </div>
             <div className="font-mono text-xs uppercase tracking-wider">Salon documentation · Community assembly</div>
             <p className="text-lg leading-snug">The standard begins in listening, dialogue, consent, and shared inquiry.</p>
           </div>
           <div className="space-y-4">
-            <div className="aspect-[3/2] overflow-hidden bg-secondary">
-              <img src={abstractArtImg} alt="Cultural context" className="w-full h-full object-cover grayscale-[20%] sepia-[10%] opacity-90" />
+            <div className="aspect-[3/2] overflow-hidden bg-secondary ring-1 ring-border">
+              <img src={abstractArtImg} alt="Cultural context" className="w-full h-full object-cover grayscale" />
             </div>
             <div className="font-mono text-xs uppercase tracking-wider">Cultural context · Art as signal</div>
             <p className="text-lg leading-snug">Playa culture gives AI ethics a place to become embodied, strange, social, and human.</p>
@@ -572,26 +563,10 @@ export default function Home() {
       </section>
 
       {/* 17. Footer */}
-      <footer className="bg-foreground text-background py-12 px-4 font-mono text-xs uppercase tracking-wider">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 opacity-80">
-          <div>
-            <div className="font-bold mb-4 tracking-widest text-[#F2EBDD]">PLAYA AI FOUNDATION</div>
-            <div className="text-[#6B6258]">© 2026 Playa AI Foundation</div>
-          </div>
-          <div>
-            <div className="mb-2 text-[#E2D9C5]">Dispatch No. / 07</div>
-            <div className="text-[#6B6258]">Spring 2026 · Black Rock Desert</div>
-          </div>
-          <div>
-            <div className="mb-2 text-[#E2D9C5]">Filed Under</div>
-            <div className="text-[#6B6258]">Standard · Governance · Reference</div>
-          </div>
-          <div>
-            <div className="mb-2 text-[#E2D9C5]">Fiscal sponsorship via</div>
-            <div className="text-[#6B6258]">Mystic Arts Foundation · 501(c)(3)</div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter
+        contextLine="Dispatch No. 07 · Spring 2026 · Black Rock Desert"
+        showBackLink={false}
+      />
 
       <PledgeModal open={pledgeOpen} onClose={() => setPledgeOpen(false)} />
     </main>

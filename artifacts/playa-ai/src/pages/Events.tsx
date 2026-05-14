@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -146,24 +147,24 @@ function EventBlock({ e, index }: { e: EventCard; index: number }) {
       data-testid={`event-card-${index}`}
     >
       <div className="md:col-span-5">
-        <div className="aspect-[4/3] overflow-hidden bg-secondary">
+        <div className="aspect-[4/3] overflow-hidden bg-secondary ring-1 ring-border">
           <img
             src={e.cover}
             alt=""
             loading="lazy"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover grayscale"
           />
         </div>
       </div>
       <div className="md:col-span-7 flex flex-col">
         <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4 flex flex-wrap gap-x-6 gap-y-2">
           <span>{e.date}</span>
-          <span>· {e.city}</span>
+          <span className="text-accent-gold">· {e.city}</span>
         </div>
         <h3 className="font-serif text-3xl md:text-5xl leading-[0.95] mb-6 text-foreground">
           {e.title}
         </h3>
-        <p className="font-serif italic text-lg md:text-xl leading-snug text-muted-foreground mb-5 max-w-xl">
+        <p className="font-serif italic text-lg md:text-xl leading-snug text-accent-gold mb-5 max-w-xl">
           "{e.pull}"
         </p>
         <p className="text-base md:text-lg leading-relaxed text-foreground mb-6 max-w-2xl">
@@ -198,23 +199,18 @@ function EventBlock({ e, index }: { e: EventCard; index: number }) {
 export default function Events() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Top bar */}
-      <header className="hairline-b border-border">
-        <div className="max-w-[1400px] mx-auto px-4 py-5 flex items-center justify-between">
-          <Link href="/" className="font-mono text-xs uppercase tracking-widest font-bold" data-testid="link-home">
-            Playa AI Foundation
-          </Link>
-          <nav className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest">
-            <Link href="/" className="hover:text-muted-foreground transition-colors">Home</Link>
-            <span className="text-muted-foreground">2026</span>
-            <span className="text-muted-foreground">2025</span>
-            <span className="text-muted-foreground">Formats</span>
-            <a href="/#fund" className="bg-foreground text-background px-4 py-2 hover:bg-background hover:text-foreground border border-foreground transition-colors" data-testid="link-contact">
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader
+        active="events"
+        contextLine={
+          <>
+            <span>Public event archive</span>
+            <span>·</span>
+            <span className="text-accent-gold">Salons / Hackathons / Field gatherings</span>
+            <span className="hidden lg:inline">·</span>
+            <span className="hidden lg:inline">Updated continuously</span>
+          </>
+        }
+      />
 
       {/* Intro */}
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-16 md:pb-24">
@@ -354,21 +350,7 @@ export default function Events() {
         </a>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-foreground text-background px-4 pt-16 pb-12">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 font-mono text-xs uppercase tracking-widest">
-          <div>
-            <div className="mb-4 text-[#E2D9C5]">Playa AI Foundation</div>
-            <Link href="/" className="text-[#6B6258] hover:text-background transition-colors">← Back to dispatch</Link>
-          </div>
-          <div className="text-[#6B6258]">
-            Public event archive · Updated continuously
-          </div>
-          <div className="text-[#6B6258]">
-            © 2026 Playa AI Foundation · Fiscal sponsorship via Mystic Arts Foundation · 501(c)(3)
-          </div>
-        </div>
-      </footer>
+      <SiteFooter contextLine="Public event archive · Updated continuously" />
     </main>
   );
 }
