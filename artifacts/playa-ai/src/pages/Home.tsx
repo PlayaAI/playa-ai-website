@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { MonoLabel } from "@/components/MonoLabel";
 import gatheringScreenImg from "@assets/image_1778690528207.png";
 import salonDiscussionImg from "@assets/image_1778690538108.png";
 import abstractArtImg from "@assets/image_1778690543179.png";

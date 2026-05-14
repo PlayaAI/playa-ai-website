@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { MonoLabel } from "@/components/MonoLabel";
 import alexAzziPortrait from "@assets/image_1778692884554.png";
 import tinaWoodsPortrait from "@assets/tina-woods.jpg";
 import richardRothenbergPortrait from "@assets/image_1778693180155.png";
@@ -202,7 +203,7 @@ function RadialMap() {
 
       {/* Sun mark above Alex */}
       <g transform={`translate(${center}, ${center - 70})`}>
-        <circle r="9" fill="#9C5A2C" />
+        <circle r="9" className="fill-accent-gold" />
         {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
           <line
             key={a}
@@ -210,7 +211,7 @@ function RadialMap() {
             y1={Math.sin((a * Math.PI) / 180) * 14}
             x2={Math.cos((a * Math.PI) / 180) * 22}
             y2={Math.sin((a * Math.PI) / 180) * 22}
-            stroke="#9C5A2C"
+            className="stroke-accent-gold"
             strokeWidth="1.2"
           />
         ))}
@@ -254,16 +255,8 @@ function RadialMap() {
       })}
 
       {/* Bottom dot */}
-      <circle cx={center} cy={size - 22} r="2" fill="#9C5A2C" />
+      <circle cx={center} cy={size - 22} r="2" className="fill-accent-gold" />
     </svg>
-  );
-}
-
-function MonoLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-      {children}
-    </div>
   );
 }
 
@@ -312,7 +305,7 @@ export default function Teams() {
               variants={fadeInUp}
               className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-tight max-w-[14ch]"
             >
-              The people building human-centered AI on, and off, the <i className="italic font-normal" style={{ color: "#9C5A2C" }}>playa</i>
+              The people building human-centered AI on, and off, the <i className="italic font-normal text-accent-gold">playa</i>
             </motion.h1>
 
             <div className="mt-12 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
@@ -423,11 +416,9 @@ export default function Teams() {
                     <PortraitFallback name={m.name} />
                   )}
                 </div>
-                <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
-                  {m.n} · {m.role}
-                </div>
+                <MonoLabel className="mb-4">{m.n} · {m.role}</MonoLabel>
                 <h3 className="font-serif text-3xl md:text-4xl leading-[0.95] mb-3">{m.name}</h3>
-                <div className="font-serif italic text-base md:text-lg text-[#9C7B3F] mb-5">
+                <div className="font-serif italic text-base md:text-lg text-accent-gold mb-5">
                   {m.title}
                 </div>
                 <ul className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground space-y-1 mt-auto">
@@ -503,11 +494,9 @@ export default function Teams() {
                     />
                   </div>
                 )}
-                <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
-                  {c.ref} · Council Member
-                </div>
+                <MonoLabel className="mb-4">{c.ref} · Council Member</MonoLabel>
                 <h3 className="font-serif text-4xl md:text-6xl leading-[0.92] mb-3">
-                  {c.first} <i className="italic font-normal text-[#9C7B3F]">{c.last}</i>
+                  {c.first} <i className="italic font-normal text-accent-gold">{c.last}</i>
                 </h3>
                 <div className="font-serif italic text-base md:text-lg text-muted-foreground">
                   {c.role}

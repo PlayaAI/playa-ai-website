@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { MonoLabel } from "@/components/MonoLabel";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -225,7 +226,7 @@ export default function Events() {
           variants={fadeInUp}
           className="font-serif text-5xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight max-w-[1100px] mb-12"
         >
-          Rooms where AI <i className="italic font-normal" style={{ color: "#9C5A2C" }}>stops chatting</i> and starts doing.
+          Rooms where AI <i className="italic font-normal text-accent-gold">stops chatting</i> and starts doing.
         </motion.h1>
 
         <motion.p
@@ -248,9 +249,7 @@ export default function Events() {
             { label: "Core formats", value: "4" },
           ].map((s) => (
             <div key={s.label} className="px-6 py-10">
-              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
-                {s.label}
-              </div>
+              <MonoLabel className="mb-4">{s.label}</MonoLabel>
               <div className="font-serif italic text-5xl md:text-7xl leading-none">
                 {s.value}
               </div>

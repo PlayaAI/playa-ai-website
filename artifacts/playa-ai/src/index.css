@@ -86,6 +86,7 @@
   --app-font-sans: 'Fraunces', Georgia, serif;
   --app-font-serif: 'Instrument Serif', serif;
   --app-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --accent-gold: #9C7B3F;
   --radius: 0px; 
   
   --shadow-2xs: none;
@@ -141,10 +142,19 @@
 
 @layer utilities {
   .text-accent-gold {
-    color: #9C7B3F;
+    color: var(--accent-gold);
   }
   .border-accent-gold {
-    border-color: #9C7B3F;
+    border-color: var(--accent-gold);
+  }
+  .bg-accent-gold {
+    background-color: var(--accent-gold);
+  }
+  .fill-accent-gold {
+    fill: var(--accent-gold);
+  }
+  .stroke-accent-gold {
+    stroke: var(--accent-gold);
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
