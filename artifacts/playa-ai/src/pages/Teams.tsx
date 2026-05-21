@@ -28,7 +28,7 @@ const LEADERSHIP = [
     name: "Alex Azzi",
     title: "Founder & Executive Director",
     photo: alexAzziPortrait,
-    lines: ["Holds the vision.", "Tends the flame.", "Calls the meeting."],
+    lines: ["Holds the vision.", "Tends the flame."],
   },
   {
     n: "002",
