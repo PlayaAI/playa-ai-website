@@ -13,7 +13,11 @@ import robGriffittsPortrait from "@assets/image_1778693321677.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
 };
 
 const stagger = {
@@ -43,7 +47,8 @@ const LEADERSHIP = [
     role: "Community",
     name: "Rebecca Nelson",
     title: "Director",
-    photo: "https://playaai.github.io/Playa-AI/team-page-assets/rebecca-nelson.jpg",
+    photo:
+      "https://playaai.github.io/Playa-AI/team-page-assets/rebecca-nelson.jpg",
     lines: ["Community & Comms."],
   },
   {
@@ -63,7 +68,6 @@ const CHARTER = [
   "Council members have no power to bind the foundation.",
   "Council members have no fiduciary duties.",
   "Council members have no signing authority.",
-  "Playa AI Foundation has a separate governing board of directors.",
 ];
 
 type Council = {
@@ -168,15 +172,50 @@ type RadialNode = {
 };
 
 const RADIAL: RadialNode[] = [
-  { name: "Alex Azzi", role: "Founder & Executive Director", ring: "center", angle: 0 },
-  { name: "Tina Woods", role: "Head of Research", ring: "leadership", angle: 210 },
+  {
+    name: "Alex Azzi",
+    role: "Founder & Executive Director",
+    ring: "center",
+    angle: 0,
+  },
+  {
+    name: "Tina Woods",
+    role: "Head of Research",
+    ring: "leadership",
+    angle: 210,
+  },
   { name: "Rebecca Nelson", role: "Director", ring: "leadership", angle: 270 },
-  { name: "Raed Marji", role: "Chief Technology Officer", ring: "leadership", angle: 330 },
-  { name: "Timothy Johnson", role: "Ethics & Principles", ring: "council", angle: 200 },
+  {
+    name: "Raed Marji",
+    role: "Chief Technology Officer",
+    ring: "leadership",
+    angle: 330,
+  },
+  {
+    name: "Timothy Johnson",
+    role: "Ethics & Principles",
+    ring: "council",
+    angle: 200,
+  },
   { name: "Dr David Rock", role: "Head of Neuro", ring: "council", angle: 270 },
-  { name: "Jenna Seiden", role: "Strategic Guardian", ring: "council", angle: 340 },
-  { name: "Alvin Graylin", role: "Senior AI Advisor", ring: "council", angle: 160 },
-  { name: "Richard Rothenberg", role: "Senior AI Advisor", ring: "council", angle: 90 },
+  {
+    name: "Jenna Seiden",
+    role: "Strategic Guardian",
+    ring: "council",
+    angle: 340,
+  },
+  {
+    name: "Alvin Graylin",
+    role: "Senior AI Advisor",
+    ring: "council",
+    angle: 160,
+  },
+  {
+    name: "Richard Rothenberg",
+    role: "Senior AI Advisor",
+    ring: "council",
+    angle: 90,
+  },
   { name: "Rob Griffitts", role: "Legal Lead", ring: "council", angle: 20 },
 ];
 
@@ -189,17 +228,76 @@ function RadialMap() {
   return (
     <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-auto">
       {/* Outer frame */}
-      <rect x="2" y="2" width={size - 4} height={size - 4} fill="none" stroke="#0E0D0B" strokeWidth="1" opacity="0.25" />
-      <rect x="14" y="14" width={size - 28} height={size - 28} fill="none" stroke="#0E0D0B" strokeWidth="1" opacity="0.15" />
+      <rect
+        x="2"
+        y="2"
+        width={size - 4}
+        height={size - 4}
+        fill="none"
+        stroke="#0E0D0B"
+        strokeWidth="1"
+        opacity="0.25"
+      />
+      <rect
+        x="14"
+        y="14"
+        width={size - 28}
+        height={size - 28}
+        fill="none"
+        stroke="#0E0D0B"
+        strokeWidth="1"
+        opacity="0.15"
+      />
 
       {/* Concentric rings */}
-      <circle cx={center} cy={center} r={leadershipR} fill="none" stroke="#0E0D0B" strokeWidth="0.5" opacity="0.18" />
-      <circle cx={center} cy={center} r={councilR} fill="none" stroke="#0E0D0B" strokeWidth="0.5" opacity="0.18" />
-      <circle cx={center} cy={center} r={leadershipR + (councilR - leadershipR) / 2} fill="none" stroke="#0E0D0B" strokeWidth="0.5" opacity="0.08" strokeDasharray="2 4" />
+      <circle
+        cx={center}
+        cy={center}
+        r={leadershipR}
+        fill="none"
+        stroke="#0E0D0B"
+        strokeWidth="0.5"
+        opacity="0.18"
+      />
+      <circle
+        cx={center}
+        cy={center}
+        r={councilR}
+        fill="none"
+        stroke="#0E0D0B"
+        strokeWidth="0.5"
+        opacity="0.18"
+      />
+      <circle
+        cx={center}
+        cy={center}
+        r={leadershipR + (councilR - leadershipR) / 2}
+        fill="none"
+        stroke="#0E0D0B"
+        strokeWidth="0.5"
+        opacity="0.08"
+        strokeDasharray="2 4"
+      />
 
       {/* Cross lines */}
-      <line x1={center} y1="20" x2={center} y2={size - 20} stroke="#0E0D0B" strokeWidth="0.5" opacity="0.08" />
-      <line x1="20" y1={center} x2={size - 20} y2={center} stroke="#0E0D0B" strokeWidth="0.5" opacity="0.08" />
+      <line
+        x1={center}
+        y1="20"
+        x2={center}
+        y2={size - 20}
+        stroke="#0E0D0B"
+        strokeWidth="0.5"
+        opacity="0.08"
+      />
+      <line
+        x1="20"
+        y1={center}
+        x2={size - 20}
+        y2={center}
+        stroke="#0E0D0B"
+        strokeWidth="0.5"
+        opacity="0.08"
+      />
 
       {/* Sun mark above Alex */}
       <g transform={`translate(${center}, ${center - 70})`}>
@@ -218,18 +316,54 @@ function RadialMap() {
       </g>
 
       {/* Center label: Alex Azzi */}
-      <text x={center} y={center - 6} textAnchor="middle" className="fill-foreground" style={{ fontFamily: "'Instrument Serif', serif", fontSize: "30px" }}>
+      <text
+        x={center}
+        y={center - 6}
+        textAnchor="middle"
+        className="fill-foreground"
+        style={{ fontFamily: "'Instrument Serif', serif", fontSize: "30px" }}
+      >
         Alex Azzi
       </text>
-      <text x={center} y={center + 18} textAnchor="middle" className="fill-foreground" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "8px", letterSpacing: "0.18em" }}>
+      <text
+        x={center}
+        y={center + 18}
+        textAnchor="middle"
+        className="fill-foreground"
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: "8px",
+          letterSpacing: "0.18em",
+        }}
+      >
         FOUNDER & EXECUTIVE DIRECTOR
       </text>
 
       {/* Ring labels */}
-      <text x={center} y={center - leadershipR + 8} textAnchor="middle" className="fill-muted-foreground" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "8px", letterSpacing: "0.22em" }}>
+      <text
+        x={center}
+        y={center - leadershipR + 8}
+        textAnchor="middle"
+        className="fill-muted-foreground"
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: "8px",
+          letterSpacing: "0.22em",
+        }}
+      >
         — LEADERSHIP —
       </text>
-      <text x={center} y={center - councilR + 8} textAnchor="middle" className="fill-muted-foreground" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "8px", letterSpacing: "0.22em" }}>
+      <text
+        x={center}
+        y={center - councilR + 8}
+        textAnchor="middle"
+        className="fill-muted-foreground"
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: "8px",
+          letterSpacing: "0.22em",
+        }}
+      >
         — ADVISORY COUNCIL —
       </text>
 
@@ -244,10 +378,29 @@ function RadialMap() {
         return (
           <g key={n.name}>
             <circle cx={x} cy={y} r="2.5" fill="#0E0D0B" />
-            <text x={x} y={ly} textAnchor="middle" className="fill-foreground" style={{ fontFamily: "'Instrument Serif', serif", fontSize: "16px" }}>
+            <text
+              x={x}
+              y={ly}
+              textAnchor="middle"
+              className="fill-foreground"
+              style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontSize: "16px",
+              }}
+            >
               {n.name}
             </text>
-            <text x={x} y={ly + 14} textAnchor="middle" className="fill-muted-foreground" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "7px", letterSpacing: "0.2em" }}>
+            <text
+              x={x}
+              y={ly + 14}
+              textAnchor="middle"
+              className="fill-muted-foreground"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "7px",
+                letterSpacing: "0.2em",
+              }}
+            >
               {n.role.toUpperCase()}
             </text>
           </g>
@@ -269,7 +422,9 @@ function PortraitFallback({ name }: { name: string }) {
     .join("");
   return (
     <div className="w-full h-full flex items-center justify-center bg-secondary">
-      <span className="font-serif italic text-5xl text-foreground/40">{initials}</span>
+      <span className="font-serif italic text-5xl text-foreground/40">
+        {initials}
+      </span>
     </div>
   );
 }
@@ -283,9 +438,19 @@ export default function Teams() {
           <>
             <span>A field guide · Edition 01 · 2026</span>
             <span className="hidden md:inline">·</span>
-            <a href="#leadership" className="hidden md:inline hover:text-foreground transition-colors">Leadership</a>
+            <a
+              href="#leadership"
+              className="hidden md:inline hover:text-foreground transition-colors"
+            >
+              Leadership
+            </a>
             <span className="hidden md:inline">·</span>
-            <a href="#council" className="hidden md:inline hover:text-foreground transition-colors">Council</a>
+            <a
+              href="#council"
+              className="hidden md:inline hover:text-foreground transition-colors"
+            >
+              Council
+            </a>
           </>
         }
       />
@@ -305,7 +470,8 @@ export default function Teams() {
               variants={fadeInUp}
               className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-tight max-w-[14ch]"
             >
-              The people building human-centered AI on, and off, the <i className="italic font-normal text-accent-gold">playa</i>
+              The people building human-centered AI on, and off, the{" "}
+              <i className="italic font-normal text-accent-gold">playa</i>
             </motion.h1>
 
             <div className="mt-12 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
@@ -336,7 +502,9 @@ export default function Teams() {
           <div className="hairline-b border-border pb-6 mb-12 md:mb-20 flex flex-wrap items-end justify-between gap-4">
             <div>
               <MonoLabel>[ 01 / Inner Camp ]</MonoLabel>
-              <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-none mt-4">Leadership</h2>
+              <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-none mt-4">
+                Leadership
+              </h2>
             </div>
             <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground max-w-xs">
               Operational core. Sets direction. Carries fiduciary duty.
@@ -416,8 +584,12 @@ export default function Teams() {
                     <PortraitFallback name={m.name} />
                   )}
                 </div>
-                <MonoLabel className="mb-4">{m.n} · {m.role}</MonoLabel>
-                <h3 className="font-serif text-3xl md:text-4xl leading-[0.95] mb-3">{m.name}</h3>
+                <MonoLabel className="mb-4">
+                  {m.n} · {m.role}
+                </MonoLabel>
+                <h3 className="font-serif text-3xl md:text-4xl leading-[0.95] mb-3">
+                  {m.name}
+                </h3>
                 <div className="font-serif italic text-base md:text-lg text-accent-gold mb-5">
                   {m.title}
                 </div>
@@ -451,7 +623,10 @@ export default function Teams() {
               </h3>
               <ul className="space-y-4 mb-10">
                 {CHARTER.map((c, i) => (
-                  <li key={i} className="flex gap-4 text-base md:text-lg leading-snug text-[#E2D9C5]">
+                  <li
+                    key={i}
+                    className="flex gap-4 text-base md:text-lg leading-snug text-[#E2D9C5]"
+                  >
                     <span className="font-mono text-xs text-[#A7A39A] pt-1.5 shrink-0 w-10">
                       § {String(i + 1).padStart(2, "0")}
                     </span>
@@ -460,7 +635,12 @@ export default function Teams() {
                 ))}
               </ul>
               <p className="text-sm md:text-base leading-relaxed text-[#A7A39A] max-w-2xl border-t border-[#3a342f] pt-6">
-                Service on the Council does not constitute legal services to Playa AI Foundation. It does not create an attorney-client relationship. It is not privileged. The foundation retains independent counsel for legal matters. Foundation materials should not refer to Rob Griffitts as "counsel," "general counsel," or the foundation's lawyer.
+                Service on the Council does not constitute legal services to
+                Playa AI Foundation. It does not create an attorney-client
+                relationship. It is not privileged. The foundation retains
+                independent counsel for legal matters. Foundation materials
+                should not refer to Rob Griffitts as "counsel," "general
+                counsel," or the foundation's lawyer.
               </p>
             </div>
           </div>
@@ -496,7 +676,10 @@ export default function Teams() {
                 )}
                 <MonoLabel className="mb-4">{c.ref} · Council Member</MonoLabel>
                 <h3 className="font-serif text-4xl md:text-6xl leading-[0.92] mb-3">
-                  {c.first} <i className="italic font-normal text-accent-gold">{c.last}</i>
+                  {c.first}{" "}
+                  <i className="italic font-normal text-accent-gold">
+                    {c.last}
+                  </i>
                 </h3>
                 <div className="font-serif italic text-base md:text-lg text-muted-foreground">
                   {c.role}
@@ -504,7 +687,10 @@ export default function Teams() {
               </div>
               <div className="md:col-span-8 space-y-5">
                 {c.paragraphs.map((p, j) => (
-                  <p key={j} className="text-base md:text-lg leading-relaxed text-foreground">
+                  <p
+                    key={j}
+                    className="text-base md:text-lg leading-relaxed text-foreground"
+                  >
                     {p}
                   </p>
                 ))}
@@ -518,7 +704,8 @@ export default function Teams() {
       <section className="hairline-y border-border">
         <div className="max-w-[1400px] mx-auto px-4 py-24 md:py-40 text-center">
           <blockquote className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight max-w-5xl mx-auto">
-            "We meet on the playa, and we meet in the cloud. <i className="italic font-normal">Same rules apply.</i>"
+            "We meet on the playa, and we meet in the cloud.{" "}
+            <i className="italic font-normal">Same rules apply.</i>"
           </blockquote>
           <div className="mt-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
             — Founding principle, Playa AI Foundation
