@@ -403,27 +403,27 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full font-sans text-foreground bg-background overflow-x-hidden selection:bg-foreground selection:text-background">
       <SiteHeader active="home" />
-
       {/* 1. Hero */}
-      <section className="pt-8 pb-24 md:pt-16 md:pb-32 px-4 max-w-[1400px] mx-auto">
+      <section className="pt-6 pb-16 md:pt-10 md:pb-20 px-4 max-w-[1400px] mx-auto">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="max-w-6xl"
+          className="max-w-4xl"
         >
           <motion.h1
             variants={fadeInUp}
-            className="font-serif leading-[0.88] tracking-tight text-foreground mb-12"
+            className="font-serif leading-[0.92] tracking-tight text-foreground mb-8"
           >
-            <span className="block text-6xl md:text-8xl lg:text-[9rem] xl:text-[10.5rem]">
+            <span className="block text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem]">
               <i className="italic font-normal text-accent-gold">
                 This is human-AI
                 <br />
                 co-evolution.
               </i>
             </span>
-            <span className="block text-6xl md:text-8xl lg:text-[8rem] xl:text-[9.5rem]">
+
+            <span className="block text-5xl md:text-6xl lg:text-[5.2rem] xl:text-[6rem]">
               Born on the Playa.
               <br />
               Gifted to the Planet.
@@ -432,14 +432,14 @@ export default function Home() {
 
           <motion.p
             variants={fadeInUp}
-            className="text-xl md:text-2xl max-w-3xl leading-relaxed mb-10 text-foreground font-medium"
+            className="text-sm md:text-base max-w-xl leading-relaxed mb-6 text-foreground font-medium"
           >
             AI is entering intimate human spaces faster than trust can keep up.
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl max-w-3xl leading-relaxed mb-8 text-muted-foreground"
+            className="text-sm md:text-base max-w-xl leading-relaxed mb-5 text-muted-foreground"
           >
             Playa AI Foundation is public-interest infrastructure for
             human-centered AI.
@@ -447,7 +447,7 @@ export default function Home() {
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl max-w-3xl leading-relaxed mb-8 text-muted-foreground"
+            className="text-sm md:text-base max-w-xl leading-relaxed mb-5 text-muted-foreground"
           >
             We build AI experiences and open tools, research how they shape
             people and communities, and publish the consent-first standards that
@@ -456,7 +456,7 @@ export default function Home() {
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl max-w-3xl leading-relaxed mb-16 text-muted-foreground"
+            className="text-sm md:text-base max-w-xl leading-relaxed mb-10 text-muted-foreground"
           >
             Black Rock City is our first proving ground. What earns trust there
             becomes open protocol for other large scale gatherings, events, and
@@ -465,11 +465,11 @@ export default function Home() {
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-wrap items-center gap-6 font-mono text-sm uppercase"
+            className="flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase"
           >
             <a
               href="#fund"
-              className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
+              className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
               data-testid="link-fund-year-one"
             >
               Fund Year One
@@ -477,7 +477,7 @@ export default function Home() {
 
             <a
               href="#standard"
-              className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
+              className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
               data-testid="link-become-founding-adopter"
             >
               Become a Founding Adopter
@@ -494,12 +494,12 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        <div className="mt-32 font-mono text-xs tracking-widest text-muted-foreground border-t border-border pt-4">
+        <div className="mt-20 font-mono text-[11px] tracking-widest text-muted-foreground border-t border-border pt-4">
           BORN IN THE BLACK ROCK DESERT · BUILT FOR THE PUBLIC INTEREST ·
           INDEPENDENT OF BURNING MAN ORGANIZATION
         </div>
       </section>
-      {/* 2. Current Status band — fiscal credibility + program status merged */}
+      {/* 2. Current Status band — Proof of Progress */}
       <section className="hairline-y border-border">
         {/* Trust strip */}
         <div className="max-w-[1400px] mx-auto px-4 py-4 flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-xs uppercase tracking-widest text-muted-foreground border-b border-border">
@@ -515,38 +515,33 @@ export default function Home() {
           </span>
           <span className="text-border hidden sm:inline">·</span>
           <span>
-            Founding Adopter pathway{" "}
-            <span className="text-foreground">open</span>
+            Community tools{" "}
+            <span className="text-foreground">in development</span>
           </span>
           <span className="text-border hidden sm:inline">·</span>
           <span>
-            Year-One field report{" "}
-            <span className="text-foreground">planned for publication</span>
+            Open standards{" "}
+            <span className="text-foreground">publishing pathway underway</span>
           </span>
         </div>
-        {/* Program status grid */}
-        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-border">
+
+        {/* Three pillar squares */}
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
           {[
-            { label: "Core Asset", val1: "EELP", val2: "draft protocol" },
             {
-              label: "Governance",
-              val1: "Data Trust",
-              val2: "model in design",
+              label: "Build",
+              val1: "Tools",
+              val2: "from our community",
             },
             {
-              label: "Pilot Tool",
-              val1: "Connect",
-              val2: "protocol in design",
+              label: "Convene",
+              val1: "Gatherings",
+              val2: "+ standing cadence",
             },
             {
-              label: "Public Output",
-              val1: "Artist grants",
-              val2: "+ field report",
-            },
-            {
-              label: "Legal Structure",
-              val1: "Mystic Arts",
-              val2: "fiscal sponsor",
+              label: "Govern",
+              val1: "Open standards",
+              val2: "+ consent protocols",
             },
           ].map((item, i) => (
             <div
@@ -566,47 +561,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. What we do — plain-language explanation now precedes Year-One spine */}
+      {/* 4. Proof of Progress */}
       <section className="py-24 md:py-32 px-4 max-w-[1400px] mx-auto">
         <div className="font-mono text-sm mb-12 text-muted-foreground">
-          § 01 / What we do
+          § 01 / Proof of Progress
         </div>
 
-        {/* Theory of change — NEW block */}
+        {/* Section intro */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
           <div className="lg:col-span-7">
             <h2 className="font-serif text-5xl md:text-7xl leading-none mb-8">
-              AI is entering intimate human spaces faster than trust can keep
-              up.
+              Build. Convene. <i className="italic">Govern.</i>
             </h2>
           </div>
-          <div className="lg:col-span-5 flex flex-col justify-center gap-8">
+
+          <div className="lg:col-span-5 flex flex-col justify-center">
             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              Communities are already using AI in art, education, care,
-              organizing, storytelling, and human connection. But most
-              deployments still lack plain-language consent, transparent data
-              practices, human override, and public accountability.
+              Three jobs for a public-interest AI lab — make tools that respect
+              people, gather the people who&apos;ll use them, and publish the
+              rules that keep both honest. Here&apos;s where each stands.
             </p>
-            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              Playa AI exists to prototype the missing governance layer: open
-              standards, field-tested practices, and tools that help people use
-              AI without surrendering agency, dignity, or trust.
-            </p>
-            {/* Theory of change statement */}
-            <div className="border-l-2 border-accent-gold pl-6">
-              <p className="text-lg md:text-xl leading-relaxed text-foreground italic">
-                If communities can test AI under conditions of consent, trust,
-                and accountability, those lessons become open standards that
-                help institutions everywhere deploy AI without sacrificing human
-                agency.
-              </p>
-              <div className="mt-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                Theory of change · Playa AI Foundation
-              </div>
-            </div>
           </div>
         </div>
 
+        {/* Summary cards */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -617,18 +595,18 @@ export default function Home() {
           {[
             {
               num: "01",
-              title: "Standards",
-              desc: "EELP turns abstract AI ethics into practical, auditable requirements for real-world community experiences.",
+              title: "Build",
+              desc: "Tools from our community — member-built tools supported by consent protocols, convening, and responsible distribution.",
             },
             {
               num: "02",
-              title: "Field research",
-              desc: "We test ideas in high-trust creative communities, document what happens honestly, and publish the learning openly.",
+              title: "Convene",
+              desc: "Gatherings and a standing cadence — the rhythm where the work gets built, argued over, and demonstrated.",
             },
             {
               num: "03",
-              title: "Community tools",
-              desc: "Connect Protocol pilots and artist grants translate governance principles into human-centered, participant-controlled experiences.",
+              title: "Govern",
+              desc: "Open standards and consent protocols — the rules that keep the tools honest, published so others can use them too.",
             },
           ].map((card, i) => (
             <motion.div
@@ -640,33 +618,39 @@ export default function Home() {
                 <span className="text-foreground">→</span>
                 <span>{card.num}</span>
               </div>
+
               <h3 className="font-serif text-3xl mb-4 leading-none">
                 {card.title}
               </h3>
+
               <p className="text-base text-muted-foreground leading-snug mt-auto">
                 {card.desc}
               </p>
+
               <div className="mt-8 text-xl">›</div>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
-      {/* 5. Year One Spine */}
+      {/* 5. Build / Convene / Govern Detail */}
       <section
         id="standard"
         className="py-24 md:py-32 px-4 max-w-[1400px] mx-auto border-t border-border"
       >
         <div className="font-mono text-sm mb-12 text-muted-foreground">
-          § 02 / Year-One Plan
+          § 02 / Build — Convene — Govern
         </div>
+
         <h2 className="font-serif text-5xl md:text-7xl leading-none mb-12">
-          Five outputs. <i className="italic">One public-interest system.</i>
+          Three pillars. <i className="italic">One public-interest system.</i>
         </h2>
+
         <p className="text-xl md:text-2xl max-w-4xl mb-20 text-muted-foreground">
-          Year One is intentionally focused: publish the standard, design the
-          governance model, design connection pilots, fund responsible artists,
-          and document the results so others can learn from the work.
+          Playa AI Foundation is early-stage, and clear about it. We give a
+          community the protocols, the gatherings, and the distribution to build
+          AI that respects people — and we publish the standards so others can
+          too.
         </p>
 
         <motion.div
@@ -676,37 +660,216 @@ export default function Home() {
           variants={staggerContainer}
           className="divide-y divide-border border-y border-border"
         >
-          {yearOneSpine.map((item) => (
-            <motion.div
-              key={item.num}
-              variants={fadeInUp}
-              className="py-14 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16"
-            >
-              <div className="lg:col-span-3 font-mono text-sm text-muted-foreground uppercase tracking-wider">
-                Output {item.num} <br /> {item.tag}
-              </div>
-              <div className="lg:col-span-6">
-                <h3 className="font-serif text-4xl md:text-6xl mb-6">
-                  {item.title}
-                </h3>
-                <p className="text-xl md:text-2xl leading-relaxed max-w-3xl">
-                  {item.desc}
+          {/* Pillar 01 — Build */}
+          <motion.div
+            variants={fadeInUp}
+            className="py-14 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16"
+          >
+            <div className="lg:col-span-3 font-mono text-sm text-muted-foreground uppercase tracking-wider">
+              Pillar 01 <br /> Build
+            </div>
+
+            <div className="lg:col-span-6">
+              <h3 className="font-serif text-4xl md:text-6xl mb-6">
+                Tools from our community
+              </h3>
+
+              <div className="space-y-8 text-xl md:text-2xl leading-relaxed max-w-3xl">
+                <p>
+                  Playa AI doesn&apos;t build in a vacuum, and doesn&apos;t
+                  pretend to. Our members build the tools; the Foundation
+                  supplies the consent protocols, the convening, and the
+                  distribution that let those tools reach people responsibly.
+                </p>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">Connect</p>
+                  <p className="text-muted-foreground">
+                    A non-extractive relational tool — an AI-guided experience
+                    that prompts reflection, intention, and face-to-face
+                    connection instead of harvesting attention. EELP and the
+                    Data Trust are built in from the first prototype, not added
+                    later.
+                  </p>
+                  <p className="mt-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    Status — in design
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">Ikigai app #1</p>
+                  <p className="text-muted-foreground">
+                    Community build — details to confirm: name, one-line
+                    description, builder, and status.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">Ikigai app #2</p>
+                  <p className="text-muted-foreground">
+                    Community build — details to confirm: name, one-line
+                    description, builder, and status.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">
+                    Relationship-nurturing tool
+                  </p>
+                  <p className="text-muted-foreground">
+                    Built by community member Aaron Coombs to nurture and
+                    sustain personal friendships — an AI companion for keeping
+                    the relationships that matter from quietly going cold.
+                  </p>
+                </div>
+
+                <p className="italic text-muted-foreground">
+                  Built by our community, governed by our protocols, made
+                  available to all.
                 </p>
               </div>
-              <div className="lg:col-span-3 flex lg:items-end">
-                {/* Each CTA now links to an honest email destination */}
-                <a
-                  href={item.href}
-                  className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors inline-block h-fit"
-                >
-                  {item.cta} →
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+            </div>
 
+            <div className="lg:col-span-3 flex lg:items-end">
+              <a
+                href="/tools"
+                className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors inline-block h-fit"
+              >
+                Explore the tools →
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Pillar 02 — Convene */}
+          <motion.div
+            variants={fadeInUp}
+            className="py-14 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16"
+          >
+            <div className="lg:col-span-3 font-mono text-sm text-muted-foreground uppercase tracking-wider">
+              Pillar 02 <br /> Convene
+            </div>
+
+            <div className="lg:col-span-6">
+              <h3 className="font-serif text-4xl md:text-6xl mb-6">
+                Gatherings and a standing cadence
+              </h3>
+
+              <div className="space-y-8 text-xl md:text-2xl leading-relaxed max-w-3xl">
+                <p>
+                  A community isn&apos;t a mailing list — it&apos;s a rhythm
+                  people keep showing up for.
+                </p>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">Physical events</p>
+                  <p className="text-muted-foreground">
+                    In-person gatherings where the work gets built, argued over,
+                    and demonstrated. Count, locations, and event types to
+                    confirm.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">
+                    A fortnightly community call — plus hundreds of working
+                    sessions
+                  </p>
+                  <p className="text-muted-foreground">
+                    The fortnightly community call is the public front door.
+                    Behind it sit team and focused working sessions — the engine
+                    room where the tools and standards actually get made.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-3 flex lg:items-end">
+              <a
+                href="/community"
+                className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors inline-block h-fit"
+              >
+                Join the next call →
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Pillar 03 — Govern */}
+          <motion.div
+            variants={fadeInUp}
+            className="py-14 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16"
+          >
+            <div className="lg:col-span-3 font-mono text-sm text-muted-foreground uppercase tracking-wider">
+              Pillar 03 <br /> Govern
+            </div>
+
+            <div className="lg:col-span-6">
+              <h3 className="font-serif text-4xl md:text-6xl mb-6">
+                Open standards and consent protocols
+              </h3>
+
+              <div className="space-y-8 text-xl md:text-2xl leading-relaxed max-w-3xl">
+                <p>
+                  The rules that keep the tools honest — published, so others
+                  can use them too.
+                </p>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">Manifesto</p>
+                  <p className="text-muted-foreground">
+                    Our theory of change: AI should expand human agency,
+                    creativity, and connection — not extract attention or
+                    replace human judgment.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">
+                    EELP — the Ethical Experience Lab Protocol
+                  </p>
+                  <p className="text-muted-foreground">
+                    An open standard for consent, disclosure, data minimization,
+                    human override, and community accountability in AI-mediated
+                    experiences. Written to be adopted without a legal team.
+                    Draft framework in active development.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-serif text-3xl mb-3">Privacy Toolkit</p>
+                  <p className="text-muted-foreground">
+                    A practical, deployable consent-and-data-governance package
+                    — the working instrument behind EELP. Built on a
+                    consent-first Data Trust model that gives participants
+                    control over how their stories, identity, and permissions
+                    are used, stored, or deleted, designed before sensitive data
+                    is collected rather than bolted on after. In design.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-3 flex lg:items-end">
+              <a
+                href="/contact?topic=eelp"
+                className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors inline-block h-fit"
+              >
+                Request the EELP brief →
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Structure footer */}
+        <div className="mt-20 pt-6 border-t border-border font-mono text-xs uppercase tracking-widest text-muted-foreground">
+          Playa AI Foundation operates under fiscal sponsorship by the{" "}
+          <span className="text-foreground font-bold">
+            Mystic Arts Foundation
+          </span>{" "}
+          — the legal and financial structure to receive funding and run
+          programs while we formalize as an independent entity. Infrastructure,
+          not theater.
+        </div>
+      </section>
       {/* 6. Manifesto pull-quote — "Born on the Playa" lives here, not in hero */}
       <section
         id="manifesto"
