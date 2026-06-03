@@ -402,22 +402,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen w-full font-sans text-foreground bg-background overflow-x-hidden selection:bg-foreground selection:text-background">
-      <SiteHeader
-        active="home"
-        contextLine={
-          <>
-            <span>Year One underway · Founding Adopter program open</span>
-            <span>·</span>
-            <span>
-              Black Rock Desert origin · Built for adaptation beyond the Playa
-            </span>
-            <span className="hidden lg:inline">·</span>
-            <span className="hidden lg:inline">
-              Public-interest AI · Consent governance · Field research
-            </span>
-          </>
-        }
-      />
+      <SiteHeader active="home" />
 
       {/* 1. Hero */}
       <section className="pt-8 pb-24 md:pt-16 md:pb-32 px-4 max-w-[1400px] mx-auto">
@@ -445,10 +430,9 @@ export default function Home() {
             </span>
           </motion.h1>
 
-          {/* Problem statement elevated to hero — strongest line on the page */}
           <motion.p
             variants={fadeInUp}
-            className="text-xl md:text-2xl max-w-3xl leading-relaxed mb-6 text-foreground font-medium"
+            className="text-xl md:text-2xl max-w-3xl leading-relaxed mb-10 text-foreground font-medium"
           >
             AI is entering intimate human spaces faster than trust can keep up.
           </motion.p>
@@ -457,22 +441,28 @@ export default function Home() {
             variants={fadeInUp}
             className="text-lg md:text-xl max-w-3xl leading-relaxed mb-8 text-muted-foreground"
           >
-            Playa AI Foundation develops open consent protocols, governance
-            models, and community-tested tools to help organizations use AI
-            responsibly — and publishes everything it learns for the public
-            interest.
+            Playa AI Foundation is public-interest infrastructure for
+            human-centered AI.
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
-            className="text-base md:text-lg max-w-3xl leading-relaxed mb-16 text-muted-foreground"
+            className="text-lg md:text-xl max-w-3xl leading-relaxed mb-8 text-muted-foreground"
           >
-            Designed for museums, schools, civic organizations, cultural
-            communities, researchers, and funders who believe AI should
-            strengthen human connection instead of extracting from it.
+            We build AI experiences and open tools, research how they shape
+            people and communities, and publish the consent-first standards that
+            result — free for anyone to adopt.
           </motion.p>
 
-          {/* Hero CTAs — "Take the Pledge" removed; moved lower to manifesto section */}
+          <motion.p
+            variants={fadeInUp}
+            className="text-lg md:text-xl max-w-3xl leading-relaxed mb-16 text-muted-foreground"
+          >
+            Black Rock City is our first proving ground. What earns trust there
+            becomes open protocol for other large scale gatherings, events, and
+            civic life everywhere.
+          </motion.p>
+
           <motion.div
             variants={fadeInUp}
             className="flex flex-wrap items-center gap-6 font-mono text-sm uppercase"
@@ -480,35 +470,35 @@ export default function Home() {
             <a
               href="#fund"
               className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
-              data-testid="link-support-year-one"
+              data-testid="link-fund-year-one"
             >
-              Support Year One
+              Fund Year One
             </a>
+
             <a
               href="#standard"
               className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
-              data-testid="link-become-adopter"
+              data-testid="link-become-founding-adopter"
             >
               Become a Founding Adopter
             </a>
+
             <button
               type="button"
               onClick={() => setManifestoOpen(true)}
               className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
               data-testid="button-read-manifesto"
             >
-              Read Manifesto
+              Read the Manifesto
             </button>
           </motion.div>
         </motion.div>
 
-        {/* Origin disclaimer — reframed as identity + independence statement */}
         <div className="mt-32 font-mono text-xs tracking-widest text-muted-foreground border-t border-border pt-4">
           BORN IN THE BLACK ROCK DESERT · BUILT FOR THE PUBLIC INTEREST ·
           INDEPENDENT OF BURNING MAN ORGANIZATION
         </div>
       </section>
-
       {/* 2. Current Status band — fiscal credibility + program status merged */}
       <section className="hairline-y border-border">
         {/* Trust strip */}
