@@ -404,7 +404,8 @@ export default function Home() {
     <main className="min-h-screen w-full font-sans text-foreground bg-background overflow-x-hidden selection:bg-foreground selection:text-background">
       <SiteHeader active="home" />
       {/* 1. Hero */}
-      <section className="pt-6 pb-16 md:pt-10 md:pb-20 px-4 max-w-[1400px] mx-auto">
+      <section className="pt-6 pb-6 md:pt-10 md:pb-8 px-4 max-w-[1400px] mx-auto">
+        {" "}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -493,80 +494,19 @@ export default function Home() {
             </button>
           </motion.div>
         </motion.div>
-
-        <div className="mt-20 font-mono text-[11px] tracking-widest text-muted-foreground border-t border-border pt-4">
+        <div className="mt-8 font-mono text-[11px] tracking-widest text-muted-foreground border-t border-border pt-4">
+          {" "}
           BORN IN THE BLACK ROCK DESERT · BUILT FOR THE PUBLIC INTEREST ·
           INDEPENDENT OF BURNING MAN ORGANIZATION
         </div>
       </section>
-      {/* 2. Current Status band — Proof of Progress */}
-      <section className="hairline-y border-border">
-        {/* Trust strip */}
-        <div className="max-w-[1400px] mx-auto px-4 py-4 flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-xs uppercase tracking-widest text-muted-foreground border-b border-border">
-          <span>
-            Fiscal sponsor{" "}
-            <span className="text-foreground font-bold">
-              Mystic Arts Foundation · 501(c)(3)
-            </span>
-          </span>
-          <span className="text-border hidden sm:inline">·</span>
-          <span>
-            EELP <span className="text-foreground">in active development</span>
-          </span>
-          <span className="text-border hidden sm:inline">·</span>
-          <span>
-            Community tools{" "}
-            <span className="text-foreground">in development</span>
-          </span>
-          <span className="text-border hidden sm:inline">·</span>
-          <span>
-            Open standards{" "}
-            <span className="text-foreground">publishing pathway underway</span>
-          </span>
-        </div>
-
-        {/* Three pillar squares */}
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
-          {[
-            {
-              label: "Build",
-              val1: "Tools",
-              val2: "from our community",
-            },
-            {
-              label: "Convene",
-              val1: "Gatherings",
-              val2: "+ standing cadence",
-            },
-            {
-              label: "Govern",
-              val1: "Open standards",
-              val2: "+ consent protocols",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="p-6 flex flex-col justify-between aspect-square md:aspect-auto md:h-48"
-            >
-              <div className="font-mono text-xs uppercase text-muted-foreground mb-4">
-                {item.label}
-              </div>
-              <div className="text-lg md:text-xl leading-tight">
-                {item.val1}
-                <br />
-                {item.val2}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* 4. Proof of Progress */}
-      <section className="py-24 md:py-32 px-4 max-w-[1400px] mx-auto">
+      <section className="pt-8 pb-8 md:pt-12 md:pb-12 px-4 max-w-[1400px] mx-auto">
+        {" "}
         <div className="font-mono text-sm mb-12 text-muted-foreground">
           § 01 / Proof of Progress
         </div>
-
         {/* Section intro */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
           <div className="lg:col-span-7">
@@ -583,7 +523,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-
         {/* Summary cards */}
         <motion.div
           initial="hidden"
@@ -636,7 +575,7 @@ export default function Home() {
       {/* 5. Build / Convene / Govern Detail */}
       <section
         id="standard"
-        className="py-24 md:py-32 px-4 max-w-[1400px] mx-auto border-t border-border"
+        className="pt-12 pb-24 md:pt-16 md:pb-32 px-4 max-w-[1400px] mx-auto border-t border-border"
       >
         <div className="font-mono text-sm mb-12 text-muted-foreground">
           § 02 / Build — Convene — Govern
