@@ -625,7 +625,7 @@ export default function Work() {
       {/* 4. Featured Work / Workstreams */}
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
         <div className="font-mono text-sm mb-10 text-muted-foreground">
-          § 03 / Featured Work
+          § 02 / Featured Work
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
