@@ -214,8 +214,8 @@ export default function Events() {
       />
 
       {/* Intro */}
-      <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-16 md:pb-24">
-        <div className="hairline-b border-border pb-6 mb-12 md:mb-20 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
+      <section className="px-4 max-w-[1400px] mx-auto pt-12 md:pt-16 pb-10 md:pb-14">
+        <div className="hairline-b border-border pb-5 mb-10 md:mb-12 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
           <span>Public event archive</span>
           <span className="text-muted-foreground">Salons / Hackathons / Fundraisers / Field gatherings</span>
         </div>
@@ -224,7 +224,7 @@ export default function Events() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="font-serif text-5xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight max-w-[1100px] mb-12"
+          className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight max-w-[900px] mb-8"
         >
           Rooms where AI <i className="italic font-normal text-accent-gold">stops chatting</i> and starts doing.
         </motion.h1>
@@ -233,7 +233,7 @@ export default function Events() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-lg md:text-2xl leading-relaxed max-w-2xl text-foreground"
+          className="text-base md:text-lg leading-relaxed max-w-2xl text-foreground"
         >
           Playa AI events are curated containers for builders, founders, researchers, artists, and operators exploring human-AI co-evolution with intention. The archive below uses the real public descriptions from the Luma pages.
         </motion.p>

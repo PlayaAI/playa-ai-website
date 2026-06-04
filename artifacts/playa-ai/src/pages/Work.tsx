@@ -188,13 +188,7 @@ function StatusBadge({ status }: { status: string }) {
   );
 }
 
-function WorkBlock({
-  ws,
-  testId,
-}: {
-  ws: Workstream;
-  testId: string;
-}) {
+function WorkBlock({ ws, testId }: { ws: Workstream; testId: string }) {
   return (
     <motion.article
       variants={fadeInUp}
@@ -405,7 +399,10 @@ export default function Work() {
             {[
               { value: "6", label: "Active workstreams" },
               { value: "3", label: "Modes: tools, research, protocols" },
-              { value: "80+", label: "Early participants across pilots and workshops" },
+              {
+                value: "80+",
+                label: "Early participants across pilots and workshops",
+              },
               { value: "1", label: "Living manifesto" },
             ].map((s) => (
               <div key={s.label} className="px-6 py-10">
@@ -419,92 +416,10 @@ export default function Work() {
         </div>
       </section>
 
-      {/* 3. Three Modes */}
-      <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
-        <div className="font-mono text-sm mb-10 text-muted-foreground">
-          § 02 / Modes of Work
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
-          <div className="lg:col-span-6">
-            <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
-              Build. Research. <i className="italic font-normal">Govern.</i>
-            </h2>
-          </div>
-          <div className="lg:col-span-6 flex items-center">
-            <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
-              The work is organized by what it asks of AI: to help people meet,
-              to help people understand themselves and each other, or to help
-              communities set the rules before the tools become too powerful.
-            </p>
-          </div>
-        </div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-3 hairline-t border-border"
-        >
-          {[
-            {
-              testId: "mode-build",
-              n: "01",
-              title: "Build",
-              desc: "Tools and experiences that help people move from screen-mediated interaction into reflection, purpose, and face-to-face connection.",
-              projects: ["Connect App", "Ikigai App 1", "Ikigai App 2"],
-            },
-            {
-              testId: "mode-research",
-              n: "02",
-              title: "Research",
-              desc: "Sensitive experiments in human dynamics, emotional intelligence, relationship repair, and long-term flourishing.",
-              projects: ["Relationship Nurturer", "Joy Score / Connect research layer"],
-            },
-            {
-              testId: "mode-govern",
-              n: "03",
-              title: "Govern",
-              desc: "The consent-first standards, privacy instruments, and founding texts that keep the tools honest.",
-              projects: ["Privacy Toolkit", "Burner-AI Manifesto", "EELP-related infrastructure"],
-            },
-          ].map((m, i) => (
-            <motion.div
-              key={m.n}
-              variants={fadeInUp}
-              data-testid={m.testId}
-              className={`p-8 md:p-12 hairline-b border-border ${i < 2 ? "md:hairline-r" : ""} flex flex-col`}
-            >
-              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
-                {m.n}
-              </div>
-              <h3 className="font-serif text-4xl md:text-5xl leading-none mb-5">
-                {m.title}
-              </h3>
-              <p className="text-base leading-relaxed text-muted-foreground mb-8">
-                {m.desc}
-              </p>
-              <ul className="mt-auto space-y-2">
-                {m.projects.map((p) => (
-                  <li
-                    key={p}
-                    className="font-mono text-[11px] uppercase tracking-widest text-foreground flex items-center gap-2"
-                  >
-                    <span className="text-muted-foreground">→</span>
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
       {/* 4. Featured Work / Workstreams */}
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
         <div className="font-mono text-sm mb-10 text-muted-foreground">
-          § 03 / Featured Work
+          § 02 / Featured Work
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
@@ -533,11 +448,7 @@ export default function Work() {
           className="space-y-0"
         >
           {WORKSTREAMS.map((ws, i) => (
-            <WorkBlock
-              key={ws.n}
-              ws={ws}
-              testId={`workstream-0${i + 1}`}
-            />
+            <WorkBlock key={ws.n} ws={ws} testId={`workstream-0${i + 1}`} />
           ))}
         </motion.div>
       </section>
