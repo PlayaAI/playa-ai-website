@@ -1,0 +1,537 @@
+You are working inside the existing Playa-AI-Foundation Replit app.
+
+The app already has these files and pages:
+- src/pages/Home.tsx
+- src/pages/Events.tsx
+- src/pages/Team.tsx
+- src/components/SiteHeader.tsx
+- src/components/SiteFooter.tsx
+- src/components/MonoLabel.tsx
+- src/App.tsx
+- src/index.css
+
+I want you to create a new page called “Our Work” that matches the same exact visual style, code style, layout rhythm, typography, spacing, animation, and emotional tone of the existing Home, Events, and Team pages.
+
+Do not redesign the website.
+Do not create a different visual system.
+Do not use generic SaaS cards.
+Do not use bright colors or startup gradients.
+Do not make it look corporate.
+
+This page must feel like it belongs naturally beside the existing Home, Events, and Team pages.
+
+Create a new file:
+
+src/pages/Work.tsx
+
+Then update routing in:
+
+src/App.tsx
+
+so the page is available at:
+
+/work
+
+Also update:
+
+src/components/SiteHeader.tsx
+
+so the navigation includes “Work” and supports active="work".
+
+Use the same components:
+- SiteHeader
+- SiteFooter
+- MonoLabel
+- framer-motion
+
+Use the same design language:
+- bg-background
+- text-foreground
+- text-muted-foreground
+- text-accent-gold
+- font-serif
+- font-mono
+- max-w-[1400px] mx-auto px-4
+- thin borders / hairline borders
+- editorial spacing
+- large serif headlines
+- italic gold emphasis
+- grayscale / minimal visual system
+- section labels like “§ 01 / ...”
+- motion fade-in and stagger animations
+
+Use this animation pattern:
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+};
+
+PAGE PURPOSE
+
+The “Our Work” page should showcase Playa AI Foundation’s actual work: tools, research prototypes, field experiments, privacy/governance protocols, and founding texts.
+
+The page should answer:
+
+“What is Playa AI actually building, testing, publishing, and learning from?”
+
+The tone should be:
+- human-centered
+- poetic but clear
+- consent-first
+- public-interest
+- rooted in the Playa / Burning Man ethos
+- credible
+- honest about early-stage work
+- not hype-driven
+
+Avoid language like:
+- revolutionary
+- disruptive
+- cutting-edge
+- seamless
+- game-changing
+- scalable solution
+
+Use language like:
+- human-AI co-evolution
+- public-interest infrastructure
+- consent-first tools
+- field experiments
+- open protocols
+- human agency
+- creativity
+- connection
+- trust
+- community memory
+- data as a gift, not oil
+- born on the Playa, gifted to the planet
+- built by community, governed by protocols
+
+IMPORTANT CONTENT ACCURACY
+
+Do not overstate the maturity of any project.
+
+Use these statuses:
+- Connect App: Pilot
+- Ikigai App 1: Pilot
+- Ikigai App 2: Prototype
+- Relationship Nurturer: Concept / Pilot
+- Privacy Toolkit: Draft
+- Burner-AI Manifesto: Published / Living Document
+
+Relationship Nurturer must NOT be presented as therapy or a clinical product. Describe it as research / concept-pilot only.
+
+Privacy Toolkit must be described as draft / in review.
+
+Burner-AI Manifesto must be described as published but living.
+
+PAGE STRUCTURE
+
+Build the page with these sections:
+
+1. SiteHeader
+
+Use:
+
+<SiteHeader
+  active="work"
+  contextLine={
+    <>
+      <span>Our Work</span>
+      <span>·</span>
+      <span className="text-accent-gold">Tools / Research / Protocols / Governance</span>
+      <span className="hidden lg:inline">·</span>
+      <span className="hidden lg:inline">A field guide to what is being built</span>
+    </>
+  }
+/>
+
+2. Hero Section
+
+Section should have data-testid="work-hero".
+
+Hero label:
+
+A field guide · Our Work · 2026
+
+Hero headline:
+
+The work is where the philosophy becomes real.
+
+Make “real” italic and accent gold.
+
+Hero body paragraph 1:
+
+Playa AI is not only a manifesto. It is a set of tools, field experiments, research prototypes, and consent-first protocols being built in public, tested in community, and shaped by the people they are meant to serve.
+
+Hero body paragraph 2:
+
+Some projects are live pilots. Some are early prototypes. Some are draft governance instruments. All of them ask the same question: can AI deepen human agency, creativity, connection, and trust without extracting the soul from the room?
+
+Hero CTAs:
+- Explore the work ↓ linking to #work-index
+- Read the Manifesto → linking to /manifesto
+
+Bottom metadata line:
+
+BUILDING TOOLS · TESTING IN COMMUNITY · PUBLISHING WHAT CAN BE REUSED
+
+3. Work Index / Stats
+
+Section should have id="work-index" and data-testid="work-index".
+
+Section label:
+
+§ 01 / Work Index
+
+Headline:
+
+Six workstreams. One public-interest system.
+
+Body:
+
+The work moves through three modes: tools that help people connect and reflect, research prototypes that test what AI can responsibly mediate, and protocols that keep the whole system accountable.
+
+Create 4 stat blocks in a bordered grid:
+
+- 6 / Active workstreams
+- 3 / Modes: tools, research, protocols
+- 80+ / Early participants across pilots and workshops
+- 1 / Living manifesto
+
+Use the same stats style as Events.tsx if possible.
+
+4. Three Modes Section
+
+Section label:
+
+§ 02 / Modes of Work
+
+Headline:
+
+Build. Research. Govern.
+
+Body:
+
+The work is organized by what it asks of AI: to help people meet, to help people understand themselves and each other, or to help communities set the rules before the tools become too powerful.
+
+Create three large bordered mode cards:
+
+Card 1:
+data-testid="mode-build"
+Title: Build
+Description:
+Tools and experiences that help people move from screen-mediated interaction into reflection, purpose, and face-to-face connection.
+Projects:
+Connect App
+Ikigai App 1
+Ikigai App 2
+
+Card 2:
+data-testid="mode-research"
+Title: Research
+Description:
+Sensitive experiments in human dynamics, emotional intelligence, relationship repair, and long-term flourishing.
+Projects:
+Relationship Nurturer
+Joy Score / Connect research layer
+
+Card 3:
+data-testid="mode-govern"
+Title: Govern
+Description:
+The consent-first standards, privacy instruments, and founding texts that keep the tools honest.
+Projects:
+Privacy Toolkit
+Burner-AI Manifesto
+EELP-related infrastructure
+
+5. Featured Work Section
+
+Section label:
+
+§ 03 / Featured Work
+
+Headline:
+
+The living body of the foundation.
+
+Body:
+
+Each workstream begins as a question, becomes a prototype, and then earns the right to become infrastructure. What follows is not a product catalog. It is a record of experiments in trust.
+
+Create a reusable component called WorkBlock.
+
+Each WorkBlock layout:
+- motion.article
+- top border
+- grid grid-cols-1 lg:grid-cols-12
+- left column: number, category, status, human need, people
+- right column: title, subtitle if present, pull quote, description, AI role, consent note, evidence, CTA
+- use mono labels and muted text
+- use generous spacing
+- on mobile it stacks cleanly
+
+Each block should have data-testid:
+- workstream-01
+- workstream-02
+- workstream-03
+- workstream-04
+- workstream-05
+- workstream-06
+
+Use this exact data array:
+
+const WORKSTREAMS = [
+  {
+    n: "01",
+    category: "Build / Field Experiment",
+    status: "Pilot",
+    need: "Authentic connection",
+    title: "Connect App",
+    subtitle: "",
+    pull: "A digital bridge designed to accelerate serendipity and anchor us in the present moment.",
+    body: "Connect is a web-based connection experiment that guides two people through a shared dialogue using transformative prompts. Participants choose a vibe — playful, curious, deep, or intimate — then are invited to put the phone down, maintain eye contact, and move beyond “what do you do?” into the deeper layers of human essence.",
+    aiRole: "With consent, AI can synthesize the spoken conversation into an Oracle Card or digital poster, offering the pair a unique quest to carry the insight back into life.",
+    consent: "Private by default. Microphone access requires explicit permission for each session. Data can be processed locally or deleted immediately to honor immediacy.",
+    evidence: "Piloted with 80+ initial users and now being refined for camp-level use and the Joy Score research project.",
+    people: "Alex Azzi · Raed Marji",
+    cta: "Join pilot →",
+    href: "mailto:hello@playa-ai.org?subject=Connect App Pilot",
+  },
+  {
+    n: "02",
+    category: "Build / Open Tool",
+    status: "Pilot",
+    need: "Purpose and self-actualization",
+    title: "Ikigai App 1",
+    subtitle: "Miami Workshop Edition",
+    pull: "A guided journey to unlock your reason for being through the four circles of Ikigai.",
+    body: "The first Ikigai app is an interactive workshop tool for people seeking clarity, purpose, and professional alignment. It asks adaptive questions across what someone loves, what they are good at, what the world needs, and what they can be paid for.",
+    aiRole: "AI analyzes the responses, generates a formal Ikigai Statement, and creates high-fidelity visual artifacts to help the participant see their purpose more clearly.",
+    consent: "Structured data is captured through Formless, with results traditionally shared only with the participant.",
+    evidence: "Tested in the Menta Series in Miami, with 80+ participants showing high engagement with the generated results.",
+    people: "Raed Marji · Katya Vinnikova",
+    cta: "Request access →",
+    href: "mailto:hello@playa-ai.org?subject=Ikigai App Access",
+  },
+  {
+    n: "03",
+    category: "Research / Build",
+    status: "Prototype",
+    need: "Structured growth",
+    title: "Ikigai App 2",
+    subtitle: "Leala Life Path / Claude Code Prototype",
+    pull: "A personalized system for moving from the inklings of a dream to a concrete roadmap.",
+    body: "The second Ikigai app is a more technical evolution of the purpose-discovery process. It brings together positive psychology, life design, and a multi-phase discovery protocol: Foundation, Core Discovery, Synthesis, and Action.",
+    aiRole: "Built with Claude Code, the system acts as a research partner that sifts through personal inklings, finds patterns, and proposes specific next steps.",
+    consent: "Designed for sandboxed environments that protect the user’s life repository of data.",
+    evidence: "Developed as a README and structural framework during active development sessions using command-line AI tools.",
+    people: "Raed Marji · Alex Azzi",
+    cta: "Learn more →",
+    href: "mailto:hello@playa-ai.org?subject=Ikigai App 2",
+  },
+  {
+    n: "04",
+    category: "Research",
+    status: "Concept / Pilot",
+    need: "Safety, empathy, and repair",
+    title: "Relationship Nurturer",
+    subtitle: "Niles / Neuro-intelligent Nudges",
+    pull: "An emotionally attuned partner for navigating the subtle dance of human interaction.",
+    body: "Relationship Nurturer explores how AI can help people understand the patterns beneath their conversations. It analyzes meeting transcripts and communication patterns through neuroscience frameworks such as SCARF, offering nudges that may improve relational dynamics.",
+    aiRole: "AI acts as a third-phase integrator, surfacing subtle triggers, defensive postures, and recurring patterns that humans may miss in the moment.",
+    consent: "This work is highly sensitive and requires strict recording consent, careful data access, and a trust-but-verify posture.",
+    evidence: "Early personal experiments have tested Esther Perel, Gottman, and SCARF-inspired frameworks on recorded relationship conflicts.",
+    people: "David Rock · Alana Winter · Raed Marji",
+    cta: "Contact us →",
+    href: "mailto:hello@playa-ai.org?subject=Relationship Nurturer",
+    caution: "Research prototype only. Not a therapy product or clinical tool.",
+  },
+  {
+    n: "05",
+    category: "Protocol / Open Tool",
+    status: "Draft",
+    need: "Dignity, autonomy, and data sovereignty",
+    title: "Privacy Toolkit",
+    subtitle: "",
+    pull: "A radical blueprint for decommodifying data and returning sovereignty to the individual.",
+    body: "The Privacy Toolkit is a set of open-source templates, best-practice hardening procedures, and burner-inspired privacy language for people and organizations building with AI agents. It treats data as a gift, not oil.",
+    aiRole: "The toolkit was co-created through a mega-prompt process that synthesized principles from humane technology with the Ten Principles of Burning Man.",
+    consent: "Radical consent is the center: participation should be opt-in, reversible, trauma-informed, and supported by auditable deletion.",
+    evidence: "A first draft of the Playa AI Accord governance section has been completed, with guidelines for auditable deletion now in review.",
+    people: "Alex Azzi · Alina Latinina · Raed Marji",
+    cta: "Request the brief →",
+    href: "mailto:hello@playa-ai.org?subject=Privacy Toolkit Brief",
+  },
+  {
+    n: "06",
+    category: "Govern",
+    status: "Published / Living Document",
+    need: "A shared moral compass",
+    title: "Burner-AI Manifesto",
+    subtitle: "",
+    pull: "A Declaration of Interdependence for the Age of Sentience.",
+    body: "The Burner-AI Manifesto is the founding text of Playa AI’s moral imagination. It frames Burning Man as a prototype for civilization and asks what it would mean for AI to inherit the values of participation, consent, creativity, and interdependence.",
+    aiRole: "The manifesto is a living document first drafted with the help of NotebookLM and refined through community feedback across months of council calls.",
+    consent: "Published transparently, it serves as a constitutional layer for the Playa AI trust council and the broader governance work.",
+    evidence: "Version 1.0 is live and has been used as an overture for outreach to Burning Man leadership and global technology figures.",
+    people: "Rebecca Nelson · Alex Azzi · Steven Blumenfeld",
+    cta: "Read manifesto →",
+    href: "/manifesto",
+  },
+];
+
+6. Living Standards Section
+
+Create an inverted dark section similar to the manifesto section on Home.
+
+Section label:
+
+Operating thesis
+
+Headline:
+
+Consent is not decoration. It is infrastructure.
+
+Body:
+
+Every tool on this page touches something intimate: identity, purpose, memory, relationship, voice, trust. That is why the governance work is not separate from the product work. It is the condition that makes the work possible.
+
+Large pull quote:
+
+Data is a gift, not oil. Deletion is a right, not a support ticket.
+
+Create three numbered commitments:
+
+01 / Consent before capture
+Before any recording, synthesis, memory, or inference, a person should understand what is happening and choose it freely.
+
+02 / Human override by design
+AI may guide, summarize, and reflect — but people remain the final authority over identity, meaning, and action.
+
+03 / Learning returned to the commons
+When a field experiment teaches something useful, the lesson should become protocol, documentation, or public infrastructure others can reuse.
+
+7. Open Questions Section
+
+Section should have id="open-questions" and data-testid="open-questions".
+
+Title:
+
+What remains unresolved
+
+Body:
+
+The honest edges matter. These are the questions the work must answer before it deserves to scale.
+
+Create six bordered question cards:
+
+1.
+Title: Voice-only mode
+Body: Can Connect remove screen distraction without losing consent clarity?
+
+2.
+Title: Purpose matching
+Body: Can Ikigai statements help people find aligned collaborators without exposing private identity data?
+
+3.
+Title: Prototype to interface
+Body: How does Ikigai App 2 move from technical framework to humane front end?
+
+4.
+Title: Anti-sycophancy
+Body: Can relationship AI challenge users honestly instead of flattering them?
+
+5.
+Title: Security testing
+Body: How do we invite hackers and privacy experts to stress-test the standards?
+
+6.
+Title: From manifesto to constraint
+Body: How do founding values become enforceable model, product, and governance constraints?
+
+8. Final CTA Section
+
+Section should have data-testid="work-final-cta".
+
+Headline:
+
+Help us test what deserves to exist.
+
+Body:
+
+We are looking for builders, researchers, artists, privacy experts, camp leads, funders, and institutions willing to help turn early work into public-interest infrastructure.
+
+Buttons:
+- Join a pilot → mailto:hello@playa-ai.org?subject=Join a Playa AI Pilot
+- Support the work → mailto:hello@playa-ai.org?subject=Support Playa AI Work
+- Request the briefs → mailto:hello@playa-ai.org?subject=Request Playa AI Work Briefs
+
+Bottom metadata:
+
+EARLY WORK IS REAL · SOME PROGRAMS ARE STILL FORMING · THE FIELD REPORT COMES NEXT
+
+9. Footer
+
+End with:
+
+<SiteFooter />
+
+IMPLEMENTATION DETAILS
+
+Use TypeScript React.
+
+Do not create fake image imports.
+
+Do not add external dependencies.
+
+Do not use random external images.
+
+Do not create broken links.
+
+If /manifesto does not exist as a route, then use href="/#manifesto" or whatever matches the existing app’s manifesto behavior.
+
+Make sure TypeScript compiles.
+
+Make sure the page works on mobile, laptop, and desktop.
+
+Make sure the header nav includes Work.
+
+Make sure active nav state works for Work.
+
+Make sure App.tsx imports Work and registers the /work route.
+
+Check for existing routing style in App.tsx before editing. Follow the project’s current router pattern exactly.
+
+Keep spacing moderate. Avoid huge empty vertical gaps, especially on laptop screens.
+
+Use these data-testid values exactly:
+- work-hero
+- work-index
+- mode-build
+- mode-research
+- mode-govern
+- workstream-01
+- workstream-02
+- workstream-03
+- workstream-04
+- workstream-05
+- workstream-06
+- open-questions
+- work-final-cta
+
+Final result should feel like:
+A public-interest AI lab field guide.
+A record of real work.
+A page that proves Playa AI is building, testing, and governing — not only writing manifestos.

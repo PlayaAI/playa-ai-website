@@ -1,7 +1,8 @@
 import { Switch, Route, Router } from "wouter";
 import Home from "@/pages/Home";
 import Events from "@/pages/Events";
-import Teams from "@/pages/Teams";
+import Teams from "@/pages/Team";
+import Work from "@/pages/Work";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/events" component={Events} />
-        <Route path="/teams" component={Teams} />
+        <Route path="/team" component={Teams} />
+        <Route path="/work" component={Work} />
         <Route>
           <Home />
         </Route>

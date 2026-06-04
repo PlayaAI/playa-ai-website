@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import type { ReactNode } from "react";
 
-type ActivePage = "home" | "events" | "teams";
+type ActivePage = "home" | "events" | "team" | "work";
 
 interface SiteHeaderProps {
   active: ActivePage;
@@ -11,7 +11,8 @@ interface SiteHeaderProps {
 const NAV: { key: ActivePage; href: string; label: string }[] = [
   { key: "home", href: "/", label: "Dispatch" },
   { key: "events", href: "/events", label: "Events" },
-  { key: "teams", href: "/teams", label: "Teams" },
+  { key: "team", href: "/team", label: "Team" },
+  { key: "work", href: "/work", label: "Work" },
 ];
 
 export function SiteHeader({ active, contextLine }: SiteHeaderProps) {
