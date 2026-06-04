@@ -253,8 +253,8 @@ const WORKSTREAMS: Workstream[] = [
     evidence:
       "Piloted through the Menta Series in Miami with approximately 80 participants, showing strong engagement with the generated Ikigai statements and visual outputs.",
     people: "Raed Marji · Katya Vinnikova",
-    cta: "Request access →",
-    href: "mailto:hello@playa-ai.org?subject=Ikigai App Access",
+    cta: "Open app →",
+    href: "https://ikigai-rmarji.replit.app",
   },
   {
     n: "03",
@@ -270,7 +270,7 @@ const WORKSTREAMS: Workstream[] = [
     consent:
       "This prototype is being developed toward a sandboxed, user-controlled environment for sensitive life-path data. The privacy goal is to protect the user\u2019s personal repository while making AI involvement clear and consent-based.",
     evidence:
-      "Currently documented as a technical prototype and README-style framework. It builds on the first Ikigai workshop pilot, but is not yet positioned as a finished consumer application.",
+      "Currently documented as a technical prototype and README-style framework. It builds on the first Ikigai workshop pilot, but is not yet positioned as a finished consumer application. A public-facing prototype link is being verified before publishing.",
     people: "Raed Marji · Alex Azzi",
     cta: "Learn more →",
     href: "mailto:hello@playa-ai.org?subject=Ikigai App 2",
