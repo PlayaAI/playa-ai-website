@@ -9,7 +9,7 @@ interface SiteHeaderProps {
 }
 
 const NAV: { key: ActivePage; href: string; label: string }[] = [
-  { key: "home", href: "/", label: "Dispatch" },
+  { key: "home", href: "/", label: "Overview" },
   { key: "events", href: "/events", label: "Events" },
   { key: "team", href: "/team", label: "Team" },
   { key: "work", href: "/work", label: "Work" },
