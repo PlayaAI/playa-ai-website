@@ -1,0 +1,98 @@
+Edit the Home page React file.
+
+Goal:
+Make only the practical homepage updates Alex asked for:
+
+* Add the two Ikigai / EQ Guy app links
+* Remove obvious placeholder text
+* Make the relevant homepage links feel real
+* Do not redesign or rewrite the entire homepage
+
+Do not make broad structural changes.
+Do not rewrite the hero.
+Do not remove sections.
+Do not add new pages.
+Do not add dependencies.
+Preserve the current layout, style, and design system.
+
+TASK 1 — Update Ikigai App 1 in the Build pillar.
+
+Find the section:
+`Pillar 01 — Build`
+
+Find the block titled:
+`Ikigai app #1`
+
+Replace the title with:
+`Ikigai App 1`
+
+Replace the body text:
+`Community build — details to confirm: name, one-line description, builder, and status.`
+
+With:
+`A workshop-tested AI life-discovery tool that guides participants through the four circles of Ikigai: what they love, what they are good at, what the world needs, and what they can be paid for. Developed by Raed Marji and piloted through the Menta Series in Miami.`
+
+Add a status line below the body using the same style as the Connect status line:
+`Status — pilot`
+
+Add a link below the status line:
+`Open app →`
+
+The link should go to:
+`https://ikigai-rmarji.replit.app`
+
+Use the same mono uppercase / border-bottom link style used elsewhere on the page.
+
+TASK 2 — Update Ikigai App 2 in the Build pillar.
+
+Find the block titled:
+`Ikigai app #2`
+
+Replace the title with:
+`Ikigai App 2`
+
+Replace the body text:
+`Community build — details to confirm: name, one-line description, builder, and status.`
+
+With:
+`A research-based Leala Life Path prototype built with Claude Code to help people move from the inklings of a dream to a concrete roadmap. It explores how positive psychology, life design, and AI-guided reflection can support structured growth.`
+
+Add a status line below the body:
+`Status — prototype`
+
+Add a link below the status line:
+`Open prototype →`
+
+The link should go to:
+`https://ikigai-ai-qgergqr8.manus.space`
+
+Use the same mono uppercase / border-bottom link style used elsewhere on the page.
+
+TASK 3 — Remove the physical events placeholder.
+
+Find the Convene pillar block titled:
+`Physical events`
+
+Replace this body:
+`In-person gatherings where the work gets built, argued over, and demonstrated. Count, locations, and event types to confirm.`
+
+With:
+`In-person gatherings where the work gets built, tested, argued over, and demonstrated. Event formats will be published as they are confirmed, with each gathering tied to a clear purpose: building tools, reviewing standards, testing consent flows, or sharing field learnings.`
+
+TASK 4 — Do not edit the hero yet.
+
+Leave the current hero headline and hero copy unchanged for now.
+
+TASK 5 — QA.
+
+After editing:
+
+* Make sure the homepage compiles.
+* Make sure the homepage renders.
+* Make sure Ikigai App 1 links to `https://ikigai-rmarji.replit.app`
+* Make sure Ikigai App 2 links to `https://ikigai-ai-qgergqr8.manus.space`
+* Make sure there is no remaining text that says `details to confirm`
+* Make sure there is no remaining text that says `count, locations, and event types to confirm`
+* Do not remove the Manifesto drawer.
+* Do not remove the Pledge modal.
+* Do not change SiteHeader or SiteFooter.

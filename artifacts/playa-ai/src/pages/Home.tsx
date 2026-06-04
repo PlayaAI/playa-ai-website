@@ -636,19 +636,47 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <p className="font-serif text-3xl mb-3">Ikigai app #1</p>
+                  <p className="font-serif text-3xl mb-3">Ikigai App 1</p>
                   <p className="text-muted-foreground">
-                    Community build — details to confirm: name, one-line
-                    description, builder, and status.
+                    A workshop-tested AI life-discovery tool that guides
+                    participants through the four circles of Ikigai: what they
+                    love, what they are good at, what the world needs, and what
+                    they can be paid for. Developed by Raed Marji and piloted
+                    through the Menta Series in Miami.
                   </p>
+                  <p className="mt-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    Status — pilot
+                  </p>
+                  <a
+                    href="https://ikigai-rmarji.replit.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                  >
+                    Open app →
+                  </a>
                 </div>
 
                 <div>
-                  <p className="font-serif text-3xl mb-3">Ikigai app #2</p>
+                  <p className="font-serif text-3xl mb-3">Ikigai App 2</p>
                   <p className="text-muted-foreground">
-                    Community build — details to confirm: name, one-line
-                    description, builder, and status.
+                    A research-based Leala Life Path prototype built with Claude
+                    Code to help people move from the inklings of a dream to a
+                    concrete roadmap. It explores how positive psychology, life
+                    design, and AI-guided reflection can support structured
+                    growth.
                   </p>
+                  <p className="mt-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    Status — prototype
+                  </p>
+                  <a
+                    href="https://ikigai-ai-qgergqr8.manus.space"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                  >
+                    Open prototype →
+                  </a>
                 </div>
 
                 <div>
@@ -702,9 +730,11 @@ export default function Home() {
                 <div>
                   <p className="font-serif text-3xl mb-3">Physical events</p>
                   <p className="text-muted-foreground">
-                    In-person gatherings where the work gets built, argued over,
-                    and demonstrated. Count, locations, and event types to
-                    confirm.
+                    In-person gatherings where the work gets built, tested,
+                    argued over, and demonstrated. Event formats will be
+                    published as they are confirmed, with each gathering tied to
+                    a clear purpose: building tools, reviewing standards, testing
+                    consent flows, or sharing field learnings.
                   </p>
                 </div>
 
