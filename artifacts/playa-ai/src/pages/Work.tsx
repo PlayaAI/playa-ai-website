@@ -244,14 +244,14 @@ const WORKSTREAMS: Workstream[] = [
     need: "Purpose and self-actualization",
     title: "Ikigai App 1",
     subtitle: "Miami Workshop Edition",
-    pull: "A guided journey to unlock your reason for being through the four circles of Ikigai.",
-    body: "The first Ikigai app is an interactive workshop tool for people seeking clarity, purpose, and professional alignment. It asks adaptive questions across what someone loves, what they are good at, what the world needs, and what they can be paid for.",
+    pull: "A guided journey to unlock your reason for being through the four circles of purpose.",
+    body: "Ikigai App 1 began as an interactive workshop tool for people seeking clarity, purpose, and professional alignment. It guides participants through what they love, what they are good at, what the world needs, and what they can be paid for — using adaptive prompts to help them move beyond surface answers into a more honest sense of direction.",
     aiRole:
-      "AI analyzes the responses, generates a formal Ikigai Statement, and creates high-fidelity visual artifacts to help the participant see their purpose more clearly.",
+      "AI acts as a reflective facilitator: adapting follow-up questions, synthesizing participant responses into a formal Ikigai Statement, and helping generate visual artifacts that make the purpose discovery process easier to see and share.",
     consent:
-      "Structured data is captured through Formless, with results traditionally shared only with the participant.",
+      "The pilot is being reviewed through Playa AI\u2019s consent-first privacy lens. Current workflows use structured intake and workshop data, while the next phase focuses on clearer data boundaries, user control, and safer handling of personal reflection data.",
     evidence:
-      "Tested in the Menta Series in Miami, with 80+ participants showing high engagement with the generated results.",
+      "Piloted through the Menta Series in Miami with approximately 80 participants, showing strong engagement with the generated Ikigai statements and visual outputs.",
     people: "Raed Marji · Katya Vinnikova",
     cta: "Request access →",
     href: "mailto:hello@playa-ai.org?subject=Ikigai App Access",
@@ -263,14 +263,14 @@ const WORKSTREAMS: Workstream[] = [
     need: "Structured growth",
     title: "Ikigai App 2",
     subtitle: "Leala Life Path / Claude Code Prototype",
-    pull: "A personalized system for moving from the inklings of a dream to a concrete roadmap.",
-    body: "The second Ikigai app is a more technical evolution of the purpose-discovery process. It brings together positive psychology, life design, and a multi-phase discovery protocol: Foundation, Core Discovery, Synthesis, and Action.",
+    pull: "A research-based partner for moving from inklings to clarity, and from clarity to a concrete roadmap.",
+    body: "Ikigai App 2 is a more rigorous evolution of the purpose-discovery process. Built around positive psychology, life design, and a multi-phase discovery protocol \u2014 Foundation, Core Discovery, Synthesis, and Action \u2014 it explores how AI can help translate abstract values into daily practice.",
     aiRole:
-      "Built with Claude Code, the system acts as a research partner that sifts through personal inklings, finds patterns, and proposes specific next steps.",
+      "Built with Claude Code, the system acts as a research partner that sifts through personal narrative, finds hidden patterns, and proposes next steps for a user\u2019s life path.",
     consent:
-      "Designed for sandboxed environments that protect the user's life repository of data.",
+      "This prototype is being developed toward a sandboxed, user-controlled environment for sensitive life-path data. The privacy goal is to protect the user\u2019s personal repository while making AI involvement clear and consent-based.",
     evidence:
-      "Developed as a README and structural framework during active development sessions using command-line AI tools.",
+      "Currently documented as a technical prototype and README-style framework. It builds on the first Ikigai workshop pilot, but is not yet positioned as a finished consumer application.",
     people: "Raed Marji · Alex Azzi",
     cta: "Learn more →",
     href: "mailto:hello@playa-ai.org?subject=Ikigai App 2",
@@ -298,19 +298,19 @@ const WORKSTREAMS: Workstream[] = [
   {
     n: "05",
     category: "Protocol / Open Tool",
-    status: "Draft",
+    status: "Draft / Under Review",
     need: "Dignity, autonomy, and data sovereignty",
     title: "Privacy Toolkit",
-    subtitle: "",
+    subtitle: "Living Trust Agreement",
     pull: "A radical blueprint for decommodifying data and returning sovereignty to the individual.",
-    body: "The Privacy Toolkit is a set of open-source templates, best-practice hardening procedures, and burner-inspired privacy language for people and organizations building with AI agents. It treats data as a gift, not oil.",
+    body: "The Privacy Toolkit is Playa AI\u2019s open-source privacy and data ethics framework for human-centered AI projects. It treats privacy not as a compliance checkbox, but as a living trust agreement between builders and participants \u2014 especially when AI systems touch identity, purpose, memory, relationship, or voice.",
     aiRole:
-      "The toolkit was co-created through a mega-prompt process that synthesized principles from humane technology with the Ten Principles of Burning Man.",
+      "The toolkit was co-created through a synthesis process using multiple AI systems to compare, critique, and refine principles from humane technology, AI governance, and Burning Man-inspired values such as consent, decommodification, participation, and leaving no trace.",
     consent:
-      "Radical consent is the center: participation should be opt-in, reversible, trauma-informed, and supported by auditable deletion.",
+      "Radical consent is the center: participation should be opt-in, reversible, understandable, trauma-informed, and supported by deletion practices that are being reviewed for stronger accountability.",
     evidence:
-      "A first draft of the Playa AI Accord governance section has been completed, with guidelines for auditable deletion now in review.",
-    people: "Alex Azzi · Alina Latinina · Raed Marji",
+      "A v0.9 draft of the Playa AI Accord and related privacy language is under review, with the framework now being applied to projects like Ikigai as a practical test case.",
+    people: "Alex Azzi · Alina Latinina · Lino Velev · Raed Marji",
     cta: "Request the brief →",
     href: "mailto:hello@playa-ai.org?subject=Privacy Toolkit Brief",
   },
@@ -342,7 +342,7 @@ const OPEN_QUESTIONS = [
   },
   {
     title: "Purpose matching",
-    body: "Can Ikigai statements help people find aligned collaborators without exposing private identity data?",
+    body: "Can Ikigai statements help people find aligned collaborators while protecting identity, consent, and sensitive reflection data?",
   },
   {
     title: "Prototype to interface",
@@ -354,7 +354,7 @@ const OPEN_QUESTIONS = [
   },
   {
     title: "Security testing",
-    body: "How do we invite hackers and privacy experts to stress-test the standards?",
+    body: "How do we invite privacy experts and adversarial testers to stress-test the standards before the work scales?",
   },
   {
     title: "From manifesto to constraint",
@@ -735,7 +735,66 @@ export default function Work() {
         </div>
       </section>
 
-      {/* 6. Open Questions */}
+      {/* 6. Built on Trust */}
+      <section
+        id="built-on-trust"
+        data-testid="built-on-trust"
+        className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16 hairline-b border-border"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
+          <div className="lg:col-span-6">
+            <MonoLabel className="mb-6">Privacy as practice</MonoLabel>
+            <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
+              Built on a{" "}
+              <i className="italic font-normal text-accent-gold">
+                Living Trust Agreement.
+              </i>
+            </h2>
+          </div>
+          <div className="lg:col-span-6 flex items-center">
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
+              Our tools ask people to share things that matter: purpose, voice,
+              memory, relationship, and identity. That means privacy has to be
+              more than a policy link. It has to be visible in the product,
+              reflected in the data flow, and tested against the promises we
+              make.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 hairline-t border-border">
+          {[
+            {
+              title: "Collect less",
+              body: "We design toward data minimization: asking only for what is needed, making optional fields clear, and avoiding unnecessary retention.",
+            },
+            {
+              title: "Explain more",
+              body: "Participants should understand when AI is involved, what data is used, what may be stored, and what control they have before they begin.",
+            },
+            {
+              title: "Return control",
+              body: "Consent should be specific, reversible, and supported by deletion workflows that make privacy a real product behavior, not just a promise.",
+            },
+          ].map((c, i) => (
+            <div
+              key={c.title}
+              className={`p-8 md:p-10 hairline-b border-border ${
+                i < 2 ? "md:hairline-r" : ""
+              }`}
+            >
+              <h3 className="font-serif text-2xl md:text-3xl leading-tight mb-4">
+                {c.title}
+              </h3>
+              <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
+                {c.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 7. Open Questions */}
       <section
         id="open-questions"
         data-testid="open-questions"
@@ -787,7 +846,7 @@ export default function Work() {
         </motion.div>
       </section>
 
-      {/* 7. Final CTA */}
+      {/* 8. Final CTA */}
       <section
         data-testid="work-final-cta"
         className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-20 md:pb-32 hairline-t border-border"
