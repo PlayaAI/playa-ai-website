@@ -230,7 +230,7 @@ const WORKSTREAMS: Workstream[] = [
     aiRole:
       "With consent, AI can synthesize the spoken conversation into an Oracle Card or digital poster, offering the pair a unique quest to carry the insight back into life.",
     consent:
-      "Private by default. Microphone access requires explicit permission for each session. Data can be processed locally or deleted immediately to honor immediacy.",
+      "Private by default. Microphone access requires explicit permission for each session. Data should be processed as locally and ephemerally as possible, with deletion-first workflows explored to honor immediacy.",
     evidence:
       "Piloted with 80+ initial users and now being refined for camp-level use and the Joy Score research project.",
     people: "Alex Azzi · Raed Marji",
@@ -270,10 +270,10 @@ const WORKSTREAMS: Workstream[] = [
     consent:
       "This prototype is being developed toward a sandboxed, user-controlled environment for sensitive life-path data. The privacy goal is to protect the user\u2019s personal repository while making AI involvement clear and consent-based.",
     evidence:
-      "Currently documented as a technical prototype and README-style framework. It builds on the first Ikigai workshop pilot, but is not yet positioned as a finished consumer application. A public-facing prototype link is being verified before publishing.",
+      "Currently documented as a technical prototype and README-style framework. It builds on the first Ikigai workshop pilot, but is not yet positioned as a finished consumer application.",
     people: "Raed Marji · Alex Azzi",
-    cta: "Learn more →",
-    href: "mailto:hello@playa-ai.org?subject=Ikigai App 2",
+    cta: "Open prototype →",
+    href: "https://ikigai-ai-qgergqr8.manus.space",
   },
   {
     n: "04",
