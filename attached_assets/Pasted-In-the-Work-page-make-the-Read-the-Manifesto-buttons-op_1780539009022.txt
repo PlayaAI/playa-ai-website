@@ -1,0 +1,152 @@
+In the Work page, make the “Read the Manifesto” buttons open the exact same Manifesto drawer/modal behavior used on the Home page.
+
+Do not create a new manifesto design.
+Do not link to another page.
+Do not redirect to "/".
+Do not change the Home page.
+
+Only edit:
+- src/pages/Work.tsx
+
+Reference:
+- src/pages/Home.tsx already has the working Manifesto drawer behavior.
+- Copy/reuse the same ManifestoDrawer implementation from Home.tsx, including the same manifesto text import, state handling, animation, close behavior, Escape key behavior, body scroll lock, and visual styling.
+
+Required changes in Work.tsx:
+
+1. Add the same imports used by Home.tsx for the manifesto drawer.
+
+If Home.tsx imports manifesto text like this:
+
+import manifestoText from "./manifesto.txt?raw";
+
+then add the same import to Work.tsx.
+
+2. Copy the helper function from Home.tsx:
+
+formatManifestoBlocks
+
+3. Copy the full ManifestoDrawer component from Home.tsx into Work.tsx.
+
+It must look and behave exactly the same as Home:
+- same overlay
+- same bottom drawer
+- same typography
+- same close button
+- same animation
+- same scroll behavior
+- same “Manifesto / A future born in the desert” label
+- same parsing of manifesto.txt
+
+4. Inside the Work component, add state:
+
+const [manifestoOpen, setManifestoOpen] = useState(false);
+
+Also update the React import if needed:
+
+import { useState } from "react";
+
+If ManifestoDrawer uses useEffect, import that too:
+
+import { useEffect, useState } from "react";
+
+5. Replace the hero “Read the Manifesto →” link.
+
+Find this in Work.tsx:
+
+<a href="/">Read the Manifesto →</a>
+
+Replace it with a button:
+
+<button
+  type="button"
+  onClick={() => setManifestoOpen(true)}
+  className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
+>
+  Read the Manifesto →
+</button>
+
+Keep the styling consistent with the current Work page button.
+
+6. Replace the Burner-AI Manifesto workstream CTA behavior.
+
+Right now the WORKSTREAMS item likely has:
+
+href: "/"
+
+Change it to either:
+href: "#manifesto"
+
+Then in WorkBlock, if the workstream title is “Burner-AI Manifesto”, render a button instead of a normal link:
+
+<button
+  type="button"
+  onClick={() => setManifestoOpen(true)}
+  className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+>
+  Read manifesto →
+</button>
+
+To do this cleanly, pass an optional onManifestoOpen prop into WorkBlock:
+
+function WorkBlock({
+  ws,
+  testId,
+  onManifestoOpen,
+}: {
+  ws: Workstream;
+  testId: string;
+  onManifestoOpen?: () => void;
+}) {
+  ...
+}
+
+Then inside the CTA area:
+
+{ws.title === "Burner-AI Manifesto" && onManifestoOpen ? (
+  <button
+    type="button"
+    onClick={onManifestoOpen}
+    className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+  >
+    {ws.cta}
+  </button>
+) : (
+  <a
+    href={ws.href}
+    className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+  >
+    {ws.cta}
+  </a>
+)}
+
+And when rendering WorkBlock:
+
+<WorkBlock
+  key={ws.n}
+  ws={ws}
+  testId={`workstream-0${i + 1}`}
+  onManifestoOpen={() => setManifestoOpen(true)}
+/>
+
+7. Render the drawer near the bottom of the Work component, before closing </main>:
+
+<ManifestoDrawer
+  open={manifestoOpen}
+  onClose={() => setManifestoOpen(false)}
+/>
+
+Place it before:
+
+<SiteFooter ... />
+
+or after the footer, but still inside the main component return.
+
+8. Final check:
+- Home manifesto still works.
+- Work hero “Read the Manifesto” opens the same drawer.
+- Workstream 06 “Read manifesto” opens the same drawer.
+- No redirect happens.
+- No new design is created.
+- TypeScript compiles.
+- Only Work.tsx is changed.

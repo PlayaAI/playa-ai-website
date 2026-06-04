@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
+import manifestoText from "./manifesto.txt?raw";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -16,6 +18,186 @@ const stagger = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
+
+// ─── Manifesto helpers (copied from Home.tsx) ────────────────────────────────
+
+function formatManifestoBlocks(text: string) {
+  return text
+    .replace(/\r\n/g, "\n")
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block, index) => {
+      const compact = block.replace(/\s+/g, " ").trim();
+      const isHeading =
+        index === 0 ||
+        (compact.length < 90 &&
+          (/^[A-Z0-9\s·:—–-]+$/.test(compact) ||
+            /^\d+\.?\s+/.test(compact) ||
+            /^(In one sentence|In 100 words|In 1000 words|Our Mission|Why Now|Why Burning Man|The Call|The Pledge|What We're Building|What We're Building|This Is About More Than Technology)$/i.test(
+              compact,
+            )));
+      return {
+        id: `${index}-${compact.slice(0, 24).replace(/[^a-z0-9]+/gi, "-")}`,
+        text: block,
+        type: index === 0 ? "title" : isHeading ? "heading" : "paragraph",
+      };
+    });
+}
+
+function ManifestoDrawer({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open, onClose]);
+
+  const normalizedManifestoText = manifestoText.replace(/\r\n/g, "\n");
+
+  const rawLines = normalizedManifestoText
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  const introTitle = rawLines[0] || "Playa AI Manifesto";
+  const oneSentenceLabel = rawLines[1] || "In one sentence";
+  const oneSentenceText = rawLines[2] || "";
+
+  let skippedIntroLines = 0;
+  const remainingText = normalizedManifestoText
+    .split("\n")
+    .filter((line) => {
+      if (skippedIntroLines < 3 && line.trim()) {
+        skippedIntroLines += 1;
+        return false;
+      }
+      return skippedIntroLines >= 3;
+    })
+    .join("\n")
+    .trim();
+
+  const blocks = formatManifestoBlocks(remainingText);
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <>
+          <motion.button
+            type="button"
+            aria-label="Close manifesto"
+            className="fixed inset-0 z-50 cursor-default bg-foreground/70 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={onClose}
+            data-testid="manifesto-overlay"
+          />
+
+          <motion.aside
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="manifesto-drawer-title"
+            className="fixed bottom-0 left-1/2 z-50 flex h-[88vh] w-[calc(100%-24px)] max-w-[920px] flex-col border border-border border-b-0 bg-background shadow-[0_-30px_100px_rgba(0,0,0,0.34)] md:h-[88vh] md:w-[calc(100%-64px)]"
+            initial={{ y: "105%", x: "-50%" }}
+            animate={{ y: 0, x: "-50%" }}
+            exit={{ y: "105%", x: "-50%" }}
+            transition={{ duration: 0.56, ease: [0.2, 0.8, 0.2, 1] as const }}
+            data-testid="manifesto-drawer"
+          >
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close manifesto"
+              className="absolute right-5 top-5 z-10 inline-flex h-11 w-11 items-center justify-center border border-foreground bg-foreground text-background transition-colors hover:border-accent-gold hover:bg-accent-gold"
+              data-testid="button-close-manifesto"
+            >
+              ×
+            </button>
+
+            <div className="overflow-y-auto px-5 pb-20 pt-16 text-left md:px-16 md:pt-24 lg:px-24">
+              <div className="mx-auto flex w-full max-w-[760px] flex-col items-start">
+                <div className="mb-10 text-left font-mono text-xs uppercase tracking-widest text-accent-gold">
+                  Manifesto / A future born in the desert
+                </div>
+
+                <div className="w-full space-y-6 text-left">
+                  <h2
+                    id="manifesto-drawer-title"
+                    className="w-full max-w-none text-left font-serif text-5xl leading-none tracking-tight md:text-7xl"
+                  >
+                    {introTitle}
+                  </h2>
+
+                  <div className="pt-4 text-left font-mono text-xs uppercase tracking-widest text-accent-gold">
+                    {oneSentenceLabel}
+                  </div>
+
+                  <p className="w-full max-w-none text-left font-serif text-4xl leading-[0.98] tracking-tight text-foreground md:text-6xl">
+                    {oneSentenceText}
+                  </p>
+
+                  <div className="pt-8 space-y-6">
+                    {blocks.map((block) => {
+                      if (block.type === "heading" || block.type === "title") {
+                        return (
+                          <h3
+                            key={block.id}
+                            className="w-full max-w-none pt-10 text-left font-serif text-2xl leading-none tracking-tight text-accent-gold md:text-3xl"
+                          >
+                            {block.text.split("\n").map((line, index) => (
+                              <React.Fragment key={`${block.id}-${index}`}>
+                                {line}
+                                {index < block.text.split("\n").length - 1 && (
+                                  <br />
+                                )}
+                              </React.Fragment>
+                            ))}
+                          </h3>
+                        );
+                      }
+                      return (
+                        <p
+                          key={block.id}
+                          className="max-w-[62ch] text-left text-lg leading-relaxed text-muted-foreground md:text-xl"
+                        >
+                          {block.text.split("\n").map((line, index) => (
+                            <React.Fragment key={`${block.id}-${index}`}>
+                              {line}
+                              {index < block.text.split("\n").length - 1 && (
+                                <br />
+                              )}
+                            </React.Fragment>
+                          ))}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.aside>
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
+
+// ─── Data ────────────────────────────────────────────────────────────────────
 
 type Workstream = {
   n: string;
@@ -149,7 +331,7 @@ const WORKSTREAMS: Workstream[] = [
       "Version 1.0 is live and has been used as an overture for outreach to Burning Man leadership and global technology figures.",
     people: "Rebecca Nelson · Alex Azzi · Steven Blumenfeld",
     cta: "Read manifesto →",
-    href: "/",
+    href: "#manifesto",
   },
 ];
 
@@ -180,6 +362,8 @@ const OPEN_QUESTIONS = [
   },
 ];
 
+// ─── Components ───────────────────────────────────────────────────────────────
+
 function StatusBadge({ status }: { status: string }) {
   return (
     <span className="font-mono text-[10px] uppercase tracking-widest border border-border px-2.5 py-1 text-muted-foreground">
@@ -188,7 +372,15 @@ function StatusBadge({ status }: { status: string }) {
   );
 }
 
-function WorkBlock({ ws, testId }: { ws: Workstream; testId: string }) {
+function WorkBlock({
+  ws,
+  testId,
+  onManifestoOpen,
+}: {
+  ws: Workstream;
+  testId: string;
+  onManifestoOpen?: () => void;
+}) {
   return (
     <motion.article
       variants={fadeInUp}
@@ -228,7 +420,7 @@ function WorkBlock({ ws, testId }: { ws: Workstream; testId: string }) {
             </div>
           )}
           <p className="font-serif italic text-lg md:text-xl leading-snug text-accent-gold mb-6 max-w-2xl">
-            "{ws.pull}"
+            &ldquo;{ws.pull}&rdquo;
           </p>
           <p className="text-base md:text-lg leading-relaxed text-foreground mb-6 max-w-3xl">
             {ws.body}
@@ -265,12 +457,22 @@ function WorkBlock({ ws, testId }: { ws: Workstream; testId: string }) {
           )}
 
           <div className="hairline-t border-border pt-5">
-            <a
-              href={ws.href}
-              className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
-            >
-              {ws.cta}
-            </a>
+            {ws.title === "Burner-AI Manifesto" && onManifestoOpen ? (
+              <button
+                type="button"
+                onClick={onManifestoOpen}
+                className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+              >
+                {ws.cta}
+              </button>
+            ) : (
+              <a
+                href={ws.href}
+                className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+              >
+                {ws.cta}
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -278,7 +480,11 @@ function WorkBlock({ ws, testId }: { ws: Workstream; testId: string }) {
   );
 }
 
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default function Work() {
+  const [manifestoOpen, setManifestoOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader
@@ -351,12 +557,13 @@ export default function Work() {
             >
               Explore the work ↓
             </a>
-            <a
-              href="/"
+            <button
+              type="button"
+              onClick={() => setManifestoOpen(true)}
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               Read the Manifesto →
-            </a>
+            </button>
           </motion.div>
         </motion.div>
 
@@ -399,10 +606,7 @@ export default function Work() {
             {[
               { value: "6", label: "Active workstreams" },
               { value: "3", label: "Modes: tools, research, protocols" },
-              {
-                value: "80+",
-                label: "Early participants across pilots and workshops",
-              },
+              { value: "80+", label: "Early participants across pilots and workshops" },
               { value: "1", label: "Living manifesto" },
             ].map((s) => (
               <div key={s.label} className="px-6 py-10">
@@ -416,10 +620,92 @@ export default function Work() {
         </div>
       </section>
 
+      {/* 3. Three Modes */}
+      <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
+        <div className="font-mono text-sm mb-10 text-muted-foreground">
+          § 02 / Modes of Work
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
+          <div className="lg:col-span-6">
+            <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
+              Build. Research. <i className="italic font-normal">Govern.</i>
+            </h2>
+          </div>
+          <div className="lg:col-span-6 flex items-center">
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
+              The work is organized by what it asks of AI: to help people meet,
+              to help people understand themselves and each other, or to help
+              communities set the rules before the tools become too powerful.
+            </p>
+          </div>
+        </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={stagger}
+          className="grid grid-cols-1 md:grid-cols-3 hairline-t border-border"
+        >
+          {[
+            {
+              testId: "mode-build",
+              n: "01",
+              title: "Build",
+              desc: "Tools and experiences that help people move from screen-mediated interaction into reflection, purpose, and face-to-face connection.",
+              projects: ["Connect App", "Ikigai App 1", "Ikigai App 2"],
+            },
+            {
+              testId: "mode-research",
+              n: "02",
+              title: "Research",
+              desc: "Sensitive experiments in human dynamics, emotional intelligence, relationship repair, and long-term flourishing.",
+              projects: ["Relationship Nurturer", "Joy Score / Connect research layer"],
+            },
+            {
+              testId: "mode-govern",
+              n: "03",
+              title: "Govern",
+              desc: "The consent-first standards, privacy instruments, and founding texts that keep the tools honest.",
+              projects: ["Privacy Toolkit", "Burner-AI Manifesto", "EELP-related infrastructure"],
+            },
+          ].map((m, i) => (
+            <motion.div
+              key={m.n}
+              variants={fadeInUp}
+              data-testid={m.testId}
+              className={`p-8 md:p-12 hairline-b border-border ${i < 2 ? "md:hairline-r" : ""} flex flex-col`}
+            >
+              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
+                {m.n}
+              </div>
+              <h3 className="font-serif text-4xl md:text-5xl leading-none mb-5">
+                {m.title}
+              </h3>
+              <p className="text-base leading-relaxed text-muted-foreground mb-8">
+                {m.desc}
+              </p>
+              <ul className="mt-auto space-y-2">
+                {m.projects.map((p) => (
+                  <li
+                    key={p}
+                    className="font-mono text-[11px] uppercase tracking-widest text-foreground flex items-center gap-2"
+                  >
+                    <span className="text-muted-foreground">→</span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
       {/* 4. Featured Work / Workstreams */}
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
         <div className="font-mono text-sm mb-10 text-muted-foreground">
-          § 02 / Featured Work
+          § 03 / Featured Work
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
@@ -448,7 +734,12 @@ export default function Work() {
           className="space-y-0"
         >
           {WORKSTREAMS.map((ws, i) => (
-            <WorkBlock key={ws.n} ws={ws} testId={`workstream-0${i + 1}`} />
+            <WorkBlock
+              key={ws.n}
+              ws={ws}
+              testId={`workstream-0${i + 1}`}
+              onManifestoOpen={() => setManifestoOpen(true)}
+            />
           ))}
         </motion.div>
       </section>
@@ -483,8 +774,8 @@ export default function Work() {
             className="font-serif text-2xl md:text-4xl leading-snug mb-14 max-w-3xl"
             style={{ color: "#C8A96E" }}
           >
-            "Data is a gift, not oil. Deletion is a right, not a support
-            ticket."
+            &ldquo;Data is a gift, not oil. Deletion is a right, not a support
+            ticket.&rdquo;
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 border border-background/20">
@@ -557,7 +848,7 @@ export default function Work() {
               key={q.title}
               variants={fadeInUp}
               className={`p-8 hairline-b border-border ${
-                i % 3 < 2 ? "lg:hairline-r" : ""
+                i % 3 === 0 || i % 3 === 1 ? "lg:hairline-r" : ""
               } ${i % 2 === 0 ? "md:hairline-r lg:border-r-0" : ""} ${
                 i % 3 === 1 ? "lg:hairline-r" : ""
               }`}
@@ -637,6 +928,11 @@ export default function Work() {
           REPORT COMES NEXT
         </div>
       </section>
+
+      <ManifestoDrawer
+        open={manifestoOpen}
+        onClose={() => setManifestoOpen(false)}
+      />
 
       <SiteFooter contextLine="Our Work · Tools / Research / Protocols / Governance" />
     </main>
