@@ -1,0 +1,99 @@
+Please make the homepage hero blueprint graphic visible on mobile in a refined way.
+
+Work only in:
+artifacts/playa-ai/src/pages/Home.tsx
+
+Do not change:
+- Copy
+- Header
+- Footer
+- CTAs
+- Ticker
+- Manifesto drawer
+- Pledge modal
+- Any section below the hero
+
+Current behavior:
+The blueprint graphic is hidden below `lg`.
+
+Goal:
+Show the graphic on mobile, but in a subtle, premium, non-disruptive way.
+
+Mobile design direction:
+- The text must remain the priority.
+- The blueprint should feel like a faint architectural watermark/background.
+- It should not make the headline harder to read.
+- It should not push the hero too tall.
+- It should not create horizontal scroll.
+- It should not overlap CTAs in a messy way.
+
+Recommended approach:
+Use two versions of the graphic layer:
+
+1. Mobile/tablet version: visible below `lg`
+2. Desktop version: keep the existing desktop positioning
+
+Add a separate mobile-only blueprint layer near the hero, behind the text:
+
+```tsx
+{/* Blueprint image layer — mobile/tablet only */}
+<motion.div
+  initial={{ opacity: 0, scale: 0.98 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{
+    duration: 0.9,
+    ease: [0.22, 1, 0.36, 1] as const,
+    delay: 0.2,
+  }}
+  className="block lg:hidden absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 w-[115vw] max-w-none pointer-events-none z-0"
+  style={{
+    WebkitMaskImage:
+      "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
+    maskImage:
+      "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
+  }}
+>
+  <img
+    src={playaHeroBlueprintImg}
+    alt=""
+    aria-hidden="true"
+    className="w-full h-auto object-contain opacity-22 mix-blend-multiply"
+  />
+</motion.div>
+
+Keep the text wrapper above it:
+
+className="relative z-20 max-w-[720px] xl:max-w-[760px]"
+
+Mobile behavior:
+
+On mobile, the blueprint should appear faintly behind/right of the headline area.
+It should be more like a watermark than a full illustration.
+Use low opacity: start with opacity-22.
+If too invisible, try opacity-28.
+If it hurts readability, reduce to opacity-16.
+
+Suggested responsive refinements:
+For very small phones, use:
+
+className="block lg:hidden absolute left-[62%] top-[34%] -translate-x-1/2 -translate-y-1/2 w-[130vw] max-w-none pointer-events-none z-0"
+
+For larger phones/tablets below lg, use Tailwind responsive values:
+
+className="block lg:hidden absolute left-[62%] top-[35%] sm:left-[58%] sm:top-[36%] md:left-[56%] md:top-[38%] -translate-x-1/2 -translate-y-1/2 w-[130vw] sm:w-[115vw] md:w-[95vw] max-w-none pointer-events-none z-0"
+
+Use whichever looks better after testing.
+
+Important:
+The desktop blueprint layer should remain hidden below lg and visible on lg+.
+The mobile blueprint layer should be visible below lg and hidden on lg+.
+
+Final acceptance criteria:
+
+Mobile has a faint, elegant blueprint presence.
+Headline remains fully readable.
+CTAs remain easy to tap.
+No horizontal scroll.
+No visible image rectangle.
+Desktop remains unchanged.
+Mobile feels like the same premium brand system, not a cramped desktop layout.

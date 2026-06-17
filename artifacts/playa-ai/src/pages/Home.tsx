@@ -528,6 +528,30 @@ export default function Home() {
             className="w-full h-auto object-contain opacity-100 mix-blend-multiply"
           />
         </motion.div>
+        {/* Blueprint image layer — mobile/tablet only */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1] as const,
+            delay: 0.2,
+          }}
+          className="block lg:hidden absolute left-[62%] top-[35%] sm:left-[58%] sm:top-[36%] md:left-[56%] md:top-[38%] -translate-x-1/2 -translate-y-1/2 w-[130vw] sm:w-[115vw] md:w-[95vw] max-w-none pointer-events-none z-0"
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
+            maskImage:
+              "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
+          }}
+        >
+          <img
+            src={playaHeroBlueprintImg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto object-contain opacity-[0.38] mix-blend-multiply"
+          />
+        </motion.div>
       </section>
       <div className="px-4 max-w-[1400px] mx-auto mt-0 font-mono text-[11px] tracking-widest text-muted-foreground border-t border-border pt-4">
         {" "}
