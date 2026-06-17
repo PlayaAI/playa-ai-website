@@ -1,0 +1,76 @@
+This is much cleaner now, but the blueprint graphic is too small and too contained.
+
+Please refine ONLY the hero image layout in Home.tsx.
+
+Do not change:
+- Copy
+- Header
+- Footer
+- CTAs
+- Ticker
+- Manifesto drawer
+- Pledge modal
+- Any section below hero
+
+Current issue:
+The graphic feels too small and boxed into the right side. In the reference, the blueprint is larger, more immersive, and feels like it extends naturally into the hero space.
+
+Goal:
+Make the blueprint larger and more editorial, while keeping it behind/next to the text and not hurting readability.
+
+Please adjust the hero like this:
+
+1. Allow the hero graphic to overflow visually on desktop.
+
+Hero section:
+Use `overflow-visible` on the hero section if possible:
+
+className="relative pt-6 pb-6 md:pt-10 md:pb-8 px-4 max-w-[1400px] mx-auto min-h-[calc(100vh-80px)] flex items-center overflow-visible"
+
+But keep the page/main wrapper protected with `overflow-x-hidden` so there is no horizontal scroll.
+
+2. Make the text wrapper stay above the image:
+
+className="relative z-20 max-w-[720px] xl:max-w-[760px]"
+
+3. Make the image larger and move it slightly left:
+
+Image wrapper:
+
+className="hidden lg:block absolute left-[50%] top-[51%] -translate-y-1/2 w-[58vw] max-w-[1050px] pointer-events-none z-0"
+
+If it overlaps the headline too much, use:
+
+className="hidden lg:block absolute left-[53%] top-[51%] -translate-y-1/2 w-[54vw] max-w-[980px] pointer-events-none z-0"
+
+4. Keep soft edge masking to hide the rectangular background:
+
+style={{
+  WebkitMaskImage: "radial-gradient(ellipse at center, black 56%, rgba(0,0,0,0.72) 72%, transparent 100%)",
+  maskImage: "radial-gradient(ellipse at center, black 56%, rgba(0,0,0,0.72) 72%, transparent 100%)",
+}}
+
+5. Image styling:
+
+Start with:
+
+className="w-full h-auto object-contain opacity-95 mix-blend-multiply"
+
+If the image gets too strong:
+
+className="w-full h-auto object-contain opacity-85 mix-blend-multiply"
+
+If the image is too faint:
+
+className="w-full h-auto object-contain opacity-100"
+
+Visual target:
+- The blueprint should be noticeably larger.
+- It should occupy the right half like an architectural hero artwork.
+- It may extend slightly beyond the right side visually, but must not create horizontal scroll.
+- It should not overlap the main headline.
+- It should feel printed into the cream background, not like a rectangle.
+- Mobile remains hidden below lg.
+
+Final check:
+Desktop should feel close to the reference: large editorial text on the left, big soft Playa blueprint on the right, continuous cream background, no visible image box.

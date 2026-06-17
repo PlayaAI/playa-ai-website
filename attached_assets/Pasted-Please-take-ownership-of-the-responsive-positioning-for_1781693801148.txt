@@ -1,0 +1,93 @@
+Please take ownership of the responsive positioning for the homepage hero blueprint graphic.
+
+The current graphic is visually close, but I do not want to keep manually tuning one fixed `left/top/width` value. Please make the blueprint responsive across laptop and desktop sizes using the best Tailwind breakpoint values.
+
+Work only in:
+artifacts/playa-ai/src/pages/Home.tsx
+
+Do not change:
+- Any copy
+- Header
+- Footer
+- CTAs
+- Ticker line
+- Manifesto drawer
+- Pledge modal
+- Any section below the hero
+- Any other page
+
+Goal:
+Make the hero feel premium and responsive at all laptop/desktop widths:
+- Text remains dominant and readable on the left.
+- Blueprint remains large, elegant, and cinematic on the right.
+- The graphic should never collide with the headline.
+- The graphic should not be too small on large screens.
+- The graphic should not overflow badly or create horizontal scroll on smaller laptops.
+- Mobile/tablet below `lg` should hide the graphic.
+
+Current issue:
+The graphic is being positioned with one aggressive fixed class:
+
+left-[37%] top-[42%] w-[72vw] max-w-[2200px]
+
+This may look good on one screen, but it is not reliable across MacBook Air, standard laptops, and large desktop screens.
+
+Please replace this with responsive breakpoint-based positioning.
+
+Use your judgment, but follow this logic:
+
+- `lg` / smaller laptops:
+  More conservative placement and size.
+  Keep the image safely on the right.
+  Avoid overlapping the headline.
+
+- `xl` / normal laptop and desktop:
+  Larger and more cinematic.
+  Move slightly left so it feels integrated with the hero.
+
+- `2xl` / wide desktop:
+  Largest and most editorial.
+  Allow more visual presence while keeping no horizontal scroll.
+
+Suggested starting point:
+
+```tsx
+className="
+  hidden lg:block absolute
+  lg:left-[48%] lg:top-[47%] lg:w-[58vw] lg:max-w-[920px]
+  xl:left-[42%] xl:top-[45%] xl:w-[68vw] xl:max-w-[1400px]
+  2xl:left-[38%] 2xl:top-[43%] 2xl:w-[72vw] 2xl:max-w-[1800px]
+  -translate-y-1/2
+  pointer-events-none z-0
+"
+
+But please adjust these values yourself after testing if needed.
+
+Keep:
+
+The radial mask/fade.
+The image class:
+w-full h-auto object-contain opacity-100 mix-blend-multiply
+The hero section as relative.
+The main wrapper with overflow-x-hidden.
+Mobile hidden below lg.
+
+Please test and tune at these widths:
+
+1024px
+1280px
+1366px
+1440px
+1536px
+1728px+
+1920px
+
+Acceptance criteria:
+
+No horizontal scroll at any tested width.
+Graphic does not cover headline or body copy.
+Graphic feels large enough on 1440px and above.
+Graphic does not feel cramped on MacBook Air-sized screens.
+Final result should visually match the reference direction: large editorial text left, delicate architectural Playa blueprint right, cream background, premium institutional feel.
+
+Please choose the final breakpoint values based on visual testing, not just the suggested values.

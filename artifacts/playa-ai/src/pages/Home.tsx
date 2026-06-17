@@ -6,6 +6,7 @@ import { MonoLabel } from "@/components/MonoLabel";
 import gatheringScreenImg from "@assets/image_1778690528207.png";
 import salonDiscussionImg from "@assets/image_1778690538108.png";
 import abstractArtImg from "@assets/image_1778690543179.png";
+import playaHeroBlueprintImg from "@assets/playa-hero-blueprint-transparent.png";
 import manifestoText from "./manifesto.txt?raw";
 
 const fadeInUp: Variants = {
@@ -404,102 +405,135 @@ export default function Home() {
     <main className="min-h-screen w-full font-sans text-foreground bg-background overflow-x-hidden selection:bg-foreground selection:text-background">
       <SiteHeader active="home" />
       {/* 1. Hero */}
-      <section className="pt-6 pb-6 md:pt-10 md:pb-8 px-4 max-w-[1400px] mx-auto">
-        {" "}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="max-w-4xl"
-        >
-          <motion.h1
-            variants={fadeInUp}
-            className="font-serif leading-[0.92] tracking-tight text-foreground mb-8"
-          >
-            <span className="block text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem]">
-              <i className="italic font-normal text-accent-gold">
-                This is human-AI
-                <br />
-                co-evolution.
-              </i>
-            </span>
-
-            <span className="block text-5xl md:text-6xl lg:text-[5.2rem] xl:text-[6rem]">
-              Born on the Playa.
-              <br />
-              Gifted to the Planet.
-            </span>
-          </motion.h1>
-
-          <motion.p
-            variants={fadeInUp}
-            className="text-sm md:text-base max-w-xl leading-relaxed mb-6 text-foreground font-medium"
-          >
-            AI is entering intimate human spaces faster than trust can keep up.
-          </motion.p>
-
-          <motion.p
-            variants={fadeInUp}
-            className="text-sm md:text-base max-w-xl leading-relaxed mb-5 text-muted-foreground"
-          >
-            Playa AI Foundation is public-interest infrastructure for
-            human-centered AI.
-          </motion.p>
-
-          <motion.p
-            variants={fadeInUp}
-            className="text-sm md:text-base max-w-xl leading-relaxed mb-5 text-muted-foreground"
-          >
-            We build AI experiences and open tools, research how they shape
-            people and communities, and publish the consent-first standards that
-            result — free for anyone to adopt.
-          </motion.p>
-
-          <motion.p
-            variants={fadeInUp}
-            className="text-sm md:text-base max-w-xl leading-relaxed mb-10 text-muted-foreground"
-          >
-            Black Rock City is our first proving ground. What earns trust there
-            becomes open protocol for other large scale gatherings, events, and
-            civic life everywhere.
-          </motion.p>
-
+      <section className="relative pt-6 pb-6 md:pt-10 md:pb-8 px-4 max-w-[1400px] mx-auto min-h-[calc(100vh-80px)] flex items-center overflow-visible">
+        <div className="relative z-20 max-w-[720px] xl:max-w-[760px]">
           <motion.div
-            variants={fadeInUp}
-            className="flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="max-w-4xl"
           >
-            <a
-              href="#fund"
-              className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
-              data-testid="link-fund-year-one"
+            <motion.h1
+              variants={fadeInUp}
+              className="font-serif leading-[0.92] tracking-tight text-foreground mb-8"
             >
-              Fund Year One
-            </a>
+              <span className="block text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem]">
+                <i className="italic font-normal text-accent-gold">
+                  This is human-AI
+                  <br />
+                  co-evolution.
+                </i>
+              </span>
 
-            <a
-              href="#standard"
-              className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
-              data-testid="link-become-founding-adopter"
-            >
-              Become a Founding Adopter
-            </a>
+              <span className="block text-5xl md:text-6xl lg:text-[5.2rem] xl:text-[6rem]">
+                Born on the Playa.
+                <br />
+                Gifted to the Planet.
+              </span>
+            </motion.h1>
 
-            <button
-              type="button"
-              onClick={() => setManifestoOpen(true)}
-              className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
-              data-testid="button-read-manifesto"
+            <motion.p
+              variants={fadeInUp}
+              className="text-sm md:text-base max-w-xl leading-relaxed mb-6 text-foreground font-medium"
             >
-              Read the Manifesto
-            </button>
+              AI is entering intimate human spaces faster than trust can keep
+              up.
+            </motion.p>
+
+            <motion.p
+              variants={fadeInUp}
+              className="text-sm md:text-base max-w-xl leading-relaxed mb-5 text-muted-foreground"
+            >
+              Playa AI Foundation is public-interest infrastructure for
+              human-centered AI.
+            </motion.p>
+
+            <motion.p
+              variants={fadeInUp}
+              className="text-sm md:text-base max-w-xl leading-relaxed mb-5 text-muted-foreground"
+            >
+              We build AI experiences and open tools, research how they shape
+              people and communities, and publish the consent-first standards
+              that result — free for anyone to adopt.
+            </motion.p>
+
+            <motion.p
+              variants={fadeInUp}
+              className="text-sm md:text-base max-w-xl leading-relaxed mb-10 text-muted-foreground"
+            >
+              Black Rock City is our first proving ground. What earns trust
+              there becomes open protocol for other large scale gatherings,
+              events, and civic life everywhere.
+            </motion.p>
+
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase"
+            >
+              <a
+                href="#fund"
+                className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
+                data-testid="link-fund-year-one"
+              >
+                Fund Year One
+              </a>
+
+              <a
+                href="#standard"
+                className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
+                data-testid="link-become-founding-adopter"
+              >
+                Become a Founding Adopter
+              </a>
+
+              <button
+                type="button"
+                onClick={() => setManifestoOpen(true)}
+                className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                data-testid="button-read-manifesto"
+              >
+                Read the Manifesto
+              </button>
+            </motion.div>
           </motion.div>
-        </motion.div>
-        <div className="mt-8 font-mono text-[11px] tracking-widest text-muted-foreground border-t border-border pt-4">
-          {" "}
-          BORN IN THE BLACK ROCK DESERT · BUILT FOR THE PUBLIC INTEREST ·
-          INDEPENDENT OF BURNING MAN ORGANIZATION
         </div>
+        {/* Blueprint image layer — desktop only */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1] as const,
+            delay: 0.3,
+          }}
+          className="
+            hidden lg:block absolute
+            lg:left-[46%] lg:top-[48%] lg:w-[60vw] lg:max-w-[980px]
+            xl:left-[43%] xl:top-[46%] xl:w-[66vw] xl:max-w-[1350px]
+            2xl:left-[38%] 2xl:top-[43%] 2xl:w-[70vw] 2xl:max-w-[1800px]
+            -translate-y-1/2
+            pointer-events-none z-0
+          "
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+          }}
+        >
+          <img
+            src={playaHeroBlueprintImg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto object-contain opacity-100 mix-blend-multiply"
+          />
+        </motion.div>
       </section>
+      <div className="px-4 max-w-[1400px] mx-auto mt-0 font-mono text-[11px] tracking-widest text-muted-foreground border-t border-border pt-4">
+        {" "}
+        BORN IN THE BLACK ROCK DESERT · BUILT FOR THE PUBLIC INTEREST ·
+        INDEPENDENT OF BURNING MAN ORGANIZATION
+      </div>
 
       {/* 4. Proof of Progress */}
       <section className="pt-8 pb-8 md:pt-12 md:pb-12 px-4 max-w-[1400px] mx-auto">
@@ -733,8 +767,8 @@ export default function Home() {
                     In-person gatherings where the work gets built, tested,
                     argued over, and demonstrated. Event formats will be
                     published as they are confirmed, with each gathering tied to
-                    a clear purpose: building tools, reviewing standards, testing
-                    consent flows, or sharing field learnings.
+                    a clear purpose: building tools, reviewing standards,
+                    testing consent flows, or sharing field learnings.
                   </p>
                 </div>
 

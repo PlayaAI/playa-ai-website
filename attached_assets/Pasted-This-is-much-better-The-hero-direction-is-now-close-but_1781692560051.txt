@@ -1,0 +1,83 @@
+This is much better. The hero direction is now close, but it needs final refinement.
+
+Please refine ONLY the hero section in Home.tsx.
+
+Do not change:
+- Copy
+- Header
+- Footer
+- CTAs
+- Ticker
+- Manifesto drawer
+- Pledge modal
+- Any section below the hero
+
+Current issues:
+1. The blueprint graphic still shows its own rectangular cream background.
+2. The image feels like a placed rectangle instead of being fully integrated into the page.
+3. The headline text column is too narrow, causing “This is human–AI” to break awkwardly.
+4. The graphic can be slightly larger and more naturally positioned.
+
+Fixes:
+
+A) Widen the text column
+The headline should not break “human–AI” onto separate lines.
+
+Set the text wrapper to something like:
+
+className="relative z-20 max-w-[720px] xl:max-w-[760px]"
+
+Make sure the headline returns closer to:
+“This is human–AI”
+“co-evolution.”
+“Born on the Playa.”
+“Gifted to the Planet.”
+
+B) Refine the image background blending
+
+Preferred fix:
+If possible, remove the background from the uploaded image and create a transparent PNG asset. Use the transparent version in the hero.
+
+If transparent conversion is not possible, apply a soft edge mask to the image wrapper so the rectangular background disappears visually.
+
+Use this wrapper style:
+
+style={{
+  WebkitMaskImage: "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.75) 72%, transparent 100%)",
+  maskImage: "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.75) 72%, transparent 100%)",
+}}
+
+C) Image wrapper positioning
+Use something close to:
+
+className="hidden lg:block absolute left-[55%] top-[52%] -translate-y-1/2 w-[46vw] max-w-[880px] pointer-events-none z-0"
+
+D) Image styling
+Start with:
+
+className="w-full h-auto object-contain opacity-92 mix-blend-multiply"
+
+If it becomes too faint, use:
+
+className="w-full h-auto object-contain opacity-100 mix-blend-multiply"
+
+If the rectangle is still visible, reduce opacity slightly:
+
+className="w-full h-auto object-contain opacity-85 mix-blend-multiply"
+
+E) Make the graphic feel integrated
+The final look should be:
+- No visible image rectangle
+- Soft cream background blends into the page
+- Diagram feels printed into the hero
+- Text is dominant
+- Graphic is large, elegant, and quiet on the right
+- No overlap with text
+- No horizontal scroll
+
+F) Mobile
+Keep the image hidden below lg.
+
+Final visual target:
+The hero should feel like the reference:
+Large editorial text on the left, soft architectural Playa blueprint on the right, no visible image background box, no awkward headline wrapping, and a continuous warm cream page.

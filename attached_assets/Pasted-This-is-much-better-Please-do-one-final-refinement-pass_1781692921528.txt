@@ -1,0 +1,58 @@
+This is much better. Please do one final refinement pass on ONLY the hero image.
+
+Do not change:
+- Copy
+- Header
+- Footer
+- CTAs
+- Ticker
+- Manifesto drawer
+- Pledge modal
+- Any section below the hero
+
+Current state:
+The hero looks much cleaner now, but the blueprint graphic is still slightly too small and too far right compared to the reference. It should feel a little more present and architectural.
+
+Please adjust the hero image only:
+
+1. Make the blueprint about 15–20% larger.
+
+Current image wrapper is likely around:
+w-[54vw] max-w-[980px]
+
+Try:
+className="hidden lg:block absolute left-[50%] top-[51%] -translate-y-1/2 w-[60vw] max-w-[1120px] pointer-events-none z-0"
+
+If that overlaps text too much, use:
+className="hidden lg:block absolute left-[52%] top-[51%] -translate-y-1/2 w-[58vw] max-w-[1080px] pointer-events-none z-0"
+
+2. Move it slightly left, but do not let it touch the headline.
+
+The diagram should visually begin around the right side of the headline block, not all the way at the far right of the page.
+
+3. Make the linework slightly more visible.
+
+Try:
+className="w-full h-auto object-contain opacity-100 mix-blend-multiply"
+
+If the background rectangle becomes visible, use:
+className="w-full h-auto object-contain opacity-92 mix-blend-multiply"
+
+4. Keep the soft radial mask/fade so the image background blends into the page.
+
+Use or keep:
+
+style={{
+  WebkitMaskImage: "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+  maskImage: "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+}}
+
+5. Final visual target:
+- Blueprint should be larger and more confident.
+- It should still feel soft and printed into the page.
+- It should not overlap the main headline.
+- It should not create horizontal scroll.
+- Mobile should still hide the image.
+- The cream image background should not appear as a rectangle.
+
+Please test at desktop and laptop widths after this change.
