@@ -847,6 +847,13 @@ export default function Home() {
                     creativity, and connection — not extract attention or
                     replace human judgment.
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => setManifestoOpen(true)}
+                    className="mt-3 inline-block font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                  >
+                    Read the Manifesto →
+                  </button>
                 </div>
 
                 <div>
