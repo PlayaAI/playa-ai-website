@@ -1,0 +1,84 @@
+
+I am uploading 2 images:
+
+1. The first image is the visual reference for the final homepage hero layout.
+2. The second image is the actual transparent PNG graphic that must be used.
+
+Use ONLY the second image as the hero visual.
+
+Goal:
+Add the second image into the homepage hero section so the final result matches the first reference image as closely as possible.
+
+Work only in:
+artifacts/playa-ai/src/pages/Home.tsx
+
+And copy the uploaded second image into:
+artifacts/playa-ai/src/assets/
+
+Use the existing @assets import pattern.
+
+Important:
+- Do not use any previous uploaded image.
+- Do not use image_1781623381959.png if that was from the canceled task.
+- Use only the new second transparent PNG image I just uploaded.
+- Keep all homepage copy exactly the same.
+- Keep the header unchanged.
+- Keep the footer unchanged.
+- Keep manifesto drawer unchanged.
+- Keep pledge modal unchanged.
+- Do not touch any sections below the hero.
+- Keep the ticker line below the hero grid.
+
+Hero layout:
+- Desktop should be a two-column editorial hero.
+- Left side: existing headline, subcopy, and CTAs.
+- Right side: the second uploaded transparent blueprint graphic.
+- The image should appear large on the right, matching the first reference image.
+- It should feel like a delicate technical drawing printed into the cream background.
+- It should not look pasted on.
+- It should not have a black background.
+- It should not create horizontal scroll.
+- On mobile, hide the image.
+
+Suggested implementation:
+1. Import the new image in Home.tsx, for example:
+
+import playaBlueprintImg from "@assets/playa-blueprint.png";
+
+2. Restructure only the hero section into:
+
+<section className="pt-6 pb-6 md:pt-10 md:pb-8 px-4 max-w-[1400px] mx-auto min-h-[calc(100vh-80px)] flex items-center">
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center w-full">
+    <motion.div className="lg:col-span-6 relative z-10">
+      existing hero text and CTAs here
+    </motion.div>
+
+    <motion.div className="hidden lg:flex lg:col-span-6 justify-center items-center pointer-events-none">
+      image here
+    </motion.div>
+  </div>
+</section>
+
+3. Style the image like this:
+
+<img
+  src={playaBlueprintImg}
+  alt="Playa AI Foundation geometric field diagram"
+  className="w-full max-w-[760px] xl:max-w-[900px] opacity-75 mix-blend-multiply object-contain"
+/>
+
+If the second uploaded image appears too white or too invisible on the cream background, adjust the image styling using CSS filters instead of changing the file:
+
+className="w-full max-w-[760px] xl:max-w-[900px] opacity-70 mix-blend-multiply object-contain contrast-125 brightness-75"
+
+Only use filters if needed to make the graphic visible like the reference image.
+
+Final checks:
+- Desktop should visually match the first reference image.
+- Text remains on the left.
+- Blueprint graphic is on the right.
+- The graphic is large but not cropped.
+- The page has no horizontal scroll.
+- Mobile hides the image.
+- Ticker remains below hero.
+- No other sections are changed.

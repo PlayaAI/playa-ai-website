@@ -1,0 +1,150 @@
+I am uploading the final homepage hero blueprint graphic.
+
+Please add this graphic to the homepage hero section and make it match the reference direction: premium editorial text on the left, soft architectural Playa/Burning Man map diagram on the right.
+
+Use this new uploaded graphic only. Do not use any previous hero graphic assets.
+
+Work only in:
+
+`artifacts/playa-ai/src/pages/Home.tsx`
+
+You may also copy the uploaded image into:
+
+`artifacts/playa-ai/src/assets/`
+
+Suggested asset name:
+
+`playa-hero-blueprint.png`
+
+Then import it in `Home.tsx` using the existing asset import pattern:
+
+```tsx
+import playaHeroBlueprintImg from "@assets/playa-hero-blueprint.png";
+```
+
+Goal:
+The hero should feel like a Cannes-level editorial homepage:
+
+* Large emotional typography on the left
+* Delicate architectural blueprint diagram on the right
+* Cream-on-cream, refined, quiet, premium
+* The image should feel printed into the page, not pasted on top
+* No black box
+* No harsh contrast
+* No awkward cropping
+* No horizontal scroll
+
+Important:
+Do not change:
+
+* Any homepage copy
+* Header
+* Navigation
+* Footer
+* Manifesto drawer
+* Pledge modal
+* CTAs
+* Ticker line
+* Any section below the hero
+* Any other page
+
+Hero layout requirements:
+
+* Desktop: two-part editorial layout
+* Left: existing hero headline, subcopy, and CTAs
+* Right: uploaded blueprint graphic
+* Mobile: hide the graphic completely so readability stays clean
+* Tablet: hide or keep very subtle only if it does not hurt readability
+* Ticker line must remain below the hero content, full width, as it is now
+
+Recommended implementation:
+Use the image as an absolutely positioned decorative layer on desktop, not as a small normal grid image. This will make it match the reference much better.
+
+Hero section should be:
+
+```tsx
+<section className="relative pt-6 pb-6 md:pt-10 md:pb-8 px-4 max-w-[1400px] mx-auto min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
+```
+
+Hero text wrapper should stay above the image:
+
+```tsx
+className="relative z-20 max-w-[640px]"
+```
+
+Add the graphic as a desktop-only decorative layer:
+
+```tsx
+<motion.div
+  initial={{ opacity: 0, scale: 0.98 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] as const }}
+  className="hidden lg:block absolute left-[52%] top-1/2 -translate-y-1/2 w-[48vw] max-w-[860px] pointer-events-none z-0"
+>
+  <img
+    src={playaHeroBlueprintImg}
+    alt="Playa AI Foundation geometric field diagram"
+    className="w-full h-auto object-contain opacity-90 mix-blend-multiply"
+  />
+</motion.div>
+```
+
+Start with this image styling:
+
+```tsx
+className="w-full h-auto object-contain opacity-90 mix-blend-multiply"
+```
+
+If the cream background of the image blends perfectly without multiply, use:
+
+```tsx
+className="w-full h-auto object-contain opacity-95"
+```
+
+If the linework is too strong, use:
+
+```tsx
+className="w-full h-auto object-contain opacity-80 mix-blend-multiply"
+```
+
+If the linework is too faint, use:
+
+```tsx
+className="w-full h-auto object-contain opacity-100"
+```
+
+Positioning guidance:
+
+* The graphic should sit on the right half of the hero.
+* It should not overlap the words “Born on the Playa” or “Gifted to the Planet.”
+* It should feel large and important, but quieter than the text.
+* The center of the diagram should sit roughly around the vertical center of the hero.
+* The right edge should have breathing room and should not be cut off.
+* The graphic should visually start around the middle-right of the screen, similar to the reference image.
+
+Responsive behavior:
+
+* Hide the image below `lg`.
+* Ensure no horizontal scroll at any breakpoint.
+* Keep the text fully readable.
+* Keep CTAs aligned and unchanged.
+* Keep ticker below the hero.
+
+Final visual target:
+The final desktop hero should feel like:
+
+* Left: bold editorial institutional statement
+* Right: soft architectural Playa map / blueprint
+* Background: continuous warm cream page
+* Overall: refined, human, serious, premium, and culturally grounded
+
+After implementing, please test:
+
+1. Desktop width
+2. Laptop width
+3. Tablet width
+4. Mobile width
+5. No horizontal scroll
+6. Header still works
+7. Ticker remains below hero
+8. No sections below the hero changed

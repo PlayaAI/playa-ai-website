@@ -1,0 +1,76 @@
+I uploaded a transparent PNG geometric / blueprint diagram image.
+
+Please add this image into the homepage hero section next to the main hero text.
+
+Work only in:
+src/pages/Home.tsx
+
+Do not change:
+- Homepage copy
+- Header
+- Footer
+- Manifesto drawer
+- Pledge modal
+- Any sections below the hero
+- Other pages
+
+Goal:
+Make the homepage hero match the reference direction:
+- Large editorial text on the left
+- Geometric Playa blueprint diagram on the right
+- Cream background stays visible
+- Image feels subtle, premium, architectural, and integrated into the page
+
+Implementation requirements:
+1. Move the hero section into a responsive two-column layout on desktop.
+2. Keep all existing hero text and CTAs exactly the same.
+3. Add the uploaded image as the right-side hero visual.
+4. Use the existing visual system and Tailwind classes already used in the project.
+5. The image should be large, elegant, and slightly faded.
+6. Use classes like:
+   - opacity-75 or opacity-80
+   - mix-blend-multiply if it improves integration
+   - pointer-events-none
+   - object-contain
+7. On desktop, the image should sit to the right of the text and occupy roughly 45–50% of the hero width.
+8. On mobile, either hide the image or place it faintly below the text only if it does not hurt readability.
+9. Keep the hero vertically balanced and close to full-screen height.
+10. Make sure the image does not crop awkwardly or overflow horizontally.
+
+Suggested structure:
+
+- Hero section:
+  max-w-[1400px]
+  mx-auto
+  grid
+  grid-cols-1
+  lg:grid-cols-12
+  items-center
+  min-h-[calc(100vh-80px)]
+
+- Text column:
+  lg:col-span-6
+  relative
+  z-10
+
+- Image column:
+  hidden lg:flex
+  lg:col-span-6
+  justify-center
+  items-center
+  pointer-events-none
+
+Image styling suggestion:
+
+className="w-full max-w-[760px] xl:max-w-[880px] opacity-80 mix-blend-multiply object-contain"
+
+Important:
+The image should feel like a delicate technical drawing printed into the page, not like a normal picture pasted on top.
+
+After implementation, test:
+- Desktop hero layout
+- Tablet layout
+- Mobile layout
+- No horizontal scroll
+- Text remains readable
+- Header still works
