@@ -2,6 +2,6 @@
 type ModuleMap = Record<string, () => Promise<Record<string, unknown>>>;
 export const modules: ModuleMap = {
   "./components/mockups/playa-teams-manuscript/Page.tsx": () => import("../components/mockups/playa-teams-manuscript/Page.tsx"),
-  "./components/mockups/playa-teams-sunprint/Page.tsx": () => import("../components/mockups/playa-teams-sunprint/Page.tsx"),
-  "./components/mockups/playa-teams-night/Page.tsx": () => import("../components/mockups/playa-teams-night/Page.tsx")
+  "./components/mockups/playa-teams-night/Page.tsx": () => import("../components/mockups/playa-teams-night/Page.tsx"),
+  "./components/mockups/playa-teams-sunprint/Page.tsx": () => import("../components/mockups/playa-teams-sunprint/Page.tsx")
 };
