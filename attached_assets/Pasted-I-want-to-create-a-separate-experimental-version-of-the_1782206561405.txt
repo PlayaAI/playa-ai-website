@@ -1,0 +1,96 @@
+I want to create a separate experimental version of the Playa AI website based on the attached reports, but do not follow the reports blindly.
+
+Goal:
+Make the website feel more production-ready, credible, and clear while preserving the current design direction, tone, typography, layout, and artistic identity. The client likes the current site. This is not a full redesign, not a SaaS-style revamp, and not a corporate rewrite.
+
+Use the attached reports only as strategic guidance. Filter the recommendations carefully. Keep only changes that improve launch-readiness, clarity, trust, and proof without damaging the existing Playa AI voice.
+
+Important:
+
+* Do not redesign the whole site.
+* Do not change the visual identity.
+* Do not replace the current poetic/editorial style with generic startup copy.
+* Do not add a large number of new sections.
+* Do not rewrite every section.
+* Do not make the site feel corporate, bland, or over-explained.
+* Do not blindly implement every recommendation from the reports.
+* Preserve the current soul: poetic, cultural, human, premium, minimal, editorial.
+
+What to improve:
+
+1. Clarify what Playa AI is in plain English near the top.
+2. Keep the strong emotional language, but reduce vague or overly mystical language where it hurts understanding.
+3. Make the site feel more production-ready by adding light proof, clearer CTAs, and stronger section intent.
+4. Add credibility without overloading the design.
+5. Make the homepage and supporting pages feel more connected.
+6. Make Events, Team, and Work function as proof pages, not just abstract brand pages.
+
+Homepage guidance:
+
+* Preserve the current hero feeling and visual style.
+* Add or refine a short plain-English definition near the hero.
+* Do not remove the strong existing cultural line unless there is a better subtle version.
+* Improve clarity around what Playa AI does:
+  “We convene. We build. We fund. We publish.”
+* If adding this, make it feel native to the current layout, not like a new corporate module.
+* Add lightweight trust/proof only if it fits: fiscal sponsorship, current initiatives, events, tools, privacy framework, Connect app, and community gatherings.
+* Do not create a huge new homepage.
+
+Suggested positioning to use carefully:
+“Playa AI is a nonprofit initiative building cultural, ethical, and technical infrastructure for human-centered AI.”
+
+This can be adapted to match the site’s tone.
+
+Supporting pages guidance:
+Events, Team, and Work should become the evidence layer of the site.
+
+Events page:
+
+* Make Events feel like live laboratories for human-centered AI culture, not just a calendar.
+* Add clearer metadata where available: date, city, format, status, purpose, outcome.
+* Add or improve CTAs like “Attend an event” or “Host / partner on a gathering.”
+* Do not invent fake events, numbers, partners, or outcomes.
+
+Team page:
+
+* Make Team prove trust and responsibility.
+* If team data exists, add light structure: role, area of ownership, short credibility line.
+* Do not fabricate credentials, advisors, or governance bodies.
+* Keep the page elegant and minimal.
+
+Work page:
+
+* Make Work prove what is being built.
+* Add clearer project structure where content already exists: title, status, owner if known, output/artifact if known, CTA.
+* Emphasize practical initiatives: Connect, Privacy Toolkit, events, governance, AI experiments, community tools.
+* Do not invent technical artifacts or prototypes that are not already represented in the code/content.
+
+Copywriting rules:
+
+* Clear first, poetic second.
+* Keep the Playa AI soul.
+* Replace only copy that is vague, repetitive, or blocks understanding.
+* Avoid phrases that sound too mystical, elitist, or self-important.
+* Avoid generic AI/startup language.
+* Use concrete language around consent, creativity, participation, community, privacy, governance, and human agency.
+
+Production-ready checklist:
+
+* Fix broken or misleading CTAs.
+* Ensure all internal links work.
+* Ensure the homepage, events, team, and work pages have consistent navigation.
+* Check mobile layout carefully.
+* Check repeated/duplicated content if any.
+* Keep accessibility in mind: readable text, meaningful links, no unnecessary duplicated markup.
+* Do not publish. Create the version for side-by-side review.
+
+Before implementing:
+First inspect the current files and propose a small, targeted change plan. The plan should separate:
+
+1. Safe copy refinements
+2. Small structural improvements
+3. Link/CTA fixes
+4. Proof/credibility additions
+5. Things from the reports that should NOT be implemented now
+
+After I approve the plan, then implement only the approved changes.

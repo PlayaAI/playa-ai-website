@@ -1,0 +1,246 @@
+Create a separate experimental version called:
+
+Playa AI v2 — Targeted Production-Ready Improvements
+
+Goal:
+Make the existing Playa AI site feel more production-ready, credible, and clear without redesigning it. The client likes the current visual identity, editorial tone, typography, layout, and poetic/cultural voice. Do not revamp the site. Do not blindly follow the attached critique reports. Use them only as filtered strategic guidance.
+
+This task is a targeted refinement across Home, Events, Team, and Work.
+
+Relevant files:
+
+* artifacts/playa-ai/src/pages/Home.tsx
+* artifacts/playa-ai/src/pages/Events.tsx
+* artifacts/playa-ai/src/pages/Team.tsx
+* artifacts/playa-ai/src/pages/Work.tsx
+* artifacts/playa-ai/src/components/SiteHeader.tsx
+* artifacts/playa-ai/src/components/SiteFooter.tsx
+
+Done looks like:
+
+* A visitor understands what Playa AI does within the first screenful.
+* The Events page feels like a field record of experiments, not just a calendar.
+* The Events page closing CTA works correctly.
+* The Team page no longer shows Tina Woods in two conflicting roles.
+* Leadership cards have light, honest credibility lines.
+* The Team page has a minimal closing CTA.
+* The Work page has a clear contributor CTA.
+* EELP and Data Trust appear clearly as named work initiatives.
+* Internal anchor links work.
+* Mobile layout is checked.
+* No visual identity changes are introduced.
+
+Strict out of scope:
+
+* Do not rewrite the hero headline.
+* Do not remove “Born on the Playa. Gifted to the Planet.”
+* Do not make the site corporate, SaaS-like, or generic.
+* Do not add a full new homepage “Current Initiatives” section.
+* Do not add advisors, governance bodies, councils, fake partners, fake outcomes, fake numbers, or fake credentials.
+* Do not implement deep cross-linking between Events, Team, and Work.
+* Do not use the Eric Schmidt / Sam Altman / Marian Goodell framing anywhere.
+* Do not change colors, typography, layout system, spacing system, or visual identity.
+* Do not fabricate event outcomes, attendee counts, advisors, collaborators, or partner names.
+
+Implement these exact changes:
+
+1. Home.tsx — hero clarity line
+
+Add this crystallizing line between the existing hero/body paragraphs and the hero CTA buttons:
+
+“We convene. We build. We fund. We publish.”
+
+Style it natively using the existing small mono uppercase style already used in the site:
+font-mono text-[11px] uppercase tracking-widest
+
+It should feel like an existing editorial element, not a new module.
+
+2. Home.tsx — fiscal sponsorship line near hero
+
+Add one discreet credibility line directly below the hero CTA buttons:
+
+“A philanthropic program fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.”
+
+Style:
+font-mono text-[11px] tracking-widest text-muted-foreground
+
+Use the same understated style as the existing sub-hero ticker. Do not add it if the hero becomes visually crowded.
+
+3. Home.tsx — verify anchors
+
+Audit the hero button “Become a Founding Adopter” linking to #standard.
+
+If no element with id="standard" exists, add id="standard" to the Year-One Spine workstream item for:
+“The Standard / EELP draft framework”
+
+Also verify the #fund anchor for “Fund Year One” exists and scrolls to the intended audience/funders section. Add or correct the id only if needed.
+
+4. Events.tsx — intro copy refinement
+
+Find the Events intro paragraph that uses “curated containers for builders, founders, researchers…”
+
+Replace only the “containers” framing so it feels more like live laboratories for human-centered AI culture.
+
+Do not rewrite the page headline. Keep the spirit and tone.
+
+5. Events.tsx — 2025 archive outcome note
+
+Add a light outcome note to the 2025 archive intro:
+
+“These early gatherings — Dubai, Detroit, Lisbon — established Playa AI’s field pattern and generated the questions that now shape the EELP framework and Connect protocol.”
+
+Only add this if those locations and concepts are already present in the page/content. Do not invent new claims.
+
+6. Events.tsx — closing CTA fix
+
+The closing CTA currently says:
+“Share the next event →”
+
+And links incorrectly to:
+/#fund
+
+Change button text to:
+“Propose or partner on a gathering →”
+
+Change link to:
+mailto:hello@playa-ai.org?subject=Events — Propose or Partner
+
+Keep the existing button style.
+
+7. Events.tsx — closing headline refinement
+
+Replace:
+“Next, we turn the archive into a living calendar.”
+
+With:
+“The archive grows. The next room is already forming.”
+
+Keep the existing CTA adjacent.
+
+8. Events.tsx — Luma link accessibility
+
+Each event card has a “View on Luma →” link.
+
+Add an aria-label that includes the event title, for example:
+aria-label={`View ${event.title} on Luma (opens in new tab)`}
+
+Do not visually change the cards.
+
+9. Team.tsx — fix Tina Woods duplication
+
+Tina Woods currently appears in both LEADERSHIP and COUNCIL.
+
+She should appear in LEADERSHIP only.
+
+Move her full three-paragraph bio from the COUNCIL entry into her LEADERSHIP card as a bio field.
+
+Remove Tina Woods from the COUNCIL array entirely.
+
+Do not change her entry in the radial SVG map.
+
+10. Team.tsx — add light credibility lines to leadership cards
+
+For the leadership cards for Tina Woods, Rebecca Nelson, and Raed Marji, add one short credibility sentence each.
+
+Rules:
+
+* Use only information already present in the codebase.
+* Do not fabricate credentials.
+* Tina’s credibility can come from her existing council bio.
+* Rebecca and Raed do not have existing bios, so keep them role-based and honest.
+
+Acceptable examples:
+Rebecca Nelson:
+“Building the community and communication layer of the foundation.”
+
+Raed Marji:
+“Engineering, operations, and program infrastructure.”
+
+11. Team.tsx — remove emoji decoration
+
+Remove the line:
+🔥 (\O/) 🤖
+
+It does not fit the premium editorial tone.
+
+12. Team.tsx — add leadership intro paragraph
+
+In the leadership section, add 1–2 sentences under the existing section label/tagline:
+
+“Playa AI is built and led by a cross-disciplinary team connecting AI, culture, community, and governance. This is the operational core.”
+
+Keep the existing layout and visual style.
+
+13. Team.tsx — add closing CTA section
+
+Add a minimal CTA block between the closing quote and the footer.
+
+Text:
+“Bring your expertise to the work.”
+
+CTA:
+“Join the working group →”
+
+Link:
+mailto:hello@playa-ai.org?subject=Working Group Interest
+
+Use the same visual pattern as existing CTA sections on the homepage:
+bordered block, mono label, serif heading, mailto CTA.
+
+14. Work.tsx — improve closing contributor CTA
+
+Read the Work page closing section after the OPEN_QUESTIONS grid.
+
+Ensure there is a clear working CTA for contributors.
+
+If the CTA is vague or missing, improve it to explicitly invite builders, researchers, and artists.
+
+CTA link:
+mailto:hello@playa-ai.org?subject=Work Collaboration
+
+Match the existing button style.
+
+15. Work.tsx — add EELP and Data Trust workstream cards
+
+Add two new WORKSTREAM entries using content strictly derived from the existing Home.tsx Year-One Spine descriptions.
+
+Entry 1:
+Title:
+EELP — Ethical Experience Lab Protocol
+
+Description:
+Open standard for consent, disclosure, data minimization, and human override in AI-mediated experiences.
+
+Status:
+Draft / Active
+
+CTA:
+mailto:hello@playa-ai.org?subject=EELP Brief Request
+
+Entry 2:
+Title:
+Consent-First Data Trust
+
+Description:
+Governance model for participant control over stories, data, and identity.
+
+Status:
+Design / Pre-pilot
+
+CTA:
+mailto:hello@playa-ai.org?subject=Data Trust Inquiry
+
+Do not add claims beyond what already exists in Home.tsx.
+
+QA before finishing:
+
+* Confirm there are no TypeScript errors.
+* Confirm all internal anchors work: #standard and #fund.
+* Confirm Events closing CTA no longer links to /#fund.
+* Confirm Team no longer duplicates Tina Woods.
+* Confirm Tina remains in the radial SVG map.
+* Confirm all new mailto links work.
+* Confirm View on Luma links have meaningful aria-labels.
+* Confirm mobile layout still looks clean.
+* Confirm visual identity, typography, spacing, colors, and layout remain unchanged.
+* Do not publish. This is for side-by-side review first.
