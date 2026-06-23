@@ -689,8 +689,16 @@ export default function Home() {
                     later.
                   </p>
                   <p className="mt-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                    Status — in design
+                    Status — released
                   </p>
+                  <a
+                    href="https://connect.playai.party"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                  >
+                    Open Connect →
+                  </a>
                 </div>
 
                 <div>
@@ -812,10 +820,10 @@ export default function Home() {
 
             <div className="lg:col-span-3 flex lg:items-end">
               <a
-                href="/community"
+                href="/events"
                 className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors inline-block h-fit"
               >
-                Join the next call →
+                View events →
               </a>
             </div>
           </motion.div>
@@ -884,10 +892,10 @@ export default function Home() {
 
             <div className="lg:col-span-3 flex lg:items-end">
               <a
-                href="/contact?topic=eelp"
+                href="/privacy-toolkit"
                 className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors inline-block h-fit"
               >
-                Request the EELP brief →
+                View Privacy Toolkit →
               </a>
             </div>
           </motion.div>
