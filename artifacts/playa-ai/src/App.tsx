@@ -3,6 +3,7 @@ import Home from "@/pages/Home";
 import Events from "@/pages/Events";
 import Teams from "@/pages/Team";
 import Work from "@/pages/Work";
+import PrivacyToolkit from "@/pages/PrivacyToolkit";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/events" component={Events} />
         <Route path="/team" component={Teams} />
         <Route path="/work" component={Work} />
+        <Route path="/privacy-toolkit" component={PrivacyToolkit} />
         <Route>
           <Home />
         </Route>
