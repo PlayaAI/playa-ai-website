@@ -1,0 +1,61 @@
+We need a small production-safe website update for Playa AI. Alex provided a JSON export and said the EELP content is inside it. Do not import or expose the whole JSON publicly.
+
+Goal:
+Create a clean public-facing EELP page/brief from only the EELP-relevant content in the JSON, then connect the homepage EELP CTA to that page.
+
+Important:
+
+* Do not publish internal workspace data, agent names, task IDs, private comments, operational notes, emails, fundraising pipeline details, or anything that looks internal.
+* Use the JSON only as source material.
+* Extract only public-safe EELP content: definition, purpose, status, consent principles, data minimization, human override, community accountability, participant control, deletion rights, and relationship to the Privacy Toolkit/Data Trust.
+* Keep the existing Playa AI visual style. No redesign or revamp.
+* Do not change unrelated sections.
+* Do not touch backend, database, auth, secrets, deployment config, or unrelated files.
+
+Homepage change:
+Find the homepage Govern / EELP / Privacy Toolkit section.
+Currently EELP appears as “EELP — the Ethical Experience Lab Protocol” and the CTA may point to contact or the wrong destination.
+Update the CTA so it points to the new EELP page/brief, for example:
+href="/eelp"
+CTA text: “READ THE EELP BRIEF →” or “VIEW EELP →”
+
+New page:
+Create a route/page such as:
+`/eelp`
+
+The page should include:
+
+1. Page title: “EELP — the Ethical Experience Lab Protocol”
+2. Short intro explaining that EELP is an open standard for consent, disclosure, data minimization, human override, and community accountability in AI-mediated experiences.
+3. A clear status label: “Draft framework in active development” unless the JSON clearly says something newer.
+4. A section explaining the core principles:
+
+   * Consent first
+   * Disclosure
+   * Data minimization
+   * Participant control
+   * Human override
+   * Community accountability
+   * Deletion rights
+5. A section explaining how Privacy Toolkit / Data Trust relates to EELP.
+6. A simple CTA at the bottom:
+   “Contact us about EELP” linking to `mailto:hello@playa-ai.org?subject=EELP Brief Request` or the existing contact route if that is the site pattern.
+
+Rules:
+
+* Do not claim EELP is finalized, certified, legally approved, or adopted unless the JSON explicitly proves that.
+* Do not add legal claims.
+* Do not add policy/news claims unless already public-facing and safe.
+* Keep language sober, precise, and production-ready.
+* If any EELP content in the JSON seems internal, summarize it safely instead of copying it directly.
+
+After making changes, give me a report with:
+
+1. Files changed
+2. New route/page created
+3. Homepage CTA old text/link
+4. Homepage CTA new text/link
+5. What EELP content was extracted from the JSON
+6. What content was intentionally excluded as internal/private
+7. Confirmation that no unrelated changes were made
+8. Any warnings before I apply changes

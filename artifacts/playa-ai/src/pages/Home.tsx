@@ -874,6 +874,12 @@ export default function Home() {
                     experiences. Written to be adopted without a legal team.
                     Draft framework in active development.
                   </p>
+                  <a
+                    href="/eelp"
+                    className="mt-3 inline-block font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                  >
+                    View EELP →
+                  </a>
                 </div>
 
                 <div>
