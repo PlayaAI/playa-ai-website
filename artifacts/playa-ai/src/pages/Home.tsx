@@ -179,6 +179,12 @@ function ManifestoDrawer({
   open: boolean;
   onClose: () => void;
 }) {
+  const [fullOpen, setFullOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) setFullOpen(false);
+  }, [open]);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -218,6 +224,67 @@ function ManifestoDrawer({
     .trim();
 
   const blocks = formatManifestoBlocks(remainingText);
+
+  const thousandIndex = blocks.findIndex((block) =>
+    block.text.toLowerCase().includes("in 1000 words"),
+  );
+  const previewBlocks =
+    thousandIndex >= 0 ? blocks.slice(0, thousandIndex) : blocks;
+  const fullBlocks =
+    thousandIndex >= 0 ? blocks.slice(thousandIndex) : [];
+
+  type Block = ReturnType<typeof formatManifestoBlocks>[number];
+
+  function renderBlock(
+    block: Block,
+    i: number,
+    siblings: Block[],
+    insideAccordion: boolean,
+  ) {
+    if (block.type === "heading" || block.type === "title") {
+      return (
+        <h3
+          key={block.id}
+          className={`w-full text-left font-serif leading-none tracking-tight text-accent-gold ${
+            insideAccordion
+              ? "pt-8 text-2xl md:text-3xl"
+              : "pt-10 text-2xl md:text-3xl"
+          }`}
+        >
+          {block.text.split("\n").map((line, li) => (
+            <React.Fragment key={`${block.id}-${li}`}>
+              {line}
+              {li < block.text.split("\n").length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </h3>
+      );
+    }
+    const prevBlock = i > 0 ? siblings[i - 1] : null;
+    const is100WordsParagraph =
+      !insideAccordion &&
+      prevBlock != null &&
+      prevBlock.text.toLowerCase().includes("in 100 words");
+    return (
+      <p
+        key={block.id}
+        className={
+          is100WordsParagraph
+            ? "max-w-[760px] text-left font-serif text-2xl md:text-4xl leading-[1.05] tracking-tight text-accent-gold"
+            : "max-w-[62ch] text-left text-base md:text-lg leading-relaxed text-muted-foreground"
+        }
+      >
+        {block.text.split("\n").map((line, li) => (
+          <React.Fragment key={`${block.id}-${li}`}>
+            {line}
+            {li < block.text.split("\n").length - 1 && <br />}
+          </React.Fragment>
+        ))}
+      </p>
+    );
+  }
+
+  const accordionContent = fullBlocks.slice(1);
 
   return (
     <AnimatePresence>
@@ -279,42 +346,56 @@ function ManifestoDrawer({
                   </p>
 
                   <div className="pt-8 space-y-6">
-                    {blocks.map((block) => {
-                      if (block.type === "heading" || block.type === "title") {
-                        return (
-                          <h3
-                            key={block.id}
-                            className="w-full max-w-none pt-10 text-left font-serif text-2xl leading-none tracking-tight text-accent-gold md:text-3xl"
-                          >
-                            {block.text.split("\n").map((line, index) => (
-                              <React.Fragment key={`${block.id}-${index}`}>
-                                {line}
-                                {index < block.text.split("\n").length - 1 && (
-                                  <br />
-                                )}
-                              </React.Fragment>
-                            ))}
-                          </h3>
-                        );
-                      }
-
-                      return (
-                        <p
-                          key={block.id}
-                          className="max-w-[62ch] text-left text-lg leading-relaxed text-muted-foreground md:text-xl"
-                        >
-                          {block.text.split("\n").map((line, index) => (
-                            <React.Fragment key={`${block.id}-${index}`}>
-                              {line}
-                              {index < block.text.split("\n").length - 1 && (
-                                <br />
-                              )}
-                            </React.Fragment>
-                          ))}
-                        </p>
-                      );
-                    })}
+                    {previewBlocks.map((block, i) =>
+                      renderBlock(block, i, previewBlocks, false),
+                    )}
                   </div>
+
+                  {fullBlocks.length > 0 && (
+                    <div className="mt-12 w-full border-y border-border">
+                      <button
+                        type="button"
+                        onClick={() => setFullOpen((v) => !v)}
+                        aria-expanded={fullOpen}
+                        aria-controls="manifesto-full-text"
+                        className="w-full py-6 flex items-center justify-between gap-6 text-left"
+                      >
+                        <div>
+                          <div className="font-mono text-xs uppercase tracking-widest text-accent-gold mb-2">
+                            In 1000 words
+                          </div>
+                          <div className="font-serif text-2xl md:text-3xl leading-none text-foreground">
+                            Read the full manifesto
+                          </div>
+                        </div>
+                        <div className="shrink-0 h-10 w-10 border border-foreground flex items-center justify-center font-mono text-lg select-none">
+                          {fullOpen ? "–" : "+"}
+                        </div>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {fullOpen && (
+                          <motion.div
+                            id="manifesto-full-text"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{
+                              duration: 0.35,
+                              ease: [0.22, 1, 0.36, 1] as const,
+                            }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pb-10 pt-2 space-y-6">
+                              {accordionContent.map((block, i) =>
+                                renderBlock(block, i, accordionContent, true),
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
