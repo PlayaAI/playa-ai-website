@@ -398,6 +398,38 @@ const WORKSTREAMS: Workstream[] = [
   },
   {
     n: "06",
+    category: "Protocol / Open Standard",
+    status: "Draft / Active",
+    need: "Consent, disclosure, and accountability",
+    title: "EELP — Ethical Experience Lab Protocol",
+    subtitle: "",
+    pull: "An open standard for consent, disclosure, data minimization, and human override in AI-mediated experiences.",
+    body: "EELP is an open standard for consent, disclosure, data minimization, human override, and community accountability in AI-mediated experiences. Written to be adopted without a legal team. The draft framework is in active development.",
+    aiRole: "AI is a participant in the experiences EELP governs — the protocol defines the conditions under which AI involvement is disclosed, consented to, and overrideable by people in the room.",
+    consent: "Radical consent is the foundation of EELP: participation is opt-in, revocable, and understandable — with human override built in by design, not bolted on after.",
+    evidence: "Derived from field experiments across Connect, Ikigai, and Burning Man community gatherings. Draft framework in active development.",
+    people: "Alex Azzi",
+    cta: "Request the EELP brief →",
+    href: "mailto:hello@playa-ai.org?subject=EELP Brief Request",
+  },
+  {
+    n: "07",
+    category: "Govern",
+    status: "Design / Pre-pilot",
+    need: "Data sovereignty and identity control",
+    title: "Consent-First Data Trust",
+    subtitle: "",
+    pull: "A governance model for participant control over stories, data, and identity.",
+    body: "The Data Trust is a governance model giving participants control over how their stories, data, identity, and permissions are used, stored, or deleted — being designed before sensitive data is collected rather than bolted on after.",
+    aiRole: "AI systems operating under the Data Trust are required to operate within participant-defined permissions. Identity and story data is governed by the participant, not the platform.",
+    consent: "Data sovereignty is the design principle: participants choose what is stored, for how long, and can request deletion. The trust is designed to protect people before sensitive data enters the system.",
+    evidence: "Currently in governance design phase. Derived from the yearOneSpine framework and applied as a privacy layer to Connect Protocol and EELP.",
+    people: "Alex Azzi",
+    cta: "Contact us about the Data Trust →",
+    href: "mailto:hello@playa-ai.org?subject=Data Trust Inquiry",
+  },
+  {
+    n: "08",
     category: "Govern",
     status: "Published / Living Document",
     need: "A shared moral compass",
@@ -668,7 +700,7 @@ export default function Work() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
             <div className="lg:col-span-6">
               <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
-                Six workstreams.{" "}
+                Eight workstreams.{" "}
                 <i className="italic font-normal text-accent-gold">
                   One public-interest system.
                 </i>
@@ -686,7 +718,7 @@ export default function Work() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 hairline-t border-border divide-x divide-border">
             {[
-              { value: "6", label: "Active workstreams" },
+              { value: "8", label: "Active workstreams" },
               { value: "3", label: "Modes: tools, research, protocols" },
               {
                 value: "80+",
@@ -956,7 +988,8 @@ export default function Work() {
           >
             We are looking for builders, researchers, artists, privacy experts,
             camp leads, funders, and institutions willing to help turn early
-            work into public-interest infrastructure.
+            work into public-interest infrastructure. If you want to contribute
+            directly — join a workstream, share a method, or propose a collaboration.
           </motion.p>
 
           <motion.div
@@ -964,10 +997,10 @@ export default function Work() {
             className="flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase"
           >
             <a
-              href="mailto:hello@playa-ai.org?subject=Join a Playa AI Pilot"
+              href="mailto:hello@playa-ai.org?subject=Work Collaboration"
               className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
             >
-              Join a pilot →
+              Collaborate on the work →
             </a>
             <a
               href="mailto:hello@playa-ai.org?subject=Support Playa AI Work"

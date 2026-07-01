@@ -41,6 +41,12 @@ const LEADERSHIP = [
     title: "Head of Research",
     photo: tinaWoodsPortrait,
     lines: ["Research & Science."],
+    credibility: "Social entrepreneur, author, and system architect at the intersection of longevity science, AI, health policy, and data governance.",
+    bio: [
+      "Tina is a social entrepreneur, author, and system architect working at the intersection of longevity science, AI, health policy, and data governance. Founder & CEO of Collider Health and Business for Health, she builds cross-sector ecosystems focused on preventative health, healthy longevity, and responsible innovation — across the UK National Innovation Centre for Ageing, the International Institute of Longevity, the XPRIZE Global Visioneering Brain Trust, and the Global Exposome Forum.",
+      "Her book Live Longer with AI explores how artificial intelligence can extend healthspan and reshape preventative health — directly aligned with Playa AI's focus on human-centered governance. She co-founded Longevity Rave, weaving longevity, music, and intergenerational connection in a way that resonates naturally with Burning Man culture, and leads the JoyScore Experiment, a global open-science project measuring how human connection drives flourishing — using Playa AI's Connect app as its technology layer.",
+      "At Playa AI, she anchors the science and research dimension — connecting governance frameworks to health, longevity, data ethics, and the institutional communities needed to turn ideas into real-world adoption.",
+    ],
   },
   {
     n: "003",
@@ -50,6 +56,7 @@ const LEADERSHIP = [
     photo:
       "https://playaai.github.io/Playa-AI/team-page-assets/rebecca-nelson.jpg",
     lines: ["Community & Comms."],
+    credibility: "Building the community and communication layer of the foundation.",
   },
   {
     n: "004",
@@ -58,6 +65,7 @@ const LEADERSHIP = [
     title: "CTO",
     photo: "https://playaai.github.io/Playa-AI/team-page-assets/raed-marji.jpg",
     lines: ["Programs & Operations."],
+    credibility: "Engineering, operations, and program infrastructure.",
   },
 ];
 
@@ -80,18 +88,6 @@ type Council = {
 };
 
 const COUNCIL: Council[] = [
-  {
-    ref: "A·001",
-    first: "Tina",
-    last: "Woods",
-    role: "Science & Research Lead",
-    photo: tinaWoodsPortrait,
-    paragraphs: [
-      "Tina is a social entrepreneur, author, and system architect working at the intersection of longevity science, AI, health policy, and data governance. Founder & CEO of Collider Health and Business for Health, she builds cross-sector ecosystems focused on preventative health, healthy longevity, and responsible innovation — across the UK National Innovation Centre for Ageing, the International Institute of Longevity, the XPRIZE Global Visioneering Brain Trust, and the Global Exposome Forum.",
-      "Her book Live Longer with AI explores how artificial intelligence can extend healthspan and reshape preventative health — directly aligned with Playa AI's focus on human-centered governance. She co-founded Longevity Rave, weaving longevity, music, and intergenerational connection in a way that resonates naturally with Burning Man culture, and leads the JoyScore Experiment, a global open-science project measuring how human connection drives flourishing — using Playa AI's Connect app as its technology layer.",
-      "At Playa AI, she anchors the science and research dimension — connecting governance frameworks to health, longevity, data ethics, and the institutional communities needed to turn ideas into real-world adoption.",
-    ],
-  },
   {
     ref: "A·002",
     first: "Richard",
@@ -433,7 +429,7 @@ export default function Teams() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <SiteHeader
-        active="teams"
+        active="team"
         contextLine={
           <>
             <span>A field guide · Edition 01 · 2026</span>
@@ -474,11 +470,6 @@ export default function Teams() {
               <i className="italic font-normal text-accent-gold">playa</i>
             </motion.h1>
 
-            <div className="mt-12 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              <span>🔥</span>
-              <span>(\O/)</span>
-              <span>🤖</span>
-            </div>
           </div>
 
           {/* Radial council map */}
@@ -510,6 +501,9 @@ export default function Teams() {
               Operational core. Sets direction. Carries fiduciary duty.
             </div>
           </div>
+          <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mb-12 md:mb-16">
+            Playa AI is built and led by a cross-disciplinary team connecting AI, culture, community, and governance. This is the operational core.
+          </p>
 
           {/* Founder hero row */}
           {(() => {
@@ -598,6 +592,20 @@ export default function Teams() {
                     <li key={i}>{l}</li>
                   ))}
                 </ul>
+                {(m as any).credibility && (
+                  <p className="font-mono text-[11px] tracking-widest text-muted-foreground mt-4 max-w-[26ch] leading-relaxed">
+                    {(m as any).credibility}
+                  </p>
+                )}
+                {(m as any).bio && (
+                  <div className="mt-6 space-y-3 text-left">
+                    {((m as any).bio as string[]).map((p: string, i: number) => (
+                      <p key={i} className="text-sm leading-relaxed text-muted-foreground">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             ))}
           </motion.div>
@@ -709,6 +717,26 @@ export default function Teams() {
           </blockquote>
           <div className="mt-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
             — Founding principle, Playa AI Foundation
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="hairline-b border-border">
+        <div className="max-w-[1400px] mx-auto px-4 py-16 md:py-24">
+          <div className="border border-border p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div>
+              <MonoLabel className="mb-4">Get involved</MonoLabel>
+              <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+                Bring your expertise to the work.
+              </h2>
+            </div>
+            <a
+              href="mailto:hello@playa-ai.org?subject=Working Group Interest"
+              className="shrink-0 inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
+            >
+              Join the working group →
+            </a>
           </div>
         </div>
       </section>

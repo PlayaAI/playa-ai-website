@@ -186,6 +186,7 @@ function EventBlock({ e, index }: { e: EventCard; index: number }) {
             href={e.luma}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View ${e.title} on Luma (opens in new tab)`}
             className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
             data-testid={`link-luma-${index}`}
           >
@@ -235,7 +236,7 @@ export default function Events() {
           variants={fadeInUp}
           className="text-base md:text-lg leading-relaxed max-w-2xl text-foreground"
         >
-          Playa AI events are curated containers for builders, founders, researchers, artists, and operators exploring human-AI co-evolution with intention. The archive below uses the real public descriptions from the Luma pages.
+          Playa AI events are live laboratories for builders, founders, researchers, artists, and operators exploring human-AI co-evolution with intention. The archive below uses the real public descriptions from the Luma pages.
         </motion.p>
       </section>
 
@@ -287,8 +288,11 @@ export default function Events() {
         <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-8 max-w-4xl">
           From Dubai beach circles to Detroit nuclei to Lisbon launch.
         </h2>
-        <p className="text-lg md:text-xl leading-relaxed max-w-2xl text-muted-foreground mb-16 md:mb-24">
+        <p className="text-lg md:text-xl leading-relaxed max-w-2xl text-muted-foreground mb-8">
           These gatherings show the Foundation's field pattern: curated rooms, real human stakes, and AI discussed through practice rather than spectacle.
+        </p>
+        <p className="text-lg md:text-xl leading-relaxed max-w-2xl text-muted-foreground mb-16 md:mb-24">
+          These early gatherings — Dubai, Detroit, Lisbon — established Playa AI's field pattern and generated the questions that now shape the EELP framework and Connect protocol.
         </p>
 
         <motion.div
@@ -338,14 +342,14 @@ export default function Events() {
       {/* Closing */}
       <section className="px-4 max-w-[1400px] mx-auto pt-24 md:pt-40 pb-24 md:pb-32 hairline-t border-border mt-16">
         <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl leading-[0.95] tracking-tight mb-12 max-w-5xl">
-          Next, we turn the archive into a <i className="italic font-normal">living calendar</i>.
+          The archive grows. <i className="italic font-normal">The next room is already forming.</i>
         </h2>
         <a
-          href="/#fund"
+          href="mailto:hello@playa-ai.org?subject=Events — Propose or Partner"
           className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
           data-testid="link-share-event"
         >
-          Share the next event →
+          Propose or partner on a gathering →
         </a>
       </section>
 

@@ -5,6 +5,10 @@ import Teams from "@/pages/Team";
 import Work from "@/pages/Work";
 import PrivacyToolkit from "@/pages/PrivacyToolkit";
 import EELPPage from "@/pages/EELP";
+import HomeClassic from "@/pages/HomeClassic";
+import EventsClassic from "@/pages/EventsClassic";
+import TeamClassic from "@/pages/TeamClassic";
+import WorkClassic from "@/pages/WorkClassic";
 
 function App() {
   return (
@@ -16,6 +20,10 @@ function App() {
         <Route path="/work" component={Work} />
         <Route path="/privacy-toolkit" component={PrivacyToolkit} />
         <Route path="/eelp" component={EELPPage} />
+        <Route path="/classic" component={HomeClassic} />
+        <Route path="/classic/events" component={EventsClassic} />
+        <Route path="/classic/team" component={TeamClassic} />
+        <Route path="/classic/work" component={WorkClassic} />
         <Route>
           <Home />
         </Route>

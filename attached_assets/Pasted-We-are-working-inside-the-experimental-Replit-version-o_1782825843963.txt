@@ -1,0 +1,177 @@
+We are working inside the experimental Replit version only.
+
+You are allowed to make meaningful changes here because this is not the main production version. The purpose of this experimental version is to create a stronger alternate homepage that I can compare against the main site and show to the client.
+
+Do not be overly conservative this time.
+
+Important:
+- You may significantly improve the experimental homepage.
+- You may add new sections.
+- You may rewrite copy.
+- You may restructure the homepage.
+- You may improve CTAs.
+- You may make the homepage clearer, more credible, and more production-ready.
+- Keep the existing Playa AI visual identity: editorial, premium, poetic, minimal, desert-toned, serif typography, mono labels, hairline borders.
+- Do not make it SaaS.
+- Do not make it corporate.
+- Do not use generic startup design.
+- Do not invent fake claims, fake partners, fake numbers, fake advisors, or fake launches.
+
+The experimental version should be clearly different from the main homepage, so the client can compare them side by side.
+
+Create a real experimental upgraded homepage, not just small polish edits.
+
+Main goal:
+Make the homepage explain clearly:
+1. What Playa AI is.
+2. Why it matters now.
+3. What it does.
+4. What is being built.
+5. What proof exists.
+6. Who should join.
+7. Why people should trust it.
+
+Use the reports as strategic guidance, but preserve the Playa AI soul.
+
+Build the experimental homepage with this structure:
+
+1. Hero
+Headline:
+The next era of AI needs more than intelligence.
+It needs culture.
+
+Subheadline:
+Playa AI is a nonprofit initiative building cultural, ethical, and technical infrastructure for human-centered AI — bringing together builders, artists, researchers, funders, and community stewards to shape AI around creativity, consent, participation, and human flourishing.
+
+Keep this line:
+Born on the Playa. Gifted to the planet.
+
+Add:
+WE CONVENE. WE BUILD. WE FUND. WE PUBLISH.
+
+CTAs:
+Join the initiative
+Explore the work
+Read the Manifesto
+
+Add fiscal sponsorship line:
+A philanthropic program fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.
+
+2. Thesis
+Headline:
+AI is becoming part of human culture.
+
+Explain that AI is shaping how people create, remember, decide, relate, and imagine — and culture must help shape AI.
+
+3. Operating Model
+Headline:
+We convene. We build. We fund. We publish.
+
+Create four editorial cards:
+Convene
+Build
+Fund
+Publish
+
+4. Current Initiatives
+Headline:
+What is being built now.
+
+Include:
+Connect App
+Privacy Toolkit
+EELP — Ethical Experience Lab Protocol
+Human Connection Research
+Agent Labs / OpenClaw Hatchathons
+
+Each should have:
+- title
+- one-line explanation
+- status
+- CTA
+
+5. Why the Playa
+Headline:
+The Playa is a prototype for another kind of civilization.
+
+Explain participation, gifting, creativity, civic responsibility, self-reliance, and leaving no trace.
+
+Add non-affiliation note:
+Inspired by the culture and principles of the Playa community. Independent of Burning Man Organization.
+
+6. Principles Into Systems
+Headline:
+Culture becomes design when it changes what the system allows.
+
+Translate:
+Radical Inclusion
+Gifting
+Decommodification
+Participation
+Leaving No Trace
+
+into AI design principles.
+
+7. Proof of Momentum
+Headline:
+Already in motion.
+
+Use only confirmed proof from the current site:
+Events
+Tools
+Governance
+Community
+
+Link to:
+Events
+Work
+Team
+
+8. Participation Paths
+Headline:
+This is for the people shaping what AI becomes.
+
+Cards:
+Builders
+Artists
+Researchers
+Funders
+Cultural Stewards
+Institutions
+
+9. Trust Layer
+Headline:
+Built with responsibility from the beginning.
+
+Include:
+Fiscal sponsorship
+Consent-first design
+Data minimization
+Human override
+Public learning
+
+10. Final CTA
+Headline:
+Will you help shape AI with human depth?
+
+Buttons:
+Join the initiative
+Partner with us
+Read the Manifesto
+
+Important implementation:
+- This is experimental, so it can be meaningfully different from the main homepage.
+- Keep the site beautiful.
+- Keep the spacing clean.
+- Keep mobile responsive.
+- Use the same SiteHeader, SiteFooter, MonoLabel, motion patterns, colors, fonts, and border style.
+- No fake metrics.
+- No fake logos.
+- No random images.
+- No external dependencies.
+- Make sure it compiles.
+
+After you finish, give me:
+1. What changed.
+2. Why it is different from the main version.
+3. What the client should compare.

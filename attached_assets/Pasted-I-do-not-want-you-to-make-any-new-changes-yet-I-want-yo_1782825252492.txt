@@ -1,0 +1,162 @@
+I do not want you to make any new changes yet.
+
+I want you to audit and report exactly what you changed compared to the Main homepage version right now.
+
+Context:
+Earlier, I gave you two critique reports and asked you to create a separate experimental version of the Playa AI website. The goal was to make the site more production-ready, credible, and clear while preserving the existing design, tone, typography, layout, and artistic identity.
+
+Now I want a clear report of what you actually changed.
+
+Please inspect the current code and compare it against the previous version / original version if available in history.
+
+Focus especially on:
+- Home.tsx
+- Events.tsx
+- Team.tsx
+- Work.tsx
+- SiteHeader.tsx
+- App.tsx
+- any shared components you edited
+
+Do not edit anything.
+Do not refactor anything.
+Do not fix anything.
+Only give me a written audit.
+
+Please structure your answer like this:
+
+1. Summary of changes
+
+Give me a short overview of what changed across the site.
+
+2. Homepage changes
+
+For Home.tsx, list every meaningful change you made.
+
+Separate them into:
+
+A. Copy changes
+- What wording was changed?
+- What wording was removed?
+- What wording was added?
+- Why was it changed?
+
+B. Structure changes
+- Were sections added, removed, reordered, renamed, or simplified?
+- Were CTAs changed?
+- Were links changed?
+- Was the hero changed?
+- Was the manifesto behavior changed?
+
+C. Design/layout changes
+- Did you change spacing, type size, max width, section padding, borders, colors, or layout?
+- Did the homepage visually change or only wording?
+
+D. Credibility/proof changes
+- Did you add fiscal sponsorship language?
+- Did you add proof of momentum?
+- Did you add initiative details?
+- Did you add clearer explanations of what Playa AI does?
+
+3. Before vs after copy comparison
+
+For the homepage, show a before/after table for every major copy change.
+
+Format:
+
+Original copy | New copy | Reason for change
+
+If the original copy is not available, say:
+“Original copy not available in current context.”
+
+Do not guess.
+
+4. Supporting page changes
+
+For Events.tsx, Team.tsx, and Work.tsx, explain what changed.
+
+Separate by page:
+
+Events:
+- Copy changes
+- Structure changes
+- CTA/link changes
+- Design/layout changes
+
+Team:
+- Copy changes
+- Structure changes
+- CTA/link changes
+- Design/layout changes
+
+Work:
+- Copy changes
+- Structure changes
+- CTA/link changes
+- Design/layout changes
+
+5. Navigation and routing changes
+
+Explain any changes made to:
+- SiteHeader.tsx
+- App.tsx
+- routes
+- active nav states
+- internal links
+- manifesto links
+- contact links
+
+6. Files changed
+
+List every file you edited.
+
+For each file, include:
+- file path
+- what changed
+- whether the change was copy, layout, routing, component behavior, or styling
+
+7. Report recommendations implemented
+
+From the reports, identify which recommendations you actually implemented.
+
+Use this table:
+
+Report recommendation | Implemented? Yes/No/Partial | Where implemented | Notes
+
+8. Report recommendations not implemented
+
+List the recommendations from the reports that you intentionally did NOT implement.
+
+Explain why, especially if they would have:
+- damaged the current style
+- made the site too corporate
+- required fake/invented content
+- required too many new sections
+- changed the visual identity too much
+
+9. Risk check
+
+Tell me honestly if any change may have:
+- made the homepage less poetic
+- made the site too corporate
+- changed the design too much
+- introduced broken links
+- introduced fake claims
+- made copy too long
+- created mobile layout issues
+- duplicated content
+- hurt accessibility
+
+10. Final verdict
+
+Give me a short honest answer:
+
+- Is this experimental version better than the original homepage?
+- Is it clearer?
+- Is it more credible?
+- Did it preserve the Playa AI soul?
+- What should I review manually before approving it?
+
+Again:
+Do not edit anything.
+Only audit and report.

@@ -1,0 +1,110 @@
+Create or update the `/privacy-toolkit` page for Playa AI.
+
+Important:
+This is a launch-safe content update, not a redesign. Keep the existing Playa AI visual identity, typography, spacing, editorial tone, and page structure. Do not make the page corporate or SaaS-like. Do not add a huge policy document. Create a concise, polished website page that introduces the Privacy Toolkit and gives visitors a clear understanding of what it is.
+
+Use the Claude/Privacy Framework material as source context, especially the idea that Part 4 is the actual toolkit/framework. Do not copy the entire long document into the page. Summarize it into a clean public-facing page.
+
+Page route:
+`/privacy-toolkit`
+
+Goal:
+When someone clicks “View Privacy Toolkit →” from the homepage, they should land on a real page explaining the Privacy Toolkit as Playa AI’s consent-first framework for AI-mediated experiences.
+
+Core positioning:
+The Privacy Toolkit is a consent-first framework for AI-mediated experiences. It treats privacy not only as legal compliance, but as a design practice for trust, agency, memory, identity, and human dignity.
+
+Suggested page content:
+
+Hero label:
+PRIVACY TOOLKIT
+
+Hero headline:
+A consent-first framework for AI-mediated experiences.
+
+Hero body:
+The Privacy Toolkit is Playa AI’s working framework for data dignity, consent, memory, identity, and human agency in AI systems. It translates participatory culture into practical privacy principles that can be adopted, adapted, and improved.
+
+Section 1:
+Title:
+A Living Trust Agreement
+
+Copy:
+Most privacy policies are written as legal shields. This toolkit is designed as a living agreement between organizations, participants, and the communities they serve. It defines how data should be collected, remembered, shared, deleted, and governed before sensitive systems are deployed.
+
+Section 2:
+Title:
+From principles to data rights
+
+Create a simple editorial grid/table with these mappings:
+
+* Radical Inclusion → Equitable access
+* Gifting → Transparent documentation
+* Decommodification → Non-extractive data use
+* Radical Self-Reliance → User control and portability
+* Communal Effort → Participatory governance
+* Radical Self-Expression → Contextual consent
+* Civic Responsibility → Accountable stewardship
+* Leaving No Trace → Data minimization and deletion
+* Participation → Meaningful agency
+* Immediacy → Present-tense relevance
+
+Keep the wording concise.
+
+Section 3:
+Title:
+Built for the AI era
+
+Copy:
+AI systems introduce privacy questions that ordinary policies rarely address: training data rights, inferred identity, community memory, synthetic outputs, consent in sensitive contexts, and what happens when systems learn more than participants intended to share.
+
+Add 4 short cards:
+
+* Training data rights
+* Inference and identity
+* Human override
+* Community memory
+
+Section 4:
+Title:
+What the toolkit helps define
+
+Bullet/card list:
+
+* What data is collected
+* Why it is collected
+* Who can access it
+* How consent is requested and updated
+* How data can be corrected, exported, or deleted
+* When human review is required
+* How community feedback shapes the policy
+
+Section 5:
+Title:
+Current status
+
+Copy:
+The Privacy Toolkit is currently in design as a working framework behind Playa AI’s consent-first projects, including EELP and the Connect protocol.
+
+Status label:
+STATUS — IN DESIGN
+
+CTA:
+REQUEST THE PRIVACY TOOLKIT BRIEF →
+
+Link:
+mailto:hello@playa-ai.org?subject=Privacy Toolkit Brief Request
+
+Rules:
+
+* Do not invent partners, advisors, legal claims, certifications, or technical implementations.
+* Do not claim the toolkit is legally finalized.
+* Do not claim it is already open source unless that is already stated in the codebase.
+* Do not add complex governance bodies or advisory boards.
+* Do not use the full Claude content verbatim.
+* Keep it concise and launch-ready.
+* Match the existing site style.
+* Ensure the homepage Privacy Toolkit CTA links to `/privacy-toolkit`.
+* Ensure the route works directly.
+* Check desktop and mobile.
+* Do not publish until reviewed.

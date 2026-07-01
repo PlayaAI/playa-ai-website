@@ -1,0 +1,84 @@
+I found two regressions in the experimental homepage.
+
+Please fix these only. Do not redesign the page. Do not make new unrelated edits.
+
+Issues:
+
+1. The experimental homepage removed or replaced two important homepage links:
+- /eelp
+- /privacy-toolkit
+
+These links must be restored wherever the homepage references EELP and the Privacy Toolkit.
+
+In the Current Initiatives section:
+
+EELP — Ethical Experience Lab Protocol
+CTA should link to:
+/eelp
+
+Privacy Toolkit
+CTA should link to:
+/privacy-toolkit
+
+Do not replace these with mailto links unless the route does not exist. First check the app routes. If /eelp and /privacy-toolkit exist, use them.
+
+2. The Manifesto drawer reverted to the old behavior.
+
+The “In 1000 words” section should NOT be fully open by default.
+
+Restore the improved Manifesto behavior:
+- “In one sentence” stays visible
+- “In 100 words” stays visible
+- “In 1000 words” is collapsed by default
+- User can click an accordion/button to open it
+- User can click again to close it
+- Use a real button
+- Use aria-expanded
+- Use aria-controls
+- Keep Escape key close behavior
+- Keep close X behavior
+- Keep body scroll lock behavior
+- Keep same drawer/modal styling
+
+The collapsed row should show:
+- “In 1000 words”
+- “Read the full manifesto”
+- plus sign + when closed
+- minus sign – when open
+
+Important:
+The manifesto should behave the same everywhere it opens:
+- main homepage
+- experimental homepage
+- work page, if it uses the same drawer
+
+If there is already a newer ManifestoDrawer implementation somewhere that has the collapsed 1000-word accordion, reuse that exact implementation instead of rebuilding a separate one.
+
+Best approach:
+- Check Home.tsx, HomeExperimental.tsx, and Work.tsx for duplicated ManifestoDrawer code.
+- If they are duplicated and inconsistent, extract the shared drawer into:
+
+src/components/ManifestoDrawer.tsx
+
+Then import and use it from:
+- Home.tsx
+- HomeExperimental.tsx
+- Work.tsx
+
+Only do this extraction if it is safe and does not break existing behavior.
+
+If extraction feels risky, then update the ManifestoDrawer inside HomeExperimental.tsx to match the improved one that has the collapsed 1000-word section.
+
+Final checks:
+- /eelp link works
+- /privacy-toolkit link works
+- Manifesto opens from experimental homepage
+- 1000-word manifesto is collapsed by default
+- accordion opens and closes smoothly
+- close X works
+- Escape closes drawer
+- body scroll lock still works
+- TypeScript compiles
+- no unrelated files or sections changed
+
+After fixing, tell me exactly which files you changed and confirm both regressions are fixed.

@@ -1,0 +1,180 @@
+Do not make any new changes yet.
+
+I want a full report on the experimental homepage you just created.
+
+Please inspect the final experimental version and explain exactly what you changed, why you changed it, and how it differs from the main version.
+
+This report is for me to understand the thinking before I show it to the client.
+
+Structure the report like this:
+
+1. Executive summary
+
+Give me a short plain-English summary:
+- What is the core idea of this experimental version?
+- How is it different from the main homepage?
+- What problem is it trying to solve?
+- What kind of client reaction is it designed to create?
+
+2. Main version vs experimental version
+
+Create a comparison table:
+
+Area | Main version | Experimental version | Why the experimental choice was made
+
+Compare:
+- Hero headline
+- Subheadline
+- Definition of Playa AI
+- CTAs
+- Trust / fiscal sponsorship
+- Site narrative
+- Section order
+- Current initiatives
+- Proof of momentum
+- Participation paths
+- Trust / governance layer
+- Final CTA
+- Overall tone
+- Overall clarity
+- Overall credibility
+
+3. Section-by-section explanation
+
+For each section in the experimental homepage, explain:
+
+- What the section is
+- Why you added it
+- What report recommendation it responds to
+- What problem it solves
+- Why it fits the Playa AI style
+- What the client should look at when comparing it
+
+Use this structure:
+
+Section 1 — Hero
+Section 2 — Thesis
+Section 3 — Operating Model
+Section 4 — Current Initiatives
+Section 5 — Why the Playa
+Section 6 — Principles Into Systems
+Section 7 — Proof of Momentum
+Section 8 — Participation Paths
+Section 9 — Trust Layer
+Section 10 — Final CTA
+
+4. Copywriting choices
+
+Explain the most important copy decisions.
+
+For example:
+- Why use “The next era of AI needs more than intelligence. It needs culture.”
+- Why keep “Born on the Playa. Gifted to the planet.”
+- Why use “We convene. We build. We fund. We publish.”
+- Why define Playa AI as cultural, ethical, and technical infrastructure
+- Why add more plain-English explanation
+- Which mystical/abstract language was reduced
+- Which poetic language was preserved
+
+5. Design choices
+
+Explain the design logic.
+
+Tell me:
+- Did you preserve the existing visual identity?
+- Did you reuse existing typography, colors, spacing, borders, and motion?
+- Did you add any new visual patterns?
+- Did you avoid SaaS/corporate design?
+- Did the page become more structured while staying Playa AI?
+
+6. Credibility and proof choices
+
+Explain how the experimental version increases trust.
+
+Cover:
+- fiscal sponsorship
+- current initiatives
+- proof of momentum
+- Events / Work / Team as proof pages
+- governance / consent / privacy
+- no fake metrics
+- no fake partners
+- no invented claims
+
+7. CTA strategy
+
+Explain why the CTAs were chosen.
+
+For each CTA, explain the audience and intent:
+- Join the initiative
+- Explore the work
+- Read the Manifesto
+- Partner with us
+- Events / Work / Team links
+- initiative-specific CTAs
+
+8. What you intentionally did NOT do
+
+List the things you avoided and why.
+
+Include:
+- no fake numbers
+- no fake partners
+- no fake advisor logos
+- no full redesign
+- no SaaS layout
+- no corporate rewrite
+- no random new imagery
+- no unsupported claims
+- no changes that would damage the Playa AI soul
+
+9. Files changed
+
+List every file changed.
+
+For each file, include:
+- file path
+- what changed
+- why it was necessary
+- whether it affects only the experimental version or also the main version
+
+10. Risk check
+
+Be honest about possible downsides.
+
+Tell me:
+- Is the experimental version too long?
+- Is it too explanatory?
+- Did it lose any poetry?
+- Does it feel too institutional?
+- Are any CTAs weak or repetitive?
+- Does mobile need checking?
+- Are there any broken links?
+- Is anything still placeholder or uncertain?
+- Is there any copy that may need client approval?
+
+11. Best client comparison notes
+
+Tell me exactly what I should ask the client to compare.
+
+Example:
+- Do they prefer the original poetic hero or the clearer experimental hero?
+- Do they like the stronger explanation of what Playa AI is?
+- Do they want more proof on the homepage or a lighter homepage?
+- Do they like the Current Initiatives section?
+- Do they feel the Trust Layer helps or makes it too formal?
+- Which sections should be borrowed back into the main homepage?
+
+12. Final recommendation
+
+Give me your honest recommendation:
+
+- Should this experimental version replace the main homepage?
+- Or should we borrow selected sections from it?
+- Which 3–5 changes are most worth keeping?
+- Which sections might be too much?
+- What would you recommend as the final client-ready version?
+ 
+Again:
+Do not edit anything.
+Only give me the report.
