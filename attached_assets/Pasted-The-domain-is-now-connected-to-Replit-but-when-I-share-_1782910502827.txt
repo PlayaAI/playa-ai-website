@@ -1,0 +1,73 @@
+The domain is now connected to Replit, but when I share https://playa-ai.org/ on WhatsApp, the link preview still shows the old homepage title/image:
+
+“The Playa AI Foundation — A Vision for Human-AI Co-evolution”
+“Born on the Playa / Gifted to the Planet”
+
+I want the social sharing preview to match the new V2 homepage.
+
+Please update the website metadata / Open Graph tags.
+
+Check:
+- index.html
+- any SEO/meta component if one exists
+- public assets used for og:image
+
+Use this new metadata:
+
+Title:
+Playa AI Foundation — AI Needs Culture
+
+Description:
+Playa AI is building cultural, ethical, and technical infrastructure for human-centered AI — rooted in creativity, consent, participation, and human flourishing.
+
+Open Graph title:
+Playa AI Foundation — AI Needs Culture
+
+Open Graph description:
+The next era of AI needs more than intelligence. It needs culture. Playa AI brings builders, artists, researchers, funders, and cultural stewards together to shape human-centered AI.
+
+Twitter title:
+Playa AI Foundation — AI Needs Culture
+
+Twitter description:
+The next era of AI needs more than intelligence. It needs culture.
+
+Also update the social preview image.
+
+Use or create a new Open Graph image that reflects the V2 homepage, not the old “A Vision for Human-AI Co-evolution” graphic.
+
+Preferred image:
+- 1200x630
+- includes the new headline:
+  “The next era of AI needs more than intelligence. It needs culture.”
+- same Playa AI visual style
+- no old “Vision for Human-AI Co-evolution” text
+
+If there is already a suitable V2 image asset, use it.
+If not, create a simple OG image asset in public/ or assets/ and reference it with an absolute path.
+
+Make sure the tags include:
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://playa-ai.org/" />
+<meta property="og:title" content="Playa AI Foundation — AI Needs Culture" />
+<meta property="og:description" content="The next era of AI needs more than intelligence. It needs culture. Playa AI brings builders, artists, researchers, funders, and cultural stewards together to shape human-centered AI." />
+<meta property="og:image" content="https://playa-ai.org/[NEW_IMAGE_PATH]" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Playa AI Foundation — AI Needs Culture" />
+<meta name="twitter:description" content="The next era of AI needs more than intelligence. It needs culture." />
+<meta name="twitter:image" content="https://playa-ai.org/[NEW_IMAGE_PATH]" />
+
+Important:
+- Do not change the homepage design.
+- Do not change routes.
+- Do not remove /classic.
+- Only update metadata and social preview image.
+- Make sure TypeScript/build still passes.
+
+After finishing, tell me:
+1. Which file had the old metadata.
+2. Which metadata values were updated.
+3. The final og:image URL.
+4. Whether the build passes.
