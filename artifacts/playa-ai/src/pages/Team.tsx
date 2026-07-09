@@ -40,6 +40,7 @@ const LEADERSHIP = [
     name: "Tina Woods",
     title: "Head of Research",
     photo: tinaWoodsPortrait,
+    lines: [],
     bio: [
       "Tina is a social entrepreneur, author, and system architect working at the intersection of longevity science, AI, health policy, and data governance. Founder & CEO of Collider Health and Business for Health, she builds cross-sector ecosystems focused on preventative health, healthy longevity, and responsible innovation — across the UK National Innovation Centre for Ageing, the International Institute of Longevity, the XPRIZE Global Visioneering Brain Trust, and the Global Exposome Forum.",
       "Her book Live Longer with AI explores how artificial intelligence can extend healthspan and reshape preventative health — directly aligned with Playa AI's focus on human-centered governance. She co-founded Longevity Rave, weaving longevity, music, and intergenerational connection in a way that resonates naturally with Burning Man culture, and leads the JoyScore Experiment, a global open-science project measuring how human connection drives flourishing — using Playa AI's Connect app as its technology layer.",
@@ -586,7 +587,7 @@ export default function Teams() {
                   {m.title}
                 </div>
                 <ul className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground space-y-1 mt-auto">
-                  {m.lines.map((l, i) => (
+                  {(m.lines ?? []).map((l, i) => (
                     <li key={i}>{l}</li>
                   ))}
                 </ul>
