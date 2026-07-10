@@ -393,8 +393,8 @@ const WORKSTREAMS: Workstream[] = [
     evidence:
       "A v0.9 draft of the Playa AI Accord and related privacy language is under review, with the framework now being applied to projects like Ikigai as a practical test case.",
     people: "Alex Azzi · Alina Latinina · Lino Velev · Raed Marji",
-    cta: "Request the brief →",
-    href: "mailto:hello@playa-ai.org?subject=Privacy Toolkit Brief",
+    cta: "Open the Privacy Toolkit →",
+    href: "/privacy-toolkit",
   },
   {
     n: "06",
@@ -409,8 +409,8 @@ const WORKSTREAMS: Workstream[] = [
     consent: "Radical consent is the foundation of EELP: participation is opt-in, revocable, and understandable — with human override built in by design, not bolted on after.",
     evidence: "Derived from field experiments across Connect, Ikigai, and Burning Man community gatherings. Draft framework in active development.",
     people: "Alex Azzi",
-    cta: "Request the EELP brief →",
-    href: "mailto:hello@playa-ai.org?subject=EELP Brief Request",
+    cta: "Open the EELP page →",
+    href: "/eelp",
   },
   {
     n: "07",
