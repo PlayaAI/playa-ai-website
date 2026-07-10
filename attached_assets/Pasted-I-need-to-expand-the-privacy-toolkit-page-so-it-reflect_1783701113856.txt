@@ -1,0 +1,361 @@
+I need to expand the /privacy-toolkit page so it reflects the full Privacy Toolkit source document, not only a short summary.
+
+Context:
+There is already a PrivacyToolkit.tsx page and there is also a full privacy toolkit source text in attached_assets / project assets. Please inspect both:
+- src/pages/PrivacyToolkit.tsx
+- the privacy toolkit source text in attached_assets, likely a pasted txt/markdown file like this claude_convo_1782281354968.txt
+
+Goal:
+Keep the existing /privacy-toolkit page style, visual language, and theme, but expand the page so it feels like the real full Privacy Toolkit framework.
+
+Do not redesign the page.
+Do not make it look like a PDF pasted into a website.
+Do not make it generic SaaS.
+Do not remove the current Playa AI style.
+Do not change routes.
+Do not touch Home.tsx, Work.tsx, Events.tsx, Team.tsx, App.tsx, SiteHeader.tsx, or classic pages unless absolutely necessary.
+Only edit:
+- src/pages/PrivacyToolkit.tsx
+
+Important:
+The current PrivacyToolkit.tsx has good visual style. Preserve:
+- SiteHeader
+- SiteFooter
+- MonoLabel
+- framer-motion
+- bg-background / text-foreground
+- font-serif headlines
+- font-mono labels
+- accent gold
+- hairline borders
+- editorial spacing
+- dark inverted section
+- minimal premium layout
+
+But the content is incomplete compared to the full privacy toolkit source text.
+
+Please expand it using the source document.
+
+SPECIFIC CONTENT TO ADD / RESTORE
+
+1. Expand the Principles table
+
+Current page has:
+Burning Man Principle → short data right
+
+Replace or expand this section into a three-column editorial framework:
+
+Burning Man Principle | Translated Data Right | Technical & Policy Action
+
+Use these exact rows:
+
+Radical Inclusion | Right to Equitable Access | Attribute-Based Access Control (ABAC); inclusive design
+Gifting | Right to Generous Transparency | Open documentation; data provenance tools
+Decommodification | Right to Non-Exploitation | No dark patterns; data use limitations
+Radical Self-Reliance | Right to Sovereign Control | Portable data formats; robust self-service tools
+Communal Effort | Right to Co-Created Governance | Participatory policy review; ethics advisory boards
+Radical Self-Expression | Right to Contextual Integrity | Granular consent controls; purpose limitation
+Civic Responsibility | Right to Accountable Stewardship | Data Protection Impact Assessments (DPIAs); human oversight for AI
+Leaving No Trace | Right to Ephemeral Presence | Automated data minimization and deletion
+Participation | Right to Meaningful Agency | Frictionless DSAR portals; interactive privacy dashboards
+Immediacy | Right to Present-tense Relevance | Real-time consent updates; dynamic data valuation
+
+Style it like the existing site:
+- no default HTML table if it looks ugly
+- use editorial rows with hairline borders
+- stack cleanly on mobile
+- keep it legible
+
+2. Expand the “Living Trust Agreement” section
+
+Current page says it is more than a policy link. Keep that idea, but make it richer.
+
+Add:
+- This framework moves beyond static, legalistic documents.
+- It functions as a dynamic covenant, updated through participatory review.
+- Long-term vision: an interactive “Privacy Compass” dashboard where participants can understand and adjust their data relationship in real time.
+
+Important:
+Do not claim Privacy Compass is already shipped.
+Present it as “long-term vision” or “future interface concept.”
+
+Add three sub-cards:
+- Dynamic Covenant
+- Participatory Review
+- Privacy Compass
+
+3. Add “Operationalizing the Philosophy” section
+
+Add a new section after Living Trust Agreement or after the principles table.
+
+Section label:
+§ 03 / Operationalizing the Philosophy
+
+Headline:
+How privacy becomes practice.
+
+Create three editorial cards:
+
+Proactive Stewardship
+Establish a rotating ethics review process that includes community members. Use Data Protection Impact Assessments for new projects before sensitive systems are deployed.
+
+Architectural Integrity
+Use privacy-by-design architecture and policy-as-code where appropriate, so ethical rules such as data minimization can be enforced inside the system rather than added afterward.
+
+Cultural Embodiment
+Train builders, engineers, and product teams in humane technology design. Measure success through trust, agency, reduced friction, and community benefit — not data hoarding.
+
+Important:
+Do not claim all of these are already implemented.
+Frame them as “the toolkit’s implementation direction” or “target practices.”
+
+4. Expand “Built for the AI Era”
+
+Current page has only four AI cards:
+- Training data rights
+- Inference and identity
+- Human override
+- Community memory
+
+Expand this to cover the nine critical gaps from the source synthesis.
+
+Add cards/rows for:
+- Training data rights
+- Inference ethics
+- Emergent behavior governance
+- Collective and relational data
+- Temporal sovereignty: forgotten vs remembered
+- Consent in altered states
+- Indigenous data sovereignty
+- Post-mortem data rights / digital legacy
+- Children and future generations
+- Economic justice
+- Environmental impact
+
+Important:
+Make this section credible and clear. Do not overclaim legal completeness. Present these as “questions the toolkit is designed to address” or “protection areas,” not finished legal guarantees.
+
+5. Add “Old Contract vs New Covenant” section
+
+The source text mentions a powerful “Old Contract vs New Covenant” table. Add a section that explains the shift.
+
+Section label:
+§ 04 / Old Contract / New Covenant
+
+Headline:
+From extraction to trust.
+
+Create a two-column comparison:
+
+Old Contract:
+- Privacy as legal shield
+- Data as corporate asset
+- Consent as checkbox
+- Deletion as support request
+- Users as data subjects
+- Policy as static document
+
+New Covenant:
+- Privacy as relationship
+- Data as extension of identity
+- Consent as ongoing participation
+- Deletion as right
+- Participants as co-governors
+- Policy as living agreement
+
+6. Add “Rights and Practices” section
+
+The source framework includes rights and practices with:
+- What we do
+- What we never do
+- What you can control
+
+Keep or expand the current participant rights idea into a full section.
+
+Use three columns:
+
+What we do
+- Ask before capturing sensitive data
+- Explain how data may be used
+- Minimize what is collected
+- Require human review for high-risk AI use
+- Publish meaningful policy changes clearly
+- Design for deletion from the beginning
+
+What we never do
+- Sell intimate data
+- Use dark patterns to force consent
+- Treat consent as permanent
+- Hide sensitive AI inference behind vague language
+- Design for extraction over agency
+- Use community memory without community accountability
+
+What you control
+- Whether to participate
+- What can be remembered
+- What can be deleted
+- What can be shared
+- When consent changes
+- Whether your data can train or improve systems
+
+7. Add “Leave No Trace Protocol” section
+
+Section label:
+§ 07 / Leave No Trace Protocol
+
+Headline:
+Deletion is a right, not a support ticket.
+
+Body:
+Translate Leaving No Trace into data minimization, expiration, deletion rights, and careful memory design. Some experiences should be remembered. Some should disappear. Participants should understand the difference before they begin.
+
+Include sub-points:
+- minimize what is collected
+- set expiration rules where possible
+- make deletion understandable
+- separate personal memory from community memory
+- avoid permanent capture by default
+
+8. Add “Digital Legacy and Special Protections” section
+
+The source synthesis includes digital legacy, minors, vulnerable populations, and altered states.
+
+Add section:
+
+Section label:
+§ 08 / Special Protections
+
+Headline:
+Some contexts require more care.
+
+Create four cards:
+
+Altered States
+Consent should not be designed as if every participant is always fully resourced, sober, calm, or cognitively unimpaired.
+
+Digital Legacy
+People should have a say in what happens to their data, stories, and AI-mediated memory after death.
+
+Children and Vulnerable Populations
+Some participants require stronger protections, clearer defaults, and less extractive data practices.
+
+Collective Memory
+When data belongs to a relationship, camp, gathering, or community, governance should not be reduced to one individual checkbox.
+
+9. Add “Open Source / Gifting the Framework” section
+
+Section label:
+§ 09 / Gifting the Framework
+
+Headline:
+Designed to be forked, not just read.
+
+Body:
+The Privacy Toolkit is intended to become an open-source framework that other communities, camps, projects, and AI builders can adopt, adapt, and improve.
+
+Mention:
+- templates
+- adaptation guidance
+- versioning
+- community feedback
+- public repository in future
+- license to be confirmed
+
+Important:
+If the source says CC BY-SA 4.0 but the project has not officially approved that license, phrase it carefully:
+“license to be confirmed” or “open licensing under review.”
+
+10. Add “Implementation Notes” section
+
+The source includes a 4-phase rollout strategy and open-source packaging.
+
+Add a concise implementation roadmap:
+
+Section label:
+§ 10 / Implementation Notes
+
+Headline:
+From framework to field use.
+
+Four phases:
+1. Internal review
+2. Community preview
+3. Pilot application across Playa AI projects
+4. Public open-source release
+
+Mention:
+- feedback process
+- versioning strategy
+- supporting materials
+- future repository structure
+- project-specific adaptations
+
+11. Closing CTA
+
+Keep the current closing CTA, but update it to match the expanded page.
+
+Headline:
+Help us make privacy a living agreement.
+
+Body:
+We are looking for privacy experts, AI builders, legal contributors, camp leads, researchers, and community stewards to review and strengthen the framework before wider release.
+
+Buttons:
+Request the Privacy Toolkit brief → mailto:hello@playa-ai.org?subject=Privacy Toolkit Brief Request
+Contribute to the toolkit → mailto:hello@playa-ai.org?subject=Privacy Toolkit Contribution
+See all our work → /work
+
+CONTENT ACCURACY RULES
+
+Very important:
+- Do not claim the toolkit is finalized.
+- Use “Draft / Under Review” or “Working Framework.”
+- Do not claim Privacy Compass exists as a shipped product. Present it as a future interface concept.
+- Do not claim homomorphic encryption, differential privacy, ABAC, policy-as-code, or secure multi-party computation are already implemented unless the source/code clearly says they are. Present them as possible technical actions, target architecture, or implementation directions.
+- Do not claim CC BY-SA 4.0 is official unless the project has approved it. Say “license to be confirmed” if uncertain.
+- Do not paste the full source text raw. Adapt it into the website’s editorial style.
+- Keep the page readable. It should feel like a full framework page, not a legal document dump.
+
+DESIGN REQUIREMENTS
+
+Keep the same Playa AI style:
+- editorial section labels
+- large serif headlines
+- italic gold emphasis
+- mono uppercase metadata
+- hairline dividers
+- generous white space
+- dark inverted section for AI-specific protections or Old Contract/New Covenant
+- mobile responsive
+- accessible headings
+- no horizontal overflow on the table
+- no generic FAQ design
+- no new dependencies
+- no fake icons
+
+Please simplify any overcomplicated border class logic if needed.
+
+FINAL CHECKS
+
+After editing:
+1. /privacy-toolkit loads.
+2. Page contains the full principle-to-data-right-to-action framework.
+3. Page contains Living Trust Agreement / Privacy Compass concept.
+4. Page contains Operational Pillars.
+5. Page contains AI-specific protections / critical gaps.
+6. Page contains Old Contract vs New Covenant.
+7. Page contains Rights and Practices.
+8. Page contains Leave No Trace Protocol.
+9. Page contains Special Protections.
+10. Page contains Open Source / Gifting.
+11. Page contains Implementation Notes.
+12. /work still links to /privacy-toolkit.
+13. TypeScript compiles.
+14. No unrelated files changed.
+
+After finishing, give me a report:
+- which sections were added
+- what was changed from the old PrivacyToolkit.tsx
+- what content came from the source text
+- what claims are marked as current vs future/vision
+- whether the build passes
