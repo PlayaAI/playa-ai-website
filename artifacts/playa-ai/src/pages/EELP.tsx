@@ -345,10 +345,10 @@ export default function EELP() {
               Contact us about EELP →
             </a>
             <a
-              href="/privacy-toolkit"
+              href="/playa-ai-living-trust-framework"
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
             >
-              View Privacy Toolkit →
+              View Living Trust Framework →
             </a>
           </motion.div>
         </motion.div>

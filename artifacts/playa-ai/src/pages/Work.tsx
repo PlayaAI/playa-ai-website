@@ -586,6 +586,7 @@ function WorkBlock({
             ) : (
               <a
                 href={ws.href}
+                {...(ws.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
               >
                 {ws.cta}
