@@ -246,76 +246,63 @@ export default function LivingTrustFramework() {
         data-testid="ltf-hero"
         className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16"
       >
-        <div className="hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
-          <span>Playa AI Living Trust Framework · 2026</span>
-          <span className="text-muted-foreground">
-            Protocol / Open Tool · Working Framework · In Active Use
-          </span>
-        </div>
-
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          className="max-w-4xl"
-        >
-          <motion.p
-            variants={fadeInUp}
-            className="font-mono text-xs uppercase tracking-widest text-accent-gold mb-6"
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="lg:col-span-8"
           >
-            Playa AI Living Trust Framework
-          </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              className="font-mono text-xs uppercase tracking-widest text-accent-gold mb-6"
+            >
+              Playa AI Living Trust Framework
+            </motion.p>
 
-          <motion.h1
-            variants={fadeInUp}
-            className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight mb-8"
-          >
-            An open-source framework for consent, data dignity, and{" "}
-            <i className="italic font-normal text-accent-gold">
-              human agency.
-            </i>
-          </motion.h1>
+            <motion.h1
+              variants={fadeInUp}
+              className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight mb-8"
+            >
+              An open-source framework for consent, data dignity, and{" "}
+              <i className="italic font-normal text-accent-gold">
+                human agency.
+              </i>
+            </motion.h1>
 
-          <motion.p
-            variants={fadeInUp}
-            className="text-base md:text-lg leading-relaxed mb-5 text-foreground max-w-2xl"
-          >
-            The Playa AI Living Trust Framework is the active standard guiding
-            data dignity, consent, memory, identity, and human agency across
-            Playa AI tools. It translates participatory culture into practical
-            privacy principles that can be adopted, adapted, and improved.
-          </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              className="text-base md:text-lg leading-relaxed mb-5 text-foreground max-w-2xl"
+            >
+              The Playa AI Living Trust Framework is the active standard guiding
+              data dignity, consent, memory, identity, and human agency across
+              Playa AI tools. It translates participatory culture into practical
+              privacy principles that can be adopted, adapted, and improved.
+            </motion.p>
 
-          <motion.p
-            variants={fadeInUp}
-            className="text-base md:text-lg leading-relaxed mb-10 text-muted-foreground max-w-2xl"
-          >
-            The framework is already guiding Playa AI tools, with broader
-            integration planned across our tools over the next few weeks. ABAC,
-            DPIAs, policy-as-code, and comparable technical items described
-            here are target practices and implementation directions, not yet
-            fully deployed capabilities. Privacy Compass remains a future
-            concept. The open-source license is under review.
-          </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-2xl"
+            >
+              The framework is already guiding Playa AI tools, with broader
+              integration planned across our tools over the next few weeks. ABAC,
+              DPIAs, policy-as-code, and comparable technical items described
+              here are target practices and implementation directions, not yet
+              fully deployed capabilities. Privacy Compass remains a future
+              concept. The open-source license is under review.
+            </motion.p>
+          </motion.div>
 
-          <motion.p
-            variants={fadeInUp}
-            className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2"
-          >
-            Status — working framework · in active use
-          </motion.p>
-
-          <motion.p
-            variants={fadeInUp}
-            className="font-mono text-[11px] tracking-widest text-muted-foreground"
-          >
-            Reviewed &amp; enhanced by privacy experts
-          </motion.p>
-        </motion.div>
-
-        <div className="mt-8 font-mono text-[11px] tracking-widest text-muted-foreground hairline-t border-border pt-4">
-          CONSENT BEFORE CAPTURE · HUMAN OVERRIDE BY DESIGN · LEARNING RETURNED
-          TO THE COMMONS
+          <div className="lg:col-span-4 flex lg:justify-end lg:items-start lg:pt-4">
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-5 py-3 font-mono text-[11px] uppercase tracking-widest border border-border text-muted-foreground hover:border-foreground hover:text-foreground transition-colors duration-300"
+            >
+              View on GitHub →
+            </a>
+          </div>
         </div>
       </section>
 
