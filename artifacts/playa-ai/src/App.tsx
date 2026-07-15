@@ -21,6 +21,7 @@ function App() {
         <Route path="/work" component={Work} />
         <Route path="/privacy-toolkit" component={PrivacyToolkit} />
         <Route path="/eelp" component={EELPPage} />
+        <Route path="/living-trust-framework" component={LivingTrustFramework} />
         <Route path="/playa-ai-living-trust-framework" component={LivingTrustFramework} />
         <Route path="/classic" component={HomeClassic} />
         <Route path="/classic/events" component={EventsClassic} />

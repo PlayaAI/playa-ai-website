@@ -254,7 +254,7 @@ export default function PrivacyToolkit() {
         <div className="hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-widest text-muted-foreground">
           <span>This project is evolving into the</span>
           <a
-            href="/playa-ai-living-trust-framework"
+            href="/living-trust-framework"
             className="text-accent-gold hover:text-foreground transition-colors underline underline-offset-2"
           >
             Playa AI Living Trust Framework
@@ -968,13 +968,17 @@ export default function PrivacyToolkit() {
             className="flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase"
           >
             <a
-              href="mailto:hello@playa-ai.org?subject=Privacy Toolkit Brief Request"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Privacy%20Toolkit%20Brief%20Request"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
             >
               Request the Privacy Toolkit brief →
             </a>
             <a
-              href="mailto:hello@playa-ai.org?subject=Privacy Toolkit Contribution"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Privacy%20Toolkit%20Contribution"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               Contribute to the toolkit →

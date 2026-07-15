@@ -127,7 +127,9 @@ function PledgeModal({
                   Drafted Spring 2026 · Black Rock Desert origin
                 </div>
                 <a
-                  href="mailto:hello@playa-ai.org?subject=Public Commitment — The Pledge"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Public%20Commitment%20%E2%80%94%20The%20Pledge"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={onClose}
                   className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background font-mono text-xs uppercase tracking-widest border border-foreground hover:bg-background hover:text-foreground transition-colors"
                   data-testid="button-send-pledge"
@@ -424,14 +426,14 @@ const OPERATING_MODEL = [
     title: "Fund",
     desc: "We fund artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. Year-One microgrants are open.",
     cta: "Support Year One →",
-    href: "mailto:hello@playa-ai.org?subject=Donor Inquiry",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Inquiry",
   },
   {
     n: "04",
     title: "Publish",
     desc: "Every pilot produces public learning: field notes, consent patterns, methods, failures, and a public field report that other communities can adopt freely.",
     cta: "Get notified →",
-    href: "mailto:hello@playa-ai.org?subject=Field Report Notification",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Field%20Report%20Notification",
   },
 ];
 
@@ -453,7 +455,7 @@ const INITIATIVES = [
     body: "An open-source framework for consent, data dignity, privacy, and human agency in AI-mediated experiences.",
     status: "Working Framework · In Active Use",
     cta: "Open the Living Trust Framework →",
-    href: "/playa-ai-living-trust-framework",
+    href: "/living-trust-framework",
   },
   {
     n: "03",
@@ -471,7 +473,8 @@ const INITIATIVES = [
     body: "A global open-science project measuring how human connection drives flourishing. Playa AI's Connect app is its technology layer. Led by Tina Woods.",
     status: "Active",
     cta: "Join the research →",
-    href: "mailto:hello@playa-ai.org?subject=Human Connection Research",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Human%20Connection%20Research",
+    external: true,
   },
   {
     n: "05",
@@ -544,7 +547,7 @@ const PARTICIPATION = [
     title: "Build under a consent framework",
     desc: "Access the working group, EELP consent protocols, and community testing infrastructure. Build tools that respect the people they serve.",
     cta: "Join the working group →",
-    href: "mailto:hello@playa-ai.org?subject=Working Group Interest",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Working%20Group%20Interest",
     highlight: false,
   },
   {
@@ -552,7 +555,7 @@ const PARTICIPATION = [
     title: "Year-One microgrants",
     desc: "Microgrants for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
     cta: "Join the artist interest list →",
-    href: "mailto:hello@playa-ai.org?subject=Artist Grant Interest",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Artist%20Grant%20Interest",
     highlight: false,
   },
   {
@@ -560,7 +563,7 @@ const PARTICIPATION = [
     title: "IRB-compatible field methods",
     desc: "Clear consent layers, minimal data collection, and publishable learning — designed to meet the standard rigorous research requires.",
     cta: "Propose a collaboration →",
-    href: "mailto:hello@playa-ai.org?subject=Research Collaboration",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Research%20Collaboration",
     highlight: false,
   },
   {
@@ -568,7 +571,7 @@ const PARTICIPATION = [
     title: "Support Year One",
     desc: "Fund the standards work, governance design, Connect pilots, artist microgrants, documentation, and public field reporting. Tax-deductible giving through Mystic Arts Foundation.",
     cta: "Schedule donor conversation →",
-    href: "mailto:hello@playa-ai.org?subject=Donor Inquiry",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Inquiry",
     highlight: true,
   },
   {
@@ -576,7 +579,7 @@ const PARTICIPATION = [
     title: "Bring programming and partnerships",
     desc: "Help translate the connection between culture, community, and responsible AI. Bring events, programming, and field partnerships to the initiative.",
     cta: "Start the conversation →",
-    href: "mailto:hello@playa-ai.org?subject=Cultural Stewardship",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Cultural%20Stewardship",
     highlight: false,
   },
   {
@@ -584,7 +587,7 @@ const PARTICIPATION = [
     title: "Become a Founding Adopter",
     desc: "Universities, museums, festivals, civic AI teams. Test EELP in real community settings. The Founding Adopter pathway is open.",
     cta: "Request adopter conversation →",
-    href: "mailto:hello@playa-ai.org?subject=Founding Adopter Inquiry",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Founding%20Adopter%20Inquiry",
     highlight: false,
   },
 ];
@@ -852,6 +855,7 @@ export default function Home() {
               </p>
               <a
                 href={item.href}
+                {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors w-fit mt-auto"
               >
                 {item.cta}
@@ -1216,6 +1220,7 @@ export default function Home() {
               </p>
               <a
                 href={path.href}
+                {...(path.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className={`font-mono text-xs uppercase tracking-widest border-b pb-0.5 transition-colors w-fit mt-auto ${
                   path.highlight
                     ? "border-background hover:text-[#E2D9C5] hover:border-[#E2D9C5]"
@@ -1402,13 +1407,17 @@ export default function Home() {
             className="flex flex-wrap items-center justify-center gap-4 font-mono text-sm uppercase"
           >
             <a
-              href="mailto:hello@playa-ai.org?subject=Join the Playa AI Initiative"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Join%20the%20Playa%20AI%20Initiative"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
             >
               Join the initiative
             </a>
             <a
-              href="mailto:hello@playa-ai.org?subject=Partner with Playa AI"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Partner%20with%20Playa%20AI"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               Partner with us

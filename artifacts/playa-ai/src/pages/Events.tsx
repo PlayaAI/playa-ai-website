@@ -345,7 +345,9 @@ export default function Events() {
           The archive grows. <i className="italic font-normal">The next room is already forming.</i>
         </h2>
         <a
-          href="mailto:hello@playa-ai.org?subject=Events — Propose or Partner"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Events%20%E2%80%94%20Propose%20or%20Partner"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
           data-testid="link-share-event"
         >

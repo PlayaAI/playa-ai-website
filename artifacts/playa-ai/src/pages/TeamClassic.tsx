@@ -732,7 +732,9 @@ export default function Teams() {
               </h2>
             </div>
             <a
-              href="mailto:hello@playa-ai.org?subject=Working Group Interest"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Working%20Group%20Interest"
+              target="_blank"
+              rel="noopener noreferrer"
               className="shrink-0 inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
             >
               Join the working group →
