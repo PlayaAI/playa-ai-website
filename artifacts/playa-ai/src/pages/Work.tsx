@@ -382,7 +382,7 @@ const WORKSTREAMS: Workstream[] = [
   {
     n: "05",
     category: "Protocol / Open Tool",
-    status: "Draft / Under Review",
+    status: "Working Framework · In Active Use",
     need: "Dignity, autonomy, and data sovereignty",
     title: "Playa AI Living Trust Framework",
     subtitle: "",
@@ -393,7 +393,7 @@ const WORKSTREAMS: Workstream[] = [
     consent:
       "Radical consent is the center: participation should be opt-in, reversible, understandable, trauma-informed, and supported by deletion practices that are being reviewed for stronger accountability.",
     evidence:
-      "A v0.9 draft of the Playa AI Accord and related privacy language is under review, with the framework now being applied to projects like Ikigai as a practical test case.",
+      "The framework is actively guiding Playa AI tools, with broader integration planned across our tools over the next few weeks. Technical practices listed here are implementation directions, not fully deployed capabilities.",
     people: "Alex Azzi · Alina Latinina · Lino Velev · Raed Marji",
     cta: "Open the Living Trust Framework →",
     href: "/playa-ai-living-trust-framework",

@@ -451,7 +451,7 @@ const INITIATIVES = [
     title: "Living Trust Framework",
     subtitle: "",
     body: "An open-source framework for consent, data dignity, privacy, and human agency in AI-mediated experiences.",
-    status: "Draft / Under Review",
+    status: "Working Framework · In Active Use",
     cta: "Open the Living Trust Framework →",
     href: "/playa-ai-living-trust-framework",
   },

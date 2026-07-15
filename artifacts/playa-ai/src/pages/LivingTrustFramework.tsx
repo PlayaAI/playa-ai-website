@@ -249,7 +249,7 @@ export default function LivingTrustFramework() {
         <div className="hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
           <span>Playa AI Living Trust Framework · 2026</span>
           <span className="text-muted-foreground">
-            Protocol / Open Tool · Working Framework · Draft / Under Review
+            Protocol / Open Tool · Working Framework · In Active Use
           </span>
         </div>
 
@@ -280,28 +280,29 @@ export default function LivingTrustFramework() {
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed mb-5 text-foreground max-w-2xl"
           >
-            The Playa AI Living Trust Framework is a working framework for data
-            dignity, consent, memory, identity, and human agency in AI systems.
-            It translates participatory culture into practical privacy
-            principles that can be adopted, adapted, and improved.
+            The Playa AI Living Trust Framework is the active standard guiding
+            data dignity, consent, memory, identity, and human agency across
+            Playa AI tools. It translates participatory culture into practical
+            privacy principles that can be adopted, adapted, and improved.
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed mb-10 text-muted-foreground max-w-2xl"
           >
-            This is a draft under active community review — not a finished
-            legal document, not a certified standard. ABAC, DPIAs,
-            policy-as-code, and comparable technical items described here are
-            target practices and implementation directions, not currently
-            deployed capabilities.
+            The framework is already guiding Playa AI tools, with broader
+            integration planned across our tools over the next few weeks. ABAC,
+            DPIAs, policy-as-code, and comparable technical items described
+            here are target practices and implementation directions, not yet
+            fully deployed capabilities. Privacy Compass remains a future
+            concept. The open-source license is under review.
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2"
           >
-            Status — working framework · draft / under review
+            Status — working framework · in active use
           </motion.p>
 
           <motion.p
@@ -965,18 +966,20 @@ export default function LivingTrustFramework() {
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed text-muted-foreground mb-4 max-w-2xl"
           >
-            We are looking for privacy experts, AI builders, legal contributors,
-            camp leads, researchers, and community stewards to review and
-            strengthen the framework before wider release. This is a working
-            draft — shaped by real deployments and community feedback, not a
-            finished legal document.
+            This is a working framework guiding Playa AI tools today, with
+            broader integration planned over the next few weeks. It is not a
+            finished legal document or certified standard — technical practices
+            listed here are implementation directions. We welcome privacy
+            experts, AI builders, legal contributors, camp leads, researchers,
+            and community stewards who want to contribute to its ongoing
+            development.
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-10"
           >
-            Status — working framework · draft under review
+            Status — working framework · in active use
           </motion.p>
 
           <motion.div
