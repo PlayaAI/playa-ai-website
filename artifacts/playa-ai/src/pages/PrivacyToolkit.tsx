@@ -251,6 +251,16 @@ export default function PrivacyToolkit() {
           </span>
         </div>
 
+        <div className="hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-widest text-muted-foreground">
+          <span>This project is evolving into the</span>
+          <a
+            href="/playa-ai-living-trust-framework"
+            className="text-accent-gold hover:text-foreground transition-colors underline underline-offset-2"
+          >
+            Playa AI Living Trust Framework
+          </a>
+        </div>
+
         <motion.div
           initial="hidden"
           animate="visible"

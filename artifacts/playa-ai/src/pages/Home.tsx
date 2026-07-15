@@ -448,12 +448,12 @@ const INITIATIVES = [
   },
   {
     n: "02",
-    title: "Privacy Toolkit",
-    subtitle: "Living Trust Agreement",
-    body: "An open consent and data-ethics framework. Treats privacy as a living trust agreement between builders and participants — not a policy link bolted on after.",
+    title: "Living Trust Framework",
+    subtitle: "Formerly Privacy Toolkit",
+    body: "An open-source framework for consent, data dignity, privacy, and human agency in AI-mediated experiences.",
     status: "Draft / Under Review",
-    cta: "Explore the Privacy Toolkit →",
-    href: "/privacy-toolkit",
+    cta: "Open the Living Trust Framework →",
+    href: "/playa-ai-living-trust-framework",
   },
   {
     n: "03",

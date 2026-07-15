@@ -297,6 +297,8 @@ type Workstream = {
   cta: string;
   href: string;
   caution?: string;
+  secondaryCta?: string;
+  secondaryHref?: string;
 };
 
 const WORKSTREAMS: Workstream[] = [
@@ -382,19 +384,21 @@ const WORKSTREAMS: Workstream[] = [
     category: "Protocol / Open Tool",
     status: "Draft / Under Review",
     need: "Dignity, autonomy, and data sovereignty",
-    title: "Privacy Toolkit",
-    subtitle: "Living Trust Agreement",
+    title: "Playa AI Living Trust Framework",
+    subtitle: "Formerly Privacy Toolkit",
     pull: "A radical blueprint for decommodifying data and returning sovereignty to the individual.",
-    body: "The Privacy Toolkit is Playa AI\u2019s open-source privacy and data ethics framework for human-centered AI projects. It treats privacy not as a compliance checkbox, but as a living trust agreement between builders and participants \u2014 especially when AI systems touch identity, purpose, memory, relationship, or voice.",
+    body: "Formerly Privacy Toolkit, this framework translates participatory culture into concrete data rights, consent practices, AI-specific protections, and open-source governance patterns.",
     aiRole:
-      "The toolkit was co-created through a synthesis process using multiple AI systems to compare, critique, and refine principles from humane technology, AI governance, and Burning Man-inspired values such as consent, decommodification, participation, and leaving no trace.",
+      "The framework was co-created through a synthesis process using multiple AI systems to compare, critique, and refine principles from humane technology, AI governance, and Burning Man-inspired values such as consent, decommodification, participation, and leaving no trace.",
     consent:
       "Radical consent is the center: participation should be opt-in, reversible, understandable, trauma-informed, and supported by deletion practices that are being reviewed for stronger accountability.",
     evidence:
       "A v0.9 draft of the Playa AI Accord and related privacy language is under review, with the framework now being applied to projects like Ikigai as a practical test case.",
     people: "Alex Azzi · Alina Latinina · Lino Velev · Raed Marji",
-    cta: "Open the Privacy Toolkit →",
-    href: "/privacy-toolkit",
+    cta: "Open the Living Trust Framework →",
+    href: "/playa-ai-living-trust-framework",
+    secondaryCta: "View on GitHub →",
+    secondaryHref: "https://github.com/PlayaAI/playa-ai-living-trust-framework",
   },
   {
     n: "06",
@@ -570,7 +574,7 @@ function WorkBlock({
             </div>
           )}
 
-          <div className="hairline-t border-border pt-5">
+          <div className="hairline-t border-border pt-5 flex flex-wrap items-center gap-6">
             {ws.title === "Burner-AI Manifesto" && onManifestoOpen ? (
               <button
                 type="button"
@@ -585,6 +589,16 @@ function WorkBlock({
                 className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
               >
                 {ws.cta}
+              </a>
+            )}
+            {ws.secondaryCta && ws.secondaryHref && (
+              <a
+                href={ws.secondaryHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs uppercase tracking-widest text-muted-foreground border-b border-border pb-0.5 hover:text-foreground hover:border-foreground transition-colors"
+              >
+                {ws.secondaryCta}
               </a>
             )}
           </div>
