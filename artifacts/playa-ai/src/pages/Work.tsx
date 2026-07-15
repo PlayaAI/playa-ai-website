@@ -385,9 +385,9 @@ const WORKSTREAMS: Workstream[] = [
     status: "Draft / Under Review",
     need: "Dignity, autonomy, and data sovereignty",
     title: "Playa AI Living Trust Framework",
-    subtitle: "Formerly Privacy Toolkit",
+    subtitle: "",
     pull: "A radical blueprint for decommodifying data and returning sovereignty to the individual.",
-    body: "Formerly Privacy Toolkit, this framework translates participatory culture into concrete data rights, consent practices, AI-specific protections, and open-source governance patterns.",
+    body: "This framework translates participatory culture into concrete data rights, consent practices, AI-specific protections, and open-source governance patterns.",
     aiRole:
       "The framework was co-created through a synthesis process using multiple AI systems to compare, critique, and refine principles from humane technology, AI governance, and Burning Man-inspired values such as consent, decommodification, participation, and leaving no trace.",
     consent:

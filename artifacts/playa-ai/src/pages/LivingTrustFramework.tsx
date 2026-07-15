@@ -261,16 +261,9 @@ export default function LivingTrustFramework() {
         >
           <motion.p
             variants={fadeInUp}
-            className="font-mono text-xs uppercase tracking-widest text-accent-gold mb-3"
+            className="font-mono text-xs uppercase tracking-widest text-accent-gold mb-6"
           >
             Playa AI Living Trust Framework
-          </motion.p>
-
-          <motion.p
-            variants={fadeInUp}
-            className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-6"
-          >
-            Formerly Privacy Toolkit
           </motion.p>
 
           <motion.h1
@@ -306,9 +299,16 @@ export default function LivingTrustFramework() {
 
           <motion.p
             variants={fadeInUp}
-            className="font-mono text-xs uppercase tracking-widest text-muted-foreground"
+            className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2"
           >
             Status — working framework · draft / under review
+          </motion.p>
+
+          <motion.p
+            variants={fadeInUp}
+            className="font-mono text-[11px] tracking-widest text-muted-foreground"
+          >
+            Reviewed &amp; enhanced by privacy experts
           </motion.p>
         </motion.div>
 
@@ -1007,7 +1007,7 @@ export default function LivingTrustFramework() {
         </motion.div>
 
         <div className="mt-10 font-mono text-[11px] tracking-widest text-muted-foreground hairline-t border-border pt-5">
-          CONSENT FIRST · PRIVACY AS DESIGN · TRUST AS INFRASTRUCTURE · FORMERLY PRIVACY TOOLKIT
+          CONSENT FIRST · PRIVACY AS DESIGN · TRUST AS INFRASTRUCTURE
         </div>
       </section>
 

@@ -449,7 +449,7 @@ const INITIATIVES = [
   {
     n: "02",
     title: "Living Trust Framework",
-    subtitle: "Formerly Privacy Toolkit",
+    subtitle: "",
     body: "An open-source framework for consent, data dignity, privacy, and human agency in AI-mediated experiences.",
     status: "Draft / Under Review",
     cta: "Open the Living Trust Framework →",
