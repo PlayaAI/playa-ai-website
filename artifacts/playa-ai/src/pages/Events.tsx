@@ -18,6 +18,10 @@ type EventCard = {
   date: string;
   city: string;
   title: string;
+  displayTitle?: string;
+  seriesLabel?: string;
+  subtitle?: string;
+  coverObjectPosition?: string;
   pull: string;
   body: string;
   tags: string[];
@@ -32,6 +36,9 @@ const events2026: EventCard[] = [
     date: "Mar 30, 2026 · 5:00 PM EDT",
     city: "New York",
     title: "Less Chat, More Do: A Playa AI Hackathon to Give Birth to Your Own Agentic AI Creature",
+    seriesLabel: "LESS CHAT, MORE DO · OPENCLAW AGENT LAB SERIES",
+    displayTitle: "New York Agent Lab",
+    subtitle: "A Playa AI hackathon for building your own agentic AI creature.",
     pull: "A hands-on mini-hackathon where you'll leave with a PhD-level AI chief of staff living on your own cloud server.",
     body: "Hosted at The National Arts Club, the working session walked participants through OpenClaw setup, connecting tools, and real-time troubleshooting so everyone could leave with a live, self-hosted agent with guided security setup.",
     tags: ["Sold out", "Approval required", "National Arts Club"],
@@ -44,6 +51,10 @@ const events2026: EventCard[] = [
     date: "Mar 18, 2026 · 12:30 PM EDT",
     city: "Online",
     title: "Less Chat, More Do: A Playa AI Hackathon to Give Birth to Your Own Agentic AI Creature",
+    seriesLabel: "LESS CHAT, MORE DO · OPENCLAW AGENT LAB SERIES",
+    displayTitle: "Online Build Session II",
+    subtitle: "A Playa AI hackathon for building your own agentic AI creature.",
+    coverObjectPosition: "center top",
     pull: "The goal of this hackathon: everyone leaves with a live, self-hosted agent with guided security setup.",
     body: "OpenClaw runs locally, connects to real tools such as email, calendar, Slack, WhatsApp, Telegram, and the file system, maintains memory across sessions, and executes tasks autonomously.",
     tags: ["Free", "Working session", "OpenClaw"],
@@ -55,6 +66,10 @@ const events2026: EventCard[] = [
     date: "Mar 4, 2026 · 12:30 PM EST",
     city: "Online",
     title: "Less Chat, More Do: A Playa AI Hackathon to Give Birth to Your Own Agentic AI Creature",
+    seriesLabel: "LESS CHAT, MORE DO · OPENCLAW AGENT LAB SERIES",
+    displayTitle: "Online Build Session I",
+    subtitle: "A Playa AI hackathon for building your own agentic AI creature.",
+    coverObjectPosition: "center bottom",
     pull: "This is a working session. We'll walk through setup together, troubleshoot in real time.",
     body: "The session centered on leaving the age of Chat and entering the age of Do, with participants building toward an agent living on their own cloud server.",
     tags: ["Free", "Mini-hackathon", "Agentic AI"],
@@ -154,6 +169,7 @@ function EventBlock({ e, index }: { e: EventCard; index: number }) {
             alt=""
             loading="lazy"
             className="w-full h-full object-cover grayscale"
+            style={e.coverObjectPosition ? { objectPosition: e.coverObjectPosition } : undefined}
           />
         </div>
       </div>
@@ -162,9 +178,20 @@ function EventBlock({ e, index }: { e: EventCard; index: number }) {
           <span>{e.date}</span>
           <span className="text-accent-gold">· {e.city}</span>
         </div>
-        <h3 className="font-serif text-3xl md:text-5xl leading-[0.95] mb-6 text-foreground">
-          {e.title}
+        {e.seriesLabel && (
+          <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground border border-border inline-block self-start px-2.5 py-1 mb-4">
+            {e.seriesLabel}
+          </div>
+        )}
+        <h3 className="font-serif text-3xl md:text-5xl leading-[0.95] mb-2 text-foreground">
+          {e.displayTitle ?? e.title}
         </h3>
+        {e.subtitle && (
+          <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-6">
+            {e.subtitle}
+          </p>
+        )}
+        {!e.subtitle && <div className="mb-6" />}
         <p className="font-serif italic text-lg md:text-xl leading-snug text-accent-gold mb-5 max-w-xl">
           "{e.pull}"
         </p>
@@ -186,7 +213,7 @@ function EventBlock({ e, index }: { e: EventCard; index: number }) {
             href={e.luma}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`View ${e.title} on Luma (opens in new tab)`}
+            aria-label={`View ${e.displayTitle ?? e.title} on Luma (opens in new tab)`}
             className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
             data-testid={`link-luma-${index}`}
           >
