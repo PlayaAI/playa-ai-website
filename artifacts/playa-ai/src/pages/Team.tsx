@@ -40,12 +40,7 @@ const LEADERSHIP = [
     name: "Tina Woods",
     title: "Head of Research",
     photo: tinaWoodsPortrait,
-    lines: [],
-    bio: [
-      "Tina is a social entrepreneur, author, and system architect working at the intersection of longevity science, AI, health policy, and data governance. Founder & CEO of Collider Health and Business for Health, she builds cross-sector ecosystems focused on preventative health, healthy longevity, and responsible innovation — across the UK National Innovation Centre for Ageing, the International Institute of Longevity, the XPRIZE Global Visioneering Brain Trust, and the Global Exposome Forum.",
-      "Her book Live Longer with AI explores how artificial intelligence can extend healthspan and reshape preventative health — directly aligned with Playa AI's focus on human-centered governance. She co-founded Longevity Rave, weaving longevity, music, and intergenerational connection in a way that resonates naturally with Burning Man culture, and leads the JoyScore Experiment, a global open-science project measuring how human connection drives flourishing — using Playa AI's Connect app as its technology layer.",
-      "At Playa AI, she anchors the science and research dimension — connecting governance frameworks to health, longevity, data ethics, and the institutional communities needed to turn ideas into real-world adoption.",
-    ],
+    lines: ["Science & Research."],
   },
   {
     n: "003",
@@ -55,13 +50,6 @@ const LEADERSHIP = [
     photo:
       "https://playaai.github.io/Playa-AI/team-page-assets/rebecca-nelson.jpg",
     lines: ["Community & Comms."],
-    bio: [
-      "Rebecca is a communications strategist and writer working across audience psychology, narrative, and emerging technology. Her work focuses on understanding how people think, what motivates them, and how complex ideas can be translated into language that feels clear, human, and emotionally intelligent. She holds a First Class Honours degree from King's College London.",
-      "Within Playa AI, Rebecca has helped shape the initiative's public narrative, grant strategy, and community communications. She leads the development of a manual-first grant pipeline and shared evidence repository—building a source of truth that can support future funding applications.",
-      "Rebecca has also represented Playa AI at public gatherings, including Summit Detroit with Alex Azzi, where they introduced the initiative's approach to bringing AI into the Burning Man community consciously and creatively. At Playa AI, she leads the community and communications layer—connecting the work with funders, collaborators, participants, and the wider public.",
-    ],
-    profileLink: "https://www.linkedin.com/in/rebecca-nelson-copywriting",
-    profileLabel: "LinkedIn Profile",
   },
   {
     n: "004",
@@ -70,13 +58,6 @@ const LEADERSHIP = [
     title: "CTO",
     photo: "https://playaai.github.io/Playa-AI/team-page-assets/raed-marji.jpg",
     lines: ["Programs & Operations."],
-    bio: [
-      "Raed is an AI architect, technical advisor, and former CTO with more than a decade of experience building AI, data, and product systems. He is the founder of ClawGeeks, the team behind an OpenClaw multi-agent platform, and an IEEE-published researcher whose work has received more than 150 citations. His public portfolio documents more than 40 open-source repositories and experience across AI strategy, data infrastructure, multi-agent systems, and technical leadership.",
-      "His previous work includes leading technology and AI infrastructure at Arootah, where he built systems spanning coaching, wealth, and operations. His current work focuses on helping teams translate AI opportunities into practical architectures, repeatable operating systems, and working implementations.",
-      "At Playa AI, Raed leads engineering, technical operations, and program infrastructure. He has contributed to Connect, the Ikigai prototypes, AI-agent workshops, and the technical implementation of Playa AI's human-centered experiments. He also supports the infrastructure behind the OpenClaw hackathon series, helping participants leave with working, self-hosted agents.",
-    ],
-    profileLink: "https://marji.io/",
-    profileLabel: "Portfolio →",
   },
 ];
 
@@ -94,7 +75,6 @@ type Council = {
   first: string;
   last: string;
   role: string;
-  paragraphs: string[];
   photo?: string;
 };
 
@@ -105,11 +85,6 @@ const COUNCIL: Council[] = [
     last: "Rothenberg",
     role: "Senior AI Advisor",
     photo: richardRothenbergPortrait,
-    paragraphs: [
-      "Richard is an AI, quantitative finance, and systemic-risk strategist working at the intersection of big data, investment research, policy, and sustainable development.",
-      "CEO and Co-founder of Global A.I. Corporation, an AI-driven quantitative research company generating investment and policy insights for governments and institutional investors. His earlier work includes advising DARPA and the UN on financial vulnerabilities, curating high-profile events in Davos and across the Ivy League, and research roles at Deutsche Bank and Man Investments.",
-      "Richard holds an MBA from Columbia Business School and brings Playa AI a rigorous systems lens on AI, capital markets, global risk, and institutional decision-making.",
-    ],
   },
   {
     ref: "A·003",
@@ -117,11 +92,6 @@ const COUNCIL: Council[] = [
     last: "Seiden",
     role: "Strategic Guardian",
     photo: jennaSeidenPortrait,
-    paragraphs: [
-      "Jenna is a senior emerging-technology executive whose career spans interactive entertainment, immersive media, strategic partnerships, publishing, and global business development. She is also an animal-rights activist and leads the Temple Guardians in Black Rock City.",
-      "Vice President, Head of Business Development for LEGO GAME at The LEGO Group, with prior senior roles across Skydance Interactive, Niantic Labs, CAA, Xbox, HTC, Maker Studios, NBC, Meta, and the NBA. Her work has centered on building new forms of play, storytelling, IP, and immersive experiences across platforms. She holds a degree from the University of Pennsylvania and an MBA from UCLA Anderson.",
-      "At Playa AI, she brings a rare mix of strategy, culture, play, and emerging-media fluency — translating AI governance into experiences and partnerships people can actually engage with.",
-    ],
   },
   {
     ref: "A·004",
@@ -129,11 +99,6 @@ const COUNCIL: Council[] = [
     last: "Rock",
     role: "Head of Neuro",
     photo: davidRockPortrait,
-    paragraphs: [
-      "Dr. David Rock is a pioneer in applying neuroscience to leadership, culture, motivation, and organizational change.",
-      "Co-founder of the NeuroLeadership Institute, a global consultancy bringing cognitive science into leadership development, he is widely credited with coining the term neuroleadership. His work has helped move neuroscience into practical use across business, education, coaching, and change management — including through his books Your Brain at Work and Coaching with the Brain in Mind. David holds a professional doctorate in the Neuroscience of Leadership from Middlesex University.",
-      "At Playa AI, he anchors the neuro and human-systems dimension — ensuring the foundation's work around AI, governance, trust, attention, and collective intelligence is grounded in how humans actually think, relate, and change.",
-    ],
   },
   {
     ref: "A·005",
@@ -141,11 +106,6 @@ const COUNCIL: Council[] = [
     last: "Wang Graylin",
     photo: alvinGraylinPortrait,
     role: "Senior AI Advisor",
-    paragraphs: [
-      "Alvin is a global technology strategist, author, and AI pioneer whose work sits at the intersection of artificial intelligence, spatial computing, and society-scale transformation.",
-      "Co-author of Our Next Reality, as well as publications on Abundanism and A Bill of Rights for the Age of AI. Chairman of the Virtual World Society, and a fellow or senior advisor across institutions including the Stanford Human-Centered AI Institute, the Stanford Digital Economy Lab, and the Asia Society Policy Institute. Previously China President and Global VP at HTC, where he led the company's VR and immersive technology strategy.",
-      "With graduate degrees from MIT in Computer Science and Business, Alvin brings Playa AI deep expertise in AI, cross-cultural technology strategy, and the future of human-centered digital environments.",
-    ],
   },
   {
     ref: "A·006",
@@ -153,21 +113,12 @@ const COUNCIL: Council[] = [
     last: "Griffitts",
     photo: robGriffittsPortrait,
     role: "Legal & Policy",
-    paragraphs: [
-      "Rob is a corporate and technology attorney who has spent his career advising founders, investors, and operating companies at the intersection of emerging technology and venture capital.",
-      "Founder of Griffitts LLP, a law firm for founders and operators. His practice spans M&A and restructurings, financings, strategic partnerships, governance, and stakeholder disputes, with earlier experience at Skadden in New York and Wilson Sonsini in Palo Alto.",
-      "At Playa AI, Rob brings legal, governance, and transaction experience to help shape responsible AI initiatives into durable institutions, partnerships, and operating frameworks.",
-    ],
   },
   {
     ref: "A·007",
     first: "Timothy",
     last: "Johnson",
     role: "Ethics & Principles",
-    paragraphs: [
-      "Timothy anchors the ethics and principles dimension of the Council — translating the Foundation's consent-first commitments into the durable rules, review practices, and decision tests that govern how the work is built, funded, and adopted.",
-      "His role on the Council is to keep first principles legible across every program: the Oracle, EELP, the Data Trust, ELK, and the Community Layer. When a tradeoff arrives, Timothy is the voice that returns the conversation to what the standard is for, and what it refuses to be.",
-    ],
   },
 ];
 
@@ -603,32 +554,6 @@ export default function Teams() {
                     <li key={i}>{l}</li>
                   ))}
                 </ul>
-                {(m as any).credibility && (
-                  <p className="font-mono text-[11px] tracking-widest text-muted-foreground mt-4 max-w-[26ch] leading-relaxed">
-                    {(m as any).credibility}
-                  </p>
-                )}
-                {(m as any).bio && (
-                  <div className="mt-6 space-y-3 text-left">
-                    {((m as any).bio as string[]).map((p: string, i: number) => (
-                      <p key={i} className="text-sm leading-relaxed text-muted-foreground">
-                        {p}
-                      </p>
-                    ))}
-                    {(m as any).profileLink && (
-                      <p className="mt-2">
-                        <a
-                          href={(m as any).profileLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-mono text-[11px] uppercase tracking-widest text-accent-gold hover:opacity-70 transition-opacity"
-                        >
-                          {(m as any).profileLabel ?? "Profile →"}
-                        </a>
-                      </p>
-                    )}
-                  </div>
-                )}
               </motion.div>
             ))}
           </motion.div>
@@ -678,55 +603,43 @@ export default function Teams() {
         </div>
       </section>
 
-      {/* Council bios */}
-      <section className="px-4 max-w-[1400px] mx-auto py-20 md:py-32">
+      {/* Council members grid */}
+      <section className="px-4 max-w-[1400px] mx-auto py-16 md:py-24">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={stagger}
-          className="space-y-20 md:space-y-32"
+          className="grid grid-cols-2 md:grid-cols-3 hairline-b border-border"
         >
-          {COUNCIL.map((c, i) => (
-            <motion.article
+          {COUNCIL.map((c) => (
+            <motion.div
               key={c.ref}
               variants={fadeInUp}
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 hairline-t border-border pt-12 md:pt-16"
+              className="md:hairline-r last:md:border-r-0 hairline-b md:border-b-0 border-border p-8 md:p-10 flex flex-col items-center text-center"
               data-testid={`council-${c.ref}`}
             >
-              <div className="md:col-span-4 flex flex-col md:items-start items-center md:text-left text-center">
-                {c.photo && (
-                  <div className="w-[200px] h-[200px] mb-8 rounded-full overflow-hidden bg-secondary ring-1 ring-border">
-                    <img
-                      src={c.photo}
-                      alt={`${c.first} ${c.last}`}
-                      loading="lazy"
-                      className="w-full h-full object-cover grayscale"
-                    />
-                  </div>
+              <div className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] mb-6 rounded-full overflow-hidden bg-secondary ring-1 ring-border">
+                {c.photo ? (
+                  <img
+                    src={c.photo}
+                    alt={`${c.first} ${c.last}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale"
+                  />
+                ) : (
+                  <PortraitFallback name={`${c.first} ${c.last}`} />
                 )}
-                <MonoLabel className="mb-4">{c.ref} · Council Member</MonoLabel>
-                <h3 className="font-serif text-4xl md:text-6xl leading-[0.92] mb-3">
-                  {c.first}{" "}
-                  <i className="italic font-normal text-accent-gold">
-                    {c.last}
-                  </i>
-                </h3>
-                <div className="font-serif italic text-base md:text-lg text-muted-foreground">
-                  {c.role}
-                </div>
               </div>
-              <div className="md:col-span-8 space-y-5">
-                {c.paragraphs.map((p, j) => (
-                  <p
-                    key={j}
-                    className="text-base md:text-lg leading-relaxed text-foreground"
-                  >
-                    {p}
-                  </p>
-                ))}
+              <MonoLabel className="mb-3">{c.ref} · Council</MonoLabel>
+              <h3 className="font-serif text-xl md:text-2xl leading-[0.95] mb-2">
+                {c.first}{" "}
+                <i className="italic font-normal text-accent-gold">{c.last}</i>
+              </h3>
+              <div className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mt-auto pt-2">
+                {c.role}
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </motion.div>
       </section>
