@@ -245,85 +245,107 @@ export default function LivingTrustFramework() {
       {/* Hero */}
       <section
         data-testid="ltf-hero"
-        className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16"
+        className="relative px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16 overflow-visible"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="lg:col-span-7"
+        {/* Text content */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={stagger}
+          className="relative z-20 max-w-[760px] xl:max-w-[820px]"
+        >
+          <motion.p
+            variants={fadeInUp}
+            className="font-mono text-xs uppercase tracking-widest text-accent-gold mb-6"
           >
-            <motion.p
-              variants={fadeInUp}
-              className="font-mono text-xs uppercase tracking-widest text-accent-gold mb-6"
-            >
-              Playa AI Living Trust Framework
-            </motion.p>
+            Playa AI Living Trust Framework
+          </motion.p>
 
-            <motion.h1
-              variants={fadeInUp}
-              className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight mb-8"
-            >
-              A public working framework for consent, data dignity, and{" "}
-              <i className="italic font-normal text-accent-gold">
-                human agency.
-              </i>
-            </motion.h1>
-
-            <motion.p
-              variants={fadeInUp}
-              className="text-base md:text-lg leading-relaxed mb-5 text-foreground max-w-2xl"
-            >
-              The Playa AI Living Trust Framework is the active standard guiding
-              data dignity, consent, memory, identity, and human agency across
-              Playa AI tools. It translates participatory culture into practical
-              privacy principles that can be adopted, adapted, and improved.
-            </motion.p>
-
-            <motion.p
-              variants={fadeInUp}
-              className="text-base md:text-lg leading-relaxed mb-8 text-muted-foreground max-w-2xl"
-            >
-              The framework is already guiding Playa AI tools, with broader
-              integration planned across our tools over the next few weeks. ABAC,
-              DPIAs, policy-as-code, and comparable technical items described
-              here are target practices and implementation directions, not yet
-              fully deployed capabilities. Privacy Compass remains a future
-              concept. The open-source license is under review.
-            </motion.p>
-
-            <motion.div variants={fadeInUp}>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-5 py-3 font-mono text-[11px] uppercase tracking-widest border border-border text-muted-foreground hover:border-foreground hover:text-foreground transition-colors duration-300"
-              >
-                View on GitHub →
-              </a>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 }}
-            className="lg:col-span-5"
-            style={{
-              WebkitMaskImage:
-                "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
-              maskImage:
-                "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
-            }}
+          <motion.h1
+            variants={fadeInUp}
+            className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight mb-8"
           >
-            <img
-              src={ltfSystemsMapImg}
-              alt="Abstract systems map representing the Playa AI Living Trust Framework."
-              className="w-full h-auto object-contain mix-blend-multiply"
-            />
+            A public working framework for consent, data dignity, and{" "}
+            <i className="italic font-normal text-accent-gold">
+              human agency.
+            </i>
+          </motion.h1>
+
+          <motion.p
+            variants={fadeInUp}
+            className="text-base md:text-lg leading-relaxed mb-5 text-foreground max-w-2xl"
+          >
+            The Playa AI Living Trust Framework is the active standard guiding
+            data dignity, consent, memory, identity, and human agency across
+            Playa AI tools. It translates participatory culture into practical
+            privacy principles that can be adopted, adapted, and improved.
+          </motion.p>
+
+          <motion.p
+            variants={fadeInUp}
+            className="text-base md:text-lg leading-relaxed mb-8 text-muted-foreground max-w-2xl"
+          >
+            The framework is already guiding Playa AI tools, with broader
+            integration planned across our tools over the next few weeks. ABAC,
+            DPIAs, policy-as-code, and comparable technical items described
+            here are target practices and implementation directions, not yet
+            fully deployed capabilities. Privacy Compass remains a future
+            concept. The open-source license is under review.
+          </motion.p>
+
+          <motion.div variants={fadeInUp}>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-5 py-3 font-mono text-[11px] uppercase tracking-widest border border-border text-muted-foreground hover:border-foreground hover:text-foreground transition-colors duration-300"
+            >
+              View on GitHub →
+            </a>
           </motion.div>
-        </div>
+        </motion.div>
+
+        {/* Graphic — desktop */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 }}
+          className="hidden lg:block absolute lg:left-[44%] lg:top-[48%] lg:w-[62vw] lg:max-w-[1000px] xl:left-[41%] xl:top-[46%] xl:w-[66vw] xl:max-w-[1350px] 2xl:left-[38%] 2xl:top-[44%] 2xl:w-[70vw] 2xl:max-w-[1800px] -translate-y-1/2 pointer-events-none z-0"
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+          }}
+        >
+          <img
+            src={ltfSystemsMapImg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto object-contain mix-blend-multiply"
+          />
+        </motion.div>
+
+        {/* Graphic — mobile */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.2 }}
+          className="block lg:hidden absolute left-[62%] top-[35%] sm:left-[58%] sm:top-[36%] md:left-[56%] md:top-[38%] -translate-x-1/2 -translate-y-1/2 w-[130vw] sm:w-[115vw] md:w-[95vw] max-w-none pointer-events-none z-0"
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
+            maskImage:
+              "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
+          }}
+        >
+          <img
+            src={ltfSystemsMapImg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto object-contain opacity-[0.38] mix-blend-multiply"
+          />
+        </motion.div>
       </section>
 
       {/* § 01 — A Living Trust Agreement */}

@@ -1,0 +1,50 @@
+Adjust only the Living Trust Framework hero graphic so it blends naturally into the page, using the homepage hero graphic as the exact visual and technical reference.
+
+Current problem:
+The framework graphic has a slightly different background color, creating a visible rectangular box. It should appear as if the linework is drawn directly onto the website background.
+
+Requirements:
+
+1. Inspect the homepage hero graphic implementation and reuse the same positioning, blending, layering, overflow, and responsive approach where appropriate.
+
+2. Match the framework graphic’s background exactly to the Living Trust page background:
+   - Remove any container background, border, shadow, or visible bounding box.
+   - First test CSS blending such as `mix-blend-mode: multiply`.
+   - If blending does not fully remove the rectangle, use a transparent-background version of the graphic while preserving all delicate gold and grey linework.
+   - Do not noticeably fade, blur, recolor, crop, or reduce the quality of the graphic.
+   - The final graphic must blend seamlessly with no visible rectangular edges.
+
+3. Make the graphic larger and allow it to overflow:
+   - Use `overflow: visible` on the relevant hero containers.
+   - Do not clip the image.
+   - Allow the graphic to extend beyond its column or normal content boundaries.
+   - It is acceptable—and preferred—for some hero text to overlap the graphic, similar to the homepage.
+   - Keep the text readable and above the graphic where they overlap.
+   - Set the graphic to `pointer-events: none`.
+
+4. Layering:
+   - Place the graphic decoratively behind or partially underneath the hero text.
+   - Use appropriate absolute positioning and z-index values.
+   - The text must remain selectable and clickable.
+   - Do not let the graphic block buttons or links.
+
+5. Responsive behavior:
+   - Preserve the larger overflow effect on desktop.
+   - On mobile, resize and reposition it carefully without clipping or creating horizontal scrolling.
+   - Do not hide the graphic completely on mobile unless absolutely necessary.
+
+Important:
+- Do not redesign the page.
+- Do not change any text, typography, colors, buttons, links, or section order.
+- Do not modify other pages.
+- Do not replace the graphic with a new design.
+- Only improve the graphic’s background blending, scale, position, overflow, and layering.
+- Use the homepage hero graphic as the visual benchmark.
+
+After making the change, show me desktop and mobile previews and confirm:
+- no visible image rectangle
+- website background matches seamlessly
+- overflow is visible
+- overlapping text remains readable
+- no horizontal page scrolling
+- no buttons or links are blocked
