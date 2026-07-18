@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
+import ltfSystemsMapImg from "@assets/ltf-systems-map.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -246,12 +247,12 @@ export default function LivingTrustFramework() {
         data-testid="ltf-hero"
         className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="lg:col-span-8"
+            className="lg:col-span-7"
           >
             <motion.p
               variants={fadeInUp}
@@ -282,7 +283,7 @@ export default function LivingTrustFramework() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-2xl"
+              className="text-base md:text-lg leading-relaxed mb-8 text-muted-foreground max-w-2xl"
             >
               The framework is already guiding Playa AI tools, with broader
               integration planned across our tools over the next few weeks. ABAC,
@@ -291,18 +292,37 @@ export default function LivingTrustFramework() {
               fully deployed capabilities. Privacy Compass remains a future
               concept. The open-source license is under review.
             </motion.p>
+
+            <motion.div variants={fadeInUp}>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-5 py-3 font-mono text-[11px] uppercase tracking-widest border border-border text-muted-foreground hover:border-foreground hover:text-foreground transition-colors duration-300"
+              >
+                View on GitHub →
+              </a>
+            </motion.div>
           </motion.div>
 
-          <div className="lg:col-span-4 flex lg:justify-end lg:items-start lg:pt-4">
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-5 py-3 font-mono text-[11px] uppercase tracking-widest border border-border text-muted-foreground hover:border-foreground hover:text-foreground transition-colors duration-300"
-            >
-              View on GitHub →
-            </a>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 }}
+            className="lg:col-span-5"
+            style={{
+              WebkitMaskImage:
+                "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+              maskImage:
+                "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+            }}
+          >
+            <img
+              src={ltfSystemsMapImg}
+              alt="Abstract systems map representing the Playa AI Living Trust Framework."
+              className="w-full h-auto object-contain mix-blend-multiply"
+            />
+          </motion.div>
         </div>
       </section>
 
