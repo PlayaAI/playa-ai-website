@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
 import manifestoText from "./manifesto.txt?raw";
+import workHeroImg from "@assets/ChatGPT_Image_Jul_18,_2026,_12_02_36_PM_1784365480389.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -636,9 +637,9 @@ export default function Work() {
       {/* 1. Hero */}
       <section
         data-testid="work-hero"
-        className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16"
+        className="relative px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16 overflow-visible"
       >
-        <div className="hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
+        <div className="relative z-20 hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
           <span>A field guide · Our Work · 2026</span>
         </div>
 
@@ -646,7 +647,7 @@ export default function Work() {
           initial="hidden"
           animate="visible"
           variants={stagger}
-          className="max-w-4xl"
+          className="relative z-20 max-w-4xl"
         >
           <motion.h1
             variants={fadeInUp}
@@ -696,9 +697,51 @@ export default function Work() {
           </motion.div>
         </motion.div>
 
-        <div className="mt-8 font-mono text-[11px] tracking-widest text-muted-foreground hairline-t border-border pt-4">
+        <div className="relative z-20 mt-8 font-mono text-[11px] tracking-widest text-muted-foreground hairline-t border-border pt-4">
           BUILDING TOOLS · TESTING IN COMMUNITY · PUBLISHING WHAT CAN BE REUSED
         </div>
+
+        {/* Graphic — desktop */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 }}
+          className="hidden lg:block absolute lg:left-[36%] lg:top-[52%] lg:w-[80vw] lg:max-w-[1300px] xl:left-[33%] xl:top-[50%] xl:w-[84vw] xl:max-w-[1600px] 2xl:left-[30%] 2xl:top-[48%] 2xl:w-[88vw] 2xl:max-w-[2000px] -translate-y-1/2 pointer-events-none z-0"
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse at 65% 50%, black 52%, rgba(0,0,0,0.68) 70%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse at 65% 50%, black 52%, rgba(0,0,0,0.68) 70%, transparent 100%)",
+          }}
+        >
+          <img
+            src={workHeroImg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto object-contain mix-blend-multiply"
+          />
+        </motion.div>
+
+        {/* Graphic — mobile */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.2 }}
+          className="block lg:hidden absolute left-[55%] top-[40%] sm:left-[52%] sm:top-[42%] md:left-[50%] md:top-[44%] -translate-x-1/2 -translate-y-1/2 w-[150vw] sm:w-[130vw] md:w-[110vw] max-w-none pointer-events-none z-0"
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse at 65% 50%, black 38%, rgba(0,0,0,0.4) 58%, transparent 85%)",
+            maskImage:
+              "radial-gradient(ellipse at 65% 50%, black 38%, rgba(0,0,0,0.4) 58%, transparent 85%)",
+          }}
+        >
+          <img
+            src={workHeroImg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto object-contain opacity-[0.35] mix-blend-multiply"
+          />
+        </motion.div>
       </section>
 
       {/* 2. Work Index / Stats */}
