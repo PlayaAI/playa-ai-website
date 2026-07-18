@@ -305,7 +305,7 @@ const WORKSTREAMS: Workstream[] = [
   {
     n: "01",
     category: "Build / Field Experiment",
-    status: "Pilot",
+    status: "Live Pilot",
     need: "Authentic connection",
     title: "Connect App",
     subtitle: "",
@@ -338,7 +338,7 @@ const WORKSTREAMS: Workstream[] = [
       "Piloted through the Menta Series in Miami with approximately 80 participants, showing strong engagement with the generated Ikigai statements and visual outputs.",
     people: "Raed Marji · Katya Vinnikova",
     cta: "Open app →",
-    href: "https://ikigai-rmarji.replit.app",
+    href: "https://ikigai-rmarji.replit.app", /* TODO: Link currently unavailable — retained by explicit request. Verify or restore later. */
   },
   {
     n: "03",
@@ -362,7 +362,7 @@ const WORKSTREAMS: Workstream[] = [
   {
     n: "04",
     category: "Research",
-    status: "Concept / Pilot",
+    status: "Research Prototype",
     need: "Safety, empathy, and repair",
     title: "Relationship Nurturer",
     subtitle: "Niles / Neuro-intelligent Nudges",
@@ -382,12 +382,12 @@ const WORKSTREAMS: Workstream[] = [
   {
     n: "05",
     category: "Protocol / Open Tool",
-    status: "Working Framework · In Active Use",
+    status: "Working Draft",
     need: "Dignity, autonomy, and data sovereignty",
     title: "Playa AI Living Trust Framework",
     subtitle: "",
     pull: "A radical blueprint for decommodifying data and returning sovereignty to the individual.",
-    body: "This framework translates participatory culture into concrete data rights, consent practices, AI-specific protections, and open-source governance patterns.",
+    body: "This framework translates participatory culture into concrete data rights, consent practices, AI-specific protections, and open governance patterns.",
     aiRole:
       "The framework was co-created through a synthesis process using multiple AI systems to compare, critique, and refine principles from humane technology, AI governance, and Burning Man-inspired values such as consent, decommodification, participation, and leaving no trace.",
     consent:
@@ -403,7 +403,7 @@ const WORKSTREAMS: Workstream[] = [
   {
     n: "06",
     category: "Protocol / Open Standard",
-    status: "Draft / Active",
+    status: "Draft",
     need: "Consent, disclosure, and accountability",
     title: "EELP — Ethical Experience Lab Protocol",
     subtitle: "",
@@ -419,7 +419,7 @@ const WORKSTREAMS: Workstream[] = [
   {
     n: "07",
     category: "Govern",
-    status: "Design / Pre-pilot",
+    status: "Planned",
     need: "Data sovereignty and identity control",
     title: "Consent-First Data Trust",
     subtitle: "",
@@ -435,7 +435,7 @@ const WORKSTREAMS: Workstream[] = [
   {
     n: "08",
     category: "Govern",
-    status: "Published / Living Document",
+    status: "Published",
     need: "A shared moral compass",
     title: "Burner-AI Manifesto",
     subtitle: "",
@@ -721,12 +721,15 @@ export default function Work() {
                 </i>
               </h2>
             </div>
-            <div className="lg:col-span-6 flex items-center">
+            <div className="lg:col-span-6 flex items-start flex-col gap-4">
               <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
                 The work moves through three modes: tools that help people
                 connect and reflect, research prototypes that test what AI can
                 responsibly mediate, and protocols that keep the whole system
                 accountable.
+              </p>
+              <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
+                Together, these workstreams form one learning loop: community gatherings inform experiments, experiments test EELP and Living Trust safeguards, and the results become public learning.
               </p>
             </div>
           </div>

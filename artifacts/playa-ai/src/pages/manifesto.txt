@@ -1,19 +1,21 @@
 Playa AI Manifesto
 In one sentence
-We are gathering the world’s brightest minds in the desert to ensure that the birth of AI is shaped by the highest principles of humanity not profit, politics, or fear.
+We are gathering technologists, artists, researchers, and community stewards in the desert to ensure that the birth of AI is shaped by the highest principles of humanity — not profit, politics, or fear.
 
 In 100 words
-The Playa AI Initiative is a call to co-create a future where artificial intelligence is not just engineered but ensouled. At Burning Man—where we prototype new civilizations—we are forming a global alliance of technologists, artists, philosophers, and visionaries to embed human values into the foundation of AI itself. Guided by Burning Man’s 10 Principles, we are launching initiatives that train AI in community, generosity, and radical creativity. This is more than technology. It is a movement. A moral mandate. A living framework for the next evolution of humanity. The future of intelligence should be shaped by those who care most deeply about life.
+The Playa AI Initiative is a call to co-create a future where artificial intelligence is not just engineered but shaped by human values and cultural understanding. At Burning Man—where we prototype new civilizations—we are forming a global alliance of technologists, artists, philosophers, and visionaries to embed human values into the foundation of AI itself. Guided by Burning Man's 10 Principles, we are launching initiatives that design and test AI-mediated experiences around community, generosity, consent, and creativity. This is more than technology. It is a movement. A shared responsibility. A living framework for the next evolution of humanity. The future of intelligence should be shaped by those who care most deeply about life.
+
+Note: This is Playa AI's founding cultural text. Its current operating expression is being developed through EELP, the Living Trust Framework, community experiments, and published learning.
 
 In 1000 words
 THE PLAYA AI INITIATIVE
 
 A FUTURE, BORN IN THE DESERT.
- An invitation to shape superintelligence with soul.
+ An invitation to shape the development of increasingly capable AI systems with human values.
 
 On the Playa, we build new worlds from dust. Meaning in empty space. Temples that burn. Art that vanishes. And yet, in that impermanence, we discover something eternal.
 
-Now, a new kind of creation emerges—AI—one that doesn’t burn, but learns. One that doesn't disappear, but scales. A force that may shape the next epoch of human life.
+Now, a new kind of creation emerges—AI—one that doesn't burn, but learns. One that doesn't disappear, but scales. A force that may shape the next epoch of human life.
 
 The question is not whether artificial intelligence will shape our world—it already is. The real question is who will shape it. And with what values.
 
@@ -23,9 +25,9 @@ We are launching the Playa AI Initiative to ensure this defining moment of human
 
 Our Mission
 
-To gather the greatest minds of our time—technologists, philosophers, artists, cultural stewards—and anchor the birth of superintelligence in the principles and consciousness of Burning Man.
+To gather the greatest minds of our time—technologists, philosophers, artists, cultural stewards—and anchor the development of increasingly capable AI systems in the principles and consciousness of Burning Man.
 
-To create a proving ground in the desert for how AI might serve not the few, but the many. Not just what’s possible—but what’s beautiful, ethical, and transformative.
+To create a proving ground in the desert for how AI might serve not the few, but the many. Not just what's possible—but what's beautiful, ethical, and transformative.
 
 
 
@@ -33,10 +35,10 @@ Why Now?
 
 We are entering a new phase of civilization. AI is evolving faster than regulation, faster than culture, and in some cases, faster than human understanding.
 
-The world’s most powerful companies and governments are building tools that will reshape cognition, community, and creativity. But most are doing so within systems optimized for profit and control—not for wisdom, wonder, or well-being.
+The world's most powerful companies and governments are building tools that will reshape cognition, community, and creativity. But most are doing so within systems optimized for profit and control—not for wisdom, wonder, or well-being.
 
 We believe another path is not only possible—but necessary.
- A path where technology is ensouled.
+ A path where technology is shaped by human values and cultural understanding.
 
 
 
@@ -54,13 +56,13 @@ Now, this community—its values, its vision, its culture—can help shape the i
 
 The Call
 
-We are calling together those who see what’s coming—and are ready to respond with clarity, care, and creativity.
+We are calling together those who see what's coming—and are ready to respond with clarity, care, and creativity.
 
 We are inviting:
 
 The builders of AI models
 
-The guardians of Burning Man’s ethos
+The guardians of Burning Man's ethos
 
 The artists who reveal truth through myth
 
@@ -68,7 +70,7 @@ The funders ready to invest in civilization-scale infrastructure
 
 The next generation of humans who will live in this co-created world
 
-Together, we will embed the Ten Principles of Burning Man into the intelligence systems of tomorrow. Not as rules, but as orientation points for soul-aligned design:
+Together, we will translate the Ten Principles of Burning Man into testable product, data, and governance requirements. Not as rules, but as orientation points for human-centered design:
 
 Radical Inclusion → AI that works for all.
 
@@ -101,10 +103,10 @@ Leaving No Trace → Systems that regenerate, not extract.
 
 
 
-What We’re Building
+What We're Building
 
 THE ORACLE
- A living AI installation trained on the Playa’s stories, art, and wisdom. Not a tool of control, but a space for reflection and conversation. A co-creator with the community.
+ A living AI installation trained on the Playa's stories, art, and wisdom. Not a tool of control, but a space for reflection and conversation. A co-creator with the community.
 
 THE FIRST AI CAMP
  An immersive experience at Burning Man, where AI is not a product, but a participant. From architecture to storytelling to music—AI will help burners rediscover the joy of co-creation with machines.
@@ -113,7 +115,7 @@ AI FOR HUMANITY
  An open-source, community-governed foundation model trained on the spirit of the Playa. Accessible to all. Created by many. Powered by intention, not extraction.
 
 THE AI CODE OF THE PLAYA
- A radical, evolving framework for AI ethics rooted in Burning Man’s ethos—crafted by philosophers, engineers, artists, and dreamers.
+ A radical, evolving framework for AI ethics rooted in Burning Man's ethos—crafted by philosophers, engineers, artists, and dreamers.
 
 A DIGITAL BURNING MAN
  A permanent AI/VR-powered Playa experience—accessible to anyone, anywhere. A training ground for transformation. A place where the principles live on, long after the dust has settled.
@@ -124,13 +126,13 @@ This Is About More Than Technology
 
 This is about who we are becoming.
 
-This is about making sure that the most powerful intelligence we’ve ever created emerges not as an orphan of culture—but as a child of our highest values.
+This is about making sure that the most powerful intelligence we've ever created emerges not as an orphan of culture—but as a child of our highest values.
 
 This is a conversation that begins in the dust—and echoes far beyond it.
 
 We are not just talking about AI alignment. We are talking about human alignment—our ability to come together, across fields and identities, to co-create a world that is wise, just, and wildly alive.
 
-As Caveat Magister wrote, “If we want AI to be beneficent, we must first show it what that looks like.” That begins here.
+As Caveat Magister wrote, "If we want AI to be beneficent, we must first show it what that looks like." That begins here.
 
 
 
@@ -138,7 +140,7 @@ The Pledge
 
 We hold these truths to be self-evident:
 That humanity's evolution is accelerating.
-That superintelligence can expand our consciousness.
+That increasingly capable AI systems can expand our consciousness.
 That AI can be a partner in creativity, connection, and community.
 That the values we embed now will echo through generations.
 

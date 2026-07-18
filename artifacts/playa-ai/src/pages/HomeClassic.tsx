@@ -590,7 +590,7 @@ export default function Home() {
               variants={fadeInUp}
               className="font-mono text-[11px] tracking-widest text-muted-foreground mt-5"
             >
-              A philanthropic program fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.
+              A philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.
             </motion.p>
           </motion.div>
         </div>
@@ -1276,7 +1276,7 @@ export default function Home() {
               },
               {
                 title: "Research partners",
-                desc: "IRB-compatible field methods, clear consent layers, minimal data collection, and publishable learning.",
+                desc: "Research-oriented field methods, clear consent layers, minimal data collection, and publishable learning.",
               },
               {
                 title: "Artists + builders",

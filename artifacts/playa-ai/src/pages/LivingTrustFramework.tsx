@@ -264,7 +264,7 @@ export default function LivingTrustFramework() {
               variants={fadeInUp}
               className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight mb-8"
             >
-              An open-source framework for consent, data dignity, and{" "}
+              A public working framework for consent, data dignity, and{" "}
               <i className="italic font-normal text-accent-gold">
                 human agency.
               </i>

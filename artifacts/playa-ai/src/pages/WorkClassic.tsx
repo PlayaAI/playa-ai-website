@@ -336,7 +336,7 @@ const WORKSTREAMS: Workstream[] = [
       "Piloted through the Menta Series in Miami with approximately 80 participants, showing strong engagement with the generated Ikigai statements and visual outputs.",
     people: "Raed Marji · Katya Vinnikova",
     cta: "Open app →",
-    href: "https://ikigai-rmarji.replit.app",
+    href: "https://ikigai-rmarji.replit.app", /* TODO: Link currently unavailable — retained by explicit request. Verify or restore later. */
   },
   {
     n: "03",
@@ -385,7 +385,7 @@ const WORKSTREAMS: Workstream[] = [
     title: "Privacy Toolkit",
     subtitle: "Living Trust Agreement",
     pull: "A radical blueprint for decommodifying data and returning sovereignty to the individual.",
-    body: "The Privacy Toolkit is Playa AI\u2019s open-source privacy and data ethics framework for human-centered AI projects. It treats privacy not as a compliance checkbox, but as a living trust agreement between builders and participants \u2014 especially when AI systems touch identity, purpose, memory, relationship, or voice.",
+    body: "The Privacy Toolkit is Playa AI\u2019s public working privacy and data ethics framework intended for open-source release for human-centered AI projects. It treats privacy not as a compliance checkbox, but as a living trust agreement between builders and participants \u2014 especially when AI systems touch identity, purpose, memory, relationship, or voice.",
     aiRole:
       "The toolkit was co-created through a synthesis process using multiple AI systems to compare, critique, and refine principles from humane technology, AI governance, and Burning Man-inspired values such as consent, decommodification, participation, and leaving no trace.",
     consent:

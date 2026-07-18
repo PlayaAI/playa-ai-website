@@ -1,0 +1,267 @@
+Perform a small credibility and institutional-clarity update across the entire Playa AI website.
+
+Website:
+https://playa-ai.org/
+
+Important constraints:
+- Do not redesign the website.
+- Do not change the visual identity, colors, typography, graphics, spacing system, or page structure.
+- Do not remove any page, project, section, button, or link.
+- Do not remove or replace dead external links. Leave their hrefs exactly unchanged.
+- Do not change the existing Gmail compose links.
+- Do not invent statistics, testimonials, partnerships, legal status, technical capabilities, dates, maintainers, or evidence.
+- Preserve the homepage headline: “The next era of AI needs more than intelligence. It needs culture.”
+- Preserve: “Born on the Playa. Gifted to the Planet.”
+- Preserve the Living Trust concept and the cultural character of the site.
+- Make a checkpoint before editing.
+
+TASK 1 — Clarify the organizational identity
+
+Review the entire website and make the legal relationship consistent.
+
+Use this wording where appropriate:
+
+“Playa AI is a philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.”
+
+Do not say or imply that Playa AI itself is currently an independent 501(c)(3).
+
+Preserve the existing statement that Playa AI is developing independent governance and a future public-charity pathway.
+
+Do not invent or mention any future commercial entity unless one is already explicitly documented on the website.
+
+TASK 2 — Add a clear flagship story
+
+Add this short sentence in an appropriate prominent location on the homepage, preferably near the operating model or current initiatives section:
+
+“Playa AI convenes communities, tests human-centered AI experiences, applies EELP and Living Trust safeguards, and publishes what the field teaches.”
+
+On the Work page, make it clear that the projects form one connected system—not eight unrelated products.
+
+Add this sentence near the Work page introduction:
+
+“Together, these workstreams form one learning loop: community gatherings inform experiments, experiments test EELP and Living Trust safeguards, and the results become public learning.”
+
+Do not reorder or remove the projects.
+
+TASK 3 — Standardize project statuses
+
+Give every project on the Work page one clear status using only:
+
+- Live
+- Pilot
+- Prototype
+- Draft
+- Planned
+
+Determine the status only from existing website copy. Do not exaggerate readiness.
+
+Use these statuses unless the current source clearly proves otherwise:
+
+- Connect App — Live Pilot
+- Ikigai App 1 — Pilot
+- Ikigai App 2 — Prototype
+- Relationship Nurturer — Research Prototype
+- Living Trust Framework — Working Draft
+- EELP — Draft
+- Consent-First Data Trust — Planned
+- Burner-AI Manifesto — Published
+
+Keep existing warnings and honest development notes.
+
+TASK 4 — Correct high-risk claims
+
+Search the full website for claims using terms such as:
+
+- open-source
+- secure
+- deployed
+- certified
+- legally approved
+- IRB-compatible
+- microgrants are open
+- every tool is reviewed
+- all programs documented publicly
+- training AI
+- superintelligence
+- ensouled AI
+- soul-aligned
+- civilization-scale
+- world’s brightest minds
+
+Apply these changes:
+
+1. Until a complete license and adoption-ready repository are publicly available, change:
+
+“open-source framework”
+
+to:
+
+“public working framework intended for open-source release”
+
+Do not remove the GitHub link or change its URL.
+
+2. Change:
+
+“IRB-compatible field methods”
+
+to:
+
+“research-oriented field methods designed to support rigorous study”
+
+3. Change any unsupported guarantee of a “secure agent” to:
+
+“a live, self-hosted agent with guided security setup”
+
+Do not alter archived quotations when they are clearly identified as quotations from past event pages. Instead, add a small contextual note if necessary.
+
+4. Change:
+
+“Every tool we build or endorse is reviewed against EELP”
+
+to:
+
+“Playa AI tools are being reviewed against the developing EELP principles.”
+
+5. Change:
+
+“All programs are documented publicly”
+
+to:
+
+“We aim to document programs publicly as they mature.”
+
+6. Change:
+
+“Year-One microgrants are open”
+
+to:
+
+“The Year-One microgrant program is in development, and the artist interest list is open.”
+
+Apply this everywhere it appears unless complete eligibility, amount, timing, and application details already exist publicly.
+
+TASK 5 — Improve the manifesto without rewriting it
+
+Keep the manifesto’s central thesis, Playa origin, emotional tone, desert imagery, and principle mappings.
+
+Make only these targeted changes:
+
+- “ensouled AI” → “AI shaped by human values and cultural understanding”
+- “birth of superintelligence” → “development of increasingly capable AI systems”
+- “world’s brightest minds” → “technologists, artists, researchers, and community stewards”
+- “soul-aligned design” → “human-centered design”
+- “moral mandate” → “shared responsibility”
+- “train AI in community, generosity, and radical creativity” → “design and test AI-mediated experiences around community, generosity, consent, and creativity”
+- “embed the Ten Principles into intelligence systems” → “translate the Ten Principles into testable product, data, and governance requirements”
+
+Add this short context line before the long manifesto:
+
+“This is Playa AI’s founding cultural text. Its current operating expression is being developed through EELP, the Living Trust Framework, community experiments, and published learning.”
+
+On `/manifesto`, show or expand the full manifesto directly when the page loads. Keep it collapsed by default when opened from the homepage modal.
+
+TASK 6 — Strengthen leadership credibility carefully
+
+On the Team page:
+
+- Preserve every current team and Council member.
+- Preserve the Council charter and advisory-only disclaimer.
+- Do not invent biographies or credentials.
+- Keep Tina Woods’ current biography.
+- If factual biography content for Alex Azzi, Rebecca Nelson, or Raed Marji already exists elsewhere in the codebase, use it to add concise two-to-three-sentence biographies.
+- If verified content is not available, leave their current biographies unchanged and report exactly what information is missing.
+- Do not invent LinkedIn URLs. Add profile links only if verified URLs already exist in the project.
+
+TASK 7 — Institutional essentials audit
+
+Check whether the website has:
+
+- Privacy Policy
+- Terms of Use
+- Fiscal-sponsorship disclosure
+- Governance information
+- Donation disclosure
+- Visible contact email
+- Framework versions and update dates
+
+Do not write fake legal policies.
+
+If approved Privacy Policy or Terms content already exists in the repository, ensure it is reachable from the footer.
+
+If it does not exist, do not create or publish invented legal language. Record it as a missing item in the final report.
+
+Keep the Gmail compose buttons, but display the copyable email address `hello@playa-ai.org` in the footer or contact area so non-Gmail visitors can still contact the initiative.
+
+TASK 8 — Links and navigation
+
+Audit every internal and external link across:
+
+- Homepage
+- Work
+- Living Trust Framework
+- EELP
+- Events
+- Team
+- Manifesto
+- Footer
+- Navigation
+
+Critical rule:
+
+DO NOT DELETE, HIDE, DISABLE, REPLACE, OR CHANGE THE HREF OF ANY DEAD EXTERNAL LINK.
+
+Leave all dead links exactly as they are.
+
+Known link to preserve even if it is currently dead:
+
+https://ikigai-rmarji.replit.app/
+
+Add a code comment beside every confirmed dead link:
+
+TODO: Link currently unavailable — retained by explicit request. Verify or restore later.
+
+The header “Contact” link currently points to `/#fund`, which is the Proof of Momentum section. Do not remove the Contact link. Change its destination only if a real contact section already exists. Otherwise, create a small contact anchor near the final contact CTAs and point the existing Contact button to that anchor.
+
+Do not change the Gmail CTA URLs.
+
+TASK 9 — Framework credibility
+
+On EELP and Living Trust Framework pages, show only version, maintainer, last-updated date, and next-review date if those facts already exist in the repository.
+
+If they do not exist, do not invent them. Add them to the final missing-information report.
+
+Keep the existing GitHub links unchanged.
+
+TASK 10 — Verification and final report
+
+After editing:
+
+1. Test all internal routes.
+2. Test navigation anchors.
+3. Confirm manifesto controls still work.
+4. Confirm Gmail compose links remain unchanged.
+5. Confirm no links, projects, sections, or people were removed.
+6. Confirm dead links remain unchanged.
+7. Confirm mobile and desktop layouts were not damaged.
+8. Confirm there are no console errors introduced.
+
+Create a final report with:
+
+- Files changed
+- Exact copy changed
+- Claims softened
+- Legal-identity corrections
+- Project statuses added
+- Links tested
+- Dead links intentionally retained
+- Missing legal/institutional materials
+- Missing biographies or evidence
+- Items requiring human approval
+
+Also create a separate checklist called:
+
+DEAD LINKS — REMIND ME LATER
+
+Include every dead link, its page, its button label, and the recommended future action.
+
+Do not make changes outside this scope.

@@ -424,7 +424,7 @@ const OPERATING_MODEL = [
   {
     n: "03",
     title: "Fund",
-    desc: "We fund artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. Year-One microgrants are open.",
+    desc: "We fund artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. The Year-One microgrant program is in development, and the artist interest list is open.",
     cta: "Support Year One →",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Inquiry",
   },
@@ -452,8 +452,8 @@ const INITIATIVES = [
     n: "02",
     title: "Living Trust Framework",
     subtitle: "",
-    body: "An open-source framework for consent, data dignity, privacy, and human agency in AI-mediated experiences.",
-    status: "Working Framework · In Active Use",
+    body: "A public working framework for consent, data dignity, privacy, and human agency in AI-mediated experiences, intended for open-source release.",
+    status: "Working Draft",
     cta: "Open the Living Trust Framework →",
     href: "/living-trust-framework",
   },
@@ -462,7 +462,7 @@ const INITIATIVES = [
     title: "EELP",
     subtitle: "Ethical Experience Lab Protocol",
     body: "An open standard for consent, disclosure, data minimization, and human override in AI-mediated experiences. Written to be adopted without a legal team.",
-    status: "Draft / Active",
+    status: "Draft",
     cta: "Explore EELP →",
     href: "/eelp",
   },
@@ -480,7 +480,7 @@ const INITIATIVES = [
     n: "05",
     title: "Agent Labs",
     subtitle: "OpenClaw Hackathons",
-    body: "Hands-on working sessions where participants build and run their own secure AI agents. Everyone leaves with a live agent on their own cloud server.",
+    body: "Hands-on working sessions where participants build and run their own self-hosted AI agents. Everyone leaves with a live agent on their own cloud server.",
     status: "Active",
     cta: "View events →",
     href: "/events",
@@ -560,8 +560,8 @@ const PARTICIPATION = [
   },
   {
     tag: "For Researchers",
-    title: "IRB-compatible field methods",
-    desc: "Clear consent layers, minimal data collection, and publishable learning — designed to meet the standard rigorous research requires.",
+    title: "Research-oriented field methods",
+    desc: "Clear consent layers, minimal data collection, and publishable learning — designed to support rigorous collaborative research.",
     cta: "Propose a collaboration →",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Research%20Collaboration",
     highlight: false,
@@ -601,7 +601,7 @@ const TRUST_ITEMS = [
   {
     n: "02",
     title: "Consent-first design",
-    body: "Consent is a precondition, not a checkbox. Every tool we build or endorse is reviewed against EELP consent and disclosure standards.",
+    body: "Consent is a precondition, not a checkbox. Playa AI tools are being reviewed against the developing EELP principles.",
   },
   {
     n: "03",
@@ -621,7 +621,7 @@ const TRUST_ITEMS = [
   {
     n: "06",
     title: "Transparent governance",
-    body: "Clear separation between charitable work and any future commercial implementation. All programs documented publicly.",
+    body: "Clear separation between charitable work and any future commercial implementation. We aim to document programs publicly as they mature.",
   },
 ];
 
@@ -669,7 +669,7 @@ export default function Home() {
               variants={fadeInUp}
               className="text-sm md:text-base max-w-2xl leading-relaxed mb-6 text-muted-foreground"
             >
-              Playa AI is a nonprofit initiative building cultural, ethical, and
+              Playa AI is a philanthropic initiative building cultural, ethical, and
               technical infrastructure for human-centered AI — bringing together
               builders, artists, researchers, funders, and community stewards to
               shape AI around creativity, consent, participation, and human
@@ -722,7 +722,7 @@ export default function Home() {
               variants={fadeInUp}
               className="font-mono text-[11px] tracking-widest text-muted-foreground mt-5"
             >
-              A philanthropic program fiscally sponsored by Mystic Arts
+              A philanthropic initiative fiscally sponsored by Mystic Arts
               Foundation, a U.S. 501(c)(3) public charity.
             </motion.p>
           </motion.div>
@@ -821,11 +821,16 @@ export default function Home() {
             </h2>
           </div>
           <div className="lg:col-span-5 flex items-end">
-            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              Four jobs for a public-interest cultural AI lab. Each feeds the
-              others. The standard only earns trust if it's tested in the field
-              — and the field only produces learning if it's published openly.
-            </p>
+            <div className="space-y-4">
+              <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
+                Four jobs for a public-interest cultural AI lab. Each feeds the
+                others. The standard only earns trust if it's tested in the field
+                — and the field only produces learning if it's published openly.
+              </p>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Playa AI convenes communities, tests human-centered AI experiences, applies EELP and Living Trust safeguards, and publishes what the field teaches.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -1372,7 +1377,7 @@ export default function Home() {
       </section>
 
       {/* ── 10. Final CTA ───────────────────────────────────────────────── */}
-      <section className="py-32 md:py-40 px-4 max-w-[1400px] mx-auto border-t border-foreground text-center">
+      <section id="contact" className="py-32 md:py-40 px-4 max-w-[1400px] mx-auto border-t border-foreground text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"

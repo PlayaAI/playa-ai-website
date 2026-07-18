@@ -28,7 +28,8 @@ export function SiteFooter({
         </div>
         <div className="text-[#A7A39A]">{contextLine}</div>
         <div className="text-[#A7A39A]">
-          © 2026 Playa AI Foundation · Fiscal sponsorship via Mystic Arts Foundation · 501(c)(3)
+          <div>© 2026 Playa AI Foundation · Fiscal sponsorship via Mystic Arts Foundation · 501(c)(3)</div>
+          <div className="mt-2">hello@playa-ai.org</div>
         </div>
       </div>
     </footer>
