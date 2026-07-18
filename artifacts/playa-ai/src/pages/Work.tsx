@@ -706,7 +706,7 @@ export default function Work() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 }}
-          className="hidden lg:block absolute lg:left-[26%] lg:top-[52%] lg:w-[80vw] lg:max-w-[1300px] xl:left-[23%] xl:top-[50%] xl:w-[84vw] xl:max-w-[1600px] 2xl:left-[20%] 2xl:top-[48%] 2xl:w-[88vw] 2xl:max-w-[2000px] -translate-y-1/2 pointer-events-none z-0"
+          className="hidden lg:block absolute lg:left-[16%] lg:top-[52%] lg:w-[80vw] lg:max-w-[1300px] xl:left-[13%] xl:top-[50%] xl:w-[84vw] xl:max-w-[1600px] 2xl:left-[10%] 2xl:top-[48%] 2xl:w-[88vw] 2xl:max-w-[2000px] -translate-y-1/2 pointer-events-none z-0"
           style={{
             WebkitMaskImage:
               "radial-gradient(ellipse at 65% 50%, black 52%, rgba(0,0,0,0.68) 70%, transparent 100%)",
