@@ -55,7 +55,13 @@ const LEADERSHIP = [
     photo:
       "https://playaai.github.io/Playa-AI/team-page-assets/rebecca-nelson.jpg",
     lines: ["Community & Comms."],
-    credibility: "Building the community and communication layer of the foundation.",
+    bio: [
+      "Rebecca is a communications strategist and writer working across audience psychology, narrative, and emerging technology. Her work focuses on understanding how people think, what motivates them, and how complex ideas can be translated into language that feels clear, human, and emotionally intelligent. She holds a First Class Honours degree from King's College London.",
+      "Within Playa AI, Rebecca has helped shape the initiative's public narrative, grant strategy, and community communications. She leads the development of a manual-first grant pipeline and shared evidence repository—building a source of truth that can support future funding applications.",
+      "Rebecca has also represented Playa AI at public gatherings, including Summit Detroit with Alex Azzi, where they introduced the initiative's approach to bringing AI into the Burning Man community consciously and creatively. At Playa AI, she leads the community and communications layer—connecting the work with funders, collaborators, participants, and the wider public.",
+    ],
+    profileLink: "https://www.linkedin.com/in/rebecca-nelson-copywriting",
+    profileLabel: "LinkedIn Profile",
   },
   {
     n: "004",
@@ -64,7 +70,13 @@ const LEADERSHIP = [
     title: "CTO",
     photo: "https://playaai.github.io/Playa-AI/team-page-assets/raed-marji.jpg",
     lines: ["Programs & Operations."],
-    credibility: "Engineering, operations, and program infrastructure.",
+    bio: [
+      "Raed is an AI architect, technical advisor, and former CTO with more than a decade of experience building AI, data, and product systems. He is the founder of ClawGeeks, the team behind an OpenClaw multi-agent platform, and an IEEE-published researcher whose work has received more than 150 citations. His public portfolio documents more than 40 open-source repositories and experience across AI strategy, data infrastructure, multi-agent systems, and technical leadership.",
+      "His previous work includes leading technology and AI infrastructure at Arootah, where he built systems spanning coaching, wealth, and operations. His current work focuses on helping teams translate AI opportunities into practical architectures, repeatable operating systems, and working implementations.",
+      "At Playa AI, Raed leads engineering, technical operations, and program infrastructure. He has contributed to Connect, the Ikigai prototypes, AI-agent workshops, and the technical implementation of Playa AI's human-centered experiments. He also supports the infrastructure behind the OpenClaw hackathon series, helping participants leave with working, self-hosted agents.",
+    ],
+    profileLink: "https://marji.io/",
+    profileLabel: "Portfolio →",
   },
 ];
 
@@ -603,6 +615,18 @@ export default function Teams() {
                         {p}
                       </p>
                     ))}
+                    {(m as any).profileLink && (
+                      <p className="mt-2">
+                        <a
+                          href={(m as any).profileLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-[11px] uppercase tracking-widest text-accent-gold hover:opacity-70 transition-opacity"
+                        >
+                          {(m as any).profileLabel ?? "Profile →"}
+                        </a>
+                      </p>
+                    )}
                   </div>
                 )}
               </motion.div>

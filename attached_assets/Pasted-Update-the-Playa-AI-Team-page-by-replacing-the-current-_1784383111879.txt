@@ -1,0 +1,40 @@
+Update the Playa AI Team page by replacing the current short placeholder descriptions for Rebecca Nelson and Raed Marji with the biographies below.
+
+Important:
+- Change only their biography text.
+- Do not change their names, titles, photographs, numbering, layout, typography, spacing, colors, or card positions.
+- Do not change Tina Woods’ biography or any other team member.
+- Preserve the existing responsive design.
+- Add the provided profile links discreetly at the end of each biography or as a small “Profile →” link, matching the website’s existing editorial style.
+- Open external profile links in a new tab using `target="_blank"` and `rel="noopener noreferrer"`.
+
+REBECCA NELSON
+
+Rebecca is a communications strategist and writer working across audience psychology, narrative, and emerging technology. Her work focuses on understanding how people think, what motivates them, and how complex ideas can be translated into language that feels clear, human, and emotionally intelligent. She holds a First Class Honours degree from King’s College London.
+
+Within Playa AI, Rebecca has helped shape the initiative’s public narrative, grant strategy, and community communications. She leads the development of a manual-first grant pipeline and shared evidence repository—building a source of truth that can support future funding applications.
+
+Rebecca has also represented Playa AI at public gatherings, including Summit Detroit with Alex Azzi, where they introduced the initiative’s approach to bringing AI into the Burning Man community consciously and creatively. At Playa AI, she leads the community and communications layer—connecting the work with funders, collaborators, participants, and the wider public.
+
+Profile link:
+https://www.linkedin.com/in/rebecca-nelson-copywriting
+
+RAED MARJI
+
+Raed is an AI architect, technical advisor, and former CTO with more than a decade of experience building AI, data, and product systems. He is the founder of ClawGeeks, the team behind an OpenClaw multi-agent platform, and an IEEE-published researcher whose work has received more than 150 citations. His public portfolio documents more than 40 open-source repositories and experience across AI strategy, data infrastructure, multi-agent systems, and technical leadership.
+
+His previous work includes leading technology and AI infrastructure at Arootah, where he built systems spanning coaching, wealth, and operations. His current work focuses on helping teams translate AI opportunities into practical architectures, repeatable operating systems, and working implementations.
+
+At Playa AI, Raed leads engineering, technical operations, and program infrastructure. He has contributed to Connect, the Ikigai prototypes, AI-agent workshops, and the technical implementation of Playa AI’s human-centered experiments. He also supports the infrastructure behind the OpenClaw hackathon series, helping participants leave with working, self-hosted agents.
+
+Profile link:
+https://marji.io/
+
+After making the changes:
+
+1. Confirm that only Rebecca and Raed’s biography content was changed.
+2. Check that all three leadership biographies remain visually balanced.
+3. Verify both profile links.
+4. Check desktop and mobile layouts.
+5. Confirm that the longer text does not overlap, clip, or create excessive empty space.
+6. Do not shorten or rewrite the supplied biographies unless required to prevent a technical layout problem.
