@@ -310,7 +310,7 @@ export default function LivingTrustFramework() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 }}
-          className="hidden lg:block absolute lg:left-[38%] lg:top-[48%] lg:w-[78vw] lg:max-w-[1260px] xl:left-[35%] xl:top-[46%] xl:w-[82vw] xl:max-w-[1650px] 2xl:left-[32%] 2xl:top-[44%] 2xl:w-[86vw] 2xl:max-w-[2100px] -translate-y-1/2 pointer-events-none z-0"
+          className="hidden lg:block absolute lg:left-[28%] lg:top-[48%] lg:w-[78vw] lg:max-w-[1260px] xl:left-[25%] xl:top-[46%] xl:w-[82vw] xl:max-w-[1650px] 2xl:left-[22%] 2xl:top-[44%] 2xl:w-[86vw] 2xl:max-w-[2100px] -translate-y-1/2 pointer-events-none z-0"
           style={{
             WebkitMaskImage:
               "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
