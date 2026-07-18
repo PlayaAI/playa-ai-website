@@ -37,7 +37,7 @@ const events2026: EventCard[] = [
     city: "New York",
     title: "Less Chat, More Do: A Playa AI Hackathon to Give Birth to Your Own Agentic AI Creature",
     seriesLabel: "LESS CHAT, MORE DO · OPENCLAW AGENT LAB SERIES",
-    displayTitle: "New York Agent Lab",
+    displayTitle: "Less Chat, More Do: Build Your Own Agentic AI Creature — New York Edition",
     subtitle: "A Playa AI hackathon for building your own agentic AI creature.",
     pull: "A hands-on mini-hackathon where you'll leave with a PhD-level AI chief of staff living on your own cloud server.",
     body: "Hosted at The National Arts Club, the working session walked participants through OpenClaw setup, connecting tools, and real-time troubleshooting so everyone could leave with a live, self-hosted agent with guided security setup.",
