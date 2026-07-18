@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
-import ltfSystemsMapImg from "@assets/ltf-systems-map.png";
+import ltfSystemsMapImg from "@assets/ChatGPT_Image_Jul_15,_2026,_09_28_07_PM_1784140223332.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
