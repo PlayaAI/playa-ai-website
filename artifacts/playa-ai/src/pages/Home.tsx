@@ -1309,7 +1309,7 @@ export default function Home() {
             <p className="text-lg text-foreground">
               Clear separation between charitable work and any future commercial
               implementation. All programs are documented publicly. The
-              foundation is early-stage and clear about it.
+              initiative is early-stage and clear about it.
             </p>
           </div>
         </div>
