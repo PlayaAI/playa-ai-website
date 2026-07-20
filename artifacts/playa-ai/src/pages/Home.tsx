@@ -1099,8 +1099,7 @@ export default function Home() {
           </div>
           <div className="lg:col-span-6 flex items-end">
             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              Early work is real. These are the confirmed facts about where the
-              initiative stands today — no inflation, no speculation.
+              A snapshot of early activity across public events, prototypes, workshops, and working frameworks.
             </p>
           </div>
         </div>
