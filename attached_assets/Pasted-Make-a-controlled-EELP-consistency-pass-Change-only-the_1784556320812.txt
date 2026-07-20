@@ -1,0 +1,111 @@
+Make a controlled EELP consistency pass. Change only the items below.
+
+1. Navigation and identity
+
+In EELP.tsx:
+
+Change active="home" to active="work".
+Change the hero eyebrow:
+
+“EELP · Playa AI Foundation · Draft Framework”
+
+To:
+
+“EELP · Playa AI · Public Draft Protocol”
+
+2. Replace unsupported “open standard” terminology
+
+Because EELP currently has no assigned license, public repository, or finalized version, describe it as a public draft protocol.
+
+In EELP.tsx, change:
+
+“An open standard for AI-mediated experiences.”
+→ “A public draft protocol for AI-mediated experiences.”
+“EELP is an open standard for consent…”
+→ “EELP is a public draft protocol for consent…”
+“Seven principles. One standard.”
+→ “Seven principles. One evolving protocol.”
+Context-bar wording “An open standard for AI-mediated experiences”
+→ “A public draft protocol for AI-mediated experiences”
+Footer ticker “OPEN STANDARD”
+→ “PUBLIC DRAFT PROTOCOL”
+
+Update the matching EELP card descriptions in Home.tsx and Work.tsx:
+
+“An open standard for consent…”
+→ “A public draft protocol for consent…”
+
+Do not change other homepage or Work-page content.
+
+3. Align adoption wording
+
+In both EELP-page occurrences, change:
+
+“written to be adopted without a legal team”
+
+To:
+
+“designed to be adopted without a legal team”
+
+Preserve capitalization as required by each location.
+
+4. Correct the Living Trust name
+
+Treat the former Privacy Toolkit reference as the renamed Living Trust Framework.
+
+Change:
+
+“EELP, the Privacy Toolkit, and the Data Trust.”
+
+To:
+
+“EELP, the Living Trust Framework, and the Data Trust.”
+
+Change the relevant card title:
+
+“Privacy Toolkit” → “Living Trust Framework”
+
+Keep the existing /living-trust-framework CTA and URL unchanged.
+
+5. Correct maturity wording
+
+Change:
+
+“refined through real deployments—including the Connect protocol and Ikigai workshops”
+
+To:
+
+“refined through active pilots and prototypes—including the Connect protocol and Ikigai workshops”
+
+6. Add honest license status
+
+Update the existing EELP status line to:
+
+“Status — public draft protocol · in active development · license under review”
+
+Do not invent a version number, license, GitHub repository, certification, or approval.
+
+7. Align the email CTA
+
+Change:
+
+“Contact us about EELP →”
+
+To:
+
+“Request the EELP brief →”
+
+Keep the Gmail destination and subject unchanged.
+
+Do not change:
+
+The seven principles
+The word “must” in Principle 05
+Legal disclaimer
+Page design or layout
+Any link destination
+Living Trust CTA
+Metadata
+Other project descriptions
+
+Run the build and report every exact occurrence changed. Confirm that no public-facing occurrence of “Playa AI Foundation,” “open standard,” “Privacy Toolkit,” or “written to be adopted” remains on the EELP page.

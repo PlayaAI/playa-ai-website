@@ -59,7 +59,7 @@ export default function EELP() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader
-        active="home"
+        active="work"
         contextLine={
           <>
             <span>EELP</span>
@@ -69,7 +69,7 @@ export default function EELP() {
             </span>
             <span className="hidden lg:inline">·</span>
             <span className="hidden lg:inline">
-              An open standard for AI-mediated experiences
+              A public draft protocol for AI-mediated experiences
             </span>
           </>
         }
@@ -81,7 +81,7 @@ export default function EELP() {
         className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16"
       >
         <div className="hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
-          <span>EELP · Playa AI Foundation · Draft Framework</span>
+          <span>EELP · Playa AI · Public Draft Protocol</span>
           <span className="text-muted-foreground">Govern · In Active Development</span>
         </div>
 
@@ -102,7 +102,7 @@ export default function EELP() {
             variants={fadeInUp}
             className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight mb-8"
           >
-            An open standard for{" "}
+            A public draft protocol for{" "}
             <i className="italic font-normal text-accent-gold">
               AI-mediated experiences.
             </i>
@@ -112,7 +112,7 @@ export default function EELP() {
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed mb-5 text-foreground max-w-2xl"
           >
-            EELP — the Ethical Experience Lab Protocol — is an open standard for
+            EELP — the Ethical Experience Lab Protocol — is a public draft protocol for
             consent, disclosure, data minimization, human override, and community
             accountability in AI-mediated experiences.
           </motion.p>
@@ -121,7 +121,7 @@ export default function EELP() {
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed mb-10 text-muted-foreground max-w-2xl"
           >
-            It is written to be adopted without a legal team — practical enough
+            It is designed to be adopted without a legal team — practical enough
             to implement, principled enough to matter.
           </motion.p>
 
@@ -129,7 +129,7 @@ export default function EELP() {
             variants={fadeInUp}
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground"
           >
-            Status — draft framework in active development
+            Status — public draft protocol · in active development · license under review
           </motion.p>
         </motion.div>
 
@@ -185,7 +185,7 @@ export default function EELP() {
             <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
               Seven principles.{" "}
               <i className="italic font-normal text-accent-gold">
-                One standard.
+                One evolving protocol.
               </i>
             </h2>
           </div>
@@ -241,7 +241,7 @@ export default function EELP() {
               <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[0.93] tracking-tight">
                 EELP,{" "}
                 <i className="italic font-normal" style={{ color: "#C8A96E" }}>
-                  the Privacy Toolkit,
+                  the Living Trust Framework,
                 </i>{" "}
                 and the Data Trust.
               </h2>
@@ -265,7 +265,7 @@ export default function EELP() {
               },
               {
                 n: "02",
-                title: "Privacy Toolkit",
+                title: "Living Trust Framework",
                 body: "The data rights framework. Defines what data can be collected, why, who can access it, and how it can be corrected, exported, or deleted. A living trust agreement between builders and participants.",
               },
               {
@@ -322,7 +322,7 @@ export default function EELP() {
             className="text-base md:text-lg leading-relaxed text-muted-foreground mb-4 max-w-2xl"
           >
             EELP is a draft framework in active development. It is being refined
-            through real deployments — including the Connect protocol and Ikigai
+            through active pilots and prototypes — including the Connect protocol and Ikigai
             workshops — and through community feedback. It is not yet finalized,
             certified, or legally approved.
           </motion.p>
@@ -331,7 +331,7 @@ export default function EELP() {
             variants={fadeInUp}
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-10"
           >
-            Status — draft framework in active development
+            Status — public draft protocol · in active development · license under review
           </motion.p>
 
           <motion.div
@@ -344,7 +344,7 @@ export default function EELP() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
             >
-              Contact us about EELP →
+              Request the EELP brief →
             </a>
             <a
               href="/living-trust-framework"
@@ -356,7 +356,7 @@ export default function EELP() {
         </motion.div>
 
         <div className="mt-10 font-mono text-[11px] tracking-widest text-muted-foreground hairline-t border-border pt-5">
-          OPEN STANDARD · DRAFT FRAMEWORK · WRITTEN TO BE ADOPTED WITHOUT A LEGAL TEAM
+          PUBLIC DRAFT PROTOCOL · DRAFT FRAMEWORK · DESIGNED TO BE ADOPTED WITHOUT A LEGAL TEAM
         </div>
       </section>
 

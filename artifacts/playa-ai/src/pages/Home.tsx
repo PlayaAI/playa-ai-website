@@ -496,7 +496,7 @@ const INITIATIVES = [
     n: "03",
     title: "EELP",
     subtitle: "Ethical Experience Lab Protocol",
-    body: "An open standard for consent, disclosure, data minimization, and human override in AI-mediated experiences. Designed to be adopted without a legal team.",
+    body: "A public draft protocol for consent, disclosure, data minimization, and human override in AI-mediated experiences. Designed to be adopted without a legal team.",
     status: "Draft",
     cta: "Explore EELP →",
     href: "/eelp",
