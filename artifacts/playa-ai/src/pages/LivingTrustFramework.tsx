@@ -226,7 +226,7 @@ export default function LivingTrustFramework() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader
-        active="home"
+        active="work"
         contextLine={
           <>
             <span>Living Trust Framework</span>
@@ -275,7 +275,7 @@ export default function LivingTrustFramework() {
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed mb-5 text-foreground max-w-2xl"
           >
-            The Playa AI Living Trust Framework is the active standard guiding
+            The Playa AI Living Trust Framework is the working framework guiding
             data dignity, consent, memory, identity, and human agency across
             Playa AI tools. It translates participatory culture into practical
             privacy principles that can be adopted, adapted, and improved.
@@ -300,7 +300,7 @@ export default function LivingTrustFramework() {
               rel="noopener noreferrer"
               className="inline-flex items-center px-5 py-3 font-mono text-[11px] uppercase tracking-widest border border-border text-muted-foreground hover:border-foreground hover:text-foreground transition-colors duration-300"
             >
-              View on GitHub →
+              View the v0.1.0 public-review draft on GitHub →
             </a>
           </motion.div>
         </motion.div>
@@ -1008,7 +1008,7 @@ export default function LivingTrustFramework() {
             variants={fadeInUp}
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-10"
           >
-            Status — working framework · in active use
+            Status — working framework · in active development
           </motion.p>
 
           <motion.div
@@ -1021,7 +1021,7 @@ export default function LivingTrustFramework() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
             >
-              View the framework on GitHub →
+              View the v0.1.0 public-review draft on GitHub →
             </a>
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Living%20Trust%20Framework%20Brief%20Request"
