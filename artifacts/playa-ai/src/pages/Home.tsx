@@ -424,7 +424,7 @@ const OPERATING_MODEL = [
   {
     n: "03",
     title: "Fund",
-    desc: "We fund artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. The Year-One microgrant program is in development, and the artist interest list is open.",
+    desc: "We are developing responsible ways to support artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. The Year-One microgrant program is in development, and the artist interest list is open.",
     cta: "Support Year One →",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Inquiry",
   },
@@ -553,7 +553,7 @@ const PARTICIPATION = [
   {
     tag: "For Artists",
     title: "Year-One microgrants",
-    desc: "Microgrants for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
+    desc: "The Year-One microgrant program is in development, for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
     cta: "Join the artist interest list →",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Artist%20Grant%20Interest",
     highlight: false,
