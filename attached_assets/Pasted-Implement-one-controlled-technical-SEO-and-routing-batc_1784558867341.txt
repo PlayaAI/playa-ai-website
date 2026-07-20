@@ -1,0 +1,138 @@
+Implement one controlled technical SEO and routing batch. Do not change existing page copy, designs, links, layouts, graphics, project statuses, or routes.
+
+1. Add centralized per-route metadata
+
+Use the existing Wouter routing setup and create one centralized metadata component or hook. Do not add a large dependency if this can be implemented safely with useEffect and DOM metadata updates.
+
+On route changes, update:
+
+document.title
+meta[name="description"]
+link[rel="canonical"]
+meta[property="og:title"]
+meta[property="og:description"]
+meta[property="og:url"]
+meta[name="twitter:title"]
+meta[name="twitter:description"]
+
+Preserve the existing:
+
+Open Graph image
+Twitter image
+og:type
+twitter:card
+
+Use https://playa-ai.org as the canonical base.
+
+Metadata map
+
+/
+
+Title: Playa AI — AI Needs Culture
+Description: Playa AI is a philanthropic, public-interest initiative developing human-centered AI tools, practices, frameworks, and community experiments.
+
+/work
+
+Title: Our Work — Playa AI
+Description: Explore Playa AI tools, field experiments, research prototypes, consent protocols, governance work, and public learning.
+
+/living-trust-framework
+
+Title: Living Trust Framework — Playa AI
+Description: A public working framework for consent, data dignity, privacy, and human agency in AI-mediated experiences.
+
+/eelp
+
+Title: EELP — Playa AI
+Description: A public draft protocol for consent, disclosure, data minimization, and human override in AI-mediated experiences.
+
+/events
+
+Title: Events — Playa AI
+Description: Explore Playa AI salons, workshops, hackathons, and community gatherings focused on human-centered AI.
+
+/team
+
+Title: Team — Playa AI
+Description: Meet the people building, guiding, and operating Playa AI.
+
+/manifesto
+
+Title: Burner-AI Manifesto — Playa AI
+Description: Read Playa AI’s founding cultural text on AI, creativity, consent, participation, and human agency.
+
+/privacy-toolkit
+
+Title: Privacy Toolkit Archive — Playa AI
+Description: An archived Playa AI privacy-framework page retained for historical continuity and migration context.
+
+/classic
+
+Title: Classic Homepage — Playa AI
+Description: The preserved classic version of the Playa AI homepage.
+
+/classic/work
+
+Title: Classic Work Page — Playa AI
+Description: The preserved classic version of the Playa AI work page.
+
+/classic/events
+
+Title: Classic Events Page — Playa AI
+Description: The preserved classic version of the Playa AI events page.
+
+/classic/team
+
+Title: Classic Team Page — Playa AI
+Description: The preserved classic version of the Playa AI team page.
+
+The historical /playa-ai-living-trust-framework redirect should canonicalize to:
+
+https://playa-ai.org/living-trust-framework
+
+Avoid duplicate canonical tags.
+
+2. Add a real 404 page
+
+Replace the current fallback that silently renders <Home />.
+
+Create a small NotFound page using the existing website design system.
+
+Required content:
+
+Eyebrow: 404 · PAGE NOT FOUND
+Heading: This page has left the map.
+Supporting copy: The page may have moved, changed, or never existed.
+Links:
+Return home → to /
+Explore the work → to /work
+View events → to /events
+
+Requirements:
+
+Use the existing header and footer.
+No new graphic is necessary.
+Make it responsive and keyboard accessible.
+Do not automatically redirect visitors.
+Metadata:
+Title: Page Not Found — Playa AI
+Description: The requested page could not be found.
+Add meta[name="robots"] with noindex, nofollow only while the 404 page is rendered.
+Remove or restore the robots meta appropriately when navigating back to a valid page.
+Testing
+
+Verify:
+
+All existing routes still render
+Browser titles update during client-side navigation
+Descriptions and social tags update
+Exactly one canonical tag exists
+Unknown URLs display the 404 page
+Valid pages do not retain the 404 robots directive
+Redirect route resolves to the canonical Living Trust route
+No console or TypeScript errors
+Mobile and desktop layouts remain unchanged
+
+Report all files created or changed and the final route-to-metadata map.
+
+After this, the remaining tasks are Privacy/Terms and direct GitHub repository cleanup.
