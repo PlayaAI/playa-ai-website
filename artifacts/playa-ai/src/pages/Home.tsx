@@ -446,7 +446,7 @@ const INITIATIVES = [
     title: "Connect App",
     subtitle: "",
     body: "A non-extractive relational tool. AI-guided prompts move two people from digital interaction into face-to-face connection. Private by default — microphone access requires explicit permission.",
-    status: "Released",
+    status: "Live Pilot",
     cta: "Open Connect →",
     href: "https://connect.playai.party",
     external: true,

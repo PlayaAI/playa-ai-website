@@ -338,7 +338,7 @@ const WORKSTREAMS: Workstream[] = [
     evidence:
       "Piloted through the Menta Series in Miami with approximately 80 participants, showing strong engagement with the generated Ikigai statements and visual outputs.",
     people: "Raed Marji · Katya Vinnikova",
-    cta: "Open app →",
+    cta: "Open app — currently unavailable →",
     href: "https://ikigai-rmarji.replit.app", /* TODO: Link currently unavailable — retained by explicit request. Verify or restore later. */
   },
   {
@@ -409,7 +409,7 @@ const WORKSTREAMS: Workstream[] = [
     title: "EELP — Ethical Experience Lab Protocol",
     subtitle: "",
     pull: "An open standard for consent, disclosure, data minimization, and human override in AI-mediated experiences.",
-    body: "EELP is an open standard for consent, disclosure, data minimization, human override, and community accountability in AI-mediated experiences. Written to be adopted without a legal team. The draft framework is in active development.",
+    body: "EELP is an open standard for consent, disclosure, data minimization, human override, and community accountability in AI-mediated experiences. Designed to be adopted without a legal team. The draft framework is in active development.",
     aiRole: "AI is a participant in the experiences EELP governs — the protocol defines the conditions under which AI involvement is disclosed, consented to, and overrideable by people in the room.",
     consent: "Radical consent is the foundation of EELP: participation is opt-in, revocable, and understandable — with human override built in by design, not bolted on after.",
     evidence: "Derived from field experiments across Connect, Ikigai, and Burning Man community gatherings. Draft framework in active development.",
@@ -779,7 +779,7 @@ export default function Work() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 hairline-t border-border divide-x divide-border">
             {[
-              { value: "8", label: "Active workstreams" },
+              { value: "8", label: "Workstreams" },
               { value: "3", label: "Modes: tools, research, protocols" },
               {
                 value: "80+",
@@ -808,7 +808,7 @@ export default function Work() {
             <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
               The living body of{" "}
               <i className="italic font-normal text-accent-gold">
-                the foundation.
+                the initiative.
               </i>
             </h2>
           </div>
