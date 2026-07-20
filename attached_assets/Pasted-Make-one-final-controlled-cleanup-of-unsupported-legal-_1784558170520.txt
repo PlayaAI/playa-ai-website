@@ -1,0 +1,75 @@
+Make one final controlled cleanup of unsupported legal wording and public Classic-route inconsistencies.
+
+Do not redesign anything or change routes, layouts, links, project data, events, or the official Lisbon event title.
+
+1. Remove the unsupported counsel claim
+
+In Team.tsx and TeamClassic.tsx, replace the current passage beginning:
+
+“Playa AI retains independent counsel for legal matters.”
+
+With:
+
+“Council service does not make any member legal counsel to Playa AI. Materials should not refer to Rob Griffitts as Playa AI’s lawyer.”
+
+Remove any duplicated sentence created by this replacement.
+
+Do not claim that Playa AI currently retains independent counsel unless that fact is separately confirmed.
+
+2. Correct public Classic-page identity
+
+In HomeClassic.tsx, update every public-facing organizational use of:
+
+“Playa AI Foundation”
+
+To:
+
+“Playa AI”
+
+Never modify the proper name “Mystic Arts Foundation.”
+
+Preserve historical third-party event titles if any occur.
+
+Do not change the Classic design or broader copy.
+
+3. Align WorkClassic terminology
+
+In WorkClassic.tsx:
+
+Public-facing yearOneSpine framework → Year-One framework
+Written to be adopted without a legal team → Designed to be adopted without a legal team
+EELP’s open standard language → public draft protocol, matching the live pages
+
+Do not change internal variable names.
+
+Preserve the unavailable Ikigai link.
+
+4. Align deprecated Privacy Toolkit wording
+
+In PrivacyToolkit.tsx, change:
+
+“Publish the framework as an open standard with templates, adaptation guidance, versioning, and a public repository.”
+
+To:
+
+“Prepare the framework for public release under an approved open license with templates, adaptation guidance, versioning, and a public repository.”
+
+Verification
+
+Search all publicly routed source files for:
+
+Playa AI Foundation
+the Foundation
+the foundation
+yearOneSpine
+written to be adopted
+open standard
+
+Do not automatically change:
+
+Mystic Arts Foundation
+The official Lisbon Luma event title
+Common-noun uses such as “foundational”
+Internal source-code variable names
+
+Run the build and report every remaining occurrence with context.

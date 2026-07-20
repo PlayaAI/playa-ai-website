@@ -593,10 +593,9 @@ export default function Teams() {
               <p className="text-sm md:text-base leading-relaxed text-[#A7A39A] max-w-2xl border-t border-[#3a342f] pt-6">
                 Service on the Council does not constitute legal services to
                 Playa AI. It does not create an attorney-client
-                relationship. It is not privileged. Playa AI retains
-                independent counsel for legal matters. Materials
-                should not refer to Rob Griffitts as "counsel," "general
-                counsel," or Playa AI's lawyer.
+                relationship. It is not privileged. Council service does not
+                make any member legal counsel to Playa AI. Materials should
+                not refer to Rob Griffitts as Playa AI's lawyer.
               </p>
             </div>
           </div>

@@ -527,7 +527,7 @@ export default function Home() {
               variants={fadeInUp}
               className="text-sm md:text-base max-w-xl leading-relaxed mb-5 text-muted-foreground"
             >
-              Playa AI Foundation is public-interest infrastructure for
+              Playa AI is public-interest infrastructure for
               human-centered AI.
             </motion.p>
 
@@ -741,7 +741,7 @@ export default function Home() {
         </h2>
 
         <p className="text-xl md:text-2xl max-w-4xl mb-20 text-muted-foreground">
-          Playa AI Foundation is early-stage, and clear about it. We give a
+          Playa AI is early-stage, and clear about it. We give a
           community the protocols, the gatherings, and the distribution to build
           AI that respects people — and we publish the standards so others can
           too.
@@ -1006,7 +1006,7 @@ export default function Home() {
 
         {/* Structure footer */}
         <div className="mt-20 pt-6 border-t border-border font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Playa AI Foundation operates under fiscal sponsorship by the{" "}
+          Playa AI operates under fiscal sponsorship by the{" "}
           <span className="text-foreground font-bold">
             Mystic Arts Foundation
           </span>{" "}
@@ -1071,7 +1071,7 @@ export default function Home() {
               </span>
             </h3>
             <div className="font-mono text-xs uppercase tracking-wider text-[#6B6258]">
-              Operating thesis · Playa AI Foundation · Filed 2026
+              Operating thesis · Playa AI · Filed 2026
             </div>
           </div>
         </div>
@@ -1199,9 +1199,9 @@ export default function Home() {
           </div>
           <div className="lg:col-span-7">
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground mb-8">
-              Playa AI Foundation is led by Alex Azzi, with a growing working
+              Playa AI is led by Alex Azzi, with a growing working
               group of artists, technologists, researchers, community builders,
-              and governance advisors. The foundation operates transparently:
+              and governance advisors. The initiative operates transparently:
               fiscal sponsorship through Mystic Arts Foundation, public
               documentation of all programs, and clear governance separation
               between charitable work and any future commercial implementation.
@@ -1402,10 +1402,10 @@ export default function Home() {
               Credibility begins with honest status.
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Playa AI Foundation is currently fiscally sponsored by Mystic Arts
+              Playa AI is currently fiscally sponsored by Mystic Arts
               Foundation while developing independent governance and a future
               public charity pathway. Tax-deductible giving is available through
-              Mystic Arts Foundation as permitted by law. The foundation layer
+              Mystic Arts Foundation as permitted by law. The governance layer
               is being built with advisors, founding adopters, public
               documentation, and clear separation between charitable work and
               any future commercial implementation.
