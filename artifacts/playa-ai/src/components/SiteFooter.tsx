@@ -29,7 +29,7 @@ export function SiteFooter({
         <div className="text-[#A7A39A]">{contextLine}</div>
         <div className="text-[#A7A39A]">
           <div>© 2026 Playa AI · Fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.</div>
-          <div className="mt-2">hello@playa-ai.org</div>
+          <div className="mt-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=General%20Inquiry" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">hello@playa-ai.org</a></div>
         </div>
       </div>
     </footer>

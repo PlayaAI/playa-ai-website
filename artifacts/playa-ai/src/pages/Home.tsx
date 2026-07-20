@@ -432,7 +432,7 @@ const OPERATING_MODEL = [
     n: "04",
     title: "Publish",
     desc: "Each pilot is designed to produce public learning—such as field notes, consent patterns, methods, failures, and, where appropriate, a public field report that other communities can adapt.",
-    cta: "Get notified →",
+    cta: "Request field report updates →",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Field%20Report%20Notification",
   },
 ];
