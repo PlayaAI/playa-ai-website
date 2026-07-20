@@ -748,7 +748,7 @@ export default function Work() {
             <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
               The living body of{" "}
               <i className="italic font-normal text-accent-gold">
-                the foundation.
+                the initiative.
               </i>
             </h2>
           </div>

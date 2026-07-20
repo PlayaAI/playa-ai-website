@@ -419,7 +419,7 @@ export default function Home() {
       tag: "The Standard",
       title: "EELP draft framework",
       // Plain-language definition added inline in the desc
-      desc: "EELP — Ethical Experience Lab Protocol — is an open standard for consent, disclosure, data minimization, human override, and community accountability in AI-mediated experiences. The draft framework is in active development.",
+      desc: "EELP — Ethical Experience Lab Protocol — is a public draft protocol for consent, disclosure, data minimization, human override, and community accountability in AI-mediated experiences. The draft framework is in active development.",
       cta: "Request the EELP brief",
       href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=EELP%20Brief%20Request",
     },
@@ -771,7 +771,7 @@ export default function Home() {
               <div className="space-y-8 text-xl md:text-2xl leading-relaxed max-w-3xl">
                 <p>
                   Playa AI doesn&apos;t build in a vacuum, and doesn&apos;t
-                  pretend to. Our members build the tools; the Foundation
+                  pretend to. Our members build the tools; the initiative
                   supplies the consent protocols, the convening, and the
                   distribution that let those tools reach people responsibly.
                 </p>
@@ -966,9 +966,9 @@ export default function Home() {
                     EELP — the Ethical Experience Lab Protocol
                   </p>
                   <p className="text-muted-foreground">
-                    An open standard for consent, disclosure, data minimization,
+                    A public draft protocol for consent, disclosure, data minimization,
                     human override, and community accountability in AI-mediated
-                    experiences. Written to be adopted without a legal team.
+                    experiences. Designed to be adopted without a legal team.
                     Draft framework in active development.
                   </p>
                   <a
@@ -1071,7 +1071,7 @@ export default function Home() {
               </span>
             </h3>
             <div className="font-mono text-xs uppercase tracking-wider text-[#6B6258]">
-              Operating thesis · Playa AI · Filed 2026
+              Founding cultural text · Playa AI · Published 2026
             </div>
           </div>
         </div>
@@ -1284,7 +1284,7 @@ export default function Home() {
               },
               {
                 title: "Public-interest tech",
-                desc: "A reusable open standard for AI that prioritizes human agency over scale, optimization, or automation.",
+                desc: "A reusable public framework for AI that prioritizes human agency over scale, optimization, or automation.",
               },
             ].map((item, i) => (
               <motion.div

@@ -56,7 +56,7 @@ const LEADERSHIP = [
     photo:
       "https://playaai.github.io/Playa-AI/team-page-assets/rebecca-nelson.jpg",
     lines: ["Community & Comms."],
-    credibility: "Building the community and communication layer of the foundation.",
+    credibility: "Building Playa AI's community and communication layer.",
   },
   {
     n: "004",
@@ -121,7 +121,7 @@ const COUNCIL: Council[] = [
     paragraphs: [
       "Dr. David Rock is a pioneer in applying neuroscience to leadership, culture, motivation, and organizational change.",
       "Co-founder of the NeuroLeadership Institute, a global consultancy bringing cognitive science into leadership development, he is widely credited with coining the term neuroleadership. His work has helped move neuroscience into practical use across business, education, coaching, and change management — including through his books Your Brain at Work and Coaching with the Brain in Mind. David holds a professional doctorate in the Neuroscience of Leadership from Middlesex University.",
-      "At Playa AI, he anchors the neuro and human-systems dimension — ensuring the foundation's work around AI, governance, trust, attention, and collective intelligence is grounded in how humans actually think, relate, and change.",
+      "At Playa AI, he anchors the neuro and human-systems dimension — supporting Playa AI's work around AI, governance, trust, attention, and collective intelligence is grounded in how humans actually think, relate, and change.",
     ],
   },
   {
