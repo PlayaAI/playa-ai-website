@@ -431,7 +431,7 @@ const OPERATING_MODEL = [
   {
     n: "04",
     title: "Publish",
-    desc: "Every pilot produces public learning: field notes, consent patterns, methods, failures, and a public field report that other communities can adopt freely.",
+    desc: "Each pilot is designed to produce public learning—such as field notes, consent patterns, methods, failures, and, where appropriate, a public field report that other communities can adapt.",
     cta: "Get notified →",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Field%20Report%20Notification",
   },
@@ -1307,8 +1307,9 @@ export default function Home() {
             </p>
             <p className="text-lg text-foreground">
               Clear separation between charitable work and any future commercial
-              implementation. All programs are documented publicly. The
-              initiative is early-stage and clear about it.
+              implementation. We aim to publish program status and field
+              learning as each workstream matures. The initiative is
+              early-stage and clear about it.
             </p>
           </div>
         </div>
