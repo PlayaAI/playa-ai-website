@@ -1,0 +1,167 @@
+Conduct one final multi-page audit of all remaining Playa AI website work.
+
+Do not make any edits during this audit.
+
+Audit these areas in parallel:
+
+EELP final QA
+Events page
+Team page
+Manifesto page and shared drawers
+Global legal, identity, and metadata
+Classic/legacy routes
+Living Trust GitHub follow-up items
+Final site-wide functional QA
+
+Website:
+https://playa-ai.org/
+
+Global constraints
+Do not redesign anything.
+Do not suggest a rebuild.
+Preserve existing graphics, colors, typography, layouts, section structure, and cultural character.
+Do not remove or replace any links.
+Keep the unavailable Ikigai App 1 link and its visible warning.
+Never alter the proper name “Mystic Arts Foundation.”
+Playa AI must be described as an initiative, not an independent foundation or 501(c)(3).
+Do not invent biographies, evidence, legal terms, licenses, versions, metrics, events, partnerships, or governance structures.
+Separate confirmed bugs from subjective preferences.
+1. EELP final QA
+
+Test /eelp at 320px, 375px, 768px, and 1440px.
+
+Confirm:
+
+WORK is highlighted
+“Public Draft Protocol” language fits
+Status and footer ticker do not overflow
+CTAs work
+No horizontal scrolling or console errors
+Decorative 01–07 numerals are appropriately handled for screen readers
+2. Events
+
+Audit /events for:
+
+Complete event count
+Consistency with homepage claim: nine public events across six cities plus online
+Repeated “Less Chat, More Do” editions
+Event titles, dates, time zones, locations, statuses, descriptions, and Luma URLs
+Whether repeated events are clearly distinguished without changing their official names
+Display-title size and responsive wrapping
+Past-event language
+Navigation state
+Mobile layout and accessibility
+
+Do not delete or merge events.
+
+3. Team
+
+Audit /team for:
+
+“Playa AI Foundation” or generic “the foundation” references
+Current role titles
+Consistent short-card format
+Remaining long biographies or unsupported factual claims
+Broken profile links
+Image alt text, layout consistency, mobile spacing, and navigation state
+
+Preserve the decision to use short team entries. Do not restore long biographies.
+
+4. Manifesto
+
+Audit /manifesto and all shared Manifesto/Pledge drawers for:
+
+Correct Playa AI attribution
+Updated human-centered language
+Remaining speculative or obsolete language
+Page readability
+Navigation state
+Focus trapping, Escape handling, body scroll lock, and focus restoration
+Mobile behavior
+
+Do not rewrite the manifesto unless a phrase clearly conflicts with already approved copy.
+
+5. Global legal and metadata
+
+Report:
+
+Whether Privacy Policy and Terms routes exist
+Every remaining public-facing “Playa AI Foundation” occurrence
+Every ambiguous nonprofit or 501(c)(3) reference
+Unique page titles and meta descriptions
+Canonical URLs
+Open Graph and Twitter metadata
+Sitemap and robots configuration
+Structured data
+Footer consistency
+
+Do not author legal documents or invent their contents.
+
+6. Classic and legacy routes
+
+Audit:
+
+/classic
+/classic/events
+/classic/team
+/classic/work
+/privacy-toolkit
+Any historical Living Trust route
+
+Report stale identity, EELP, microgrant, legal, project-status, and unavailable-link language.
+
+Do not automatically delete, redirect, or edit these routes.
+
+7. GitHub follow-up
+
+Compare the Living Trust page with:
+
+https://github.com/PlayaAI/playa-ai-living-trust-framework
+
+Report only:
+
+Old “Playa AI Foundation” naming
+v1.0 versus v0.1.0 conflicts
+Empty date placeholders
+License status
+Maintainer and contribution guidance
+
+Clearly separate website changes from repository changes. Do not modify GitHub.
+
+8. Final functional QA
+
+Test all public routes, internal navigation, anchors, Gmail compose CTAs, external links, dialogs, footer links, and responsive breakpoints.
+
+Provide separate lists for:
+
+Broken links
+Intentionally unavailable links
+Misleading CTA labels
+Console errors
+Horizontal overflow
+Keyboard/accessibility failures
+Required output
+
+Produce one consolidated table:
+
+ID | Page/file | Exact issue | Evidence | Exact minimal fix | Priority | Safe to implement automatically | Requires team decision
+
+Divide the final recommendations into:
+
+A. Safe automatic fixes
+
+Clear bugs, identity inconsistencies, accessibility fixes, and previously approved terminology.
+
+B. Requires our approval
+
+Copy changes involving judgment, claims, metrics, team roles, or manifesto language.
+
+C. Requires content or legal input
+
+Privacy Policy, Terms, licenses, governance, fiscal-sponsorship documentation, or missing evidence.
+
+D. No action
+
+Items that are already correct.
+
+Do not edit anything. We will approve one final implementation batch after reviewing this report.
