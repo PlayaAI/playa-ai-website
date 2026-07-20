@@ -18,7 +18,7 @@ const NAV: { key: ActivePage; href: string; label: string }[] = [
 export function SiteHeader({ active, contextLine }: SiteHeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md hairline-b border-border">
-      <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between gap-6 font-mono text-xs uppercase tracking-widest">
+      <div className="site-header-inner max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between gap-6 font-mono text-xs uppercase tracking-widest">
         <Link
           href="/"
           className="flex items-center gap-3 font-bold text-foreground hover:text-muted-foreground transition-colors shrink-0"
@@ -29,7 +29,7 @@ export function SiteHeader({ active, contextLine }: SiteHeaderProps) {
           <span className="sm:hidden">Playa AI</span>
         </Link>
 
-        <nav className="flex items-center gap-5 md:gap-8">
+        <nav className="site-header-nav flex items-center gap-5 md:gap-8">
           {NAV.map((item) => {
             const isActive = item.key === active;
             return (

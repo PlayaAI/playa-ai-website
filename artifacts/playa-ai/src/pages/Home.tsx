@@ -79,6 +79,9 @@ function PledgeModal({
             exit={{ y: 12, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="pledge-modal-title"
             className="relative w-full max-w-2xl bg-background border border-foreground"
             data-testid="pledge-modal"
           >
@@ -87,7 +90,7 @@ function PledgeModal({
                 <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">
                   Founding Signatories / Public Commitment
                 </div>
-                <div className="font-serif text-3xl md:text-4xl leading-none">
+                <div id="pledge-modal-title" className="font-serif text-3xl md:text-4xl leading-none">
                   The Pledge
                 </div>
               </div>
