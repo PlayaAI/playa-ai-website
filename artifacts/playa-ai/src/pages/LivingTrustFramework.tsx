@@ -216,7 +216,7 @@ const IMPL_PHASES = [
   {
     n: "04",
     title: "Public open-source release",
-    body: "Publish the framework as an open standard with templates, adaptation guidance, versioning, and a public repository.",
+    body: "Prepare the framework for public release under an approved open license with templates, adaptation guidance, versioning, and a public repository.",
   },
 ];
 

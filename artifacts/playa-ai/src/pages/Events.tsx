@@ -316,7 +316,7 @@ export default function Events() {
           From Dubai beach circles to Detroit nuclei to Lisbon launch.
         </h2>
         <p className="text-lg md:text-xl leading-relaxed max-w-2xl text-muted-foreground mb-8">
-          These gatherings show the Foundation's field pattern: curated rooms, real human stakes, and AI discussed through practice rather than spectacle.
+          These gatherings show the initiative's field pattern: curated rooms, real human stakes, and AI discussed through practice rather than spectacle.
         </p>
         <p className="text-lg md:text-xl leading-relaxed max-w-2xl text-muted-foreground mb-16 md:mb-24">
           These early gatherings — Dubai, Detroit, Lisbon — established Playa AI's field pattern and generated the questions that now shape the EELP framework and Connect protocol.

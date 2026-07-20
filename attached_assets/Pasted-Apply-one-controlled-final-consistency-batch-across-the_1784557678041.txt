@@ -1,0 +1,134 @@
+Apply one controlled final consistency batch across the Playa AI website. Make only the changes listed below.
+
+Do not redesign anything. Do not change layouts, graphics, links, metrics, event data, biographies, project statuses, or manifesto body text.
+
+1. EELP accessibility
+
+In EELP.tsx, add aria-hidden="true" to the decorative 01–07 principle numerals.
+
+Do not hide the principle headings or descriptions.
+
+2. Events identity
+
+In Events.tsx, change:
+
+“These gatherings show the Foundation’s field pattern”
+
+To:
+
+“These gatherings show the initiative’s field pattern”
+
+Preserve the official Lisbon event title containing “The Playa AI Foundation” because it is a verbatim historical Luma title.
+
+Apply the same generic identity correction in EventsClassic.tsx if the phrase exists there.
+
+3. Team identity and accessibility
+
+In Team.tsx, change:
+
+“legal services to Playa AI Foundation”
+→ “legal services to Playa AI”
+“Founding principle, Playa AI Foundation”
+→ “Founding principle, Playa AI”
+“Council members have no power to bind the foundation.”
+→ “Council members have no power to bind Playa AI or its fiscal sponsor.”
+
+For the RadialMap SVG, add:
+
+role="img"
+aria-label="Playa AI team and advisory council structure"
+
+Ensure its internal decorative text is not redundantly announced after the SVG label.
+
+In TeamClassic.tsx, change public-facing organizational references such as:
+
+“the Foundation’s consent-first commitments”
+
+To:
+
+“Playa AI’s consent-first commitments”
+
+Do not restore or add long biographies.
+
+4. Manifesto identity
+
+In Manifesto.tsx, change only these identity references:
+
+Context bar Playa AI Foundation → Playa AI
+Hero eyebrow Playa AI Foundation · Manifesto · 2026 → Playa AI · Manifesto · 2026
+Footer context Manifesto · Playa AI Foundation · Published 2026 → Manifesto · Playa AI · Published 2026
+Footer ticker PLAYA AI FOUNDATION → PLAYA AI
+
+Leave manifesto.txt unchanged.
+
+If possible without changing navigation structure, remove the incorrect Overview active state from the standalone Manifesto page. Do not highlight another navigation item.
+
+5. Legacy Privacy Toolkit identity
+
+In PrivacyToolkit.tsx, change:
+
+“Privacy Toolkit · Playa AI Foundation · 2026”
+
+To:
+
+“Privacy Toolkit · Playa AI · 2026”
+
+Preserve the migration notice and all routes.
+
+6. Living Trust terminology
+
+In LivingTrustFramework.tsx, change:
+
+“Publish the framework as an open standard”
+
+To:
+
+“Prepare the framework for public release under an approved open license”
+
+Do not change the existing license-under-review disclosure.
+
+7. Work page internal code name
+
+In Work.tsx, replace the public-facing phrase:
+
+“yearOneSpine framework”
+
+With:
+
+“Year-One framework”
+
+Do not change the internal variable name in code.
+
+8. GitHub README title
+
+If the Living Trust GitHub repository is available in this workspace, change only its README heading:
+
+“Playa AI Foundation Privacy Framework — Comparative Analysis & Synthesis”
+
+To:
+
+“Playa AI Living Trust Framework — Comparative Analysis & Synthesis”
+
+Do not change the version, placeholders, license, release, or repository structure in this batch.
+
+If the repository is not available locally, report that item as blocked. Do not simulate or invent the change.
+
+Explicitly do not do
+Do not create Privacy Policy or Terms pages yet.
+Do not invent legal text.
+Do not change the official Lisbon event title.
+Do not remove classic routes.
+Do not remove the unavailable Ikigai link.
+Do not add a legacy banner.
+Do not create a 404 page yet.
+Do not modify metadata, canonical URLs, sitemap, or structured data yet.
+
+Run the complete build and test the affected routes at mobile and desktop widths.
+
+Report:
+
+Every file changed
+Every exact phrase changed
+Accessibility attributes added
+Whether the GitHub repository change was completed or blocked
+Any remaining public-facing “Playa AI Foundation” occurrences and their context

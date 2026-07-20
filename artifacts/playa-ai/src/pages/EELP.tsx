@@ -212,7 +212,7 @@ export default function EELP() {
               className="hairline-t border-border pt-10 pb-10 md:pt-14 md:pb-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"
             >
               <div className="lg:col-span-3 flex flex-col gap-4">
-                <div className="font-serif text-7xl md:text-8xl leading-none text-muted-foreground/20 select-none">
+                <div aria-hidden="true" className="font-serif text-7xl md:text-8xl leading-none text-muted-foreground/20 select-none">
                   {p.n}
                 </div>
               </div>

@@ -460,7 +460,7 @@ const WORKSTREAMS: Workstream[] = [
     body: "The Data Trust is a governance model giving participants control over how their stories, data, identity, and permissions are used, stored, or deleted — being designed before sensitive data is collected rather than bolted on after.",
     aiRole: "AI systems operating under the Data Trust are required to operate within participant-defined permissions. Identity and story data is governed by the participant, not the platform.",
     consent: "Data sovereignty is the design principle: participants choose what is stored, for how long, and can request deletion. The trust is designed to protect people before sensitive data enters the system.",
-    evidence: "Currently in governance design phase. Derived from the yearOneSpine framework and applied as a privacy layer to Connect Protocol and EELP.",
+    evidence: "Currently in governance design phase. Derived from the Year-One framework and applied as a privacy layer to Connect Protocol and EELP.",
     people: "Alex Azzi",
     cta: "Contact us about the Data Trust →",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Data%20Trust%20Inquiry",

@@ -114,12 +114,11 @@ export default function ManifestoPage() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader
-        active="home"
         contextLine={
           <>
             <span>Manifesto</span>
             <span>·</span>
-            <span className="text-accent-gold">Playa AI Foundation</span>
+            <span className="text-accent-gold">Playa AI</span>
             <span className="hidden lg:inline">·</span>
             <span className="hidden lg:inline">A living cultural text</span>
           </>
@@ -128,7 +127,7 @@ export default function ManifestoPage() {
 
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
         <div className="hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
-          <span>Playa AI Foundation · Manifesto · 2026</span>
+          <span>Playa AI · Manifesto · 2026</span>
           <span className="text-muted-foreground">Published · Living Document</span>
         </div>
 
@@ -165,11 +164,11 @@ export default function ManifestoPage() {
         </motion.div>
 
         <div className="mt-16 font-mono text-[11px] tracking-widest text-muted-foreground hairline-t border-border pt-5">
-          PLAYA AI FOUNDATION · A LIVING CULTURAL TEXT · BORN ON THE PLAYA
+          PLAYA AI · A LIVING CULTURAL TEXT · BORN ON THE PLAYA
         </div>
       </section>
 
-      <SiteFooter contextLine="Manifesto · Playa AI Foundation · Published 2026" />
+      <SiteFooter contextLine="Manifesto · Playa AI · Published 2026" />
     </main>
   );
 }

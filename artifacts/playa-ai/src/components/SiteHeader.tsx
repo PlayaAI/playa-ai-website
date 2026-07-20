@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 type ActivePage = "home" | "events" | "team" | "work";
 
 interface SiteHeaderProps {
-  active: ActivePage;
+  active?: ActivePage;
   contextLine?: ReactNode;
 }
 

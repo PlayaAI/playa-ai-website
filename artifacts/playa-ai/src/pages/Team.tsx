@@ -65,7 +65,7 @@ const CHARTER = [
   "The Leadership Council is advisory only.",
   "Council members provide perspective, expertise, and strategic input.",
   "Council members have no governance authority.",
-  "Council members have no power to bind the foundation.",
+  "Council members have no power to bind Playa AI or its fiscal sponsor.",
   "Council members have no fiduciary duties.",
   "Council members have no signing authority.",
 ];
@@ -184,7 +184,7 @@ function RadialMap() {
   const councilR = 230;
 
   return (
-    <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-auto">
+    <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-auto" role="img" aria-label="Playa AI team and advisory council structure">
       {/* Outer frame */}
       <rect
         x="2"
@@ -592,11 +592,11 @@ export default function Teams() {
               </ul>
               <p className="text-sm md:text-base leading-relaxed text-[#A7A39A] max-w-2xl border-t border-[#3a342f] pt-6">
                 Service on the Council does not constitute legal services to
-                Playa AI Foundation. It does not create an attorney-client
-                relationship. It is not privileged. The foundation retains
-                independent counsel for legal matters. Foundation materials
+                Playa AI. It does not create an attorney-client
+                relationship. It is not privileged. Playa AI retains
+                independent counsel for legal matters. Materials
                 should not refer to Rob Griffitts as "counsel," "general
-                counsel," or the foundation's lawyer.
+                counsel," or Playa AI's lawyer.
               </p>
             </div>
           </div>
@@ -652,7 +652,7 @@ export default function Teams() {
             <i className="italic font-normal">Same rules apply.</i>"
           </blockquote>
           <div className="mt-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            — Founding principle, Playa AI Foundation
+            — Founding principle, Playa AI
           </div>
         </div>
       </section>
