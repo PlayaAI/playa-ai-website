@@ -533,7 +533,7 @@ const MOMENTUM = [
     href: null,
   },
   {
-    stat: "501(c)(3)",
+    stat: "Fiscal sponsor",
     label: "Fiscal sponsorship secured",
     sublabel: "Mystic Arts Foundation",
     cta: null,
@@ -552,7 +552,7 @@ const PARTICIPATION = [
   },
   {
     tag: "For Artists",
-    title: "Year-One microgrants",
+    title: "Year-One Microgrant Program",
     desc: "The Year-One microgrant program is in development, for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
     cta: "Join the artist interest list →",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Artist%20Grant%20Interest",
