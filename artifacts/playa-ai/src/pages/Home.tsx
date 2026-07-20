@@ -514,7 +514,7 @@ const MOMENTUM = [
   {
     stat: "9",
     label: "Public events",
-    sublabel: "Across 7 locations · 2025–26",
+    sublabel: "Across six cities + online · 2025–26",
     cta: "View archive →",
     href: "/events",
   },
