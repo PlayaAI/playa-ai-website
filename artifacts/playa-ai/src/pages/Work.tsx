@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -54,6 +54,9 @@ function ManifestoDrawer({
   onClose: () => void;
 }) {
   const [fullOpen, setFullOpen] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!open) setFullOpen(false);
@@ -61,8 +64,34 @@ function ManifestoDrawer({
 
   useEffect(() => {
     if (!open) return;
+    triggerRef.current = document.activeElement as HTMLElement;
+    closeButtonRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key === "Tab" && drawerRef.current) {
+        const focusable = Array.from(
+          drawerRef.current.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), [href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
     };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
@@ -70,6 +99,7 @@ function ManifestoDrawer({
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
+      triggerRef.current?.focus();
     };
   }, [open, onClose]);
 
@@ -177,6 +207,7 @@ function ManifestoDrawer({
           />
 
           <motion.aside
+            ref={drawerRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="manifesto-drawer-title"
@@ -188,6 +219,7 @@ function ManifestoDrawer({
             data-testid="manifesto-drawer"
           >
             <button
+              ref={closeButtonRef}
               type="button"
               onClick={onClose}
               aria-label="Close manifesto"
