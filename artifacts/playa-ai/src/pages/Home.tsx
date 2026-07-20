@@ -1297,10 +1297,9 @@ export default function Home() {
               Legal structure
             </p>
             <p className="text-lg text-foreground">
-              Playa AI Foundation is currently fiscally sponsored by{" "}
-              <span className="font-bold">Mystic Arts Foundation</span> while
-              developing independent governance and a future public charity
-              pathway.
+              Playa AI is a philanthropic initiative fiscally sponsored by{" "}
+              <span className="font-bold">Mystic Arts Foundation</span>, a U.S.
+              501(c)(3) public charity.
             </p>
           </div>
           <div>
@@ -1370,7 +1369,7 @@ export default function Home() {
               </span>
             </h3>
             <div className="font-mono text-xs uppercase tracking-wider text-[#6B6258]">
-              Operating thesis · Playa AI Foundation · Filed 2026
+              Founding cultural text · Playa AI · Published 2026
             </div>
           </div>
         </div>

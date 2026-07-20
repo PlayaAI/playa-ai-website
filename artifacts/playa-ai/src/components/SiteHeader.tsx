@@ -25,7 +25,7 @@ export function SiteHeader({ active, contextLine }: SiteHeaderProps) {
           data-testid="link-home"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-foreground animate-pulse-slow"></span>
-          <span className="hidden sm:inline">Playa AI Foundation</span>
+          <span className="hidden sm:inline">Playa AI</span>
           <span className="sm:hidden">Playa AI</span>
         </Link>
 

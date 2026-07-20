@@ -13,7 +13,7 @@ export function SiteFooter({
     <footer className="bg-foreground text-background px-4 pt-16 pb-12">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 font-mono text-xs uppercase tracking-widest">
         <div>
-          <div className="mb-4 text-[#E2D9C5]">Playa AI Foundation</div>
+          <div className="mb-4 text-[#E2D9C5]">Playa AI</div>
           {showBackLink ? (
             <Link
               href="/"
@@ -23,12 +23,12 @@ export function SiteFooter({
               ← Back to dispatch
             </Link>
           ) : (
-            <div className="text-[#A7A39A]">© 2026 Playa AI Foundation</div>
+            <div className="text-[#A7A39A]">© 2026 Playa AI</div>
           )}
         </div>
         <div className="text-[#A7A39A]">{contextLine}</div>
         <div className="text-[#A7A39A]">
-          <div>© 2026 Playa AI Foundation · Fiscal sponsorship via Mystic Arts Foundation · 501(c)(3)</div>
+          <div>© 2026 Playa AI · Fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.</div>
           <div className="mt-2">hello@playa-ai.org</div>
         </div>
       </div>

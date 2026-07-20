@@ -1,0 +1,55 @@
+Make a very small, controlled identity update to the Playa AI homepage only.
+
+Website: https://playa-ai.org/
+
+Do not redesign the page. Do not change its layout, graphics, colors, typography, sections, project cards, CTAs, links, or overall narrative. Do not edit any other page yet.
+
+Make only these changes:
+
+Replace every homepage-specific occurrence of “Playa AI Foundation” with “Playa AI.”
+
+This includes the homepage header/logo, browser title, metadata, Open Graph/Twitter tags, manifesto attribution, legal section, footer, mobile navigation, and accessibility labels.
+
+Important: Never change the proper name “Mystic Arts Foundation.”
+
+Wherever the homepage describes Playa AI as a “philanthropic program,” change only that phrase to “philanthropic initiative.”
+Use this organizational disclosure:
+
+“Playa AI is a philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.”
+
+If the hero already contains substantially the same disclosure, update that existing sentence rather than adding another one.
+
+Replace:
+
+“Operating thesis · Playa AI Foundation · Filed 2026”
+
+With:
+
+“Founding cultural text · Playa AI · Published 2026”
+
+Replace the homepage footer wording:
+
+“© 2026 Playa AI Foundation · Fiscal sponsorship via Mystic Arts Foundation · 501(c)(3)”
+
+With:
+
+“© 2026 Playa AI · Fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.”
+
+Change the homepage browser and social title from:
+
+“Playa AI Foundation — AI Needs Culture”
+
+To:
+
+“Playa AI — AI Needs Culture.”
+
+Do not make broader copy improvements in this pass. Do not change metrics, microgrant wording, project statuses, manifesto text, governance language, or claims. Do not remove or replace any links, including unavailable links.
+
+Before finishing:
+
+Search the homepage and shared components for remaining occurrences of “Playa AI Foundation.”
+Confirm that “Mystic Arts Foundation” remains unchanged.
+Confirm that no other routes or page content were modified.
+Run the existing build or tests.
+Report the exact files and phrases changed.
+List any remaining homepage references to “foundation,” “program,” “nonprofit,” or “501(c)(3)” for later review, but do not change them automatically.
