@@ -90,7 +90,10 @@ function PledgeModal({
                 <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">
                   Founding Signatories / Public Commitment
                 </div>
-                <div id="pledge-modal-title" className="font-serif text-3xl md:text-4xl leading-none">
+                <div
+                  id="pledge-modal-title"
+                  className="font-serif text-3xl md:text-4xl leading-none"
+                >
                   The Pledge
                 </div>
               </div>
@@ -201,8 +204,8 @@ function ManifestoDrawer({
       if (e.key === "Tab" && drawerRef.current) {
         const focusable = Array.from(
           drawerRef.current.querySelectorAll<HTMLElement>(
-            'button:not([disabled]), [href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-          )
+            'button:not([disabled]), [href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+          ),
         );
         if (focusable.length === 0) return;
         const first = focusable[0];
@@ -261,8 +264,7 @@ function ManifestoDrawer({
   );
   const previewBlocks =
     thousandIndex >= 0 ? blocks.slice(0, thousandIndex) : blocks;
-  const fullBlocks =
-    thousandIndex >= 0 ? blocks.slice(thousandIndex) : [];
+  const fullBlocks = thousandIndex >= 0 ? blocks.slice(thousandIndex) : [];
 
   type Block = ReturnType<typeof formatManifestoBlocks>[number];
 
@@ -704,11 +706,11 @@ export default function Home() {
               variants={fadeInUp}
               className="text-sm md:text-base max-w-2xl leading-relaxed mb-6 text-muted-foreground"
             >
-              Playa AI is a philanthropic initiative building cultural, ethical, and
-              technical infrastructure for human-centered AI — bringing together
-              builders, artists, researchers, funders, and community stewards to
-              shape AI around creativity, consent, participation, and human
-              flourishing.
+              Playa AI is a philanthropic initiative building cultural, ethical,
+              and technical infrastructure for human-centered AI — bringing
+              together builders, artists, researchers, funders, and community
+              stewards to shape AI around creativity, consent, participation,
+              and human flourishing.
             </motion.p>
 
             <motion.p
@@ -757,8 +759,8 @@ export default function Home() {
               variants={fadeInUp}
               className="font-mono text-[11px] tracking-widest text-muted-foreground mt-5"
             >
-              A philanthropic initiative fiscally sponsored by Mystic Arts
-              Foundation, a U.S. 501(c)(3) public charity.
+              Playa AI is a human-centered AI initiative, part of Mystic Arts
+              Foundation’s California 501(c)(3)
             </motion.p>
           </motion.div>
         </div>
@@ -767,33 +769,56 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 }}
+          transition={{
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1] as const,
+            delay: 0.3,
+          }}
           className="hidden lg:block absolute lg:left-[46%] lg:top-[48%] lg:w-[60vw] lg:max-w-[980px] xl:left-[43%] xl:top-[46%] xl:w-[66vw] xl:max-w-[1350px] 2xl:left-[38%] 2xl:top-[43%] 2xl:w-[70vw] 2xl:max-w-[1800px] -translate-y-1/2 pointer-events-none z-0"
           style={{
-            WebkitMaskImage: "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
-            maskImage: "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse at center, black 58%, rgba(0,0,0,0.72) 76%, transparent 100%)",
           }}
         >
-          <img src={playaHeroBlueprintImg} alt="" aria-hidden="true" className="w-full h-auto object-contain opacity-100 mix-blend-multiply" />
+          <img
+            src={playaHeroBlueprintImg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto object-contain opacity-100 mix-blend-multiply"
+          />
         </motion.div>
 
         {/* Blueprint — mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const, delay: 0.2 }}
+          transition={{
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1] as const,
+            delay: 0.2,
+          }}
           className="block lg:hidden absolute left-[62%] top-[35%] sm:left-[58%] sm:top-[36%] md:left-[56%] md:top-[38%] -translate-x-1/2 -translate-y-1/2 w-[130vw] sm:w-[115vw] md:w-[95vw] max-w-none pointer-events-none z-0"
           style={{
-            WebkitMaskImage: "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
-            maskImage: "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
+            maskImage:
+              "radial-gradient(ellipse at center, black 42%, rgba(0,0,0,0.45) 62%, transparent 88%)",
           }}
         >
-          <img src={playaHeroBlueprintImg} alt="" aria-hidden="true" className="w-full h-auto object-contain opacity-[0.38] mix-blend-multiply" />
+          <img
+            src={playaHeroBlueprintImg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto object-contain opacity-[0.38] mix-blend-multiply"
+          />
         </motion.div>
       </section>
 
       <div className="px-4 max-w-[1400px] mx-auto font-mono text-[11px] tracking-widest text-muted-foreground border-t border-border pt-4">
-        BORN IN THE BLACK ROCK DESERT · BUILT FOR THE PUBLIC INTEREST · INDEPENDENT OF BURNING MAN ORGANIZATION
+        BORN IN THE BLACK ROCK DESERT · BUILT FOR THE PUBLIC INTEREST ·
+        INDEPENDENT OF BURNING MAN ORGANIZATION
       </div>
 
       {/* ── 2. Thesis ───────────────────────────────────────────────────── */}
@@ -859,11 +884,14 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
                 Four jobs for a public-interest cultural AI lab. Each feeds the
-                others. The standard only earns trust if it's tested in the field
-                — and the field only produces learning if it's published openly.
+                others. The standard only earns trust if it's tested in the
+                field — and the field only produces learning if it's published
+                openly.
               </p>
               <p className="text-base leading-relaxed text-muted-foreground">
-                Playa AI convenes communities, tests human-centered AI experiences, applies EELP and Living Trust safeguards, and publishes what the field teaches.
+                Playa AI convenes communities, tests human-centered AI
+                experiences, applies EELP and Living Trust safeguards, and
+                publishes what the field teaches.
               </p>
             </div>
           </div>
@@ -886,7 +914,9 @@ export default function Home() {
                 i === 1 ? "lg:hairline-r" : ""
               } ${i === 2 ? "lg:hairline-r" : ""}`}
             >
-              <MonoLabel className="mb-6 text-muted-foreground">{item.n}</MonoLabel>
+              <MonoLabel className="mb-6 text-muted-foreground">
+                {item.n}
+              </MonoLabel>
               <h3 className="font-serif text-4xl md:text-5xl leading-none mb-5">
                 {item.title}
               </h3>
@@ -895,7 +925,9 @@ export default function Home() {
               </p>
               <a
                 href={item.href}
-                {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(item.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors w-fit mt-auto"
               >
                 {item.cta}
@@ -957,7 +989,9 @@ export default function Home() {
                 </p>
                 <a
                   href={item.href}
-                  {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...(item.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
                 >
                   {item.cta}
@@ -980,7 +1014,9 @@ export default function Home() {
       {/* ── 5. Why the Playa ────────────────────────────────────────────── */}
       <section className="py-24 md:py-36 bg-foreground text-background px-4">
         <div className="max-w-[1400px] mx-auto">
-          <MonoLabel className="mb-8 text-background/50">§ 04 / Origin</MonoLabel>
+          <MonoLabel className="mb-8 text-background/50">
+            § 04 / Origin
+          </MonoLabel>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
             <div className="lg:col-span-6">
@@ -1010,8 +1046,8 @@ export default function Home() {
               </p>
               <div className="border-t border-[#6B6258] pt-6">
                 <p className="font-mono text-xs uppercase tracking-widest text-background/40">
-                  Inspired by the culture and principles of the Playa
-                  community. Independent of Burning Man Organization.
+                  Inspired by the culture and principles of the Playa community.
+                  Independent of Burning Man Organization.
                 </p>
               </div>
             </div>
@@ -1119,10 +1155,7 @@ export default function Home() {
       </section>
 
       {/* ── 7. Proof of Momentum ────────────────────────────────────────── */}
-      <section
-        id="fund"
-        className="py-24 md:py-36 px-4 max-w-[1400px] mx-auto"
-      >
+      <section id="fund" className="py-24 md:py-36 px-4 max-w-[1400px] mx-auto">
         <MonoLabel className="mb-8">§ 06 / Proof of momentum</MonoLabel>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
@@ -1134,7 +1167,8 @@ export default function Home() {
           </div>
           <div className="lg:col-span-6 flex items-end">
             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              A snapshot of early activity across public events, prototypes, workshops, and working frameworks.
+              A snapshot of early activity across public events, prototypes,
+              workshops, and working frameworks.
             </p>
           </div>
         </div>
@@ -1162,20 +1196,44 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <a href="/events" className="group border-t border-border pt-6 flex flex-col hover:opacity-70 transition-opacity">
+          <a
+            href="/events"
+            className="group border-t border-border pt-6 flex flex-col hover:opacity-70 transition-opacity"
+          >
             <MonoLabel className="mb-3">Events</MonoLabel>
-            <p className="text-lg leading-snug mb-4">9 public events across Dubai, Detroit, Lisbon, Davos, New York, St. Moritz, and online — 2025 to 2026.</p>
-            <span className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 w-fit mt-auto">View archive →</span>
+            <p className="text-lg leading-snug mb-4">
+              9 public events across Dubai, Detroit, Lisbon, Davos, New York,
+              St. Moritz, and online — 2025 to 2026.
+            </p>
+            <span className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 w-fit mt-auto">
+              View archive →
+            </span>
           </a>
-          <a href="/work" className="group border-t border-border pt-6 flex flex-col hover:opacity-70 transition-opacity">
+          <a
+            href="/work"
+            className="group border-t border-border pt-6 flex flex-col hover:opacity-70 transition-opacity"
+          >
             <MonoLabel className="mb-3">Tools</MonoLabel>
-            <p className="text-lg leading-snug mb-4">Connect App released. Ikigai App piloted in Miami. Agent Labs running monthly. Privacy Toolkit in review.</p>
-            <span className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 w-fit mt-auto">Explore the work →</span>
+            <p className="text-lg leading-snug mb-4">
+              Connect App released. Ikigai App piloted in Miami. Agent Labs
+              running monthly. Privacy Toolkit in review.
+            </p>
+            <span className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 w-fit mt-auto">
+              Explore the work →
+            </span>
           </a>
-          <a href="/team" className="group border-t border-border pt-6 flex flex-col hover:opacity-70 transition-opacity">
+          <a
+            href="/team"
+            className="group border-t border-border pt-6 flex flex-col hover:opacity-70 transition-opacity"
+          >
             <MonoLabel className="mb-3">Team &amp; governance</MonoLabel>
-            <p className="text-lg leading-snug mb-4">Led by Alex Azzi, with a cross-disciplinary team and advisory council spanning AI, health, neuro, law, culture, and governance.</p>
-            <span className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 w-fit mt-auto">Meet the team →</span>
+            <p className="text-lg leading-snug mb-4">
+              Led by Alex Azzi, with a cross-disciplinary team and advisory
+              council spanning AI, health, neuro, law, culture, and governance.
+            </p>
+            <span className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 w-fit mt-auto">
+              Meet the team →
+            </span>
           </a>
         </div>
       </section>
@@ -1242,7 +1300,9 @@ export default function Home() {
             >
               <div
                 className={`font-mono text-[11px] uppercase tracking-widest mb-6 ${
-                  path.highlight ? "text-background/60" : "text-muted-foreground"
+                  path.highlight
+                    ? "text-background/60"
+                    : "text-muted-foreground"
                 }`}
               >
                 {path.tag}
@@ -1259,7 +1319,9 @@ export default function Home() {
               </p>
               <a
                 href={path.href}
-                {...(path.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(path.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className={`font-mono text-xs uppercase tracking-widest border-b pb-0.5 transition-colors w-fit mt-auto ${
                   path.highlight
                     ? "border-background hover:text-[#E2D9C5] hover:border-[#E2D9C5]"
@@ -1291,8 +1353,8 @@ export default function Home() {
           </div>
           <div className="lg:col-span-6 flex items-end">
             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              Credibility begins with honest status. These are not aspirations
-              — they are operating conditions baked into every program we run.
+              Credibility begins with honest status. These are not aspirations —
+              they are operating conditions baked into every program we run.
             </p>
           </div>
         </div>
@@ -1314,7 +1376,9 @@ export default function Home() {
                 i % 3 === 0 || i % 3 === 1 ? "lg:hairline-r" : ""
               }`}
             >
-              <MonoLabel className="mb-5 text-muted-foreground">{item.n}</MonoLabel>
+              <MonoLabel className="mb-5 text-muted-foreground">
+                {item.n}
+              </MonoLabel>
               <h3 className="font-serif text-2xl md:text-3xl leading-tight mb-4">
                 {item.title}
               </h3>
@@ -1343,8 +1407,8 @@ export default function Home() {
             <p className="text-lg text-foreground">
               Clear separation between charitable work and any future commercial
               implementation. We aim to publish program status and field
-              learning as each workstream matures. The initiative is
-              early-stage and clear about it.
+              learning as each workstream matures. The initiative is early-stage
+              and clear about it.
             </p>
           </div>
         </div>
@@ -1411,7 +1475,10 @@ export default function Home() {
       </section>
 
       {/* ── 10. Final CTA ───────────────────────────────────────────────── */}
-      <section id="contact" className="py-32 md:py-40 px-4 max-w-[1400px] mx-auto border-t border-foreground text-center">
+      <section
+        id="contact"
+        className="py-32 md:py-40 px-4 max-w-[1400px] mx-auto border-t border-foreground text-center"
+      >
         <motion.div
           initial="hidden"
           whileInView="visible"
