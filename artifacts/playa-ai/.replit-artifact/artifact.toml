@@ -22,6 +22,62 @@ build = [ "pnpm", "--filter", "@workspace/playa-ai", "run", "build" ]
 publicDir = "artifacts/playa-ai/dist/public"
 serve = "static"
 
+# Route-specific rewrites must appear BEFORE the catch-all.
+# Replit's static server applies rewrites before directory-index lookup,
+# so without these the catch-all intercepts every path and serves the
+# homepage HTML regardless of the prerendered file that exists.
+
+[[services.production.rewrites]]
+from = "/work"
+to = "/work/index.html"
+
+[[services.production.rewrites]]
+from = "/events"
+to = "/events/index.html"
+
+[[services.production.rewrites]]
+from = "/team"
+to = "/team/index.html"
+
+[[services.production.rewrites]]
+from = "/manifesto"
+to = "/manifesto/index.html"
+
+[[services.production.rewrites]]
+from = "/eelp"
+to = "/eelp/index.html"
+
+[[services.production.rewrites]]
+from = "/living-trust-framework"
+to = "/living-trust-framework/index.html"
+
+[[services.production.rewrites]]
+from = "/playa-ai-living-trust-framework"
+to = "/playa-ai-living-trust-framework/index.html"
+
+[[services.production.rewrites]]
+from = "/privacy-toolkit"
+to = "/privacy-toolkit/index.html"
+
+[[services.production.rewrites]]
+from = "/classic"
+to = "/classic/index.html"
+
+[[services.production.rewrites]]
+from = "/classic/work"
+to = "/classic/work/index.html"
+
+[[services.production.rewrites]]
+from = "/classic/events"
+to = "/classic/events/index.html"
+
+[[services.production.rewrites]]
+from = "/classic/team"
+to = "/classic/team/index.html"
+
+# Catch-all SPA fallback — fires only for paths not matched above.
+# Returns the homepage shell; wouter handles unknown paths client-side
+# with noindex, nofollow and no canonical (branded 404 UI).
 [[services.production.rewrites]]
 from = "/*"
 to = "/index.html"

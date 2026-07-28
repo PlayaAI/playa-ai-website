@@ -1,0 +1,44 @@
+I independently tested the live production deployment. Do not change copy or metadata definitions yet.
+
+Confirmed production behavior:
+
+After JavaScript loads, all canonical routes display correct route-specific titles, descriptions, canonicals, robots directives, headings, and content.
+Gmail-compose links are gone and mailto: links are working.
+/privacy-toolkit correctly becomes noindex, follow.
+Unknown paths correctly become noindex, nofollow with no canonical after JavaScript loads.
+
+Confirmed failure:
+
+The raw initial HTML served for /work/, /events/, /team/, /manifesto/, /eelp/, /living-trust-framework/, and /privacy-toolkit/ still contains the homepage title and homepage summary. JavaScript subsequently replaces the metadata and page content correctly.
+
+Therefore, the route definitions and client-side metadata are working, but the deployed server is not serving the route-specific generated HTML files.
+
+Diagnose the exact production-serving problem:
+
+Identify the build output directory actually deployed by Replit.
+Identify the directory actually served by the production static server.
+Determine whether dist/public/<route>/index.html is the correct deployed location.
+Determine whether the catch-all rewrite is intercepting requests before route-specific static files are resolved.
+Inspect the deployed artifact—not only the local build—for every canonical route.
+Verify both trailing-slash and non-trailing-slash requests.
+
+Implement the smallest reliable fix so every route directly serves its own generated HTML before JavaScript executes.
+
+Acceptance criteria:
+
+A raw HTTP request to every canonical route contains that route’s title, description, canonical, robots directive and meaningful route-specific body content.
+/privacy-toolkit directly serves its archive metadata and noindex, follow.
+Archive and alias routes retain their intended indexing rules.
+Client-side rendering continues working without duplicate visible content, hydration errors or navigation regressions.
+Unknown paths retain the branded 404 behavior, noindex, nofollow, and no canonical. Do not claim a genuine HTTP 404 unless the live response status is actually 404.
+
+Run a clean production build and report:
+
+Root cause
+Exact files changed
+Deployed and served output directories
+Raw built HTML evidence for every route
+Why the earlier deployment served the homepage HTML
+Whether another publication is required
+
+Do not publish, deploy, push or merge. Do not alter approved copy, legal language, metrics, privacy content, licensing or structural architecture.
