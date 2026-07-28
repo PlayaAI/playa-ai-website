@@ -1,0 +1,207 @@
+Complete all remaining safe, implementation-ready work in the Playa AI **Technical & Credibility Failures** workstream. Work comprehensively in one run—do not divide it into additional batches or wait between ordinary engineering steps.
+
+Do not publish, deploy, push, merge, or redesign.
+
+## 1. Validate and strengthen the Batch 2 rendering implementation
+
+Inspect the implementation critically rather than relying on the previous summary.
+
+Verify that the production build structure matches what the Replit deployment actually serves. In particular:
+
+* Confirm that files written to `dist/public/<route>/index.html` will really be served at their corresponding public URLs.
+* Confirm that Vite or Replit is not expecting a different output directory.
+* Confirm that catch-all rewriting does not prevent the generated route files from being served.
+* Confirm every generated page still loads and hydrates correctly.
+* Confirm direct navigation and client-side navigation both work.
+
+Meaningful route-specific page content must be present in the initial HTML.
+
+A short `<noscript>` summary alone is not sufficient evidence of genuine prerendering if the ordinary HTML body remains an empty application shell. Use the smallest reliable build-time rendering solution supported by the current React/Vite architecture. Do not migrate frameworks.
+
+For every valid route, initial HTML should contain:
+
+* Meaningful route-specific visible text
+* Correct title and description
+* Correct robots directive
+* Correct canonical behavior
+* Open Graph metadata
+* Twitter metadata
+
+Ensure JavaScript-enabled users do not see duplicate content and that hydration produces no mismatch or console errors.
+
+## 2. Verify the canonical route architecture
+
+Keep `src/routes.ts` as the single source of truth.
+
+Verify:
+
+* Every router route is represented
+* Every route-table entry corresponds to a real route
+* Canonical routes are not duplicated
+* Archive and Classic routes remain accessible but use `noindex, follow`
+* Aliases resolve intentionally and do not compete with canonical pages
+* Unknown paths use `noindex, nofollow` and emit no canonical
+* Only the seven approved canonical indexable routes appear in the sitemap
+* Metadata consumers, prerendering, route tests, and sitemap logic all use the same inventory
+
+Do not delete historical routes.
+
+## 3. Hosting behavior and real HTTP 404s
+
+Inspect `artifact.toml` and all available deployment configuration.
+
+Determine whether the current Replit deployment supports:
+
+* Route-specific static files
+* A custom 404 document
+* Status-code-preserving rewrites
+* Redirects for aliases
+* A genuine HTTP 404 for unknown paths
+
+If genuine 404 handling is supported, configure it using the smallest reliable hosting change.
+
+If it is not supported, do not fake completion. Preserve:
+
+* Existing branded 404 interface
+* `noindex, nofollow`
+* No canonical
+* Exclusion from sitemap
+
+Then document the exact external hosting change or platform capability required to obtain the correct HTTP status.
+
+Do not migrate hosting or frameworks.
+
+## 4. Compression and caching
+
+Configure the safest hosting-supported behavior:
+
+* Brotli and/or Gzip for compressible HTML, CSS, JavaScript, SVG, JSON, XML, and text
+* Long-lived immutable caching for content-hashed production assets
+* No long-lived caching for HTML documents
+* Sensible caching for `sitemap.xml` and `robots.txt`
+* No accidental immutable caching for unhashed files that may change
+* Correct MIME types
+
+Preferred behavior:
+
+* Hashed assets: `Cache-Control: public, max-age=31536000, immutable`
+* HTML: `Cache-Control: no-cache` or an equivalent revalidation policy
+
+Use only settings the current hosting system genuinely supports. If Replit controls compression automatically and the repository cannot configure it, document that and identify the exact production-header checks required after deployment.
+
+Do not claim compression or caching is verified until response headers are checked on the published site.
+
+## 5. Complete safe technical QA
+
+Inspect and repair any remaining implementation-level failures within this workstream, including:
+
+* Broken internal links
+* Routes referenced in navigation but not implemented
+* Invalid canonical URLs
+* Duplicate or conflicting metadata
+* Missing sitemap destinations
+* JavaScript or React console errors
+* TypeScript failures
+* Hydration errors
+* Keyboard-inaccessible core controls
+* Informative images missing useful alt text
+* Decorative images incorrectly exposed to assistive technology
+* Mobile navigation controls lacking accessible names or state
+* Focus indicators accidentally removed
+* Content that remains hidden when reduced motion is enabled
+
+Use evidence and the smallest correction. Do not alter page architecture, copy strategy, metrics, event records, team claims, or visual design.
+
+Do not create `/get-involved`, restructure `/team`, consolidate product domains, or alter navigation strategy; those belong to the Structural & UX workstream.
+
+## 6. Preserve completed repairs
+
+Confirm and preserve:
+
+* Zero Gmail-compose URLs
+* Provider-neutral `mailto:` links with correct recipients and subjects
+* Removal of “Privacy Toolkit in review.”
+* Global `MotionConfig reducedMotion="user"`
+* Reduced-motion CSS fallback
+* PledgeModal portal mounted outside `#root`
+* `#root` inert while PledgeModal is open
+* Correct restoration of any pre-existing inert state
+* Focus trap, Escape handling, scroll locking, labeling, and trigger-focus restoration
+* No ManifestoDrawer regression
+* Central route inventory
+* Sitemap and robots files
+* Archive indexing rules
+* Unknown-route canonical suppression
+
+## 7. Decision-gated exclusions
+
+Do not implement or invent:
+
+* Connect recording, processing, retention, deletion, or consent language
+* Privacy Policy or Terms content
+* New forms or data collection
+* Legal-compliance claims
+* A GitHub licence
+* “Open-source” claims
+* Participant or event metrics
+* Microgrant claims
+* Manifesto publication history
+* Crisis or mental-health protocols
+* Team credentials
+* Organizational or fiscal-sponsorship changes
+
+Create a short blocker register for these instead, stating the owner or evidence needed.
+
+## 8. Required verification
+
+Run all available:
+
+* Typecheck
+* Lint
+* Tests
+* Production build
+* Valid-route crawl
+* Broken-link scan
+* Gmail URL scan
+* Route-inventory consistency check
+* Generated-HTML inspection for every route
+* Sitemap and robots validation
+* Canonical, robots, OG, and Twitter validation
+* Unknown-path test
+* Hydration and console checks
+* Reduced-motion checks
+* Modal keyboard/accessibility checks
+* Desktop and mobile smoke tests
+
+For each route, report:
+
+`Path | Classification | Generated file | Meaningful initial content | Robots | Canonical | Hydration result`
+
+Clearly distinguish:
+
+* Verified in source
+* Verified in production build
+* Requires deployment
+* Requires production response-header testing
+* Decision-blocked
+
+## Final report
+
+Return one consolidated report containing:
+
+1. Executive verdict
+2. Exact files changed
+3. Corrections made
+4. Complete route verification table
+5. Evidence that generated files are served by the intended build architecture
+6. Initial-HTML evidence
+7. Metadata, sitemap, and robots results
+8. Achieved and unresolved HTTP 404 behavior
+9. Compression and caching configuration
+10. Accessibility and link-check results
+11. Typecheck, test, and build results
+12. Decision-gated blocker register
+13. Exact post-deployment QA checklist
+14. Any issue transferred to another workstream
+
+Do not describe anything as production-verified before publication and live HTTP testing.
