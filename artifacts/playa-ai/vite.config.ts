@@ -77,10 +77,26 @@ function patchHtml(template: string, route: RouteEntry): string {
     );
   }
 
-  // Inject <noscript> for meaningful visible page text (non-JS crawlers)
+  // Inject meaningful visible content into #root for non-JS crawlers.
+  // React's createRoot() replaces this content on mount — no hydration mismatch.
+  // Only injected for indexable routes that carry a summary; noindex/archive
+  // routes get the noscript fallback only.
+  if (route.summary && !route.noindex) {
+    const summaryHtml = `<main data-ssr="1"><h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p></main>`;
+    html = html.replace(
+      '<div id="root"></div>',
+      `<div id="root">${summaryHtml}</div>`,
+    );
+  }
+
+  // Inject <noscript> — provides fallback text when JS is entirely disabled.
+  // Includes the summary for indexable routes to give non-JS crawlers more signal.
+  const noscriptBody = route.summary && !route.noindex
+    ? `<h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p>`
+    : `<h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p>`;
   html = html.replace(
     "</body>",
-    `  <noscript><h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p></noscript>\n</body>`,
+    `  <noscript>${noscriptBody}</noscript>\n</body>`,
   );
 
   return html;

@@ -862,7 +862,7 @@ export default function Home() {
 
             <div className="lg:col-span-3 flex lg:items-end">
               <a
-                href="/tools"
+                href="/work"
                 className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors inline-block h-fit"
               >
                 Explore the tools →
