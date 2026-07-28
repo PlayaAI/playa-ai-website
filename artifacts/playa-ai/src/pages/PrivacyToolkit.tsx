@@ -968,7 +968,7 @@ export default function PrivacyToolkit() {
             className="flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase"
           >
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Privacy%20Toolkit%20Brief%20Request"
+              href="mailto:hello@playa-ai.org?subject=Privacy%20Toolkit%20Brief%20Request"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
@@ -976,7 +976,7 @@ export default function PrivacyToolkit() {
               Request the Privacy Toolkit brief →
             </a>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Privacy%20Toolkit%20Contribution"
+              href="mailto:hello@playa-ai.org?subject=Privacy%20Toolkit%20Contribution"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"

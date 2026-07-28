@@ -1,4 +1,5 @@
 import { Switch, Route, Router } from "wouter";
+import { MotionConfig } from "framer-motion";
 import Home from "@/pages/Home";
 import Events from "@/pages/Events";
 import Teams from "@/pages/Team";
@@ -21,9 +22,10 @@ function PageMetaUpdater() {
 
 function App() {
   return (
-    <Router base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-      <PageMetaUpdater />
-      <Switch>
+    <MotionConfig reducedMotion="user">
+      <Router base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+        <PageMetaUpdater />
+        <Switch>
         <Route path="/" component={Home} />
         <Route path="/events" component={Events} />
         <Route path="/team" component={Teams} />
@@ -38,8 +40,9 @@ function App() {
         <Route path="/classic/team" component={TeamClassic} />
         <Route path="/classic/work" component={WorkClassic} />
         <Route component={NotFound} />
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
+    </MotionConfig>
   );
 }
 

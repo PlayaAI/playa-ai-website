@@ -352,7 +352,7 @@ const WORKSTREAMS: Workstream[] = [
       "Piloted with 80+ initial users and now being refined for camp-level use and the Joy Score research project.",
     people: "Alex Azzi · Raed Marji",
     cta: "Join pilot →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Connect%20App%20Pilot",
+    href: "mailto:hello@playa-ai.org?subject=Connect%20App%20Pilot",
   },
   {
     n: "02",
@@ -409,7 +409,7 @@ const WORKSTREAMS: Workstream[] = [
       "Early personal experiments have tested Esther Perel, Gottman, and SCARF-inspired frameworks on recorded relationship conflicts.",
     people: "David Rock · Alana Winter · Raed Marji",
     cta: "Contact us →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Relationship%20Nurturer",
+    href: "mailto:hello@playa-ai.org?subject=Relationship%20Nurturer",
     caution: "Research prototype only. Not a therapy product or clinical tool.",
   },
   {
@@ -463,7 +463,7 @@ const WORKSTREAMS: Workstream[] = [
     evidence: "Currently in governance design phase. Derived from the Year-One framework and applied as a privacy layer to Connect Protocol and EELP.",
     people: "Alex Azzi",
     cta: "Contact us about the Data Trust →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Data%20Trust%20Inquiry",
+    href: "mailto:hello@playa-ai.org?subject=Data%20Trust%20Inquiry",
   },
   {
     n: "08",
@@ -1090,7 +1090,7 @@ export default function Work() {
             className="flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase"
           >
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Work%20Collaboration"
+              href="mailto:hello@playa-ai.org?subject=Work%20Collaboration"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
@@ -1098,7 +1098,7 @@ export default function Work() {
               Collaborate on the work →
             </a>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Support%20Playa%20AI%20Work"
+              href="mailto:hello@playa-ai.org?subject=Support%20Playa%20AI%20Work"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
@@ -1106,7 +1106,7 @@ export default function Work() {
               Support the work →
             </a>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Request%20Playa%20AI%20Work%20Briefs"
+              href="mailto:hello@playa-ai.org?subject=Request%20Playa%20AI%20Work%20Briefs"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"

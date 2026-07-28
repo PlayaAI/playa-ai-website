@@ -131,7 +131,7 @@ function PledgeModal({
                 </div>
                 {/* CTA now points to contact email rather than pretending a form exists */}
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Public%20Commitment%20%E2%80%94%20The%20Pledge"
+                  href="mailto:hello@playa-ai.org?subject=Public%20Commitment%20%E2%80%94%20The%20Pledge"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClose}
@@ -421,7 +421,7 @@ export default function Home() {
       // Plain-language definition added inline in the desc
       desc: "EELP — Ethical Experience Lab Protocol — is a public draft protocol for consent, disclosure, data minimization, human override, and community accountability in AI-mediated experiences. The draft framework is in active development.",
       cta: "Request the EELP brief",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=EELP%20Brief%20Request",
+      href: "mailto:hello@playa-ai.org?subject=EELP%20Brief%20Request",
     },
     {
       num: "02",
@@ -429,7 +429,7 @@ export default function Home() {
       title: "Consent-first Data Trust",
       desc: "The Data Trust is a governance model giving participants control over how their stories, data, identity, and permissions are used, stored, or deleted — being designed before sensitive data is collected.",
       cta: "Contact us about the Data Trust",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Data%20Trust%20Inquiry",
+      href: "mailto:hello@playa-ai.org?subject=Data%20Trust%20Inquiry",
     },
     {
       num: "03",
@@ -437,7 +437,7 @@ export default function Home() {
       title: "Connect Protocol pilots",
       desc: "Connect Protocol is a set of AI-guided facilitation tools that help people move from digital interaction into deeper offline connection. Pilot design is underway.",
       cta: "Discuss a Connect pilot",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Connect%20Protocol%20Pilot",
+      href: "mailto:hello@playa-ai.org?subject=Connect%20Protocol%20Pilot",
     },
     {
       num: "04",
@@ -445,7 +445,7 @@ export default function Home() {
       title: "Artist microgrants",
       desc: "Year-One microgrants for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
       cta: "Join the artist interest list",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Artist%20Grant%20Interest",
+      href: "mailto:hello@playa-ai.org?subject=Artist%20Grant%20Interest",
     },
     {
       num: "05",
@@ -453,7 +453,7 @@ export default function Home() {
       title: "Impact / Field Report",
       desc: "The Impact / Field Report is the public record of what was tested, what failed, what changed, and what other communities can reuse — published openly at the close of Year One.",
       cta: "Get notified when it publishes",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Field%20Report%20Notification",
+      href: "mailto:hello@playa-ai.org?subject=Field%20Report%20Notification",
     },
   ];
 
@@ -463,14 +463,14 @@ export default function Home() {
       title: "Become a Founding Adopter",
       desc: "For universities, museums, festivals, civic AI teams, and research labs that want to help test and improve EELP in real community settings. The Founding Adopter pathway is open.",
       link: "Request Adopter Conversation →",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Founding%20Adopter%20Inquiry",
+      href: "mailto:hello@playa-ai.org?subject=Founding%20Adopter%20Inquiry",
     },
     {
       tag: "Path 02 / Funders",
       title: "Support Year One",
       desc: "Fund the standards work, governance design, Connect pilots, artist microgrants, documentation, and public field reporting that turn the mission into accountable, public-interest infrastructure. Tax-deductible giving available through Mystic Arts Foundation.",
       link: "Schedule Donor Conversation →",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Inquiry",
+      href: "mailto:hello@playa-ai.org?subject=Donor%20Inquiry",
       bg: "bg-foreground text-background",
       border: "border-foreground",
     },
@@ -480,7 +480,7 @@ export default function Home() {
       title: "Join as an Artist, Researcher, or Builder",
       desc: "Our contributor working group — open to artists, researchers, facilitators, and builders helping translate human-centered AI from principle into practice through salons, pilots, field notes, and open tools.",
       link: "Join the Working Group →",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Working%20Group%20Interest",
+      href: "mailto:hello@playa-ai.org?subject=Working%20Group%20Interest",
     },
   ];
 
@@ -1207,7 +1207,7 @@ export default function Home() {
               between charitable work and any future commercial implementation.
             </p>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Playa%20AI%20Foundation%20%E2%80%94%20Introduction"
+              href="mailto:hello@playa-ai.org?subject=Playa%20AI%20Foundation%20%E2%80%94%20Introduction"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors inline-block"
@@ -1411,7 +1411,7 @@ export default function Home() {
               any future commercial implementation.
             </p>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Brief%20Request"
+              href="mailto:hello@playa-ai.org?subject=Donor%20Brief%20Request"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground transition-colors inline-block"
@@ -1528,7 +1528,7 @@ export default function Home() {
         </h2>
         <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-sm uppercase">
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Inquiry%20%E2%80%94%20Year%20One"
+            href="mailto:hello@playa-ai.org?subject=Donor%20Inquiry%20%E2%80%94%20Year%20One"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
@@ -1536,7 +1536,7 @@ export default function Home() {
             Support Year One
           </a>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Founding%20Adopter%20Inquiry"
+            href="mailto:hello@playa-ai.org?subject=Founding%20Adopter%20Inquiry"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
@@ -1544,7 +1544,7 @@ export default function Home() {
             Become a Founding Adopter
           </a>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Working%20Group%20Interest"
+            href="mailto:hello@playa-ai.org?subject=Working%20Group%20Interest"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"

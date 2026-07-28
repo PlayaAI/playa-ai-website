@@ -46,10 +46,41 @@ function PledgeModal({
   open: boolean;
   onClose: () => void;
 }) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     if (!open) return;
+    // Save the element that opened the modal so focus can be restored on close
+    triggerRef.current = document.activeElement as HTMLElement;
+    closeButtonRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key === "Tab" && dialogRef.current) {
+        const focusable = Array.from(
+          dialogRef.current.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), [href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+          ),
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
     };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
@@ -57,6 +88,8 @@ function PledgeModal({
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
+      // Restore focus to the element that triggered the modal
+      triggerRef.current?.focus();
     };
   }, [open, onClose]);
 
@@ -74,6 +107,7 @@ function PledgeModal({
           data-testid="pledge-modal-backdrop"
         >
           <motion.div
+            ref={dialogRef}
             initial={{ y: 24, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 12, opacity: 0 }}
@@ -98,6 +132,7 @@ function PledgeModal({
                 </div>
               </div>
               <button
+                ref={closeButtonRef}
                 type="button"
                 onClick={onClose}
                 aria-label="Close"
@@ -133,7 +168,7 @@ function PledgeModal({
                   Drafted Spring 2026 · Black Rock Desert origin
                 </div>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Public%20Commitment%20%E2%80%94%20The%20Pledge"
+                  href="mailto:hello@playa-ai.org?subject=Public%20Commitment%20%E2%80%94%20The%20Pledge"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClose}
@@ -463,14 +498,14 @@ const OPERATING_MODEL = [
     title: "Fund",
     desc: "We are developing responsible ways to support artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. The Year-One microgrant program is in development, and the artist interest list is open.",
     cta: "Support Year One →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Inquiry",
+    href: "mailto:hello@playa-ai.org?subject=Donor%20Inquiry",
   },
   {
     n: "04",
     title: "Publish",
     desc: "Each pilot is designed to produce public learning—such as field notes, consent patterns, methods, failures, and, where appropriate, a public field report that other communities can adapt.",
     cta: "Request field report updates →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Field%20Report%20Notification",
+    href: "mailto:hello@playa-ai.org?subject=Field%20Report%20Notification",
   },
 ];
 
@@ -510,7 +545,7 @@ const INITIATIVES = [
     body: "A global open-science project measuring how human connection drives flourishing. Playa AI's Connect app is its technology layer. Led by Tina Woods.",
     status: "Active",
     cta: "Join the research →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Human%20Connection%20Research",
+    href: "mailto:hello@playa-ai.org?subject=Human%20Connection%20Research",
     external: true,
   },
   {
@@ -584,7 +619,7 @@ const PARTICIPATION = [
     title: "Build under a consent framework",
     desc: "Access the working group, EELP consent protocols, and community testing infrastructure. Build tools that respect the people they serve.",
     cta: "Join the working group →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Working%20Group%20Interest",
+    href: "mailto:hello@playa-ai.org?subject=Working%20Group%20Interest",
     highlight: false,
   },
   {
@@ -592,7 +627,7 @@ const PARTICIPATION = [
     title: "Year-One Microgrant Program",
     desc: "The Year-One microgrant program is in development, for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
     cta: "Join the artist interest list →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Artist%20Grant%20Interest",
+    href: "mailto:hello@playa-ai.org?subject=Artist%20Grant%20Interest",
     highlight: false,
   },
   {
@@ -600,7 +635,7 @@ const PARTICIPATION = [
     title: "Research-oriented field methods",
     desc: "Clear consent layers, minimal data collection, and publishable learning — designed to support rigorous collaborative research.",
     cta: "Propose a collaboration →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Research%20Collaboration",
+    href: "mailto:hello@playa-ai.org?subject=Research%20Collaboration",
     highlight: false,
   },
   {
@@ -608,7 +643,7 @@ const PARTICIPATION = [
     title: "Support Year One",
     desc: "Fund the standards work, governance design, Connect pilots, artist microgrants, documentation, and public field reporting. Tax-deductible giving through Mystic Arts Foundation.",
     cta: "Schedule donor conversation →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Donor%20Inquiry",
+    href: "mailto:hello@playa-ai.org?subject=Donor%20Inquiry",
     highlight: true,
   },
   {
@@ -616,7 +651,7 @@ const PARTICIPATION = [
     title: "Bring programming and partnerships",
     desc: "Help translate the connection between culture, community, and responsible AI. Bring events, programming, and field partnerships to the initiative.",
     cta: "Start the conversation →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Cultural%20Stewardship",
+    href: "mailto:hello@playa-ai.org?subject=Cultural%20Stewardship",
     highlight: false,
   },
   {
@@ -624,7 +659,7 @@ const PARTICIPATION = [
     title: "Become a Founding Adopter",
     desc: "Universities, museums, festivals, civic AI teams. Test EELP in real community settings. The Founding Adopter pathway is open.",
     cta: "Request adopter conversation →",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Founding%20Adopter%20Inquiry",
+    href: "mailto:hello@playa-ai.org?subject=Founding%20Adopter%20Inquiry",
     highlight: false,
   },
 ];
@@ -1216,7 +1251,7 @@ export default function Home() {
             <MonoLabel className="mb-3">Tools</MonoLabel>
             <p className="text-lg leading-snug mb-4">
               Connect App released. Ikigai App piloted in Miami. Agent Labs
-              running monthly. Privacy Toolkit in review.
+              running monthly.
             </p>
             <span className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 w-fit mt-auto">
               Explore the work →
@@ -1513,7 +1548,7 @@ export default function Home() {
             className="flex flex-wrap items-center justify-center gap-4 font-mono text-sm uppercase"
           >
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Join%20the%20Playa%20AI%20Initiative"
+              href="mailto:hello@playa-ai.org?subject=Join%20the%20Playa%20AI%20Initiative"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
@@ -1521,7 +1556,7 @@ export default function Home() {
               Join the initiative
             </a>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@playa-ai.org&su=Partner%20with%20Playa%20AI"
+              href="mailto:hello@playa-ai.org?subject=Partner%20with%20Playa%20AI"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
