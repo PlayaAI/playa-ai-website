@@ -1,0 +1,138 @@
+Continue directly with Technical Repair Batch 2. Do not deploy, publish, push, or redesign anything.
+
+First, close the remaining Batch 1 accessibility requirement:
+
+Inspect PledgeModal and confirm that background content becomes inert or equivalently inaccessible to keyboard and assistive technology while the modal is open.
+If this is missing, implement it safely.
+Remove/restore the state correctly when the modal closes or unmounts.
+Preserve focus trapping, Escape handling, scroll locking, dialog labeling, and focus restoration.
+
+Then implement the following machine-readability and indexing repairs.
+
+1. Build-time machine-readable pages
+
+Ensure every legitimate public route produces initial HTML containing:
+
+Meaningful visible page text
+Route-specific <title>
+Route-specific meta description
+Canonical URL
+Open Graph title, description, URL, and type
+Twitter Card metadata
+
+The content and metadata must exist in the initial HTML response before JavaScript executes.
+
+Use the smallest reliable solution supported by the existing architecture—prefer build-time prerendering/static generation. Do not migrate frameworks or rewrite the application.
+
+Preserve client-side hydration, navigation, design, animation, and interactive behavior.
+
+2. Route inventory
+
+Inspect the router and create one canonical list of valid public routes. Use that list for:
+
+Prerendering
+Sitemap generation
+Metadata validation
+Route testing
+
+Do not create multiple conflicting route inventories.
+
+Include all legitimate institutional pages. Treat legacy /classic routes and /privacy-toolkit as archives unless the current source clearly specifies otherwise.
+
+3. Sitemap and robots
+
+Create or repair:
+
+/sitemap.xml, containing only canonical indexable public routes
+/robots.txt, referencing the production sitemap
+
+Do not include unknown routes, visual 404 routes, duplicate Classic routes, or intentionally archived pages in the sitemap.
+
+Apply noindex, follow to archive/legacy routes such as /classic/* and /privacy-toolkit, while keeping them accessible. Do not delete those routes.
+
+4. Genuine unknown-route behavior
+
+Fix unknown URLs so they:
+
+Display the existing branded 404 design
+Return an actual HTTP 404 status in production or the closest hosting-supported server response
+Do not emit a self-referencing canonical URL
+Include noindex, nofollow
+Do not appear in the sitemap
+
+Do not replace the existing visual 404 design.
+
+If the present hosting platform makes genuine server-level 404 responses impossible with the current deployment configuration, document the exact limitation and implement the safest supported fallback. Do not perform a framework migration.
+
+5. Metadata accuracy
+
+Preserve approved Playa AI positioning:
+
+“Playa AI is a philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.”
+
+Never imply that Playa AI independently holds 501(c)(3) status.
+
+Reuse existing approved page copy for metadata. Do not invent participant figures, program claims, project statuses, event totals, privacy promises, licensing claims, or new organizational language.
+
+Ensure metadata does not describe archived pages as current programs.
+
+6. Verification
+
+Run:
+
+Typecheck
+Lint, if configured
+Tests, if configured
+Production build
+Prerender/static-generation process
+Valid-route crawl
+Unknown-route test
+Sitemap validation
+Robots validation
+Initial-HTML inspection with JavaScript disabled
+Canonical and metadata checks per route
+Hydration and console-error checks
+Desktop and mobile smoke tests
+
+For representative routes, show evidence that meaningful text and route-specific metadata appear in the generated HTML—not only after JavaScript executes.
+
+Verify that:
+
+Valid routes remain interactive after hydration
+No content is duplicated visually
+No hydration mismatch occurs
+Archived routes remain accessible but non-indexable
+Unknown paths do not receive canonical indexable metadata
+Restrictions
+
+Do not:
+
+Publish or deploy
+Push or merge
+Change Connect privacy language
+Create Privacy Policy or Terms content
+Add forms or new data collection
+Add a licence
+Change claims, statistics, dates, events, or project statuses
+Delete legacy pages
+Redesign anything
+Refactor unrelated code
+Implement compression or caching yet; that will be a separate hosting batch
+
+Continue automatically unless you encounter a material architecture or hosting blocker.
+
+Return:
+
+Exact files changed
+Route inventory
+Prerendering approach
+Generated-page evidence
+Metadata results by route
+Sitemap and robots contents
+404 behavior achieved
+Accessibility correction made
+Test/build results
+Anything that can only be verified after publication
+Remaining blockers
+
+Do not describe production behavior as verified before deployment.
