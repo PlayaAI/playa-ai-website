@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -85,15 +86,26 @@ function PledgeModal({
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    // Make #root inert so background content is unreachable by keyboard and AT.
+    // PledgeModal is rendered via createPortal into #modal-host (a sibling of
+    // #root), so setting inert on #root does not affect the dialog itself.
+    const root = document.getElementById("root");
+    const rootWasInert = root?.hasAttribute("inert") ?? false;
+    root?.setAttribute("inert", "");
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
+      // Restore inert only if it wasn't already set before we opened
+      if (!rootWasInert) root?.removeAttribute("inert");
       // Restore focus to the element that triggered the modal
       triggerRef.current?.focus();
     };
   }, [open, onClose]);
 
-  return (
+  // Render into #modal-host (a sibling of #root outside the inert subtree)
+  const modalHost = document.getElementById("modal-host") as HTMLElement;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -182,7 +194,8 @@ function PledgeModal({
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    modalHost,
   );
 }
 

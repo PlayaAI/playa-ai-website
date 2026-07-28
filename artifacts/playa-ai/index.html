@@ -24,6 +24,8 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- modal-host lives outside #root so inert on #root doesn't trap the modal -->
+    <div id="modal-host"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
