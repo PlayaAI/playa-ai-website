@@ -22,13 +22,24 @@ build = [ "pnpm", "--filter", "@workspace/playa-ai", "run", "build" ]
 publicDir = "artifacts/playa-ai/dist/public"
 serve = "static"
 
-# Route-specific rewrites must appear BEFORE the catch-all.
+# Route-specific rewrites — both non-trailing-slash and trailing-slash forms
+# for every prerendered sub-route, ordered before the catch-all.
+#
+# Why both forms:
+#   - from="/work"  covers the canonical non-trailing-slash URL
+#   - from="/work/" covers browsers/links that append a trailing slash
 # Replit's static server applies rewrites before directory-index lookup,
-# so without these the catch-all intercepts every path and serves the
-# homepage HTML regardless of the prerendered file that exists.
+# so without these the catch-all intercepts and returns the homepage HTML.
+#
+# Query-string requests (e.g. /work?ref=test) are handled automatically:
+# path matching ignores query strings, so from="/work" already covers them.
 
 [[services.production.rewrites]]
 from = "/work"
+to = "/work/index.html"
+
+[[services.production.rewrites]]
+from = "/work/"
 to = "/work/index.html"
 
 [[services.production.rewrites]]
@@ -36,7 +47,15 @@ from = "/events"
 to = "/events/index.html"
 
 [[services.production.rewrites]]
+from = "/events/"
+to = "/events/index.html"
+
+[[services.production.rewrites]]
 from = "/team"
+to = "/team/index.html"
+
+[[services.production.rewrites]]
+from = "/team/"
 to = "/team/index.html"
 
 [[services.production.rewrites]]
@@ -44,7 +63,15 @@ from = "/manifesto"
 to = "/manifesto/index.html"
 
 [[services.production.rewrites]]
+from = "/manifesto/"
+to = "/manifesto/index.html"
+
+[[services.production.rewrites]]
 from = "/eelp"
+to = "/eelp/index.html"
+
+[[services.production.rewrites]]
+from = "/eelp/"
 to = "/eelp/index.html"
 
 [[services.production.rewrites]]
@@ -52,7 +79,15 @@ from = "/living-trust-framework"
 to = "/living-trust-framework/index.html"
 
 [[services.production.rewrites]]
+from = "/living-trust-framework/"
+to = "/living-trust-framework/index.html"
+
+[[services.production.rewrites]]
 from = "/playa-ai-living-trust-framework"
+to = "/playa-ai-living-trust-framework/index.html"
+
+[[services.production.rewrites]]
+from = "/playa-ai-living-trust-framework/"
 to = "/playa-ai-living-trust-framework/index.html"
 
 [[services.production.rewrites]]
@@ -60,7 +95,15 @@ from = "/privacy-toolkit"
 to = "/privacy-toolkit/index.html"
 
 [[services.production.rewrites]]
+from = "/privacy-toolkit/"
+to = "/privacy-toolkit/index.html"
+
+[[services.production.rewrites]]
 from = "/classic"
+to = "/classic/index.html"
+
+[[services.production.rewrites]]
+from = "/classic/"
 to = "/classic/index.html"
 
 [[services.production.rewrites]]
@@ -68,16 +111,28 @@ from = "/classic/work"
 to = "/classic/work/index.html"
 
 [[services.production.rewrites]]
+from = "/classic/work/"
+to = "/classic/work/index.html"
+
+[[services.production.rewrites]]
 from = "/classic/events"
+to = "/classic/events/index.html"
+
+[[services.production.rewrites]]
+from = "/classic/events/"
 to = "/classic/events/index.html"
 
 [[services.production.rewrites]]
 from = "/classic/team"
 to = "/classic/team/index.html"
 
+[[services.production.rewrites]]
+from = "/classic/team/"
+to = "/classic/team/index.html"
+
 # Catch-all SPA fallback — fires only for paths not matched above.
-# Returns the homepage shell; wouter handles unknown paths client-side
-# with noindex, nofollow and no canonical (branded 404 UI).
+# Client-side wouter handles unknown paths with branded 404 UI,
+# noindex/nofollow, and no canonical.
 [[services.production.rewrites]]
 from = "/*"
 to = "/index.html"
