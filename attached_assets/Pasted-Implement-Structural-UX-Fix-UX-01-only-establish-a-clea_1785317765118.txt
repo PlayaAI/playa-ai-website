@@ -1,0 +1,58 @@
+Implement Structural & UX Fix UX-01 only: establish a clear relationship between the homepage initiatives section and the /work page.
+
+Context:
+The July 2026 audit Finding 15 alleges that the homepage and /work present competing portfolio structures. We are addressing this incrementally without redesigning pages or making unsupported portfolio decisions.
+
+Before editing:
+
+Inspect the current homepage initiatives section and /work introduction.
+Report the exact current headings, supporting copy, number of initiative/workstream cards, and names shown on each page.
+Identify differences, but do not reconcile them in this task.
+
+Authorized changes:
+
+On the current homepage, change the initiatives-section heading to:
+
+Selected initiatives
+
+Add or revise the short supporting line so it clearly communicates:
+
+A selection of Playa AI’s current work. Explore the full work index.
+
+Preserve the existing link to /work. Its visible label should be:
+
+Explore the full work index
+
+On /work, change the current Work Index heading to:
+
+Full work index
+
+Preserve the existing Work-page introduction unless a minimal grammatical adjustment is required by the new heading.
+
+Strict constraints:
+
+Do not add, remove, reorder, rename, or merge any initiatives.
+Do not change initiative counts, descriptions, statuses, maturity labels, or destinations.
+Do not change navigation, layout, styling, routes, metadata, archives, or mobile behavior.
+Preserve the pending /work Burner-AI Manifesto link correction to /manifesto.
+Preserve all completed technical, accessibility, prerendering, contact-link, indexing, and fiscal-sponsorship repairs.
+Do not publish, deploy, commit, push, or merge.
+
+Verification:
+
+Confirm the homepage says Selected initiatives.
+Confirm its /work link says Explore the full work index.
+Confirm /work says Full work index.
+Confirm the initiative names, counts, order, statuses, cards, descriptions, and links are otherwise unchanged.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes still generate.
+
+Return:
+
+Exact inventory found on both pages before editing.
+Exact before-and-after wording.
+Exact files changed.
+Confirmation of everything deliberately left unchanged.
+Typecheck, build, and prerender results.
+
+Stop after reporting. Do not begin another UX fix.

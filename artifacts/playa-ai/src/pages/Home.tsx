@@ -697,14 +697,19 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-6">
             <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight">
-              What is being{" "}
-              <i className="italic font-normal text-accent-gold">built now.</i>
+              Selected initiatives
             </h2>
           </div>
           <div className="lg:col-span-6 flex items-end">
             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              Early work is real. Some programs are still forming. None of this
-              is a product catalog — it is a record of experiments in trust.
+              A selection of Playa AI's current work.{" "}
+              <a
+                href="/work"
+                className="border-b border-current pb-0.5 hover:text-foreground transition-colors"
+              >
+                Explore the full work index
+              </a>
+              .
             </p>
           </div>
         </div>
@@ -759,7 +764,7 @@ export default function Home() {
             href="/work"
             className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
           >
-            See all workstreams on the Work page →
+            Explore the full work index
           </a>
         </div>
       </section>

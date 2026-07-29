@@ -482,10 +482,7 @@ export default function Work() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
             <div className="lg:col-span-6">
               <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
-                Eight workstreams.{" "}
-                <i className="italic font-normal text-accent-gold">
-                  One public-interest system.
-                </i>
+                Full work index
               </h2>
             </div>
             <div className="lg:col-span-6 flex items-start flex-col gap-4">
