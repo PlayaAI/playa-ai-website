@@ -189,7 +189,7 @@ const WORKSTREAMS: Workstream[] = [
       "Version 1.0 is live and has been used as an overture for outreach to Burning Man leadership and global technology figures.",
     people: "Rebecca Nelson · Alex Azzi · Steven Blumenfeld",
     cta: "Read manifesto →",
-    href: "#manifesto",
+    href: "/manifesto",
   },
 ];
 
