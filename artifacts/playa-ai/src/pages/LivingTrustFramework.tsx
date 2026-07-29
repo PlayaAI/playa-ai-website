@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
+import { ContinueExploring } from "@/components/ContinueExploring";
 import ltfSystemsMapImg from "@assets/ChatGPT_Image_Jul_15,_2026,_09_28_07_PM_1784140223332.png";
 
 const fadeInUp = {
@@ -1047,6 +1048,10 @@ export default function LivingTrustFramework() {
         </div>
       </section>
 
+      <ContinueExploring links={[
+        { label: "Review EELP", href: "/eelp" },
+        { label: "Explore all work", href: "/work" },
+      ]} />
       <SiteFooter contextLine="Living Trust Framework · Consent / Data Dignity / Human Agency" />
     </main>
   );

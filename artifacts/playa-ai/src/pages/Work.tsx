@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
+import { ContinueExploring } from "@/components/ContinueExploring";
 import workHeroImg from "@assets/ChatGPT_Image_Jul_18,_2026,_12_02_36_PM_1784365480389.png";
 
 const fadeInUp = {
@@ -858,6 +859,10 @@ export default function Work() {
         </div>
       </section>
 
+      <ContinueExploring links={[
+        { label: "Meet the team", href: "/team" },
+        { label: "Read the Manifesto", href: "/manifesto" },
+      ]} />
       <SiteFooter contextLine="Our Work · Tools / Research / Protocols / Governance" />
     </main>
   );

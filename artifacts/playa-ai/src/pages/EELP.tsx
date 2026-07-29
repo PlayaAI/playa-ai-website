@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
+import { ContinueExploring } from "@/components/ContinueExploring";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -360,6 +361,10 @@ export default function EELP() {
         </div>
       </section>
 
+      <ContinueExploring links={[
+        { label: "Review the Living Trust Framework", href: "/living-trust-framework" },
+        { label: "Explore all work", href: "/work" },
+      ]} />
       <SiteFooter contextLine="EELP · Ethical Experience Lab Protocol · Govern" />
     </main>
   );

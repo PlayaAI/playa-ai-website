@@ -1,0 +1,80 @@
+Implement Structural & UX Fix UX-06B only: add restrained contextual onward navigation to the six canonical internal pages.
+
+Context:
+UX-06A clarified the shared homepage-return label. This task addresses the remaining audit allegation that internal pages end without helping serious visitors continue through related Playa AI material.
+
+Before editing:
+
+Inspect the complete endings of:
+/work
+/events
+/team
+/manifesto
+/eelp
+/living-trust-framework
+For each page, report:
+Its final two visible sections.
+Every existing CTA or internal link after the main content.
+The destination and visible label of each link.
+Whether it already provides meaningful onward navigation beyond the homepage-return link.
+The component and file controlling its ending.
+Existing IDs and data-testid values.
+Report whether a reusable related-navigation component already exists.
+Do not edit until the complete inventory is reported.
+
+Authorized implementation:
+
+Add one compact section titled:
+
+Continue exploring
+
+Place it immediately before the shared SiteFooter on each of the six pages.
+
+Give each page exactly these two contextual paths:
+
+Current page	Link 1	Destination	Link 2	Destination
+/work	Meet the team	/team	Read the Manifesto	/manifesto
+/events	Explore the work	/work	Join the initiative	/#participate
+/team	Explore the work	/work	Join the initiative	/#participate
+/manifesto	Explore the work	/work	Review EELP	/eelp
+/eelp	Review the Living Trust Framework	/living-trust-framework	Explore all work	/work
+/living-trust-framework	Review EELP	/eelp	Explore all work	/work
+Use standard crawlable internal links.
+Reuse a shared component if this can be done without refactoring unrelated code.
+Preserve the existing design system. Keep the block text-only, compact and responsive.
+Add visible focus-visible treatment to every new link.
+
+Strict constraints:
+
+Do not remove or rewrite any existing CTA.
+Do not change the UX-06A homepage-return label or destination.
+Do not add cards, images, descriptions, icons, animations or promotional copy.
+Do not add links to external products, email, Gmail or social platforms.
+Do not change header or mobile navigation; that belongs to UX-07.
+Do not create /about, /get-involved, /standards or any other route.
+Do not change page content, metadata, workstreams, events, people or participation paths.
+Do not add this block to the homepage, Classic archives, 404 page or other routes.
+Preserve all technical repairs and UX-01 through UX-06A.
+Do not publish, deploy, commit, push or merge.
+
+Verification:
+
+Confirm Continue exploring appears exactly once on each of the six authorized routes.
+Confirm each page contains exactly its two approved labels and destinations.
+Confirm all 12 links are standard crawlable links.
+Confirm /#participate reaches the existing homepage participation section.
+Confirm no existing CTA, footer link, content or test selector changed.
+Confirm the UX-06A label remains ← Back to Playa AI home and targets /.
+Confirm visible keyboard focus and no mobile overflow.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes generate.
+
+Return:
+
+Complete pre-edit onward-navigation inventory.
+Exact links added to each page.
+Component strategy and exact files changed.
+Everything deliberately preserved.
+Typecheck, build, prerender, keyboard and mobile results.
+
+Stop after reporting. Do not begin UX-07 or another fix.

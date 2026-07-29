@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ContinueExploring } from "@/components/ContinueExploring";
 import manifestoText from "./manifesto.txt?raw";
 
 const fadeInUp = {
@@ -168,6 +169,10 @@ export default function ManifestoPage() {
         </div>
       </section>
 
+      <ContinueExploring links={[
+        { label: "Explore the work", href: "/work" },
+        { label: "Review EELP", href: "/eelp" },
+      ]} />
       <SiteFooter contextLine="Manifesto · Playa AI · First published 2025" />
     </main>
   );

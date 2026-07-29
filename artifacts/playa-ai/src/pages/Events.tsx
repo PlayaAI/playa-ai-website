@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
+import { ContinueExploring } from "@/components/ContinueExploring";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -392,6 +393,10 @@ export default function Events() {
         </a>
       </section>
 
+      <ContinueExploring links={[
+        { label: "Explore the work", href: "/work" },
+        { label: "Join the initiative", href: "/#participate" },
+      ]} />
       <SiteFooter contextLine="Public event archive · Archive current through 30 March 2026" />
     </main>
   );

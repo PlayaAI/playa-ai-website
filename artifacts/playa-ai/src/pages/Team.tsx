@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MonoLabel } from "@/components/MonoLabel";
+import { ContinueExploring } from "@/components/ContinueExploring";
 import alexAzziPortrait from "@assets/image_1778692884554.png";
 import tinaWoodsPortrait from "@assets/tina-woods.jpg";
 import richardRothenbergPortrait from "@assets/image_1778693180155.png";
@@ -704,6 +705,10 @@ export default function Teams() {
         </div>
       </section>
 
+      <ContinueExploring links={[
+        { label: "Explore the work", href: "/work" },
+        { label: "Join the initiative", href: "/#participate" },
+      ]} />
       <SiteFooter contextLine="Field guide · Edition 01 · 2026" />
     </main>
   );
