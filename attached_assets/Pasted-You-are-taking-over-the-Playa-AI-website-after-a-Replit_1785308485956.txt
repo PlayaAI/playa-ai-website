@@ -1,0 +1,396 @@
+You are taking over the Playa AI website after a Replit Agent context reset.
+
+This is a controlled recovery and completion task. Do not restart the remediation from zero, redesign the website, or assume earlier work is missing. Inspect the current workspace first, preserve verified repairs, and complete only the remaining authorized work.
+
+Website: https://playa-ai.org/
+
+## 1. Operating rules
+
+Before editing anything:
+
+1. Verify write access by creating and deleting one harmless temporary workspace file.
+2. If writing fails, stop immediately and report the exact error. Do not attempt shell-writing workarounds.
+3. Run:
+
+   * `git status`
+   * `git diff --stat`
+   * `git diff`
+   * the appropriate recent commit/history inspection
+4. Identify:
+
+   * Existing completed remediation
+   * Uncommitted changes
+   * Partial or corrupted edits
+   * Unrelated user changes
+5. Preserve all correct and unrelated work.
+6. Do not revert, overwrite, restore, or regenerate files blindly.
+7. Inspect the actual implementation before proposing changes.
+8. Use the smallest safe edits.
+9. Do not publish, deploy, push, merge, reset, or create a pull request.
+10. Do not change content outside the exact authorization below.
+
+## 2. Verified completed work — protect this
+
+The following repairs have already been implemented and production-verified. Treat them as regression requirements, not new tasks:
+
+### Route rendering and indexability
+
+These seven canonical routes have route-specific prerendered initial HTML:
+
+* `/`
+* `/work`
+* `/events`
+* `/team`
+* `/manifesto`
+* `/eelp`
+* `/living-trust-framework`
+
+Each must retain:
+
+* Meaningful route-specific initial HTML before JavaScript
+* Correct route-specific title and description
+* Correct canonical URL
+* Correct robots directive
+* Correct Open Graph and Twitter metadata
+* Functional client-side rendering after JavaScript loads
+* No duplicated visible content
+* No hydration or console errors
+
+### Production rewrites
+
+`artifact.toml` contains explicit route rewrites before the catch-all for both slash forms:
+
+* `/work` and `/work/`
+* `/events` and `/events/`
+* `/team` and `/team/`
+* `/manifesto` and `/manifesto/`
+* `/eelp` and `/eelp/`
+* `/living-trust-framework` and `/living-trust-framework/`
+* `/playa-ai-living-trust-framework` and its slash form
+* `/privacy-toolkit` and its slash form
+* `/classic` and its slash form
+* `/classic/work` and its slash form
+* `/classic/events` and its slash form
+* `/classic/team` and its slash form
+
+The catch-all `/* → /index.html` remains last.
+
+Do not remove, consolidate, reorder, or replace these rewrites unless a test proves a regression and the replacement passes every acceptance test.
+
+The live site has already been verified to return the correct Work HTML for:
+
+* `/work`
+* `/work/`
+* `/work?ref=test`
+
+### Archives and aliases
+
+Preserve:
+
+* `/privacy-toolkit`
+* `/classic`
+* `/classic/work`
+* `/classic/events`
+* `/classic/team`
+* `/playa-ai-living-trust-framework`
+
+Requirements:
+
+* Archive and alias pages remain accessible
+* They remain `noindex, follow`
+* They remain excluded from the sitemap
+* The Living Trust alias canonicalizes to `/living-trust-framework`
+* Historical material must not be presented as a current active program
+
+### Other completed repairs
+
+Preserve all of the following:
+
+* Gmail-compose URLs have been removed
+* Contact links use provider-neutral `mailto:` URLs
+* Existing recipients and subject lines remain intact
+* `MotionConfig reducedMotion="user"` remains active
+* Important content does not depend on animation to become readable
+* The Pledge dialog uses a portal outside `#root`
+* Background content becomes inert while the dialog is open
+* Focus enters the dialog, remains trapped, and returns to the exact trigger
+* Escape closes the dialog
+* Mobile navigation retains its accessible name and expanded state
+* `routes.ts` remains the source of truth for route metadata, prerendering, and sitemap generation
+* `robots.txt` and `sitemap.xml` remain aligned with exactly the seven canonical indexable routes
+* The obsolete string `Privacy Toolkit in review.` remains removed
+* `/tools` in the Classic archive continues to route to `/work`
+* Existing visual identity, typography, colors, graphics, layouts, and editorial character remain unchanged
+
+## 3. Approved organizational wording
+
+The authoritative description is:
+
+“Playa AI is a philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.”
+
+Never imply that Playa AI independently holds 501(c)(3) status.
+
+Search current source files and generated content for variants including:
+
+* `part of Mystic Arts Foundation`
+* `Mystic Arts Foundation’s California 501(c)(3)`
+* `Playa AI Foundation`
+* `the foundation`
+* `future public charity pathway`
+* Any wording that makes Playa AI itself sound like the public charity
+
+If this sentence still exists:
+
+“Playa AI is part of Mystic Arts Foundation’s California 501(c)(3).”
+
+replace it with the approved authoritative description above.
+
+Do not perform a global mechanical replacement without inspecting context. Do not alter accurate historical/archive material unless it is being presented as current organizational positioning.
+
+Report every match reviewed and every change made.
+
+## 4. Remaining authorized technical investigation
+
+### A. Production caching and compression
+
+Previous live testing found:
+
+* No verified Brotli or Gzip compression
+* `Cache-Control: private` on some production responses
+* Inconsistent cache behavior across HTML responses
+* Hashed JavaScript and CSS assets were not receiving clearly verified long-lived immutable caching
+
+Investigate whether the current Replit static deployment configuration supports safe control of:
+
+* Brotli or Gzip compression
+* `Cache-Control` for HTML
+* `Cache-Control: public, max-age=31536000, immutable` for hashed assets
+* Safe caching for `robots.txt` and `sitemap.xml`
+
+Requirements:
+
+1. Inspect the actual Replit deployment configuration and documentation available in the project.
+2. Distinguish application-controlled behavior from platform-controlled behavior.
+3. Do not add unsupported configuration directives.
+4. Do not add a custom server, framework migration, proxy, service worker, or major hosting change solely to force headers.
+5. Implement a change only if the current Replit deployment type officially supports it and it is low-risk.
+6. If Replit controls these headers and the repository cannot safely change them, document that clearly in `BLOCKERS.md` and make no speculative code change.
+7. Do not claim compression or caching works based only on a local Vite server. It requires live post-publication verification.
+
+### B. Unknown routes and HTTP status
+
+Current known behavior:
+
+* Unknown paths show a branded client-side 404
+* JavaScript applies `noindex, nofollow`
+* JavaScript removes the canonical
+* The hosting layer still returns HTTP `200`
+* Raw initial HTML may initially be the homepage shell before the client-side 404 loads
+
+This is a documented Replit static-hosting limitation unless the platform now provides genuine custom 404 status support.
+
+Requirements:
+
+1. Re-check the current project’s Replit deployment capabilities.
+2. If a safe, officially supported custom 404 document can return HTTP 404 without breaking SPA navigation or prerendered routes, explain the proposed change before implementing it.
+3. Otherwise, preserve the existing branded client-side 404 and update `BLOCKERS.md` with the exact limitation.
+4. Do not fabricate a 404 through fragile JavaScript or destructive rewrite behavior.
+5. Do not claim this is fully fixed unless a real live response returns HTTP 404.
+
+## 5. Decision-gated items — do not implement
+
+The following audit issues remain intentionally blocked. Record their status, but do not edit them:
+
+* Connect microphone/audio disclosure
+* Privacy Policy content
+* Data collection, storage, retention, transcription, deletion, or security promises
+* A deletion-request workflow
+* Legal or regulatory compliance claims
+* Living Trust Framework licensing
+* Adding or choosing a repository LICENSE
+* Open-source claims
+* Crisis, distress, escalation, or human-facilitator protocols
+* Participant, pilot, workshop, event, or impact metrics
+* The Burning Man 80,000 figure or its contextual framing
+* Team credentials, responsibilities, advisors, or governance authority
+* Project maturity or status labels
+* Microgrant status
+* Fiscal-sponsorship facts beyond the approved sentence
+* New forms or data collection
+* Any claim requiring organizational evidence or owner authorization
+
+For each detected issue, classify it in the final report as `DECISION-GATED`; do not silently “improve” it.
+
+## 6. Structural & UX boundary
+
+Do not implement Structural & UX changes during this task.
+
+Specifically, do not:
+
+* Create `/about`
+* Create `/get-involved`
+* Create `/standards`
+* Merge or remove `/team`
+* Reorganize the full navigation
+* Consolidate external products or deployments
+* Replace email routes with forms
+* Rewrite the Work page hierarchy
+* Remove cultural or manifesto material
+* Perform a redesign
+* Introduce audience-specific landing pages
+
+Those questions belong to a separate evidence-backed Structural & UX assessment and require approval before implementation.
+
+You may report an observed structural issue, but do not change it.
+
+## 7. Required verification suite
+
+After completing any authorized changes, run the complete local verification suite.
+
+At minimum:
+
+### Build quality
+
+* TypeScript/typecheck
+* Production build
+* Existing tests
+* Lint, if configured
+* Confirm expected number of prerendered routes
+* Confirm no accidental generated or temporary files remain
+
+### Canonical routes
+
+For every canonical route, inspect the generated raw HTML and verify:
+
+* Correct `<title>`
+* Unique meta description
+* Correct canonical
+* `index, follow`
+* Correct Open Graph metadata
+* Correct Twitter metadata
+* Meaningful route-specific initial body
+* Exactly one intentional SSR fallback block
+* No homepage fallback content on sub-routes
+
+Test:
+
+* Non-trailing slash
+* Trailing slash
+* Representative query string
+
+### Archive and alias routes
+
+Verify:
+
+* Correct generated file
+* `noindex, follow`
+* Correct canonical behavior
+* Absence from sitemap
+
+### Sitemap and robots
+
+Verify:
+
+* Sitemap contains exactly the seven canonical routes
+* No archive, alias, duplicate, or unknown route appears
+* `robots.txt` references the production sitemap
+* No valid canonical route is blocked
+
+### Contact links
+
+Search the complete source and built output for:
+
+* `mail.google.com`
+* Gmail-compose URLs
+* Malformed `mailto:` URLs
+* Empty contact actions
+
+Confirm zero Gmail-compose URLs remain.
+
+### Accessibility regression
+
+Inspect or test:
+
+* Reduced-motion handling
+* Dialog focus entry
+* Tab and Shift+Tab containment
+* Escape close
+* Background inert state
+* Focus restoration
+* Scroll locking
+* Dialog labeling
+* Manifesto drawer behavior
+* Mobile navigation labeling and expanded state
+* Visible keyboard focus
+* Important text visibility without animation
+
+### Legacy and prohibited strings
+
+Search current source and built output separately for:
+
+* `Playa AI Foundation`
+* `Privacy Toolkit in review`
+* `future public charity pathway`
+* `the foundation is early-stage`
+* `part of Mystic Arts Foundation`
+* `California 501(c)(3)`
+* `mail.google.com`
+
+Do not automatically edit every match. Classify each as current, archival, generated, stale, accurate, inaccurate, or decision-gated.
+
+## 8. Acceptance criteria
+
+This task is complete only when:
+
+* Existing production-verified prerendering and rewrites remain intact
+* All seven canonical route builds contain correct route-specific raw HTML
+* Slash, trailing-slash, and query-string forms are covered
+* Sitemap and robots remain correct
+* Archives and aliases retain `noindex, follow`
+* Gmail-compose URLs remain at zero
+* Accessibility repairs remain intact
+* The approved fiscal-sponsorship wording is used wherever current organizational positioning appears
+* No unsupported factual, legal, privacy, licensing, metric, or governance change is introduced
+* TypeScript, tests, and production build pass
+* Remaining platform and decision blockers are documented truthfully
+* No unrelated user work is modified
+
+## 9. Required final report
+
+Return one consolidated report containing:
+
+1. Executive verdict
+2. Write-access result
+3. Initial working-tree state
+4. Completed work found and preserved
+5. Remaining authorized changes implemented
+6. Exact files changed
+7. Exact before-and-after wording for any copy correction
+8. Caching/compression investigation and disposition
+9. HTTP 404 investigation and disposition
+10. Route verification table
+11. Archive and alias verification table
+12. Sitemap, robots, metadata, and initial-HTML results
+13. Contact-link results
+14. Accessibility regression results
+15. Typecheck, test, lint, and build results
+16. Decision-gated items left untouched
+17. Structural & UX items left untouched
+18. Updated blockers
+19. Remaining risks
+20. Whether another publication is required
+21. Exact post-publication commands/tests to run
+
+Use these dispositions:
+
+* `PASS`
+* `FIXED LOCALLY — REQUIRES PUBLICATION`
+* `PARTIAL`
+* `BLOCKED BY HOSTING`
+* `DECISION-GATED`
+* `TRANSFERRED TO STRUCTURAL & UX`
+* `FAIL`
+
+Do not describe any local change as production-verified.
+
+Stop after returning the report. Do not publish, deploy, push, merge, commit, reset, or open a pull request.

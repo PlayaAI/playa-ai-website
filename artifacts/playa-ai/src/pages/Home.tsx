@@ -807,8 +807,7 @@ export default function Home() {
               variants={fadeInUp}
               className="font-mono text-[11px] tracking-widest text-muted-foreground mt-5"
             >
-              Playa AI is a human-centered AI initiative, part of Mystic Arts
-              Foundation’s California 501(c)(3)
+              Playa AI is a philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.
             </motion.p>
           </motion.div>
         </div>
