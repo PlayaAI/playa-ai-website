@@ -1,0 +1,71 @@
+Implement Structural & UX Fix UX-04 only: make the homepage participation paths honest and understandable without creating /get-involved or a form.
+
+Context:
+July 2026 audit Finding 7 alleges that seven audience-specific “doors” converge on one inbox without explaining the mechanism or next step. The audit’s Gmail-link evidence is outdated because those links have already been converted to standard mailto: links. We must now assess the remaining journey problem against the current source.
+
+Before editing:
+
+Inspect the complete current homepage participation section.
+Report:
+Exact section label, heading and supporting copy.
+Exact number of audience paths currently shown.
+Each audience name, description, CTA label, recipient and decoded email subject.
+Whether any duplicate or general-purpose path exists.
+Whether hello@playa-ai.org appears visibly as a fallback.
+The section’s current HTML id and data-testid.
+Search current canonical pages for other audience-specific participation cards, but do not edit them.
+
+Authorized implementation:
+
+Preserve every current audience path, description, CTA and email subject.
+
+Directly above the audience paths, add this concise explanation:
+
+Choose the path closest to you. Each option opens a pre-addressed email to hello@playa-ai.org. Tell us what brings you to Playa AI and what you hope to contribute, explore, or support.
+
+Make the visible hello@playa-ai.org text a standard:
+
+mailto:hello@playa-ai.org
+
+If the section does not already have a stable participation ID, add:
+
+id="participate"
+
+If that ID already exists, preserve it exactly.
+
+Match the existing design system and inline-link treatment, including visible keyboard focus.
+
+Strict constraints:
+
+Do not create /get-involved.
+Do not add a form, database, newsletter, calendar, modal or third-party service.
+Do not remove, merge, rename or reorder audience paths.
+Do not invent eligibility criteria, benefits, response times, application processes or participation guarantees.
+Do not change CTA labels, recipients, email subjects or descriptions.
+Do not add Gmail-compose URLs.
+Do not change navigation yet; that belongs to UX-07.
+Do not change routes, metadata, archives, Work, Team, Events or other pages.
+Preserve all technical repairs and UX-01 through UX-03.
+Do not publish, deploy, commit, push or merge.
+
+Verification:
+
+Confirm the actual current audience-path count; do not repeat the audit’s old count if it is no longer accurate.
+Confirm the explanation appears exactly once.
+Confirm the visible email uses mailto:hello@playa-ai.org.
+Confirm all existing audience paths, descriptions, CTA labels, recipients, subjects and order remain unchanged.
+Confirm zero Gmail-compose URLs were introduced.
+Confirm id="participate" exists exactly once.
+Confirm visible keyboard focus and no mobile overflow.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes generate.
+
+Return:
+
+Complete pre-edit participation inventory.
+Exact explanation and link added.
+Exact files changed.
+Everything deliberately preserved.
+Typecheck, build, prerender, keyboard and mobile results.
+
+Stop after reporting. Do not begin UX-05 or another fix.

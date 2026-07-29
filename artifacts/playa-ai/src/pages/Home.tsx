@@ -1037,6 +1037,19 @@ export default function Home() {
           </div>
         </div>
 
+        <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-10 max-w-3xl">
+          Choose the path closest to you. Each option opens a pre-addressed
+          email to{" "}
+          <a
+            href="mailto:hello@playa-ai.org"
+            className="border-b border-current pb-0.5 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+          >
+            hello@playa-ai.org
+          </a>
+          . Tell us what brings you to Playa AI and what you hope to contribute,
+          explore, or support.
+        </p>
+
         <motion.div
           initial="hidden"
           whileInView="visible"
