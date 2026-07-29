@@ -1,0 +1,63 @@
+Implement Structural & UX Fix UX-02A only: make /work’s Full work index function as a real index.
+
+Context:
+July 2026 audit Finding 21 correctly observed that the section called “Work Index” contained statistics and prose but no list or jump navigation. Readers must scroll through eight long-form workstream cards to discover the portfolio.
+
+Before editing:
+
+Inspect the current /work data and rendered structure.
+Report the exact eight workstream names, numbers, modes, statuses and current card order.
+Identify whether every card already has a unique HTML id.
+Identify the shared data structure from which the long-form cards render.
+
+Authorized implementation:
+
+Beneath the existing Work introduction and before the long-form workstream cards, add a compact index containing one row for every current workstream.
+Each row should display only information already present in the corresponding card:
+Workstream number
+Workstream name
+Existing mode, if available
+Existing status label
+Each row must be a standard anchor link that jumps to its corresponding long-form card.
+Give every card a stable, descriptive, unique id.
+Add suitable scroll-margin-top behavior if the fixed header would otherwise obscure the destination.
+Use semantic, accessible markup:
+A <nav aria-label="Workstream index">
+A list or equivalent row structure
+Standard <a href="#workstream-id"> links
+Derive the index from the same workstream data used by the long-form cards. Do not create a second manually maintained portfolio list.
+Match the existing visual system and keep the presentation compact and readable on mobile.
+
+Do not:
+
+Add filters, tabs, search, accordions or new JavaScript navigation behavior.
+Invent or add owners because the current public evidence does not authorize ownership assignments.
+Add, remove, merge, rename or reorder workstreams.
+Change modes, statuses, descriptions, maturity labels, card CTAs or destinations.
+Move “What remains unresolved” in this task; that will be evaluated separately as UX-02B.
+Change the newly completed Selected initiatives or Full work index wording.
+Change navigation, routes, metadata, archives or styling outside this index.
+Disturb the pending Burner-AI Manifesto link correction to /manifesto.
+Publish, deploy, commit, push or merge.
+
+Verification:
+
+Confirm exactly eight index entries and eight corresponding unique destinations.
+Confirm every index link reaches the correct workstream card.
+Confirm direct hash URLs work.
+Confirm keyboard accessibility and visible focus.
+Confirm mobile presentation does not overflow horizontally.
+Confirm the index and cards use the same source data.
+Confirm all workstream content and order remain unchanged.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes still generate.
+
+Return:
+
+Exact pre-edit inventory.
+Exact index fields and anchor IDs added.
+Exact files changed.
+Confirmation of what remained unchanged.
+Typecheck, build and prerender results.
+
+Stop after reporting. Do not begin UX-02B or another fix.

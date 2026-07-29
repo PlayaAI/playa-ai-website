@@ -22,6 +22,7 @@ const stagger = {
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 type Workstream = {
+  id: string;
   n: string;
   category: string;
   status: string;
@@ -43,6 +44,7 @@ type Workstream = {
 
 const WORKSTREAMS: Workstream[] = [
   {
+    id: "ws-connect-app",
     n: "01",
     category: "Build / Field Experiment",
     status: "Live Pilot",
@@ -62,6 +64,7 @@ const WORKSTREAMS: Workstream[] = [
     href: "mailto:hello@playa-ai.org?subject=Connect%20App%20Pilot",
   },
   {
+    id: "ws-ikigai-app-1",
     n: "02",
     category: "Build / Open Tool",
     status: "Pilot",
@@ -81,6 +84,7 @@ const WORKSTREAMS: Workstream[] = [
     href: "https://ikigai-rmarji.replit.app", /* TODO: Link currently unavailable — retained by explicit request. Verify or restore later. */
   },
   {
+    id: "ws-ikigai-app-2",
     n: "03",
     category: "Research / Build",
     status: "Prototype",
@@ -100,6 +104,7 @@ const WORKSTREAMS: Workstream[] = [
     href: "https://ikigai-ai-qgergqr8.manus.space",
   },
   {
+    id: "ws-relationship-nurturer",
     n: "04",
     category: "Research",
     status: "Research Prototype",
@@ -120,6 +125,7 @@ const WORKSTREAMS: Workstream[] = [
     caution: "Research prototype only. Not a therapy product or clinical tool.",
   },
   {
+    id: "ws-living-trust-framework",
     n: "05",
     category: "Protocol / Open Tool",
     status: "Working Draft",
@@ -141,6 +147,7 @@ const WORKSTREAMS: Workstream[] = [
     secondaryHref: "https://github.com/PlayaAI/playa-ai-living-trust-framework",
   },
   {
+    id: "ws-eelp",
     n: "06",
     category: "Protocol / Open Standard",
     status: "Draft",
@@ -157,6 +164,7 @@ const WORKSTREAMS: Workstream[] = [
     href: "/eelp",
   },
   {
+    id: "ws-consent-first-data-trust",
     n: "07",
     category: "Govern",
     status: "Planned",
@@ -173,6 +181,7 @@ const WORKSTREAMS: Workstream[] = [
     href: "mailto:hello@playa-ai.org?subject=Data%20Trust%20Inquiry",
   },
   {
+    id: "ws-burner-ai-manifesto",
     n: "08",
     category: "Govern",
     status: "Published",
@@ -239,9 +248,10 @@ function WorkBlock({
 }) {
   return (
     <motion.article
+      id={ws.id}
       variants={fadeInUp}
       data-testid={testId}
-      className="hairline-t border-border pt-10 md:pt-14"
+      className="hairline-t border-border pt-10 md:pt-14 scroll-mt-24"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Left column */}
@@ -518,6 +528,35 @@ export default function Work() {
           </div>
         </div>
       </section>
+      {/* 3. Workstream Index Nav */}
+      <section className="px-4 max-w-[1400px] mx-auto py-10 md:py-14">
+        <nav aria-label="Workstream index">
+          <ol className="divide-y divide-border border-y border-border">
+            {WORKSTREAMS.map((ws) => (
+              <li key={ws.id}>
+                <a
+                  href={`#${ws.id}`}
+                  className="group flex flex-wrap md:flex-nowrap items-baseline gap-x-4 gap-y-1 py-3.5 md:py-3 hover:bg-foreground/[0.03] transition-colors px-1 -mx-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                >
+                  <span className="font-mono text-[10px] text-muted-foreground/60 w-6 shrink-0">
+                    {ws.n}
+                  </span>
+                  <span className="font-mono text-sm font-medium text-foreground group-hover:underline underline-offset-2 flex-1 min-w-0">
+                    {ws.title}
+                  </span>
+                  <span className="hidden md:block font-mono text-[10px] uppercase tracking-widest text-muted-foreground shrink-0">
+                    {ws.category}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-widest border border-border px-2 py-0.5 text-muted-foreground shrink-0">
+                    {ws.status}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </section>
+
       {/* 4. Featured Work / Workstreams */}
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
         <div className="font-mono text-sm mb-10 text-muted-foreground">
