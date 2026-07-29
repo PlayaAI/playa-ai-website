@@ -63,6 +63,8 @@ const WORKSTREAMS: Workstream[] = [
     people: "Alex Azzi · Raed Marji",
     cta: "Join pilot →",
     href: "mailto:hello@playa-ai.org?subject=Connect%20App%20Pilot",
+    secondaryCta: "Open Connect ↗",
+    secondaryHref: "https://connect.playai.party",
   },
   {
     id: "ws-ikigai-app-1",
@@ -101,7 +103,7 @@ const WORKSTREAMS: Workstream[] = [
     evidence:
       "Currently documented as a technical prototype and README-style framework. It builds on the first Ikigai workshop pilot, but is not yet positioned as a finished consumer application.",
     people: "Raed Marji · Alex Azzi",
-    cta: "Open prototype →",
+    cta: "Open Ikigai App 2 prototype ↗",
     href: "https://ikigai-ai-qgergqr8.manus.space",
   },
   {
@@ -144,7 +146,7 @@ const WORKSTREAMS: Workstream[] = [
     people: "Alex Azzi · Alina Latinina · Lino Velev · Raed Marji",
     cta: "Open the Living Trust Framework →",
     href: "/living-trust-framework",
-    secondaryCta: "View on GitHub →",
+    secondaryCta: "View the Living Trust Framework on GitHub ↗",
     secondaryHref: "https://github.com/PlayaAI/playa-ai-living-trust-framework",
   },
   {

@@ -115,6 +115,7 @@ export default function ManifestoPage() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader
+        active="manifesto"
         contextLine={
           <>
             <span>Manifesto</span>

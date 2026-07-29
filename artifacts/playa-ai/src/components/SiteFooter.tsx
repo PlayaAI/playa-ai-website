@@ -17,7 +17,7 @@ export function SiteFooter({
           {showBackLink ? (
             <Link
               href="/"
-              className="text-[#A7A39A] hover:text-background transition-colors"
+              className="text-[#A7A39A] hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background"
               data-testid="footer-back"
             >
               ← Back to Playa AI home

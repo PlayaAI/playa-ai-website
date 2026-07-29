@@ -1,0 +1,65 @@
+Implement Structural & UX Fix UX-07 only: make the Manifesto and participation journey discoverable from both desktop and mobile navigation.
+
+Before editing:
+
+Inspect the complete current shared header and mobile-navigation implementation.
+Report:
+Every desktop navigation label and destination, in order.
+Every mobile navigation label and destination, in order.
+Whether /manifesto is directly accessible from each.
+Whether /#participate is directly accessible from each.
+Whether Contact remains visible and functional on mobile.
+Whether MMXXVI or any other non-interactive text looks like a link.
+Components, files, breakpoints, accessibility attributes and data-testid values involved.
+Whether the same navigation data source controls desktop and mobile.
+Test the current header at 320, 375, 390, 768, 1024, 1280 and 1440 pixels.
+Do not edit until the inventory is complete.
+
+Authorized implementation:
+
+If missing, add:
+Manifesto → /manifesto
+Participate → /#participate
+Make both destinations available in desktop and mobile navigation.
+Use standard crawlable internal links.
+If desktop and mobile navigation use separate duplicated arrays, consolidate only the navigation-item data when this can be done without restructuring the header.
+Preserve the existing visual system, order and responsive behavior.
+Add explicit visible focus-visible treatment to the new links.
+Ensure the mobile menu closes normally after either link is activated.
+If both additions cannot fit at every existing desktop-navigation breakpoint without wrapping, clipping, overlap or materially shrinking typography, stop and report the exact failing width before editing.
+
+Strict constraints:
+
+Do not remove, rename or change any existing navigation destination.
+Do not remove Contact.
+Do not convert MMXXVI or decorative text into a link.
+Do not change header height, logo, typography scale or breakpoint strategy.
+Do not create /about, /get-involved, /standards or another route.
+Do not edit page content, metadata, footers or ContinueExploring.
+Do not repair the UX-06A footer-focus caveat in this task; reserve it for final regression.
+Preserve all technical remediation and UX-01 through UX-06B.
+Do not publish, deploy, commit, push or merge.
+
+Verification:
+
+Confirm Manifesto and Participate appear exactly once in desktop navigation and exactly once in mobile navigation.
+Confirm destinations are exactly /manifesto and /#participate.
+Confirm /#participate reaches the existing homepage id="participate".
+Confirm every pre-existing navigation label, destination and order remains unchanged.
+Confirm Contact remains visible and functional on mobile.
+Confirm mobile-menu closing, Escape behavior, focus management and keyboard navigation remain functional.
+Confirm explicit visible focus on both new links.
+Confirm no wrapping, clipping, overlap or horizontal overflow at all required widths.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes generate.
+
+Return:
+
+Complete desktop/mobile pre-edit inventory.
+Capacity findings at every tested width.
+Exact links added and their positions.
+Component strategy and exact files changed.
+Everything deliberately preserved.
+Typecheck, build, prerender, accessibility and responsive results.
+
+Stop after reporting. Do not begin UX-08 or another fix.

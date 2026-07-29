@@ -1,0 +1,325 @@
+Complete the final LOCAL closeout of the Playa AI Structural & UX remediation workstream.
+
+Website project: `artifacts/playa-ai`
+
+Important context:
+
+UX-01 through UX-06B have already been implemented locally and must be preserved:
+
+* UX-01 clarified “Selected initiatives” on the homepage versus “Full work index” on `/work`.
+* UX-02A added the eight-item linked Work index.
+* UX-02B added early access to “What remains unresolved.”
+* UX-03 added organizational and fiscal-sponsor context to `/team`.
+* UX-04 explained the six participation email paths and exposed `hello@playa-ai.org`.
+* UX-05 made `/events` an honestly dated archive current through 30 March 2026.
+* UX-06A renamed `← Back to dispatch` to `← Back to Playa AI home`.
+* UX-06B added the shared `Continue exploring` section to six internal routes.
+
+This task combines only:
+
+1. UX-07 navigation completion.
+2. UX-08 external-product journey adjudication and minimal clarity fixes.
+3. The known UX-06A footer-focus caveat.
+4. Complete final local regression.
+
+Do not redesign the website. Do not create new routes. Do not publish, deploy, commit, push or merge.
+
+## Phase 1 — Inspect before editing
+
+Inspect the current source and rendered local build before making changes.
+
+### A. Header and navigation inventory
+
+Report:
+
+* Every desktop navigation label and destination, in order.
+* Every mobile navigation label and destination, in order.
+* Whether desktop and mobile share one navigation data source.
+* Whether `Manifesto → /manifesto` exists in both.
+* Whether `Participate → /#participate` exists in both.
+* Whether Contact is visible and functional on mobile.
+* Whether a mobile menu currently exists.
+* Whether `MMXXVI` or any decorative text visually resembles navigation.
+* Header components, files, breakpoints, accessibility attributes and `data-testid` values.
+* Current focus styles for all navigation controls.
+* Current behavior at 320, 375, 390, 768, 1024, 1280 and 1440 pixels.
+
+### B. External-product inventory
+
+Search the canonical source for all links to:
+
+* `connect.playai.party`
+* Replit-hosted Playa AI prototypes
+* Manus-hosted Playa AI prototypes
+* Playa AI GitHub repositories
+* Any other external product or prototype presented as Playa AI work
+
+For each occurrence, report:
+
+* Page and section.
+* Visible label.
+* Exact destination.
+* Product/workstream represented.
+* Current status wording.
+* Whether it opens in the same or a new tab.
+* `rel`, `aria-label` and focus treatment.
+* Whether the destination responds successfully.
+* Whether the link clearly tells the visitor what they are opening.
+* Whether the same product has inconsistent destinations or labels elsewhere.
+
+Specifically verify whether the Connect workstream on `/work` has a direct, crawlable link to the current Connect application. Do not rely on the July audit’s old inventory.
+
+### C. Footer-focus check
+
+Inspect the shared link:
+
+`← Back to Playa AI home`
+
+Report whether a global stylesheet gives it visible keyboard focus. Its existing `hover:` class alone is not sufficient evidence.
+
+### D. Existing-fix preservation inventory
+
+Confirm the current source contains all UX-01 through UX-06B changes before editing. If any previous fix is missing or materially altered, stop and report the discrepancy.
+
+## Phase 2 — Implement UX-07
+
+Make `Manifesto` and `Participate` discoverable from both desktop and mobile navigation.
+
+Required destinations:
+
+* `Manifesto` → `/manifesto`
+* `Participate` → `/#participate`
+
+Requirements:
+
+1. Add either link only if it is currently missing.
+2. Each must appear exactly once in desktop navigation and exactly once in mobile navigation.
+3. Use standard crawlable internal links.
+4. Preserve every existing navigation label and destination.
+5. Preserve Contact and ensure it is visible and functional on mobile.
+6. Preserve the logo, header height, typography scale and existing breakpoint strategy.
+7. Use one shared navigation-item data source where practical without restructuring unrelated header code.
+8. Add explicit visible `focus-visible` treatment to new links and new menu controls.
+9. Confirm `/#participate` reaches the existing homepage element with `id="participate"`.
+10. Do not convert `MMXXVI` or decorative text into a link. Do not remove it in this task.
+
+If a mobile menu already exists, preserve and verify it.
+
+If no mobile menu exists and all required links cannot remain visible without wrapping or overflow below the current desktop breakpoint, add the smallest accessible mobile-menu implementation consistent with the existing design system.
+
+Any new mobile-menu control must:
+
+* Be a real `<button>`.
+* Have an accessible name.
+* Use `aria-expanded`.
+* Use `aria-controls`.
+* Open and close with keyboard and pointer input.
+* Close after a navigation link is activated.
+* Close on Escape.
+* Return focus to the trigger after Escape.
+* Preserve visible keyboard focus.
+* Avoid trapping focus behind hidden content.
+* Avoid body or horizontal overflow.
+
+Do not add animation unless existing header behavior already uses it. Respect reduced-motion preferences.
+
+If the two desktop links cannot fit at a tested desktop width without wrapping, clipping, overlap or materially shrinking typography, do not force them into the row. Preserve Manifesto as a desktop link and place Participate in the existing desktop CTA area only if that can be done without removing or renaming Contact. Report the exact responsive decision.
+
+## Phase 3 — Adjudicate UX-08
+
+The audit proposed consolidating products under `playa-ai.org`, but DNS migration is not authorized in this task.
+
+Do not:
+
+* Change DNS.
+* Create subdomains.
+* Create redirects.
+* Migrate deployments.
+* Replace working destinations with guessed URLs.
+* Remove product links because their hosting is imperfect.
+* Change product names, statuses or maturity claims without evidence.
+
+Apply only these minimal source-level fixes when the inspection proves they are needed:
+
+1. If `/work` discusses Connect but lacks a direct crawlable link to the same current Connect destination already used on the homepage, add a restrained text link:
+
+   `Open Connect ↗`
+
+   Destination: the verified current Connect URL already used by the canonical site.
+
+2. If an external product link’s visible label does not identify the product or action, clarify only its link label. Use the product’s existing verified name and a plain action such as:
+
+   * `Open Connect ↗`
+   * `Open Ikigai App 1 ↗`
+   * `Open Ikigai App 2 prototype ↗`
+   * `View the Living Trust Framework on GitHub ↗`
+
+   Do not use a label that suggests a prototype is production-ready.
+
+3. Every external link touched in this task must retain or receive:
+
+   * `target="_blank"` only if that matches the site’s established external-link behavior.
+   * `rel="noopener noreferrer"` when `target="_blank"` is used.
+   * An accessible name that identifies the destination.
+   * Explicit visible keyboard focus.
+
+4. Preserve all existing verified destinations and current status language.
+
+5. If the current source already gives each product a clear, direct, secure and accessible link, make no UX-08 code change. Report UX-08 as “clarity sufficient; domain consolidation deferred.”
+
+Domain consolidation must be recorded as a future infrastructure/DNS item, not represented as completed.
+
+## Phase 4 — Repair the footer-focus caveat
+
+If the shared `← Back to Playa AI home` link does not already receive clearly visible keyboard focus from a verified global rule, add an explicit local `focus-visible` treatment matching the current design system.
+
+Preserve:
+
+* Visible wording.
+* Destination `/`.
+* `data-testid="footer-back"`.
+* Component placement.
+* `showBackLink` logic.
+* Existing hover styling.
+
+Do not change any other footer content.
+
+## Phase 5 — Record architectural decisions
+
+Do not create these routes:
+
+* `/standards`
+* `/about`
+* `/get-involved`
+
+Report their current decisions as:
+
+* UX-09 `/standards`: deferred. The Work index and reciprocal EELP/Living Trust navigation must be tested in production before a new hub is justified.
+* UX-10 `/about`: deferred. The strengthened `/team` page must be tested before duplicating organizational content.
+* UX-10 `/get-involved`: deferred. The clarified six-path participation section must be tested before adding a form or new conversion route.
+
+Do not create placeholder links to these routes.
+
+## Phase 6 — Complete final regression
+
+After the authorized edits, run one complete regression across:
+
+* `/`
+* `/work`
+* `/events`
+* `/team`
+* `/manifesto`
+* `/eelp`
+* `/living-trust-framework`
+* All other routes included in the existing 13-route prerender process
+
+### Source and content checks
+
+Confirm:
+
+* Homepage says `Selected initiatives`.
+* `/work` says `Full work index`.
+* The Work index contains exactly eight entries and eight unique destinations.
+* `Review what remains unresolved` reaches exactly one valid section.
+* `/team` contains the approved organizational overview exactly once.
+* Homepage participation contains exactly six audience paths in the preserved order.
+* The participation explanation and visible `hello@playa-ai.org` appear exactly once.
+* The fallback address uses `mailto:hello@playa-ai.org`.
+* No Gmail-compose URLs exist in canonical source.
+* `/events` contains nine preserved event entries.
+* All nine remain in their original order with original destinations.
+* The three `Less Chat, More Do` entries remain separate sessions.
+* `Updated continuously` is absent.
+* The archive date remains `30 March 2026`.
+* `← Back to Playa AI home` targets `/`.
+* `Continue exploring` appears exactly once on each of the six authorized internal pages.
+* All 12 approved onward links retain their exact labels and destinations.
+* Manifesto and Participate appear exactly once in desktop and once in mobile navigation.
+* Contact remains functional and visible on mobile.
+* No `/standards`, `/about` or `/get-involved` route was created.
+* No Classic archive content was changed.
+* No metadata, event records, people, roles, workstream names, statuses, participation subjects or email recipients changed unintentionally.
+
+### Accessibility and interaction checks
+
+Test keyboard-only operation for:
+
+* Header navigation.
+* Mobile-menu trigger and menu links, if present.
+* Work jump index.
+* “What remains unresolved” link.
+* Participation email link.
+* All `Continue exploring` links.
+* Shared homepage-return footer link.
+* External product links touched in UX-08.
+
+Confirm:
+
+* Visible focus on every tested interactive element.
+* Logical tab order.
+* No focus hidden behind menus or overlays.
+* Escape behavior works where applicable.
+* Reduced-motion preferences remain respected.
+* No text stays invisibly at zero opacity.
+* No modal or menu leaves background focusable in an invalid state.
+* No horizontal overflow at 320, 375, 390, 768, 1024, 1280 or 1440 pixels.
+
+### Route and build checks
+
+Run:
+
+* TypeScript typecheck.
+* Production build.
+* Existing automated tests.
+* Existing prerender process.
+
+Confirm:
+
+* All 13 routes prerender successfully.
+* Every canonical route has meaningful route-specific initial HTML.
+* Every canonical route has one H1.
+* Canonical links remain correct.
+* Titles and descriptions remain route-specific.
+* Internal navigation links are crawlable.
+* Header, footer and contextual navigation destinations resolve correctly.
+* `/#participate` lands on the correct section.
+* Work index hashes land below the fixed header.
+* The unmatched-route/404 behavior remains unchanged and correct.
+* Sitemap and robots behavior remain unchanged and correct.
+* No new console errors, hydration warnings or broken resources.
+* No unauthorized files were modified.
+
+## Strict global constraints
+
+* No redesign.
+* No new pages or routes.
+* No new forms, databases, newsletters, calendars, modals or third-party services.
+* No DNS, hosting or deployment migration.
+* No invented facts, statuses, affiliations, dates, metrics or response promises.
+* No rewriting institutional, governance, program or manifesto copy.
+* No changes to Classic archives.
+* No deletion, merging or reordering of events, people, workstreams or participation paths.
+* No changes to email recipients or subjects.
+* No Gmail-compose URLs.
+* Preserve all completed Technical & Credibility remediation.
+* Do not deploy, publish, commit, push or merge.
+
+## Required final report
+
+Return one consolidated report containing:
+
+1. Pre-edit navigation inventory.
+2. Responsive capacity findings at every required width.
+3. Exact UX-07 changes and final desktop/mobile navigation order.
+4. Complete external-product inventory.
+5. UX-08 changes made—or evidence that no source change was necessary.
+6. Footer keyboard-focus finding and exact repair, if required.
+7. Exact files changed.
+8. Confirmation that UX-01 through UX-06B were preserved.
+9. UX-09 and UX-10 deferral decisions.
+10. Typecheck, tests, build and 13-route prerender results.
+11. Keyboard, reduced-motion and responsive results.
+12. Any unresolved defect or blocker, without hiding it.
+13. A clean `READY FOR FINAL INDEPENDENT REVIEW` or `NOT READY` verdict.
+
+Stop after reporting. Do not publish or begin unrelated work.
