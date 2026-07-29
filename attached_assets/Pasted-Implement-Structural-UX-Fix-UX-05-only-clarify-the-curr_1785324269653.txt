@@ -1,0 +1,73 @@
+Implement Structural & UX Fix UX-05 only: clarify the current status and dating of /events without inventing or removing events.
+
+Context:
+The July 2026 audit alleges that the Events page says Updated continuously despite having no reliable update date or clear distinction between upcoming events and the archive. We need to verify the current source and make the smallest accurate repair.
+
+Before editing:
+
+Inspect the complete current /events page.
+Report:
+Every visible section heading and supporting paragraph.
+The exact text containing Updated continuously or any equivalent update claim.
+Every event’s title, displayed date, location, status and destination, in current order.
+Which events are demonstrably past or upcoming as of 29 July 2026.
+Whether any event appears more than once and whether it is a genuine duplicate or a separate occurrence.
+The latest dated event currently represented.
+Existing section IDs and data-testid values.
+Do not edit until the inventory is complete.
+
+Authorized implementation:
+
+Remove the inaccurate Updated continuously claim.
+
+If the page contains no future-dated public event, add this concise status near the introduction:
+
+No upcoming public events are currently listed. Explore the archive below.
+
+If a future-dated event is present, do not add that sentence. Instead, preserve the upcoming event and report it.
+
+Label the past-events collection clearly:
+
+Event archive
+
+Add an honest archive timestamp using the latest date that can be verified from the current page or source history:
+
+Archive current through [verified date].
+
+Use a full, human-readable date such as 19 July 2026. Do not use the audit’s suggested date unless current evidence confirms it.
+Preserve the existing design system, responsive behavior and event-card structure.
+
+Strict constraints:
+
+Do not invent upcoming events, dates, locations, attendance figures or partners.
+Do not delete or merge apparent duplicate events in this task. Inventory and report them for a separate evidence-based decision.
+Do not rewrite event descriptions, titles or historical records.
+Do not reorder cards.
+Do not change event destinations or external links.
+Do not change navigation or add onward-navigation blocks; that belongs to UX-06.
+Do not change routes, metadata, homepage, Work, Team or participation content.
+Preserve all technical repairs and UX-01 through UX-04.
+Do not publish, deploy, commit, push or merge.
+
+Verification:
+
+Confirm Updated continuously and any equivalent inaccurate claim are absent.
+Confirm the archive label and verified date appear exactly once.
+Confirm the upcoming-status sentence is used only if no future event exists.
+Confirm every event title, date, location, description, order and destination remains unchanged.
+Confirm apparent duplicates are reported but not silently removed.
+Confirm no mobile overflow.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes generate.
+
+Return:
+
+Complete pre-edit Events inventory.
+Past/upcoming and duplicate-event findings.
+Exact before-and-after status wording.
+Evidence used for the archive date.
+Exact file changed.
+Everything deliberately preserved.
+Typecheck, build, prerender and mobile results.
+
+Stop after reporting. Do not begin UX-06 or another fix.

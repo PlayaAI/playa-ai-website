@@ -236,7 +236,7 @@ export default function Events() {
             <span>·</span>
             <span className="text-accent-gold">Salons / Hackathons / Field gatherings</span>
             <span className="hidden lg:inline">·</span>
-            <span className="hidden lg:inline">Updated continuously</span>
+            <span className="hidden lg:inline">Archive current through 30 March 2026</span>
           </>
         }
       />
@@ -261,10 +261,20 @@ export default function Events() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-base md:text-lg leading-relaxed max-w-2xl text-foreground"
+          className="text-base md:text-lg leading-relaxed max-w-2xl text-foreground mb-8"
         >
           Playa AI events bring together builders, founders, researchers, artists, and operators to explore human-centered AI in practice. The archive below uses the real public descriptions from the Luma pages.
         </motion.p>
+
+        <div className="hairline-t border-border pt-6 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3">
+          <MonoLabel>Event archive</MonoLabel>
+          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            No upcoming public events are currently listed. Explore the archive below.
+          </p>
+        </div>
+        <p className="font-mono text-[11px] tracking-widest text-muted-foreground mt-2">
+          Archive current through 30 March 2026.
+        </p>
       </section>
 
       {/* Stats */}
@@ -382,7 +392,7 @@ export default function Events() {
         </a>
       </section>
 
-      <SiteFooter contextLine="Public event archive · Updated continuously" />
+      <SiteFooter contextLine="Public event archive · Archive current through 30 March 2026" />
     </main>
   );
 }
