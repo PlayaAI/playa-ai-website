@@ -263,7 +263,7 @@ export default function Events() {
           variants={fadeInUp}
           className="text-base md:text-lg leading-relaxed max-w-2xl text-foreground"
         >
-          Playa AI events are live laboratories for builders, founders, researchers, artists, and operators exploring human-AI co-evolution with intention. The archive below uses the real public descriptions from the Luma pages.
+          Playa AI events bring together builders, founders, researchers, artists, and operators to explore human-centered AI in practice. The archive below uses the real public descriptions from the Luma pages.
         </motion.p>
       </section>
 

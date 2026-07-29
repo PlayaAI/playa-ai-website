@@ -1,0 +1,60 @@
+Complete the following final pre-publication changes. Inspect current source first and make only the smallest targeted edits.
+
+Preserve completed work:
+All Gmail-compose URLs remain removed.
+All existing mailto: recipients and subjects remain intact except the artist subject specified below.
+Preserve MotionConfig reducedMotion="user" and the CSS reduced-motion backstop.
+Preserve route prerendering, rewrites, metadata, sitemap, robots rules and archive noindex, follow.
+Preserve the Pledge dialog, its portal, inert background, focus trap, Escape handling and focus restoration.
+Preserve the approved fiscal-sponsorship correction already made locally.
+Current homepage copy:
+Replace the hero line Born on the Playa. Gifted to the Planet. with Built in the desert. Published for everyone.
+Replace the lower homepage heading Born on the Playa. Gifted to the planet. with A founding cultural text.
+Do not globally remove accurate desert/Playa origin language from /manifesto or historical Classic archives.
+
+Events:
+Replace:
+
+Playa AI events are live laboratories for builders, founders, researchers, artists, and operators exploring human-AI co-evolution with intention. The archive below uses the real public descriptions from the Luma pages.
+
+With:
+
+Playa AI events bring together builders, founders, researchers, artists, and operators to explore human-centered AI in practice. The archive below uses the real public descriptions from the Luma pages.
+
+Manifesto navigation:
+Search current canonical components for every control that opens the Manifesto modal/drawer.
+The current production site exposes six visible manifesto buttons—four on Home and two on Work—not seven. Report the exact source count found.
+Convert every actual Manifesto-opening CTA into a standard <a href="/manifesto"> while preserving its existing label and styling.
+Delete the now-unused Manifesto modal/drawer component, state, handlers and imports.
+Do not delete or modify the separate Pledge dialog.
+
+Change:
+
+mailto:hello@playa-ai.org?subject=Artist%20Grant%20Interest
+
+To:
+
+mailto:hello@playa-ai.org?subject=Artist%20Interest%20List
+
+Delete the decorative MMXXVI span. Do not change the Contact link in this task.
+Remove the words artist microgrants from every current donor-facing CTA description. Preserve the remaining sentence and punctuation. Do not edit historical archives.
+
+Change all current manifesto publication stamps from Published 2026 to First published 2025. Use:
+
+Founding cultural text · Playa AI · First published 2025
+
+or the equivalent existing context-line format. Do not change genuine 2026 revision dates elsewhere.
+
+Do not attempt unsupported Brotli, gzip or cache-header configuration. Record this as BLOCKED BY REPLIT STATIC HOSTING; do not introduce a custom server, proxy, service worker or hosting migration.
+The Living Trust Framework repository is a separate task. Do not silently select a license or modify GitHub from this website workspace. Report whether this workspace has that repository and whether it can be changed separately.
+
+After editing:
+
+Search source and build output for all old strings.
+Confirm zero Gmail-compose URLs.
+Confirm the artist subject is Artist Interest List.
+Confirm all current Manifesto CTAs are anchors.
+Confirm the Manifesto modal is gone and the Pledge dialog remains.
+Run typecheck and production build.
+Verify all 13 prerendered outputs, sitemap, robots and indexing rules.
+Return exact files changed, before/after copy, search counts and test results.

@@ -168,7 +168,7 @@ export default function ManifestoPage() {
         </div>
       </section>
 
-      <SiteFooter contextLine="Manifesto · Playa AI · Published 2026" />
+      <SiteFooter contextLine="Manifesto · Playa AI · First published 2025" />
     </main>
   );
 }

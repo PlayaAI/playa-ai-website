@@ -50,7 +50,6 @@ export function SiteHeader({ active, contextLine }: SiteHeaderProps) {
         </nav>
 
         <div className="hidden md:flex items-center gap-4 shrink-0">
-          <span className="text-muted-foreground hidden lg:inline">MMXXVI</span>
           <a
             href="/#contact"
             className="bg-foreground text-background px-4 py-2 hover:bg-background hover:text-foreground border border-foreground transition-colors"

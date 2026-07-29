@@ -445,7 +445,7 @@ export default function Home() {
       title: "Artist microgrants",
       desc: "Year-One microgrants for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
       cta: "Join the artist interest list",
-      href: "mailto:hello@playa-ai.org?subject=Artist%20Grant%20Interest",
+      href: "mailto:hello@playa-ai.org?subject=Artist%20Interest%20List",
     },
     {
       num: "05",
@@ -1071,7 +1071,7 @@ export default function Home() {
               </span>
             </h3>
             <div className="font-mono text-xs uppercase tracking-wider text-[#6B6258]">
-              Founding cultural text · Playa AI · Published 2026
+              Founding cultural text · Playa AI · First published 2025
             </div>
           </div>
         </div>
