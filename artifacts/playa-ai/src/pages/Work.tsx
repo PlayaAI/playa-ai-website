@@ -526,6 +526,15 @@ export default function Work() {
               </div>
             ))}
           </div>
+
+          <div className="mt-8 pt-6 border-t border-border">
+            <a
+              href="#what-remains-unresolved"
+              className="font-mono text-sm border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+            >
+              Review what remains unresolved
+            </a>
+          </div>
         </div>
       </section>
       {/* 3. Workstream Index Nav */}
@@ -730,9 +739,9 @@ export default function Work() {
 
       {/* 7. Open Questions */}
       <section
-        id="open-questions"
+        id="what-remains-unresolved"
         data-testid="open-questions"
-        className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16"
+        className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16 scroll-mt-24"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
           <div className="lg:col-span-6">

@@ -1,0 +1,64 @@
+Implement Structural & UX Fix UX-02B only: make /work’s existing “What remains unresolved” disclosure discoverable near the top of the page.
+
+Context:
+July 2026 audit Finding 21 alleges that important limitations and open questions are buried after the eight long-form workstream cards. The full disclosure should remain in its existing location and wording, but serious visitors need an early route to it.
+
+Before editing:
+
+Inspect the complete current /work page.
+Report:
+The exact heading and complete text of the existing unresolved-questions section.
+Its current position relative to the eight workstream cards.
+Whether its container already has a unique HTML id.
+Whether any existing link points to it.
+Do not edit until this inventory is reported.
+
+Authorized implementation:
+
+Directly after the existing two-paragraph Work introduction—and before the new workstream jump index—add one restrained text link:
+
+Review what remains unresolved
+
+Make it a standard anchor link targeting the existing unresolved section:
+
+<a href="#what-remains-unresolved">
+
+Give the existing unresolved section this stable ID if it does not already have an appropriate stable ID:
+
+what-remains-unresolved
+
+Add suitable scroll-margin-top behavior so the fixed header does not obscure the section.
+Preserve the site’s existing typography, colors, spacing conventions, keyboard focus treatment, and mobile behavior.
+
+Strict constraints:
+
+Do not move, duplicate, shorten, expand, rewrite, or reorder the unresolved section.
+Do not add new limitations, promises, evidence, owners, dates, statuses, or interpretations.
+Do not turn the disclosure into an alert, modal, accordion, banner, or card.
+Do not change the eight workstreams or the UX-02A index.
+Preserve all UX-01 and UX-02A changes.
+Preserve the Burner-AI Manifesto destination /manifesto.
+Do not change navigation, routes, metadata, archives, homepage content, or other pages.
+Do not publish, deploy, commit, push, or merge.
+
+Verification:
+
+Confirm exactly one early link says Review what remains unresolved.
+Confirm it targets #what-remains-unresolved.
+Confirm exactly one element uses that ID.
+Confirm the link reaches the existing disclosure without the fixed header obscuring its heading.
+Confirm the disclosure’s text, position, and order are otherwise unchanged.
+Confirm visible keyboard focus and no mobile overflow.
+Confirm UX-02A still has exactly eight correct index links and destinations.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes generate.
+
+Return:
+
+Exact pre-edit disclosure inventory.
+Exact link and ID added.
+Exact file changed.
+Confirmation of everything left unchanged.
+Typecheck, build, prerender, keyboard, and mobile results.
+
+Stop after reporting. Do not begin UX-03 or another fix.
