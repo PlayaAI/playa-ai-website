@@ -20,7 +20,7 @@ export function SiteFooter({
               className="text-[#A7A39A] hover:text-background transition-colors"
               data-testid="footer-back"
             >
-              ← Back to dispatch
+              ← Back to Playa AI home
             </Link>
           ) : (
             <div className="text-[#A7A39A]">© 2026 Playa AI</div>

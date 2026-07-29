@@ -1,0 +1,68 @@
+Implement Structural & UX Fix UX-06A only: replace the unclear Back to dispatch navigation wording with an explicit homepage label.
+
+Context:
+The July 2026 audit identifies weak onward navigation across internal pages. One recurring problem is the phrase Back to dispatch, which does not clearly tell visitors where the link leads. This task addresses only that label. Contextual onward navigation will be evaluated separately as UX-06B.
+
+Before editing:
+
+Search the complete canonical source for:
+Back to dispatch
+dispatch
+Any visually equivalent homepage-return link
+Report every occurrence, including:
+Component and file
+Exact visible wording
+Destination
+Pages on which it renders
+Whether it is shared or page-specific
+Existing data-testid, accessibility label and keyboard-focus treatment
+Verify that each identified link actually targets the homepage.
+Do not edit until the inventory is complete.
+
+Authorized implementation:
+
+For every existing homepage-return link whose visible label is exactly:
+
+← Back to dispatch
+
+replace only the visible label with:
+
+← Back to Playa AI home
+
+Preserve its existing homepage destination if it is correct.
+Preserve the link element, placement, component structure, responsive behavior, accessibility attributes and data-testid.
+Preserve the existing typography and styling.
+Ensure the link retains visible keyboard focus.
+
+Strict constraints:
+
+Do not add new navigation links in this task.
+Do not add contextual “Next,” “Related,” or “Explore” blocks; those belong to UX-06B.
+Do not change header navigation or mobile navigation; that belongs to UX-07.
+Do not change destinations unless an identified Back to dispatch link does not lead to /. If one is incorrect, stop and report it before editing.
+Do not change footer content other than the authorized visible label.
+Do not change routes, metadata, page copy, event records, workstreams, people or participation paths.
+Preserve all technical repairs and UX-01 through UX-05.
+Do not publish, deploy, commit, push or merge.
+
+Verification:
+
+Confirm Back to dispatch is absent from the canonical source.
+Confirm ← Back to Playa AI home appears only where the former label appeared.
+Confirm every renamed link targets /.
+Confirm all existing attributes, test selectors and styling remain unchanged.
+Confirm visible keyboard focus.
+Confirm no mobile overflow.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes generate.
+
+Return:
+
+Complete pre-edit occurrence inventory.
+Exact before-and-after wording.
+Exact destinations and rendered pages.
+Exact files changed.
+Everything deliberately preserved.
+Typecheck, build, prerender, keyboard and mobile results.
+
+Stop after reporting. Do not begin UX-06B, UX-07 or another fix.
