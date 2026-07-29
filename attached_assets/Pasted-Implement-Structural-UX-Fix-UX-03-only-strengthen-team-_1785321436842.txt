@@ -1,0 +1,81 @@
+Implement Structural & UX Fix UX-03 only: strengthen /team as the website’s institutional orientation page without creating a new /about route.
+
+Context:
+July 2026 audit Finding 20 alleges that /team is unusually thin, repeats every person twice, and provides little organizational context. We are testing the smallest high-impact repair before deciding whether a separate /about page is necessary.
+
+Before editing:
+
+Inspect the complete current /team page.
+Report:
+Every visible section, heading and supporting paragraph.
+Every person’s exact name and role.
+Where each person appears and whether names are duplicated.
+Any inconsistent names, titles or numbering.
+The exact existing organizational, legal and fiscal-sponsorship language.
+Whether Mystic Arts Foundation is currently linked and its destination.
+Existing section IDs and data-testid values.
+Do not edit until the complete inventory is reported.
+
+Authorized changes:
+
+Remove only the duplicated summary/hero roster if every listed person already appears in the detailed Team or Council blocks.
+Preserve every detailed person block, its order and its current public information.
+
+Near the top of /team, after the hero and before the detailed people sections, add a concise organizational overview:
+
+MonoLabel:
+
+About Playa AI
+
+Heading:
+
+A philanthropic initiative building human-centered AI in public.
+
+Body:
+
+Playa AI is a philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity. We develop human-centered AI tools, consent frameworks, community experiments, and public-interest research rooted in creativity, participation, and human flourishing.
+
+Supporting line:
+
+Our work includes the EELP consent protocol, the Living Trust Framework, field experiments, salons, and an open working group for builders, artists, researchers, and cultural stewards.
+
+Use the same approved fiscal-sponsorship wording already present on the current website.
+If an already-verified official Mystic Arts Foundation link is used elsewhere in the current canonical source, link the organization name to that same destination. Otherwise, leave it as text and report the missing verified destination—do not guess.
+Preserve the existing design system and keep the overview compact on desktop and mobile.
+
+Strict constraints:
+
+Do not create /about.
+Do not add biographies, affiliations, credentials, social profiles or external links.
+Do not invent governance authority, organizational history, founding claims, legal claims, EINs, metrics or responsibilities.
+Do not change any person’s name, role, category, order or detailed block in this task.
+Do not remove any person.
+Do not change Team versus Council classifications.
+Do not add the unapproved founding story or Council Charter.
+Do not change navigation, routes, metadata, archives, homepage, Work page or other pages.
+Preserve all technical remediation and UX-01 through UX-02B.
+Do not publish, deploy, commit, push or merge.
+
+Verification:
+
+Confirm the organizational overview appears exactly once.
+Confirm the duplicate summary roster is gone only if every person remains in a detailed block.
+Confirm every person remains visible exactly once in the detailed Team or Council structure.
+Confirm names, roles, order and detailed content are unchanged.
+Confirm the fiscal-sponsorship wording is exact and does not imply Playa AI itself is a 501(c)(3).
+Confirm no unsupported Mystic link was invented.
+Confirm no mobile overflow and visible keyboard focus for any added link.
+Run TypeScript typecheck and production build.
+Confirm all 13 prerendered routes generate.
+
+Return:
+
+Complete pre-edit inventory.
+Exact duplicate roster removed.
+Exact overview added.
+Mystic link finding and destination, if any.
+Exact file changed.
+Everything deliberately preserved.
+Typecheck, build, prerender and mobile results.
+
+Stop after reporting. Do not begin UX-04 or another fix.

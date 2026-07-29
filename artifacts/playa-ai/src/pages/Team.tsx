@@ -449,6 +449,32 @@ export default function Teams() {
         </div>
       </section>
 
+      {/* Organizational overview */}
+      <section className="px-4 max-w-[1400px] mx-auto py-16 md:py-20 hairline-t border-border">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4">
+            <MonoLabel className="mb-6">About Playa AI</MonoLabel>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[0.95] tracking-tight">
+              A philanthropic initiative building human-centered AI in public.
+            </h2>
+          </div>
+          <div className="lg:col-span-8 flex flex-col gap-5 lg:pt-1">
+            <p className="text-base md:text-lg leading-relaxed text-foreground">
+              Playa AI is a philanthropic initiative fiscally sponsored by Mystic
+              Arts Foundation, a U.S. 501(c)(3) public charity. We develop
+              human-centered AI tools, consent frameworks, community experiments,
+              and public-interest research rooted in creativity, participation,
+              and human flourishing.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
+              Our work includes the EELP consent protocol, the Living Trust
+              Framework, field experiments, salons, and an open working group for
+              builders, artists, researchers, and cultural stewards.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Inner Camp / Leadership */}
       <section id="leadership" className="hairline-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 py-16 md:py-24">
