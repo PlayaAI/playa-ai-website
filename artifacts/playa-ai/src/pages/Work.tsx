@@ -329,7 +329,7 @@ function WorkBlock({
             <a
               href={ws.href}
               {...(ws.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+              className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
             >
               {ws.cta}
             </a>
@@ -338,7 +338,7 @@ function WorkBlock({
                 href={ws.secondaryHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs uppercase tracking-widest text-muted-foreground border-b border-border pb-0.5 hover:text-foreground hover:border-foreground transition-colors"
+                className="font-mono text-xs uppercase tracking-widest text-muted-foreground border-b border-border pb-0.5 hover:text-foreground hover:border-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
               >
                 {ws.secondaryCta}
               </a>
