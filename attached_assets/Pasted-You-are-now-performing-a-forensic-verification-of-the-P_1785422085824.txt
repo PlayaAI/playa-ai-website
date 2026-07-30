@@ -1,0 +1,450 @@
+You are now performing a forensic verification of the Playa AI website implementation.
+
+Your task is to produce a complete, evidence-based report that will be reviewed independently against the original “Playa AI — Website Audit (July 2026)” PDF.
+
+IMPORTANT RULES
+
+* Do not edit, format, refactor, generate, or delete any project files.
+* Do not automatically fix problems.
+* Do not publish or deploy.
+* Do not rely only on `verify:audit`, `check:copy`, or previous reports.
+* Inspect the actual current source code and built output.
+* Distinguish clearly between:
+
+  * verified in source;
+  * verified in production build;
+  * verified manually in the browser;
+  * reported by a script only;
+  * blocked or requiring a human decision;
+  * not verified.
+* Never mark an item complete without showing evidence.
+* If the original audit PDF is unavailable in the workspace, state that clearly. Do not pretend that `BLOCKERS.md` is the original audit.
+* Preserve the original PDF’s item numbering. Do not replace audit items 26–36 with newer implementation tasks.
+* Do not hide failed checks, warnings, unresolved decisions, soft-404 behavior, or platform limitations.
+
+## 1. Establish repository state
+
+Run and report the complete output of:
+
+```bash
+pwd
+git status --short
+git branch --show-current
+git log -1 --oneline
+git diff --stat
+git diff --name-only
+git diff --check
+```
+
+Also report:
+
+* package manager and version;
+* Node.js version;
+* application framework;
+* build tool;
+* current canonical source directory;
+* whether uncommitted files exist;
+* every file changed by the website remediation.
+
+Do not expose secrets, tokens, credentials, or `.env` values.
+
+## 2. Locate the audit evidence
+
+Check for the following:
+
+```bash
+rg --files | rg -i 'audit|blockers|report|pdf|llms|robots|sitemap'
+```
+
+Report which of these are present:
+
+* Original Playa AI audit PDF
+* `BLOCKERS.md`
+* `public/llms.txt`
+* `public/robots.txt`
+* sitemap
+* copy-check script
+* audit-verification script
+
+If the original PDF is present, use it as the primary audit source. If it is absent, say:
+
+> Original audit PDF unavailable in this workspace. The following is a code-evidence report, not an independent PDF-to-code comparison.
+
+## 3. Execute all validation commands
+
+Run every applicable command and include:
+
+* exact command;
+* exit code;
+* complete success/failure summary;
+* number of checks;
+* warnings;
+* skipped checks;
+* failure details.
+
+Required commands:
+
+```bash
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Then inspect `package.json` and run these only if the scripts exist:
+
+```bash
+pnpm run lint
+pnpm run test
+```
+
+If a script does not exist, report `NOT AVAILABLE`. Do not claim it passed.
+
+Also report:
+
+* number of routes prerendered;
+* generated JS and CSS bundle names;
+* build warnings;
+* whether the working tree changed after running validation.
+
+Run `git status --short` again at the end.
+
+## 4. Validate the validators
+
+Inspect:
+
+* `scripts/check-copy.js`
+* `scripts/verify-audit.js`
+* relevant `package.json` scripts
+
+Explain:
+
+* exactly which files and routes each script scans;
+* prohibited strings checked;
+* structural assertions checked;
+* important audit requirements not covered;
+* whether a check could pass despite a visible or runtime problem;
+* whether Classic/archive pages are intentionally excluded;
+* whether the reported `83/83` represents 83 independent audit requirements or 83 implementation assertions.
+
+Do not treat the scripts as proof of requirements they do not test.
+
+## 5. Original PDF audit matrix
+
+Create a table preserving all original audit items and original numbering:
+
+| Audit ID | Original finding/title | Priority | Required action | Current status | Source evidence | Build/browser evidence | Remaining work |
+| -------- | ---------------------- | -------: | --------------- | -------------- | --------------- | ---------------------- | -------------- |
+
+Allowed statuses:
+
+* `VERIFIED FIXED`
+* `PARTIALLY FIXED`
+* `NOT FIXED`
+* `BLOCKED`
+* `NEEDS HUMAN DECISION`
+* `NOT APPLICABLE`
+* `NOT VERIFIED`
+
+Requirements:
+
+* Include every original numbered audit item.
+* Do not renumber or substitute newer tasks.
+* For fixed items, provide exact file paths and current line ranges.
+* Include a maximum three-line source excerpt when useful.
+* For blocked items, explain the blocker precisely.
+* If the PDF is unavailable, do not invent original titles. Instead, produce a separate “known requirements matrix” and label it incomplete.
+
+## 6. Verify the comprehensive implementation items
+
+Verify each implementation item separately:
+
+* A — Organizational wording
+* B — Three homepage initiatives only
+* C — Workstreams card
+* D — Work page content order
+* E — Manifesto disclosure
+* F — Website content review date
+* G — `llms.txt`
+* H — Image accessibility
+* I — Link and keyboard accessibility
+* J — Pledge modal wording and behavior
+* K — `check:copy`
+* L — `verify:audit`
+* `BLOCKERS.md`
+
+Use this table:
+
+| Item | Claimed change | Source proof | Build proof | Browser proof | Status | Problems found |
+| ---- | -------------- | ------------ | ----------- | ------------- | ------ | -------------- |
+
+Do not skip Item I merely because no files were changed.
+
+## 7. Perform the missing Item I accessibility sweep
+
+Inspect every canonical page, shared navigation, footer, mobile menu, buttons, forms, dialogs, and internal links.
+
+Report results for:
+
+### Links and controls
+
+* broken internal links;
+* empty `href`;
+* placeholder `href="#"`;
+* links pointing to removed routes or missing anchors;
+* buttons incorrectly implemented as links or vice versa;
+* external links opening new tabs;
+* accessible names for icon-only controls;
+* duplicate interactive controls;
+* controls unreachable by keyboard.
+
+### Keyboard behavior
+
+Test, where supported:
+
+* logical Tab and Shift+Tab order;
+* visible keyboard focus;
+* skip-link behavior;
+* navigation and mobile-menu operation;
+* Enter and Space activation;
+* Escape closing menus and modals;
+* modal focus trapping;
+* initial focus when a modal opens;
+* focus returning to the triggering control when it closes;
+* no keyboard traps.
+
+### Structure and semantics
+
+Inspect:
+
+* one meaningful H1 per page;
+* logical heading hierarchy;
+* main/nav/footer landmarks;
+* form labels;
+* validation/error messaging;
+* image alt text;
+* decorative images using empty alt text correctly;
+* ARIA attributes matching actual behavior;
+* color-only communication;
+* reduced-motion handling where applicable.
+
+For every failure, provide:
+
+* route;
+* component;
+* file and line;
+* reproduction steps;
+* severity;
+* suggested fix.
+
+Do not implement the fixes.
+
+## 8. Page-by-page route verification
+
+List every canonical route and every Classic/archive route.
+
+For every canonical route report:
+
+| Route | Renders | Title | Description | Canonical | H1 | Footer review date | Broken links | Console errors | Status |
+| ----- | ------- | ----- | ----------- | --------- | -- | ------------------ | ------------ | -------------- | ------ |
+
+Specifically verify:
+
+* homepage;
+* Work;
+* Team/About;
+* Events;
+* Manifesto;
+* Get involved/pledge flow;
+* Privacy route;
+* unknown route/404 behavior;
+* all routes included in sitemap and prerendering.
+
+Report route-name differences rather than assuming the expected names.
+
+## 9. Copy and organizational consistency
+
+Search the complete canonical source for all old, prohibited, or potentially inconsistent wording.
+
+At minimum search for:
+
+```bash
+rg -n -i \
+  -e 'Built in the desert' \
+  -e 'Published for everyone' \
+  -e 'philanthropic initiative fiscally sponsored' \
+  -e 'Agent Labs running monthly' \
+  -e 'Human Connection Research' \
+  -e 'sign the pledge' \
+  -e 'sign it' \
+  -e '501\\(c\\)\\(3\\)' \
+  -e 'Mystic Arts Foundation' \
+  -e 'Born on the Playa' \
+  artifacts/playa-ai/src public scripts
+```
+
+Adjust the source path if the project uses a different location.
+
+Report every occurrence and classify it as:
+
+* correct canonical copy;
+* intentional archive copy;
+* metadata copy;
+* prohibited stale copy;
+* unrelated match.
+
+Verify organizational wording across:
+
+* visible page content;
+* footer;
+* Team/About;
+* metadata;
+* SSR/prerender route data;
+* structured data;
+* `llms.txt`;
+* sitemap/SEO files where applicable.
+
+## 10. Content and factual-claim verification
+
+Report all claims involving:
+
+* fiscal sponsorship;
+* California nonprofit status;
+* U.S. 501(c)(3) status;
+* number of initiatives;
+* number of workstreams;
+* current programs versus intended exploration;
+* event participation;
+* grants or microgrants;
+* metrics or measured outcomes;
+* license status;
+* privacy practices;
+* Founding Adopter status;
+* Burning Man participant distinction.
+
+Classify each claim:
+
+* supported by provided project evidence;
+* softened/disclosed appropriately;
+* inconsistent between pages;
+* needs human/legal confirmation;
+* potentially misleading.
+
+Do not make legal conclusions. Flag claims requiring confirmation.
+
+## 11. SEO and machine-readable files
+
+Verify:
+
+* unique page titles;
+* meta descriptions;
+* canonical URLs;
+* Open Graph metadata;
+* robots directives;
+* sitemap routes;
+* `llms.txt`;
+* 404 `noindex`;
+* structured data;
+* archive-page indexing behavior;
+* Gmail addresses or prohibited contact data;
+* production-domain consistency.
+
+Show mismatches between visible content, metadata, and machine-readable files.
+
+## 12. BLOCKERS.md review
+
+Compare `BLOCKERS.md` with the actual code.
+
+Report:
+
+* blockers that remain accurate;
+* blockers already resolved but still listed;
+* missing blockers;
+* items incorrectly marked complete;
+* anything requiring legal, organizational, hosting, privacy, or licensing decisions.
+
+Important:
+
+* Determine whether its “36-item compliance matrix” actually preserves the original PDF’s 36 items.
+* If it does not, label that matrix a “Comprehensive Implementation Matrix.”
+* Do not modify the file during this verification.
+
+## 13. Hosting and production limitations
+
+Separate local findings from production-only checks.
+
+Create a post-deployment checklist for:
+
+* actual HTTP status of an unknown route;
+* `/privacy` response;
+* canonical-domain redirects;
+* compression;
+* cache headers;
+* security headers;
+* robots and sitemap availability;
+* `llms.txt` availability;
+* Open Graph rendering;
+* console/network errors.
+
+For cache and compression tests, use an actual generated hashed JS or CSS asset—not only the `/assets/` directory.
+
+If the site is not deployed in this session, mark these `POST-DEPLOYMENT REQUIRED`.
+
+## 14. Final verdict
+
+End with exactly these sections:
+
+### Verified complete
+
+List only requirements supported by direct evidence.
+
+### Partially complete
+
+List requirements with incomplete implementation or incomplete evidence.
+
+### Not fixed
+
+List confirmed outstanding issues.
+
+### Blocked or decision-gated
+
+List hosting, legal, privacy, license, factual, and organizational decisions.
+
+### Verification coverage gaps
+
+List anything your checks could not prove.
+
+### Regression risks
+
+List areas most likely to break after future edits.
+
+### Publication recommendation
+
+Choose exactly one:
+
+* `READY TO PUBLISH`
+* `READY TO PUBLISH WITH DOCUMENTED BLOCKERS`
+* `NOT READY TO PUBLISH`
+
+Explain the decision using evidence.
+
+### Required next actions
+
+Provide a prioritized checklist:
+
+* P0 — must resolve before publication;
+* P1 — should resolve before publication;
+* P2 — post-publication or decision-gated.
+
+## Required response quality
+
+* Be precise and skeptical.
+* Do not say “all fixed” merely because scripts pass.
+* Do not omit failing results.
+* Do not use vague statements such as “looks good.”
+* Cite exact files and current line ranges.
+* Clearly distinguish code inspection from runtime/browser testing.
+* Preserve the original audit numbering.
+* Include Item I.
+* Return the entire report in your response.
+* Make no source-code changes.
