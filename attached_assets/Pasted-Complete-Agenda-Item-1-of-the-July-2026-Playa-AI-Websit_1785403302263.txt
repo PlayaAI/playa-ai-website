@@ -1,0 +1,382 @@
+Complete Agenda Item 1 of the July 2026 Playa AI Website Audit remediation only:
+
+**Reconcile the current live production website with the completed local Structural & UX work, repair any verified publication regression, and establish the authoritative status baseline.**
+
+Project: `artifacts/playa-ai`
+Production website: `https://playa-ai.org/`
+
+This is a verification and reconciliation task—not a redesign and not permission to begin the remaining audit fixes.
+
+Do not begin privacy, licensing, pledge, forms, participant metrics, compression, copy cleanup, Team biographies, alt-text expansion, DNS consolidation or any other later audit item.
+
+## Objective
+
+Compare three states:
+
+1. The expected completed UX remediation listed below.
+2. The current local source in `artifacts/playa-ai`.
+3. The current published production website at `https://playa-ai.org/`.
+
+Determine exactly what:
+
+* Exists locally and in production.
+* Exists locally but is not published.
+* Exists in production but differs from local source.
+* Is missing from both.
+* Has regressed since implementation.
+* Was reported complete but cannot be verified.
+
+Repair only source-level regressions connected to the previously completed UX work. Do not publish.
+
+## Step 1 — Protect the current work
+
+Before inspecting or editing:
+
+1. Create a Replit checkpoint.
+2. Record the current branch and commit/reference.
+3. Report all currently modified and untracked files.
+4. Do not discard, reset, overwrite or revert existing work.
+5. Do not pull production code over newer local changes.
+6. Preserve all completed Technical & Credibility remediation.
+
+If the working tree contains unrelated changes that overlap the files needed for this task, stop and report the conflict before editing.
+
+## Step 2 — Inspect the required routes
+
+Inspect both the local rendered build and live production at:
+
+* `/`
+* `/work`
+* `/events`
+* `/team`
+* `/manifesto`
+* `/eelp`
+* `/living-trust-framework`
+
+Also inspect all other routes currently included in the existing 13-route prerender process.
+
+For every canonical route, verify:
+
+* Direct request returns successfully.
+* Route-specific content appears in initial HTML.
+* Exactly one meaningful H1 exists.
+* Title and meta description are route-specific.
+* Canonical link is correct.
+* Header and footer render.
+* Internal navigation is crawlable.
+* No unexpected horizontal overflow occurs.
+* No new console error, hydration warning or broken resource appears.
+
+Test live production and local rendering separately. Do not assume they match.
+
+## Step 3 — Reconcile every completed UX fix
+
+Verify the following expected results in both local source and production.
+
+### UX-01 — Homepage versus Work hierarchy
+
+Expected:
+
+* Homepage uses `Selected initiatives`.
+* `/work` uses `Full work index`.
+* The homepage does not falsely present its selection as the complete Work inventory.
+
+Report the exact visible wording and where it appears.
+
+### UX-02A — Work index
+
+Expected:
+
+* `/work` contains a visible linked Work index.
+* The index contains exactly eight entries.
+* All eight destinations are unique and valid.
+* Every link reaches the correct workstream section.
+* Hash destinations account for the fixed header.
+* The index is keyboard accessible and responsive.
+
+Inventory all eight labels and destinations.
+
+### UX-02B — Unresolved questions
+
+Expected:
+
+* `/work` provides early access to the existing unresolved-questions section.
+* The visible link is `Review what remains unresolved`.
+* It reaches exactly one valid destination.
+* The target section has not been duplicated or rewritten.
+
+### UX-03 — Team organizational context
+
+Expected:
+
+* `/team` contains the approved organizational overview.
+* It clearly identifies Playa AI as a philanthropic initiative.
+* It identifies Mystic Arts Foundation as fiscal sponsor and a U.S. 501(c)(3) public charity.
+* It does not describe Playa AI itself as a 501(c)(3).
+* The overview appears exactly once.
+* The team roster has not been duplicated.
+
+Report the exact relevant wording.
+
+### UX-04 — Participation paths
+
+Expected:
+
+* The homepage participation section contains exactly six audience paths.
+
+* Their labels, order, recipients and subject lines remain unchanged.
+
+* A short explanation distinguishes these as separate inquiry paths.
+
+* `hello@playa-ai.org` is visible exactly once as the general fallback.
+
+* The fallback uses:
+
+  `mailto:hello@playa-ai.org`
+
+* No Gmail-compose URL exists in canonical source or rendered production.
+
+Inventory all six paths, their labels, recipients and destinations. Do not edit their subjects or recipients.
+
+### UX-05 — Events archive
+
+Expected:
+
+* `/events` contains exactly nine existing event entries.
+* Their original order, titles, dates, locations, descriptions and destinations are preserved.
+* The three `Less Chat, More Do` sessions remain separate event occurrences.
+* The page clearly says no upcoming public events are currently listed.
+* It identifies the content as an event archive.
+* It says the archive is current through `30 March 2026`.
+* `Updated continuously` does not appear anywhere on the page, in the header context line, footer context line, metadata or canonical source.
+
+Important: a previous production review found that `Updated continuously` may still be visible live even though Replit reported it removed. Treat this as an allegation requiring fresh verification.
+
+Determine which condition applies:
+
+* Local source is correct and production is stale.
+* Both local source and production are stale.
+* Both are already correct.
+* Local source has regressed while production remains correct.
+
+If local source is already correct but production is stale, do not make a meaningless code edit. Record:
+
+`LOCAL CORRECT — REPUBLICATION REQUIRED`
+
+If local source still contains the stale phrase, make the smallest source correction necessary while preserving all event data.
+
+### UX-06A — Homepage-return link
+
+Expected:
+
+* The shared footer label is exactly:
+
+  `← Back to Playa AI home`
+
+* It targets `/`.
+
+* `data-testid="footer-back"` is preserved.
+
+* It has explicit, clearly visible keyboard `focus-visible` treatment.
+
+* The wording `Back to dispatch` is absent from canonical source and production.
+
+### UX-06B — Contextual onward navigation
+
+Expected:
+
+`Continue exploring` appears exactly once on each of these six pages:
+
+* `/work`
+* `/events`
+* `/team`
+* `/manifesto`
+* `/eelp`
+* `/living-trust-framework`
+
+Verify these exact links:
+
+| Current page              | Link 1                              | Destination               | Link 2                | Destination     |
+| ------------------------- | ----------------------------------- | ------------------------- | --------------------- | --------------- |
+| `/work`                   | `Meet the team`                     | `/team`                   | `Read the Manifesto`  | `/manifesto`    |
+| `/events`                 | `Explore the work`                  | `/work`                   | `Join the initiative` | `/#participate` |
+| `/team`                   | `Explore the work`                  | `/work`                   | `Join the initiative` | `/#participate` |
+| `/manifesto`              | `Explore the work`                  | `/work`                   | `Review EELP`         | `/eelp`         |
+| `/eelp`                   | `Review the Living Trust Framework` | `/living-trust-framework` | `Explore all work`    | `/work`         |
+| `/living-trust-framework` | `Review EELP`                       | `/eelp`                   | `Explore all work`    | `/work`         |
+
+Confirm:
+
+* All 12 links are standard crawlable links.
+* `/#participate` reaches the existing homepage participation section.
+* Every new link has visible keyboard focus.
+* The component does not appear on the homepage, Classic archives, 404 page or unrelated routes.
+* Existing page CTAs remain unchanged.
+
+### UX-07 — Desktop and mobile navigation
+
+Expected:
+
+* `Manifesto` links to `/manifesto`.
+* `Participate` links to `/#participate`.
+* Each appears exactly once in desktop navigation.
+* Each appears exactly once in mobile navigation.
+* Contact remains visible and functional on mobile.
+* Existing navigation labels and destinations remain intact.
+* The mobile menu closes after navigation.
+* Escape closes the mobile menu and restores focus appropriately.
+* Navigation controls have explicit visible focus.
+* Decorative `MMXXVI` text has not been turned into a misleading link.
+
+Test at:
+
+* 320 px
+* 375 px
+* 390 px
+* 768 px
+* 1024 px
+* 1280 px
+* 1440 px
+
+Report wrapping, clipping, overlap, menu behavior and horizontal overflow at every width.
+
+### UX-08 — External-product clarity
+
+Do not migrate domains or change DNS.
+
+Verify:
+
+* `/work` contains a direct, crawlable link to the same verified Connect destination used by the homepage.
+* The link clearly identifies the action and product.
+* External prototype and repository labels do not imply prototypes are production-ready.
+* External links touched by the earlier remediation have appropriate accessible names.
+* Links opening new tabs use `rel="noopener noreferrer"`.
+* External links have visible keyboard focus.
+* Existing verified destinations and product statuses are preserved.
+
+Inventory every external product, prototype and GitHub link found on the seven canonical routes, including:
+
+* Page and section.
+* Visible label.
+* Exact destination.
+* Product represented.
+* Current status language.
+* Same-tab or new-tab behavior.
+* `rel` value.
+* Accessible name.
+* Focus treatment.
+* Whether the destination responds.
+
+Do not replace any URL with a guessed destination.
+
+## Step 4 — Create the authoritative reconciliation table
+
+Return a table with one row for every item from UX-01 through UX-08.
+
+Use these exact status values:
+
+* `VERIFIED LIVE`
+* `LOCAL CORRECT — REPUBLICATION REQUIRED`
+* `SOURCE REGRESSION REPAIRED LOCALLY`
+* `MISSING LOCALLY AND LIVE`
+* `PARTIAL`
+* `BLOCKED`
+* `UNVERIFIABLE`
+
+For each row include:
+
+* Finding ID.
+* Expected outcome.
+* Local-source evidence.
+* Local rendered-build evidence.
+* Live-production evidence.
+* Final status.
+* Exact remaining action, if any.
+
+Do not mark anything `VERIFIED LIVE` based only on source inspection or an earlier report.
+
+## Step 5 — Authorized repairs
+
+You may repair only confirmed regressions within UX-01 through UX-08.
+
+Use the smallest possible change.
+
+Especially authorized:
+
+* Remove remaining `Updated continuously` wording from the Events source if it genuinely remains locally.
+* Restore an accidentally missing previously approved UX label, link or destination.
+* Restore explicit `focus-visible` styling when a completed UX link lacks it.
+* Correct a publication regression caused by the existing local source.
+
+Not authorized:
+
+* New pages or routes.
+* New content sections beyond the already approved UX components.
+* Rewriting institutional copy.
+* Changing events or event data.
+* Changing people, roles or biographies.
+* Changing program names or statuses.
+* Changing email recipients or subjects.
+* Creating forms.
+* Creating `/privacy`, `/about`, `/get-involved` or `/standards`.
+* Adding the Living Trust Framework licence.
+* Editing Connect disclosure or retention language.
+* Changing participant metrics.
+* DNS, redirects, domain migrations or deployment configuration.
+* Compression or caching changes.
+* Alt-text expansion beyond restoring an accidentally lost prior value.
+* Manifesto program or date corrections.
+* Publishing or deploying.
+
+If a missing item requires work outside UX-01 through UX-08, record it but do not implement it.
+
+## Step 6 — Regression verification
+
+After any authorized correction, run:
+
+* TypeScript typecheck.
+* Production build.
+* Existing automated tests.
+* Existing prerender process.
+* Source searches for stale or prohibited strings.
+* Link/destination checks.
+* Keyboard checks.
+* Responsive checks at all required widths.
+
+Confirm:
+
+* All 13 routes prerender.
+* All seven canonical pages contain route-specific initial HTML.
+* No Gmail-compose URLs exist.
+* `Updated continuously` is absent from the complete canonical source.
+* `Back to dispatch` is absent.
+* No unauthorized route was added.
+* Classic archives remain unchanged.
+* All existing metadata remains correct.
+* All previously completed technical repairs remain intact.
+* No new TypeScript, build, hydration, console or resource errors exist.
+* Only authorized files changed.
+
+## Required final response
+
+Return one consolidated report containing:
+
+1. Checkpoint and working-tree state.
+2. Local versus production comparison for every canonical route.
+3. The UX-01 through UX-08 reconciliation table.
+4. Complete Events source/live comparison.
+5. Exact regressions found.
+6. Exact repairs made.
+7. Exact files changed.
+8. Everything deliberately left unchanged.
+9. Typecheck, test, build and 13-route prerender results.
+10. Keyboard and responsive results.
+11. Any local change still requiring publication.
+12. One final verdict:
+
+* `AGENDA ITEM 1 COMPLETE — READY FOR INDEPENDENT REVIEW`
+* or `AGENDA ITEM 1 NOT COMPLETE`
+
+Do not publish, deploy, commit, push or merge.
+
+Stop after returning the report. Do not begin Agenda Item 2 or any other July audit repair.
