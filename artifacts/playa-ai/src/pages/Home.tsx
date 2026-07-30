@@ -473,7 +473,7 @@ export default function Home() {
               variants={fadeInUp}
               className="font-serif text-2xl md:text-3xl leading-snug mb-4 text-foreground"
             >
-              Built in the desert. Published for everyone.
+              Born on the Playa. Gifted to the Planet.
             </motion.p>
 
             <motion.p
@@ -514,7 +514,7 @@ export default function Home() {
               variants={fadeInUp}
               className="font-mono text-[11px] tracking-widest text-muted-foreground mt-5"
             >
-              Playa AI is a philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.
+              Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.
             </motion.p>
           </motion.div>
         </div>
@@ -1166,9 +1166,9 @@ export default function Home() {
               Legal structure
             </p>
             <p className="text-lg text-foreground">
-              Playa AI is a philanthropic initiative fiscally sponsored by{" "}
-              <span className="font-bold">Mystic Arts Foundation</span>, a U.S.
-              501(c)(3) public charity.
+              Playa AI is a human-centered AI initiative fiscally sponsored by{" "}
+              <span className="font-bold">Mystic Arts Foundation</span>, a
+              California nonprofit and U.S. 501(c)(3) public charity.
             </p>
           </div>
           <div>

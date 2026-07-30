@@ -1,0 +1,53 @@
+Make exactly two controlled copy changes to the Playa AI website.
+
+Project: `artifacts/playa-ai`
+
+Do not redesign, publish, deploy, or make unrelated changes.
+
+## Change 1 — Homepage organizational description
+
+Find the current homepage sentence describing Playa AI as a philanthropic initiative fiscally sponsored by Mystic Arts Foundation.
+
+Replace it with exactly:
+
+`Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.`
+
+Preserve the existing placement, typography, spacing, styling, responsive behavior, and surrounding content.
+
+## Change 2 — Homepage statement
+
+Find this exact visible text:
+
+`Built in the desert. Published for everyone.`
+
+Replace it with exactly:
+
+`Born on the Playa. Gifted to the Planet.`
+
+Preserve its existing placement, typography, capitalization, styling, spacing, and responsive behavior.
+
+## Constraints
+
+* Change only the two intended visible homepage sentences.
+* Do not perform a site-wide em-dash cleanup in this task.
+* Do not change metadata unless either old sentence is duplicated there; if so, report it without editing it.
+* Do not alter navigation, links, routes, event records, metrics, program statuses, legal pages, accessibility work, or Classic archives.
+* Search the source first and report every occurrence of both old sentences.
+* Do not change “Playa,” “Playa AI,” or other similar phrases elsewhere.
+* Preserve all completed July audit remediation.
+
+## Verification
+
+After editing:
+
+1. Confirm both new sentences appear exactly once in the intended homepage locations.
+2. Confirm both old sentences are absent from the rendered homepage.
+3. Run the TypeScript typecheck.
+4. Run the production build and existing 13-route prerender.
+5. Confirm no new errors, warnings, layout regressions, or horizontal overflow.
+6. Report the exact file and lines changed.
+7. Confirm no other files were modified.
+
+Do not publish, deploy, commit, push, or begin another audit item.
+
+Stop after returning the verification report.
