@@ -1,0 +1,801 @@
+You are the senior engineer responsible for completing the Playa AI July 2026 website-audit remediation in one controlled implementation session.
+
+Project path:
+
+artifacts/playa-ai
+
+Primary audit source:
+
+Playa AI — Website Audit (July 2026) (1).pdf
+
+Live production website:
+
+https://playa-ai.org/
+
+Development-history source:
+
+Pasted text(21).txt
+
+Your goal is to implement every remaining website-only fix that is technically safe, evidence-backed, and possible inside this repository. Preserve all completed work. Do not invent facts to make the audit appear complete.
+
+Work through the phases below internally, but do not stop after each phase or ask for approval between phases. Continue through implementation and verification, then return one consolidated report.
+
+Do not publish, deploy, commit, push, merge, modify another repository, or make external account changes.
+
+# 1. Source authority
+
+Use this precedence:
+
+1. Explicit instructions in this prompt.
+2. The complete July 2026 audit.
+3. Current canonical source code.
+4. The live production website.
+5. Replit completion reports and conversation history.
+
+Treat earlier Replit reports as historical claims, not proof. Verify current source before editing.
+
+Do not change anything merely because an earlier report says it was planned.
+
+# 2. Mandatory pre-edit inventory
+
+Before changing files:
+
+1. Confirm the working directory and project structure.
+2. Run:
+
+   * `git status --short`
+   * `git diff --stat`
+   * `git diff --name-only`
+3. Identify all existing user changes and preserve them.
+4. Inspect:
+
+   * `package.json`
+   * `src/App.tsx`
+   * `src/routes.ts`
+   * `src/hooks/usePageMeta.ts` or its current equivalent
+   * `src/components/SiteHeader.tsx`
+   * `src/components/SiteFooter.tsx`
+   * `src/components/ContinueExploring.tsx`
+   * `src/pages/Home.tsx`
+   * `src/pages/Work.tsx`
+   * `src/pages/Events.tsx`
+   * `src/pages/Team.tsx`
+   * `src/pages/Manifesto.tsx`
+   * `src/pages/EELP.tsx`
+   * `src/pages/LivingTrustFramework.tsx`
+   * all Classic/archive page components
+   * `vite.config.ts`
+   * `artifact.toml`
+   * `public/robots.txt`
+   * `public/sitemap.xml`
+   * `BLOCKERS.md`
+5. Locate the latest production-build structure and verify the current route inventory.
+6. Search the complete canonical source for:
+
+   * `mail.google.com`
+   * `Privacy Toolkit in review`
+   * `Built in the desert`
+   * `Born on the Playa`
+   * `human-AI co-evolution`
+   * `MMXXVI`
+   * `Artist%20Grant%20Interest`
+   * `artist microgrants`
+   * `Published 2026`
+   * `ManifestoDrawer`
+   * `manifestoOpen`
+   * `philanthropic initiative fiscally sponsored`
+   * `running monthly`
+   * `UPDATED CONTINUOUSLY`
+   * empty image `alt` attributes
+   * all forms, inputs, textareas and data-submission code
+7. Report the inventory in the final response, but do not pause before implementation.
+
+# 3. Confirmed completed work that must be preserved
+
+Do not regress or rebuild these features unless source inspection proves they are broken:
+
+* Gmail-compose URLs replaced with standard `mailto:` links.
+* `mailto:hello@playa-ai.org` subjects and labels.
+* `MotionConfig reducedMotion="user"`.
+* CSS `prefers-reduced-motion` backstop.
+* Pledge modal portal outside `#root`.
+* `#root` becoming inert while the modal is open.
+* Pledge modal focus entry, Tab trap, Shift+Tab wrapping, Escape close, scroll lock and trigger-focus restoration.
+* Canonical route inventory in `src/routes.ts`.
+* Per-route titles, descriptions, robots, canonical, Open Graph and Twitter metadata.
+* Build-time prerendering.
+* Meaningful route-specific initial HTML.
+* `public/sitemap.xml`.
+* `public/robots.txt`.
+* `noindex, follow` on `/privacy-toolkit` and `/classic/*`.
+* `noindex, nofollow` and canonical suppression for client-side unknown routes.
+* Manifesto and Participate links in desktop and mobile navigation.
+* Mobile menu accessibility.
+* “Continue exploring” navigation.
+* “Back to Playa AI home” footer wording.
+* Homepage “Selected initiatives” heading.
+* `/work` “Full work index” heading.
+* Eight linked `/work` workstream entries and stable `ws-*` IDs.
+* The “Review what remains unresolved” anchor.
+* Nine-event archive and nine existing Luma destinations.
+* Team organizational overview.
+* Current participation paths and email subjects.
+* Manifesto year: “First published 2025.”
+* Removal of `MMXXVI`.
+* Artist subject: `Artist Interest List`.
+* Removal of “artist microgrants” from the donor CTA.
+* Removal of “Privacy Toolkit in review.”
+* All existing routes, page graphics, responsive design and layout unless a targeted fix below requires adjustment.
+
+# 4. Explicit copy decisions
+
+The following homepage text is approved and must remain exactly:
+
+Born on the Playa. Gifted to the Planet.
+
+This is an explicit user-approved exception to the audit recommendation. Do not remove or rewrite it.
+
+The following organizational sentence is approved:
+
+Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.
+
+Do not change the legal meaning, add “part of,” or substitute “Playa AI Foundation.”
+
+Do not edit Classic/archive content merely to enforce current copy consistency.
+
+# 5. Implement these safe website fixes
+
+## A. Organizational wording consistency
+
+The visible canonical website and prerendered machine-readable summaries must not contradict one another.
+
+1. Inventory every current non-Classic occurrence describing Playa AI’s relationship with Mystic Arts Foundation.
+2. Preserve the approved homepage wording.
+3. Update relevant canonical `Team.tsx` wording and canonical route summaries in `routes.ts` so they use the same approved legal construction.
+4. Preserve surrounding page-specific context; the whole paragraph does not need to be identical if its legal meaning is consistent.
+5. Do not change unrelated mission statements that do not describe fiscal sponsorship.
+6. Leave Classic/archive pages unchanged.
+7. Do not invent an EIN, postal address, legal entity name, or Mystic Arts Foundation URL.
+
+## B. Reconcile the homepage and Work portfolios
+
+The audit requires `/work` to be the canonical portfolio.
+
+Current canonical `/work` contains eight workstreams:
+
+1. Connect App
+2. Ikigai App 1
+3. Ikigai App 2
+4. Relationship Nurturer
+5. Playa AI Living Trust Framework
+6. EELP — Ethical Experience Lab Protocol
+7. Consent-First Data Trust
+8. Burner-AI Manifesto
+
+Make the homepage an explicit strict subset of that canonical list:
+
+1. Keep only these three homepage initiative cards:
+
+   * Connect App
+   * Living Trust Framework
+   * EELP
+
+2. Preserve their existing status labels, descriptions, links and styling.
+
+3. Remove Human Connection Research/JoyScore and Agent Labs from the homepage initiative-card array only.
+
+4. Do not delete their evidence or historical references from other pages.
+
+5. Change the homepage section explanation to make the relationship explicit:
+
+   `Three of eight workstreams. Explore the full work index.`
+
+6. Ensure “Explore the full work index” links to `/work`.
+
+7. Keep `/work` as the single canonical eight-item source.
+
+8. Do not change the eight workstream names, order, owners, statuses or descriptions.
+
+## C. Remove the duplicate/stale homepage tools tally
+
+The audit identifies the homepage Proof of Momentum “Tools” prose as a competing portfolio list.
+
+1. Locate the Proof of Momentum card or block that currently says:
+
+   `Connect App released. Ikigai App piloted in Miami. Agent Labs running monthly.`
+
+2. Remove that prose tally so the homepage does not publish another competing portfolio.
+
+3. Prefer replacing that card with a neutral link to the canonical Work index:
+
+   Label: `WORKSTREAMS`
+   Heading/value: `8`
+   Description: `Documented tools, research, protocols, and governance work with public status labels.`
+   CTA: `EXPLORE THE FULL WORK INDEX →`
+   Destination: `/work`
+
+4. Preserve the existing card layout, typography and responsive behavior.
+
+5. Do not claim Agent Labs is running monthly.
+
+6. Do not change participant figures in this task.
+
+## D. Complete the Work-page disclosure structure
+
+The audit asks for “What remains unresolved” directly after the Work index.
+
+1. Keep the eight-item anchor index exactly as implemented.
+2. Move the complete `What remains unresolved` section so it appears directly after the eight-item index and before the long-form workstream cards.
+3. Preserve:
+
+   * `id="what-remains-unresolved"`
+   * `data-testid="open-questions"`
+   * `scroll-mt-24`
+   * all six questions
+   * all wording and ordering
+4. Remove the now-redundant early “Review what remains unresolved” link if the disclosure section is immediately visible beneath the index.
+5. Ensure there is exactly one unresolved section and one matching ID.
+6. Do not change any question text.
+
+## E. Complete Manifesto intent labeling
+
+1. Find the Manifesto section listing proposed future programs, including items such as Oracle, AI Camp, AI for Humanity, AI Code and Digital Burning Man.
+
+2. Add this exact disclosure immediately before the proposed-program list:
+
+   `These are directions Playa AI intends to explore, not current programs.`
+
+3. Make it visually clear but consistent with the existing status/disclosure design.
+
+4. Preserve “First published 2025.”
+
+5. Preserve the current Manifesto CTAs and Continue Exploring links.
+
+6. Do not reintroduce a Manifesto modal on canonical routes.
+
+7. Do not change the Manifesto’s historical text.
+
+## F. Events freshness cleanup
+
+1. Preserve all nine event cards, dates, descriptions, destinations and Luma links.
+
+2. Preserve the existing statement that no upcoming public events are currently listed.
+
+3. Preserve `Archive current through 30 March 2026`.
+
+4. Remove or rewrite remaining canonical claims that Agent Labs is “running monthly.”
+
+5. Remove any canonical “updated continuously” language if it remains.
+
+6. Do not invent an upcoming event.
+
+7. Do not invent a Luma calendar or subscription URL.
+
+8. Do not add London without a verified event record and URL.
+
+9. Add a small shared content-status line to canonical page footers:
+
+   `Website content reviewed July 2026.`
+
+10. Implement it through a shared component or footer prop so it is consistent and maintainable.
+
+11. Do not apply it to Classic/archive pages if doing so would rewrite historical content.
+
+## G. Add `/llms.txt`
+
+Create `public/llms.txt` as plain UTF-8 text.
+
+It must be factual, concise and machine-readable. Include:
+
+* Organization: Playa AI
+* Website: https://playa-ai.org/
+* Contact: [hello@playa-ai.org](mailto:hello@playa-ai.org)
+* Current canonical pages
+* A short description based on existing route metadata
+* Current workstream count: eight documented workstreams
+* Status language: early-stage; work includes live pilots, prototypes, working drafts and planned governance work
+* Burning Man distinction:
+
+  * Burning Man is the approximately 80,000-person host cultural context.
+  * That number is not Playa AI’s participant count.
+  * Playa AI currently publishes `80+ early participants across pilots and workshops`.
+* Fiscal-sponsorship wording using the exact approved sentence
+* A statement that `/privacy-toolkit` and `/classic/*` are historical archives and not canonical current content
+
+Do not include:
+
+* `≈520`
+* `358`
+* “80,000 Playa AI participants”
+* “80,000 consented participants”
+* unsupported metrics
+* invented legal, privacy or security claims
+* a license claim
+* a privacy-policy claim
+* a claim that all tools fully implement EELP or Living Trust practices
+
+Ensure Vite copies `/llms.txt` to the build output and that it is excluded from the SPA catch-all where hosting configuration allows.
+
+## H. Image accessibility
+
+Audit every `<img>`, meaningful SVG and image-like component on the seven canonical routes.
+
+1. Content-bearing images must receive concise, useful accessible text.
+2. Decorative images must keep `alt=""` and, where appropriate, `aria-hidden="true"`.
+3. Do not write redundant alt text such as “image of.”
+4. Team portraits should identify the person by name.
+5. Diagrams should have an accessible name or nearby description.
+6. Do not expose decorative texture or background graphics to assistive technology.
+7. Preserve image URLs, crops, sizes, layout and visual appearance.
+
+## I. Link and keyboard accessibility sweep
+
+Audit all canonical pages for:
+
+* Visible `focus-visible` styling.
+* Descriptive accessible names.
+* Correct `target="_blank"` and `rel="noopener noreferrer"` on external HTTP links.
+* No malformed `mailto:` URLs.
+* No empty links.
+* No actionable `<div>` or `<span>` without keyboard support.
+* No canonical Manifesto buttons that should be links.
+* No focus trap regression.
+* No horizontal overflow caused by focus rings.
+
+Apply the existing authoritative focus pattern consistently:
+
+`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2`
+
+Do not restyle unrelated visual elements.
+
+## J. Pledge interim behavior
+
+Inspect the current pledge modal.
+
+If the modal does not store a real signature and does not submit anywhere:
+
+1. Do not pretend that clicking it signs a pledge.
+
+2. Keep the accessible modal behavior.
+
+3. Ensure the final pledge action is an honest interim `mailto:` action:
+
+   Recipient: `hello@playa-ai.org`
+   Subject: `Playa AI Pledge Interest`
+
+4. Use clear wording such as:
+
+   `Express pledge interest`
+
+5. Do not collect form data.
+
+6. Do not add localStorage as fake persistence.
+
+7. Do not render a fabricated signatory list.
+
+8. If the current modal already clearly behaves as an informational pledge with no false success state, preserve it and document why no edit was required.
+
+## K. Prohibited-copy verification
+
+Create a maintainable canonical-copy check that excludes Classic/archive components.
+
+Add a package script such as:
+
+`pnpm run check:copy`
+
+The script must fail when current canonical source contains:
+
+* `human-AI co-evolution`
+* `Conscious Intelligence`
+* `Artist%20Grant%20Interest`
+* `Privacy Toolkit in review`
+* `Built in the desert. Published for everyone.`
+* `Published 2026`
+* Gmail-compose URLs
+
+Exception:
+
+* The exact approved homepage sentence `Born on the Playa. Gifted to the Planet.` is allowed.
+* Historical Classic/archive content is excluded.
+* Do not allow broader fuzzy variants that would accidentally prohibit normal use of “Playa.”
+
+Run this check during final verification. Do not automatically rewrite text from the script.
+
+## L. Audit verification script
+
+Add a lightweight Node-based verification script without introducing a heavy testing framework unless one already exists.
+
+Add:
+
+`pnpm run verify:audit`
+
+It must build or inspect the latest build and verify at minimum:
+
+* Seven canonical prerendered routes exist.
+* All expected archive and alias prerender files exist.
+* Every canonical route has:
+
+  * unique title
+  * non-empty description
+  * `index, follow`
+  * correct canonical
+  * route-specific meaningful initial HTML
+* `/privacy-toolkit` and `/classic/*` have `noindex, follow`.
+* Sitemap contains exactly the seven canonical routes.
+* Robots contains the Sitemap directive.
+* `/llms.txt` exists as plain text.
+* No Gmail-compose URL exists in source or build.
+* No malformed `mailto:` exists.
+* No duplicate canonical `id` values exist in source-defined navigation targets.
+* The Work index contains exactly eight entries and eight matching destinations.
+* The unresolved section exists exactly once.
+* The homepage canonical initiatives are exactly the approved three-item subset.
+* Manifesto year is correct.
+* Manifesto intent disclosure exists.
+* Approved homepage copy exists.
+* Old homepage copy is absent.
+* The prohibited-copy check passes.
+* Current route count is reported accurately.
+
+Keep the script deterministic and readable. Do not make network access a requirement for local verification.
+
+# 6. Hosting-level investigation
+
+Inspect the actual supported `artifact.toml` schema and current deployment configuration.
+
+Investigate:
+
+* Brotli/gzip.
+* `cache-control: public, max-age=31536000, immutable` for `/assets/*`.
+* No-cache or short caching for HTML.
+* Real HTTP 404 responses.
+* Directory-index route handling.
+* `/llms.txt` serving.
+* Route-specific prerender rewrites.
+
+Rules:
+
+1. Implement only syntax demonstrably supported by the current Replit hosting configuration.
+2. Do not invent unsupported `artifact.toml` fields.
+3. Do not add a custom Express server, service worker workaround, proxy, hosting migration or infrastructure rewrite merely to bypass static-hosting limitations.
+4. Do not break the route-specific prerender rewrites.
+5. If compression, caching or real HTTP 404 status cannot be controlled from the repository, leave application code unchanged and update `BLOCKERS.md` with:
+
+   * exact limitation
+   * evidence
+   * current safe fallback
+   * external action required
+   * post-publication verification command
+6. A client-side 404 is not a real HTTP 404. Report these separately.
+7. Do not mark hosting-controlled items complete without production headers.
+
+# 7. Decision-gated and externally blocked work
+
+Investigate these items, but do not invent or implement unsupported facts.
+
+## Connect privacy and disclosure
+
+The live Connect application is in a different product surface.
+
+Do not create a privacy policy unless verified evidence establishes:
+
+* Whether microphone audio is recorded or streamed.
+* What is uploaded.
+* Which service performs transcription.
+* Whether raw audio is retained.
+* Whether transcripts, summaries, intentions, insights or identifiers are retained.
+* Storage location.
+* Retention period.
+* Deletion method.
+* Responsible operator/controller.
+* Third-party processors.
+* Who handles deletion requests.
+
+If those facts are not present in this repository:
+
+* Do not build `/privacy`.
+* Do not write placeholder legal claims.
+* Do not claim automatic deletion, encryption, local processing or compliance.
+* Add a structured blocker to `BLOCKERS.md`.
+* List the exact questions requiring Playa AI/Connect owner answers.
+
+## Living Trust Framework license
+
+If the framework repository is not part of this workspace:
+
+* Do not create a LICENSE inside the website repository.
+* Do not claim the external repository is licensed.
+* Record the external repository URL and required owner decision.
+* Keep website language as “intended for open-source release,” “open licensing intended,” or “license under review.”
+* Ensure no canonical page calls the current repository legally open-source.
+
+## Participant metrics
+
+Do not replace `80+` with `358`, `≈520` or another total without evidence defining:
+
+* Included events/pilots.
+* Time period.
+* Unique versus cumulative participants.
+* Source records.
+* Double-counting method.
+
+Preserve `80+` until an owner-approved definition is supplied.
+
+## Forms and data collection
+
+Do not create a new backend form, participant database, signatory database, analytics tracker or personal-data collection flow without:
+
+* data owner
+* fields
+* purpose
+* storage
+* retention
+* deletion
+* access controls
+* privacy disclosure
+
+Keep current mailto pathways as the safe interim behavior.
+
+## `/about`, MAF details and team evidence
+
+Do not invent:
+
+* Mystic Arts Foundation URL
+* EIN
+* postal address
+* legal entity details
+* affiliations
+* credentials
+* biography claims
+* governance authority
+
+Do not create a misleading `/about` page using incomplete facts. Record the missing evidence in `BLOCKERS.md`.
+
+## Product domains
+
+Do not rewrite external product links to guessed subdomains.
+
+Record DNS/domain consolidation as external work unless valid target domains are already configured and verified.
+
+## External corrections
+
+Do not send emails, modify grant records, edit external documents or update organizational decision systems.
+
+List these as external actions only.
+
+# 8. Global constraints
+
+* Do not redesign the website.
+* Do not change colors, typography, graphics, motion style or overall layout.
+* Do not edit Classic/archive content except for a technical regression affecting indexing or safety.
+* Do not delete routes.
+* Do not change event destinations.
+* Do not change team names, titles or classifications.
+* Do not change workstream names, owners, statuses or evidence.
+* Do not change the approved homepage copy.
+* Do not add unsupported legal or compliance statements.
+* Do not add fake privacy guarantees.
+* Do not add fake forms or fake success states.
+* Do not hide blockers.
+* Do not treat local build success as production verification.
+* Do not publish, deploy, commit, push or merge.
+* Do not overwrite unrelated working-tree changes.
+* Do not create temporary files inside the repository unless they are removed before completion.
+* Prefer shared data and components over duplicated manual lists.
+* Keep TypeScript strict and maintainable.
+* Preserve mobile behavior.
+* Preserve the existing 13-route structure unless an authorized static asset such as `/llms.txt` does not count as a React route.
+
+# 9. Required verification
+
+After implementation, run:
+
+1. `git diff --check`
+2. `pnpm run check:copy`
+3. `pnpm run typecheck`
+4. Existing lint script, if present
+5. Existing tests, if present
+6. `pnpm run build`
+7. `pnpm run verify:audit`
+
+Then inspect the generated output directly.
+
+Verify every canonical route:
+
+* `/`
+* `/work`
+* `/events`
+* `/team`
+* `/manifesto`
+* `/eelp`
+* `/living-trust-framework`
+
+Verify archives and alias:
+
+* `/privacy-toolkit`
+* `/classic`
+* `/classic/work`
+* `/classic/events`
+* `/classic/team`
+* `/playa-ai-living-trust-framework`
+
+Verify:
+
+* Route-specific title.
+* Description.
+* Robots.
+* Canonical.
+* Open Graph URL.
+* Initial H1 and summary.
+* Sitemap membership.
+* Archive exclusion.
+* No duplicate IDs.
+* No horizontal overflow at:
+
+  * 375px
+  * 768px
+  * 1440px
+* Keyboard navigation.
+* Visible focus.
+* Mobile menu.
+* Pledge modal.
+* Reduced-motion behavior.
+* Work anchor navigation.
+* Continue Exploring links.
+* External link security.
+* Mailto correctness.
+* Meaningful alt text.
+* No content hidden permanently when motion is reduced.
+
+If a preview server is available, inspect it in-browser. Do not claim visual or interaction verification based only on grep.
+
+# 10. Required final report
+
+Return one consolidated report with these sections:
+
+## A. Executive verdict
+
+State:
+
+* PASS
+* PASS WITH BLOCKERS
+* FAIL
+
+Explain whether it is safe to publish.
+
+## B. Pre-edit inventory
+
+Include:
+
+* Existing changed files.
+* Existing unrelated user work.
+* Current route count.
+* Current bundle/build state.
+* Relevant source occurrences.
+
+## C. Files changed
+
+Table:
+
+| File | Exact changes | Why required |
+
+## D. Implemented audit fixes
+
+For every implemented item:
+
+* Audit finding/action number.
+* Before.
+* After.
+* Evidence.
+* Verification result.
+
+## E. Preserved completed work
+
+Explicitly confirm all previously completed technical, SEO, accessibility, navigation and UX repairs remain intact.
+
+## F. Complete 36-item audit matrix
+
+For all 36 prioritized audit actions, assign exactly one:
+
+* COMPLETE IN SOURCE
+* ALREADY COMPLETE
+* PARTIAL
+* BLOCKED BY HOSTING
+* BLOCKED BY MISSING FACTS
+* BLOCKED BY OWNER DECISION
+* EXTERNAL ACTION
+* EXPLICIT USER EXCEPTION
+* NOT APPLICABLE
+
+Provide evidence and remaining action for every non-complete item.
+
+## G. Privacy and factual blockers
+
+List every missing fact needed for:
+
+* Connect disclosure.
+* `/privacy`.
+* deletion workflow.
+* participant metrics.
+* license.
+* forms.
+* About/MAF evidence.
+* domain consolidation.
+
+## H. Hosting findings
+
+Report:
+
+* Supported configuration.
+* Unsupported configuration.
+* What was changed.
+* What remains platform-controlled.
+* Exact post-publication commands for:
+
+  * HTTP status
+  * compression
+  * cache-control
+  * route-specific HTML
+  * sitemap
+  * robots
+  * llms.txt
+
+## I. Accessibility verification
+
+Report:
+
+* Reduced motion.
+* Keyboard navigation.
+* Focus visibility.
+* Modal behavior.
+* Image alternative text.
+* Mobile menu.
+* Horizontal overflow.
+
+## J. Build and verification results
+
+Include exact commands, exit status and summaries for:
+
+* diff check
+* copy check
+* typecheck
+* lint
+* tests
+* build
+* route prerender count
+* audit verification script
+
+## K. Diff scope
+
+Include:
+
+* `git diff --stat`
+* `git diff --name-only`
+* confirmation that no unrelated files changed
+* any generated files intentionally added
+
+## L. Publication decision
+
+State one:
+
+* SAFE TO PUBLISH
+* SAFE TO PUBLISH WITH DOCUMENTED BLOCKERS
+* NOT SAFE TO PUBLISH
+
+Do not publish.
+
+## M. Post-publication verification checklist
+
+Provide exact commands using the new build asset hashes discovered during this run. Do not reuse stale hashes.
+
+# 11. Stop condition
+
+Stop only after:
+
+* all safe repository-level fixes above are implemented
+* all checks have run
+* generated output has been inspected
+* all decision-gated items are documented
+* the complete 36-item status matrix is returned
+
+Do not begin another task, publish, deploy, commit, push or merge.

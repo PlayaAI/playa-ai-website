@@ -461,11 +461,11 @@ export default function Teams() {
           </div>
           <div className="lg:col-span-8 flex flex-col gap-5 lg:pt-1">
             <p className="text-base md:text-lg leading-relaxed text-foreground">
-              Playa AI is a philanthropic initiative fiscally sponsored by Mystic
-              Arts Foundation, a U.S. 501(c)(3) public charity. We develop
-              human-centered AI tools, consent frameworks, community experiments,
-              and public-interest research rooted in creativity, participation,
-              and human flourishing.
+              Playa AI is a human-centered AI initiative fiscally sponsored by
+              Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3)
+              public charity. We develop human-centered AI tools, consent
+              frameworks, community experiments, and public-interest research
+              rooted in creativity, participation, and human flourishing.
             </p>
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
               Our work includes the EELP consent protocol, the Living Trust
@@ -709,7 +709,7 @@ export default function Teams() {
         { label: "Explore the work", href: "/work" },
         { label: "Join the initiative", href: "/#participate" },
       ]} />
-      <SiteFooter contextLine="Field guide · Edition 01 · 2026" />
+      <SiteFooter contextLine="Field guide · Edition 01 · 2026" contentStatus="Website content reviewed July 2026." />
     </main>
   );
 }

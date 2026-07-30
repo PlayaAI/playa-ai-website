@@ -3,11 +3,13 @@ import { Link } from "wouter";
 interface SiteFooterProps {
   contextLine?: string;
   showBackLink?: boolean;
+  contentStatus?: string;
 }
 
 export function SiteFooter({
   contextLine = "Field guide · Edition 01 · 2026",
   showBackLink = true,
+  contentStatus,
 }: SiteFooterProps) {
   return (
     <footer className="bg-foreground text-background px-4 pt-16 pb-12">
@@ -26,9 +28,14 @@ export function SiteFooter({
             <div className="text-[#A7A39A]">© 2026 Playa AI</div>
           )}
         </div>
-        <div className="text-[#A7A39A]">{contextLine}</div>
         <div className="text-[#A7A39A]">
-          <div>© 2026 Playa AI · Fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.</div>
+          <div>{contextLine}</div>
+          {contentStatus && (
+            <div className="mt-2 text-[#7A7570]">{contentStatus}</div>
+          )}
+        </div>
+        <div className="text-[#A7A39A]">
+          <div>© 2026 Playa AI · Fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.</div>
           <div className="mt-2"><a href="mailto:hello@playa-ai.org?subject=General%20Inquiry" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">hello@playa-ai.org</a></div>
         </div>
       </div>

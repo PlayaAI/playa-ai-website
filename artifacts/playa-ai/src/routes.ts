@@ -47,7 +47,7 @@ export const ROUTES: RouteEntry[] = [
       "Playa AI is a philanthropic, public-interest initiative developing human-centered AI tools, practices, frameworks, and community experiments.",
     canonical: `${SITE_URL}/`,
     summary:
-      "Playa AI is a philanthropic initiative fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity. We develop human-centered AI tools, consent frameworks, community experiments, and public-interest research rooted in creativity, participation, and human flourishing. Our work includes the EELP consent protocol, the Living Trust Framework for data dignity, field experiments, salons, and an open working group for builders, artists, researchers, and cultural stewards.",
+      "Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity. We develop human-centered AI tools, consent frameworks, community experiments, and public-interest research rooted in creativity, participation, and human flourishing. Our work includes the EELP consent protocol, the Living Trust Framework for data dignity, field experiments, salons, and an open working group for builders, artists, researchers, and cultural stewards.",
   },
   {
     path: "/work",
@@ -73,7 +73,7 @@ export const ROUTES: RouteEntry[] = [
     description: "Meet the people building, guiding, and operating Playa AI.",
     canonical: `${SITE_URL}/team`,
     summary:
-      "Playa AI is built by a small operating team supported by an advisory circle and an open working group. Our contributors include builders, artists, researchers, facilitators, and cultural stewards who share a commitment to human-centered AI. The initiative is fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity.",
+      "Playa AI is built by a small operating team supported by an advisory circle and an open working group. Our contributors include builders, artists, researchers, facilitators, and cultural stewards who share a commitment to human-centered AI. The initiative is fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.",
   },
   {
     path: "/manifesto",

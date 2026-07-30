@@ -530,14 +530,6 @@ export default function Work() {
             ))}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-border">
-            <a
-              href="#what-remains-unresolved"
-              className="font-mono text-sm border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
-            >
-              Review what remains unresolved
-            </a>
-          </div>
         </div>
       </section>
       {/* 3. Workstream Index Nav */}
@@ -569,7 +561,59 @@ export default function Work() {
         </nav>
       </section>
 
-      {/* 4. Featured Work / Workstreams */}
+      {/* 4. What Remains Unresolved */}
+      <section
+        id="what-remains-unresolved"
+        data-testid="open-questions"
+        className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16 scroll-mt-24"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
+          <div className="lg:col-span-6">
+            <MonoLabel className="mb-6">Open questions</MonoLabel>
+            <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
+              What remains unresolved
+            </h2>
+          </div>
+          <div className="lg:col-span-6 flex items-center">
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
+              The honest edges matter. These are the questions the work must
+              answer before it deserves to scale.
+            </p>
+          </div>
+        </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={stagger}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 hairline-t border-border"
+        >
+          {OPEN_QUESTIONS.map((q, i) => (
+            <motion.div
+              key={q.title}
+              variants={fadeInUp}
+              className={`p-8 hairline-b border-border ${
+                i % 3 === 0 || i % 3 === 1 ? "lg:hairline-r" : ""
+              } ${i % 2 === 0 ? "md:hairline-r lg:border-r-0" : ""} ${
+                i % 3 === 1 ? "lg:hairline-r" : ""
+              }`}
+            >
+              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <h3 className="font-serif text-2xl md:text-3xl leading-tight mb-3">
+                {q.title}
+              </h3>
+              <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
+                {q.body}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* 5. Featured Work / Workstreams */}
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
         <div className="font-mono text-sm mb-10 text-muted-foreground">
           § 02 / Featured Work
@@ -740,58 +784,6 @@ export default function Work() {
         </div>
       </section>
 
-      {/* 7. Open Questions */}
-      <section
-        id="what-remains-unresolved"
-        data-testid="open-questions"
-        className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16 scroll-mt-24"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
-          <div className="lg:col-span-6">
-            <MonoLabel className="mb-6">Open questions</MonoLabel>
-            <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
-              What remains unresolved
-            </h2>
-          </div>
-          <div className="lg:col-span-6 flex items-center">
-            <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
-              The honest edges matter. These are the questions the work must
-              answer before it deserves to scale.
-            </p>
-          </div>
-        </div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 hairline-t border-border"
-        >
-          {OPEN_QUESTIONS.map((q, i) => (
-            <motion.div
-              key={q.title}
-              variants={fadeInUp}
-              className={`p-8 hairline-b border-border ${
-                i % 3 === 0 || i % 3 === 1 ? "lg:hairline-r" : ""
-              } ${i % 2 === 0 ? "md:hairline-r lg:border-r-0" : ""} ${
-                i % 3 === 1 ? "lg:hairline-r" : ""
-              }`}
-            >
-              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <h3 className="font-serif text-2xl md:text-3xl leading-tight mb-3">
-                {q.title}
-              </h3>
-              <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-                {q.body}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
       {/* 8. Final CTA */}
       <section
         data-testid="work-final-cta"
@@ -865,7 +857,7 @@ export default function Work() {
         { label: "Meet the team", href: "/team" },
         { label: "Read the Manifesto", href: "/manifesto" },
       ]} />
-      <SiteFooter contextLine="Our Work · Tools / Research / Protocols / Governance" />
+      <SiteFooter contextLine="Our Work · Tools / Research / Protocols / Governance" contentStatus="Website content reviewed July 2026." />
     </main>
   );
 }

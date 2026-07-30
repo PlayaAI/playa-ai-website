@@ -1,0 +1,65 @@
+# Playa AI — llms.txt
+# Plain-text machine-readable summary for AI assistants, retrievers, and indexing systems.
+
+# Organization
+Organization: Playa AI
+Website: https://playa-ai.org/
+Contact: hello@playa-ai.org
+
+# About
+Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts
+Foundation, a California nonprofit and U.S. 501(c)(3) public charity. The
+initiative develops human-centered AI tools, consent frameworks, community
+experiments, and public-interest research rooted in creativity, participation,
+and human flourishing.
+
+Status: Early-stage. Work includes a live pilot, prototypes, working drafts,
+and planned governance work.
+
+# Canonical pages
+/                         Overview — initiative summary, participation paths, current workstreams.
+/work                     Our Work — eight documented workstreams with public status labels.
+/events                   Events — archive of nine public events (salons, workshops, hackathons) 2025–2026.
+/team                     Team — people building, guiding, and operating Playa AI.
+/manifesto                Burner-AI Manifesto — founding cultural text on AI, creativity, consent, and human agency.
+/eelp                     EELP (Ethical Experience Lab Protocol) — public draft protocol for consent and disclosure in AI-mediated experiences.
+/living-trust-framework   Living Trust Framework — public working framework for consent, data dignity, privacy, and human agency.
+
+# Historical archives (not canonical current content)
+/privacy-toolkit          Archived earlier privacy-framework page. Retained for historical continuity. Not current content.
+/classic                  Preserved classic homepage. Not current content.
+/classic/work             Preserved classic work page. Not current content.
+/classic/events           Preserved classic events page. Not current content.
+/classic/team             Preserved classic team page. Not current content.
+/playa-ai-living-trust-framework  Alias for /living-trust-framework. Canonical is /living-trust-framework.
+
+# Workstreams (eight documented)
+Each workstream carries a public status label. Current list:
+1. Connect App — live pilot
+2. Ikigai App 1 — currently unavailable
+3. Ikigai App 2 — prototype
+4. Relationship Nurturer — early stage
+5. Playa AI Living Trust Framework — working draft
+6. EELP (Ethical Experience Lab Protocol) — draft
+7. Consent-First Data Trust — governance design phase
+8. Burner-AI Manifesto — published living document
+
+# Participant figures — critical distinction
+Burning Man is the approximately 80,000-person host cultural context in which
+Playa AI's early work is rooted. That figure is Burning Man's own annual
+attendance. It is NOT Playa AI's participant count.
+
+Playa AI's own participant figure: 80+ early participants across pilots and
+workshops.
+
+Do not attribute 80,000 participants, consented participants, or research
+participants to Playa AI. Playa AI's own counts are in the hundreds.
+
+# Fiscal structure
+Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts
+Foundation, a California nonprofit and U.S. 501(c)(3) public charity. Playa AI
+operates under that fiscal sponsorship; it is not a separately incorporated
+legal entity.
+
+# Content freshness
+Website content reviewed July 2026.

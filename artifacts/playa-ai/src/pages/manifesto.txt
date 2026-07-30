@@ -105,6 +105,8 @@ Leaving No Trace → Systems that regenerate, not extract.
 
 What We're Building
 
+These are directions Playa AI intends to explore, not current programs.
+
 THE ORACLE
  A living AI installation trained on the Playa's stories, art, and wisdom. Not a tool of control, but a space for reflection and conversation. A co-creator with the community.
 

@@ -174,7 +174,7 @@ export default function ManifestoPage() {
         { label: "Explore the work", href: "/work" },
         { label: "Review EELP", href: "/eelp" },
       ]} />
-      <SiteFooter contextLine="Manifesto · Playa AI · First published 2025" />
+      <SiteFooter contextLine="Manifesto · Playa AI · First published 2025" contentStatus="Website content reviewed July 2026." />
     </main>
   );
 }

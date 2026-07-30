@@ -156,9 +156,9 @@ function PledgeModal({
 
             <div className="px-8 py-8">
               <p className="text-base md:text-lg leading-relaxed mb-6 text-foreground">
-                A plain-language commitment to the kind of AI we will build,
-                fund, and adopt. Sign it as an institution, a funder, or a
-                person.
+                A plain-language declaration of the kind of AI we will build,
+                fund, and adopt. Express your alignment as an institution, a
+                funder, or a person.
               </p>
 
               <ul className="space-y-4 mb-10">
@@ -179,14 +179,14 @@ function PledgeModal({
                   Drafted Spring 2026 · Black Rock Desert origin
                 </div>
                 <a
-                  href="mailto:hello@playa-ai.org?subject=Public%20Commitment%20%E2%80%94%20The%20Pledge"
+                  href="mailto:hello@playa-ai.org?subject=Playa%20AI%20Pledge%20Interest"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClose}
                   className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background font-mono text-xs uppercase tracking-widest border border-foreground hover:bg-background hover:text-foreground transition-colors"
                   data-testid="button-send-pledge"
                 >
-                  Start the Conversation →
+                  Express pledge interest
                 </a>
               </div>
             </div>
@@ -259,25 +259,6 @@ const INITIATIVES = [
     status: "Draft",
     cta: "Explore EELP →",
     href: "/eelp",
-  },
-  {
-    n: "04",
-    title: "Human Connection Research",
-    subtitle: "JoyScore Experiment",
-    body: "A global open-science project measuring how human connection drives flourishing. Playa AI's Connect app is its technology layer. Led by Tina Woods.",
-    status: "Active",
-    cta: "Join the research →",
-    href: "mailto:hello@playa-ai.org?subject=Human%20Connection%20Research",
-    external: true,
-  },
-  {
-    n: "05",
-    title: "Agent Labs",
-    subtitle: "OpenClaw Hackathons",
-    body: "Hands-on working sessions where participants build and run their own self-hosted AI agents. Participants work toward deploying a live agent on their own cloud server.",
-    status: "Active",
-    cta: "View events →",
-    href: "/events",
   },
 ];
 
@@ -390,7 +371,7 @@ const TRUST_ITEMS = [
   {
     n: "01",
     title: "Fiscal sponsorship",
-    body: "Fiscally sponsored by Mystic Arts Foundation, a U.S. 501(c)(3) public charity. Tax-deductible giving available. Infrastructure, not theater.",
+    body: "Fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity. Tax-deductible giving available. Infrastructure, not theater.",
   },
   {
     n: "02",
@@ -702,7 +683,7 @@ export default function Home() {
           </div>
           <div className="lg:col-span-6 flex items-end">
             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              A selection of Playa AI's current work.{" "}
+              Three of eight workstreams.{" "}
               <a
                 href="/work"
                 className="border-b border-current pb-0.5 hover:text-foreground transition-colors"
@@ -971,13 +952,13 @@ export default function Home() {
             href="/work"
             className="group border-t border-border pt-6 flex flex-col hover:opacity-70 transition-opacity"
           >
-            <MonoLabel className="mb-3">Tools</MonoLabel>
+            <MonoLabel className="mb-3">Workstreams</MonoLabel>
             <p className="text-lg leading-snug mb-4">
-              Connect App released. Ikigai App piloted in Miami. Agent Labs
-              running monthly.
+              8 documented tools, research, protocols, and governance work with
+              public status labels.
             </p>
             <span className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 w-fit mt-auto">
-              Explore the work →
+              Explore the full work index →
             </span>
           </a>
           <a
@@ -1309,6 +1290,7 @@ export default function Home() {
       <SiteFooter
         contextLine="Spring 2026 · Black Rock Desert origin · Public-interest AI field lab · Independent of Burning Man organization"
         showBackLink={false}
+        contentStatus="Website content reviewed July 2026."
       />
 
       <PledgeModal open={pledgeOpen} onClose={() => setPledgeOpen(false)} />

@@ -167,7 +167,7 @@ function EventBlock({ e, index }: { e: EventCard; index: number }) {
         <div className="aspect-[4/3] overflow-hidden bg-secondary ring-1 ring-border">
           <img
             src={e.cover}
-            alt=""
+            alt={e.displayTitle ?? e.title}
             loading="lazy"
             className="w-full h-full object-cover grayscale"
             style={e.coverObjectPosition ? { objectPosition: e.coverObjectPosition } : undefined}
@@ -397,7 +397,7 @@ export default function Events() {
         { label: "Explore the work", href: "/work" },
         { label: "Join the initiative", href: "/#participate" },
       ]} />
-      <SiteFooter contextLine="Public event archive · Archive current through 30 March 2026" />
+      <SiteFooter contextLine="Public event archive · Archive current through 30 March 2026" contentStatus="Website content reviewed July 2026." />
     </main>
   );
 }

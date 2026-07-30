@@ -1,6 +1,6 @@
 # Playa AI — Technical & Credibility Workstream: Blocker Register
 
-_Updated: 2026-07-28. Owner: main agent (technical implementation)._
+_Updated: 2026-07-30. Owner: main agent (technical implementation)._
 
 ---
 
@@ -62,17 +62,20 @@ These items are excluded from the Technical & Credibility workstream. They requi
 | Item | Why blocked | Owner |
 |---|---|---|
 | Connect Protocol data recording, processing, retention, deletion, consent language | Requires legal review and product decision about what data is actually collected | Legal / Product |
-| Privacy Policy page content | Requires legal review; cannot be published using assumptions | Legal |
+| `/privacy` page content | Requires legal review; cannot be published using assumptions; currently a soft-404 that is linked from the live Connect app | Legal |
 | Terms of Service content | Requires legal review | Legal |
 | New forms or data collection endpoints | Requires privacy assessment and product authorization | Product |
 | Legal-compliance claims | Cannot be asserted without verified legal basis | Legal |
-| GitHub licence or "open-source" claims | Requires organizational decision about licensing approach | Leadership |
+| GitHub licence choice for Living Trust Framework repo | Requires organizational decision; repo currently has no LICENSE file — audit Finding 4 | Leadership |
 | Participant or event metrics (counts, locations, dates) | Requires verification against actual records | Operations |
-| Microgrant claims | Requires verification of amounts, recipients, and dates | Operations |
+| Microgrant claims | Requires verification of amounts, recipients, and dates; removed from canonical copy pending program publication | Operations |
 | Manifesto publication history | Requires verified record of versions and dates | Editorial |
 | Crisis or mental-health protocols | Requires clinical review and legal assessment | Legal / Clinical |
 | Team credentials or biographical claims | Requires individual consent and accuracy verification | Team members |
 | Organizational or fiscal-sponsorship changes | Requires board or sponsor authorization | Leadership |
+| "Founding Adopter" pathway | Currently a Gmail link; requires a real form or landing page to fulfill the promise | Product |
+| Seven-audience "doors" collapse | All 7 audience CTAs route to one inbox; fix requires either building `/get-involved` with real sections or collapsing to one honest CTA | Product |
+| Living Trust Framework licence | Repo README self-discloses "licence pending" — no code change until licence is chosen and published | Legal / Leadership |
 
 ---
 
@@ -88,3 +91,49 @@ Items that cannot be verified without a published deployment:
 6. **Sitemap indexing** — Submit `https://playa-ai.org/sitemap.xml` to Google Search Console
 7. **robots.txt** — Confirm `https://playa-ai.org/robots.txt` is accessible and correct
 8. **Prerendered HTML** — Confirm each route serves its route-specific HTML (not the generic SPA shell) when fetched without JavaScript (`curl -sL https://playa-ai.org/work | grep '<title>'`)
+9. **llms.txt** — Confirm `https://playa-ai.org/llms.txt` is accessible and returns correct content
+
+---
+
+## E. Audit Matrix — 36-Item Compliance Summary (July 2026)
+
+Status as of 2026-07-30. Items marked ✅ are implemented in source. Items marked 🚫 are blocked (see above sections). Items marked ⬜ are post-deployment-only.
+
+| # | Finding | Status | Notes |
+|---|---|---|---|
+| 1 | Replace Gmail compose links with mailto: | ✅ | All 45 replaced in prior sessions |
+| 2 | Enable brotli/gzip compression | 🚫 | Platform-controlled; Blocker B |
+| 3 | Add LICENSE to framework repo | 🚫 | Blocker C — licence choice pending |
+| 4 | Remove "Privacy Toolkit in review" | ✅ | Removed in prior sessions |
+| 5 | MotionConfig reducedMotion + CSS backstop | ✅ | Implemented in prior sessions |
+| 6 | Remove "Born on the Playa. Gifted to the Planet." and "human-AI co-evolution" | ✅ | "Born on the Playa" — user-approved exception on homepage; "human-AI co-evolution" — not present in canonical source |
+| 7 | Convert manifesto \<button\>s to \<a href="/manifesto"\> | ✅ | Implemented in prior sessions |
+| 8 | Change artist Gmail subject to "Artist Interest List" | ✅ | Replaced with mailto: in prior sessions |
+| 9 | Delete MMXXVI span | ✅ | Removed in prior sessions |
+| 10 | Remove "artist microgrants" from donor CTA | ✅ | Removed in prior sessions |
+| 11 | Fix manifesto year stamp (First published 2025) | ✅ | Implemented in prior sessions |
+| 12 | noindex on /privacy-toolkit and /classic/* | ✅ | Configured via usePageMeta in prior sessions |
+| 13 | Ship /privacy page | 🚫 | Blocker C — requires legal review |
+| 14 | Rewrite Connect disclosure screen | 🚫 | Blocker C — requires product/legal decision |
+| 15 | Prerender 7 routes with per-route meta | ✅ | Full prerender implemented in prior sessions |
+| 16 | Real HTTP 404s + sitemap.xml + Sitemap: in robots.txt | Partial | robots.txt with Sitemap: ✅; sitemap.xml ✅; real 404 status 🚫 Blocker A |
+| 17 | Fix participant aggregate to ≈520 | 🚫 | Blocker C — requires verified records |
+| 18 | Add /about#origin origin block | 🚫 | Blocker C — requires Founding Story approval |
+| 19 | Add focus management to pledge modal | ✅ | Fully implemented in prior sessions |
+| 20 | Upcoming block on /events; Luma calendar link | 🚫 | Blocker C — requires verified upcoming content |
+| 21 | Reconcile portfolio to 8 canonical workstreams | ✅ | 8-item index confirmed in Work.tsx |
+| 22 | Label /manifesto "What We're Building" as intent | ✅ | Disclosure added to manifesto.txt this session |
+| 23 | Publish /llms.txt | ✅ | Created public/llms.txt this session |
+| 24 | Add mobile menu | ✅ | Hamburger menu implemented in prior sessions |
+| 25 | Rewrite outbound vectors with conflated phrasing | 🚫 | Off-site documents; requires organizational action |
+| 26 | Organizational wording consistency | ✅ | "Human-centered AI initiative" + "California nonprofit" applied this session |
+| 27 | Homepage initiatives — show only 3 | ✅ | Items 04 and 05 removed this session |
+| 28 | Remove stale Tools tally | ✅ | Replaced with WORKSTREAMS card this session |
+| 29 | Move "What remains unresolved" before work cards | ✅ | Restructured this session |
+| 30 | Add manifesto intent disclosure | ✅ | Added to manifesto.txt this session |
+| 31 | Content review date in footers | ✅ | "Website content reviewed July 2026." added to all 7 canonical footers this session |
+| 32 | Image accessibility sweep | ✅ | Team portraits have name alt text; event covers use event title; decorative images retain alt="" aria-hidden="true" |
+| 33 | Pledge modal — honest wording + correct mailto: subject | ✅ | Subject → "Playa AI Pledge Interest"; button → "Express pledge interest"; description updated this session |
+| 34 | check:copy prohibited-string script | ✅ | scripts/check-copy.js created this session |
+| 35 | verify:audit structural check script | ✅ | scripts/verify-audit.js created this session |
+| 36 | SiteFooter copyright — "California nonprofit and" | ✅ | Updated this session |

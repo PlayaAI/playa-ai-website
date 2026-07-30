@@ -1052,7 +1052,7 @@ export default function LivingTrustFramework() {
         { label: "Review EELP", href: "/eelp" },
         { label: "Explore all work", href: "/work" },
       ]} />
-      <SiteFooter contextLine="Living Trust Framework · Consent / Data Dignity / Human Agency" />
+      <SiteFooter contextLine="Living Trust Framework · Consent / Data Dignity / Human Agency" contentStatus="Website content reviewed July 2026." />
     </main>
   );
 }
