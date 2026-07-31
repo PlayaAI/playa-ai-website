@@ -1,0 +1,173 @@
+Perform a read-only cumulative release-candidate verification of the Playa AI website.
+
+TARGET
+
+* Project: `artifacts/playa-ai`
+* Audited baseline commit: `1d52ceb`
+* Current release-candidate commit: `d66332b`
+* Current branch: `main`
+
+Do not edit source files, create commits, deploy, push, tag or release.
+
+PURPOSE
+
+The comprehensive remediation pass appears to have been committed between `1d52ceb` and `d66332b`, but its original report failed before completion. Reconstruct and verify the complete cumulative change set.
+
+1. REPOSITORY HISTORY
+
+Run:
+
+```bash
+pwd
+git status --short
+git branch --show-current
+git log --oneline --decorate 1d52ceb..d66332b
+git diff --stat 1d52ceb..d66332b
+git diff --name-status 1d52ceb..d66332b
+git diff --check 1d52ceb..d66332b
+```
+
+Explain every commit and every changed file.
+
+Separate:
+
+* Website source changes
+* Validator changes
+* Documentation changes
+* Generated/task attachments
+* Agent-memory changes
+* Unrelated changes
+
+2. VERIFY THE CUMULATIVE IMPLEMENTATION
+
+Inspect the actual final source at `d66332b` and verify:
+
+* Organizational wording
+* Three homepage initiatives
+* Eight canonical Work workstreams
+* Work-page content ordering
+* Manifesto intent disclosure
+* Manifesto publication year
+* Footer content-review dates
+* `llms.txt`
+* Event-image accessibility
+* Pledge-interest wording
+* Mobile navigation
+* Skip-to-content behavior
+* Focus-visible styling
+* External-link and mailto accessibility
+* Reduced-motion support
+* Archive `noindex`
+* Sitemap and robots
+* Canonical metadata
+* Copy validator coverage
+* Audit-validator coverage
+* Actual prerendering behavior
+* Any performance changes
+* `BLOCKERS.md` accuracy
+
+3. VALIDATION
+
+Run:
+
+```bash
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Run lint and tests only if scripts exist. Otherwise report `NOT AVAILABLE`.
+
+Report:
+
+* Exit codes
+* Assertion count
+* Route count
+* Generated bundle names
+* Build warnings
+* Final git status
+* Whether validation changed the working tree
+
+4. BROWSER EVIDENCE
+
+Use the completed mobile QA evidence for commit `d66332b`, but independently verify any cumulative feature not covered by that report.
+
+Do not claim browser verification for anything not actually tested.
+
+5. ORIGINAL 36-ITEM AUDIT MATRIX
+
+Compare the final source with the original July 2026 PDF.
+
+Preserve the PDF’s original numbering, especially items 26–36.
+
+For each item provide:
+
+| ID | Original requirement | Local status | Production status | Evidence | Remaining work or blocker |
+
+Use these statuses:
+
+* VERIFIED LOCALLY
+* PARTIAL
+* NOT FIXED
+* BLOCKED
+* EXTERNAL ACTION
+* APPROVED EXCEPTION
+* POST-DEPLOYMENT REQUIRED
+* NOT VERIFIED
+
+Do not substitute implementation tasks A–L for original items 26–36.
+
+Do not count 176 assertions as 176 audit requirements.
+
+6. BLOCKER REGISTER
+
+Identify every remaining blocker and state:
+
+* Audit ID
+* Exact issue
+* Why it remains blocked
+* Required decision or evidence
+* Responsible owner
+* Website task after resolution
+* Verification required to close it
+
+Separate:
+
+* Product/privacy
+* Legal/organizational
+* Evidence/metrics
+* Hosting
+* Forms/conversion
+* External documents
+* GitHub/repositories
+* Editorial/program decisions
+
+7. FINAL REPORT
+
+Return:
+
+1. Executive verdict
+2. Complete commit history
+3. Complete changed-file inventory
+4. Verified cumulative improvements
+5. Validation results
+6. Browser evidence
+7. Original 36-item matrix
+8. Remaining blockers
+9. Production-versus-local distinction
+10. Deployment recommendation
+11. Exact post-deployment QA checklist
+
+End with exactly one verdict:
+
+* `READY TO DEPLOY AS AN IMPROVED RELEASE — AUDIT BLOCKERS DOCUMENTED`
+* `NOT READY TO DEPLOY`
+
+Do not describe the entire audit as complete unless every original requirement is genuinely complete.
+
+If the report is too long for chat, write the complete report to:
+
+`artifacts/playa-ai/FINAL-CUMULATIVE-RELEASE-REPORT.md`
+
+Then provide its path and a concise summary.
