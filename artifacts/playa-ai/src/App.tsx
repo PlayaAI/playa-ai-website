@@ -8,6 +8,7 @@ import PrivacyToolkit from "@/pages/PrivacyToolkit";
 import EELPPage from "@/pages/EELP";
 import LivingTrustFramework from "@/pages/LivingTrustFramework";
 import ManifestoPage from "@/pages/Manifesto";
+import GetInvolved from "@/pages/GetInvolved";
 import HomeClassic from "@/pages/HomeClassic";
 import EventsClassic from "@/pages/EventsClassic";
 import TeamClassic from "@/pages/TeamClassic";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/living-trust-framework" component={LivingTrustFramework} />
         <Route path="/playa-ai-living-trust-framework" component={LivingTrustFramework} />
         <Route path="/manifesto" component={ManifestoPage} />
+        <Route path="/get-involved" component={GetInvolved} />
         <Route path="/classic" component={HomeClassic} />
         <Route path="/classic/events" component={EventsClassic} />
         <Route path="/classic/team" component={TeamClassic} />

@@ -223,10 +223,12 @@ Blockers are grouped by type. Every blocker includes the original audit ID, curr
 
 ### Group 5 — Conversion / Forms
 
-#### BLOCKER C1 — /get-involved page with seven sections and a real form
+#### BLOCKER C1 — /get-involved page — email delivery confirmation pending
 - **Audit ID:** #28
-- **Current failure:** The seven audience "doors" on the homepage route to `mailto:` addresses with different subject lines. No `/get-involved` route exists.
+- **Status as of July 2026:** Page, form, and all seven participation sections are implemented. Route `/get-involved` exists and is prerendered. The six homepage PARTICIPATION cards now link to `/get-involved#<anchor>` instead of `mailto:` addresses. The navigation "Participate" entry has been updated to `/get-involved`.
+- **What remains:** `VITE_GET_INVOLVED_FORM_ENDPOINT` is not yet configured. Until a provider-neutral form endpoint is set, the form shows an honest "Online submission temporarily unavailable" state with a `mailto:hello@playa-ai.org` fallback. Confirmed email delivery is pending.
 - **Exact question:** "What happens when someone submits their interest? Who receives it, who follows up, and how quickly?"
+- **Next action:** Choose a compatible form provider (Formspree, Getform, Basin, or a custom endpoint), set `VITE_GET_INVOLVED_FORM_ENDPOINT` in the deployment environment, test with synthetic data, and confirm receipt at hello@playa-ai.org.
 - **Owner:** Product
 - **Priority:** P2
 
@@ -330,7 +332,7 @@ These items are deferred per task instructions. They require external repository
 | 25 | Correct external documents with conflated phrasing | **EXTERNAL ACTION** | Off-site documents (OECD.AI, Mozilla, funder emails) | Not applicable | BLOCKER X1 |
 | 26 | File the Burning Man vs. Playa AI participant decision record | **LOCALLY IMPLEMENTED** | `llms.txt` explicitly states the 80,000 / 80+ distinction; `verify:audit` confirms; `BORN IN THE BLACK ROCK DESERT · INDEPENDENT OF BURNING MAN ORGANIZATION` in homepage body | In build | None |
 | 27 | Correct the OpenAI grant record or complete licensing | **NEEDS HUMAN DECISION** | Nature of the grant and required correction are unclear from available documentation | Not applicable | BLOCKER E4 |
-| 28 | Build `/get-involved` with seven sections and a real form | **BLOCKED** | No route exists | No directory | BLOCKER C1 |
+| 28 | Build `/get-involved` with seven sections and a real form | **LOCALLY IMPLEMENTED — ENDPOINT PENDING** | Page, form, 7 sections, 7 anchors, nav update, DOORS updated; email delivery pending `VITE_GET_INVOLVED_FORM_ENDPOINT` config | `dist/public/get-involved/index.html`; `verify:audit` passes | BLOCKER C1 (endpoint config) |
 | 29 | Make the pledge signable and publish signatories | **BLOCKED** | Pledge is currently a mailto expression-of-interest flow | Not applicable | BLOCKER C2 |
 | 30 | Publish the reconciled nine-row event log with London | **NOT FIXED** | London event status unconfirmed; no reconciled event log published | Events page partial | BLOCKER E2 |
 | 31 | Build `/about` with origin, MAF/EIN, legal structure, affiliations, Council Charter | **BLOCKED** | No route; dependencies unresolved | No directory | BLOCKER C3 + L1 |

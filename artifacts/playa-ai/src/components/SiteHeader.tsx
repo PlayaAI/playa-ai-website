@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import type { ReactNode } from "react";
 import { useState, useEffect, useRef } from "react";
 
-type ActivePage = "home" | "events" | "team" | "work" | "manifesto";
+type ActivePage = "home" | "events" | "team" | "work" | "manifesto" | "get-involved";
 
 interface SiteHeaderProps {
   active?: ActivePage;
@@ -15,7 +15,7 @@ const NAV: { key: string; href: string; label: string }[] = [
   { key: "team", href: "/team", label: "Team" },
   { key: "work", href: "/work", label: "Work" },
   { key: "manifesto", href: "/manifesto", label: "Manifesto" },
-  { key: "participate", href: "/#participate", label: "Participate" },
+  { key: "get-involved", href: "/get-involved", label: "Get Involved" },
 ];
 
 const MENU_ID = "mobile-nav-menu";

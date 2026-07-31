@@ -103,6 +103,16 @@ export const ROUTES: RouteEntry[] = [
       "The Living Trust Framework is Playa AI's public working framework for consent, data dignity, privacy, and human agency in AI-mediated experiences. It provides principles, patterns, and implementation guidance for organizations that collect, process, or act on personal data in AI contexts. The framework is a living document — updated as community feedback and real-world implementation inform its development.",
   },
 
+  {
+    path: "/get-involved",
+    title: "Get Involved — Playa AI",
+    description:
+      "Participate in building human-centered AI. Seven paths for builders, artists, researchers, funders, cultural stewards, institutions, and general participation.",
+    canonical: `${SITE_URL}/get-involved`,
+    summary:
+      "Playa AI invites builders, artists, researchers, funders, cultural stewards, and institutions to participate in building human-centered AI infrastructure. The Get Involved page provides seven participation paths — each with a concise invitation and a direct message form delivered to hello@playa-ai.org. Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3).",
+  },
+
   // ── Non-indexable archive routes ──────────────────────────────────────────
   {
     path: "/privacy-toolkit",

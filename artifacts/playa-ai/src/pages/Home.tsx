@@ -220,7 +220,7 @@ const OPERATING_MODEL = [
     title: "Fund",
     desc: "We are developing responsible ways to support artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. The Year-One microgrant program is in development, and the artist interest list is open.",
     cta: "Support Year One →",
-    href: "mailto:hello@playa-ai.org?subject=Donor%20Inquiry",
+    href: "/get-involved#funders",
   },
   {
     n: "04",
@@ -322,7 +322,7 @@ const PARTICIPATION = [
     title: "Build under a consent framework",
     desc: "Access the working group, EELP consent protocols, and community testing infrastructure. Build tools that respect the people they serve.",
     cta: "Join the working group →",
-    href: "mailto:hello@playa-ai.org?subject=Working%20Group%20Interest",
+    href: "/get-involved#builders",
     highlight: false,
   },
   {
@@ -330,7 +330,7 @@ const PARTICIPATION = [
     title: "Year-One Microgrant Program",
     desc: "The Year-One microgrant program is in development, for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
     cta: "Join the artist interest list →",
-    href: "mailto:hello@playa-ai.org?subject=Artist%20Interest%20List",
+    href: "/get-involved#artists",
     highlight: false,
   },
   {
@@ -338,7 +338,7 @@ const PARTICIPATION = [
     title: "Research-oriented field methods",
     desc: "Clear consent layers, minimal data collection, and publishable learning — designed to support rigorous collaborative research.",
     cta: "Propose a collaboration →",
-    href: "mailto:hello@playa-ai.org?subject=Research%20Collaboration",
+    href: "/get-involved#researchers",
     highlight: false,
   },
   {
@@ -346,7 +346,7 @@ const PARTICIPATION = [
     title: "Support Year One",
     desc: "Fund the standards work, governance design, Connect pilots, documentation, and public field reporting. Tax-deductible giving through Mystic Arts Foundation.",
     cta: "Schedule donor conversation →",
-    href: "mailto:hello@playa-ai.org?subject=Donor%20Inquiry",
+    href: "/get-involved#funders",
     highlight: true,
   },
   {
@@ -354,7 +354,7 @@ const PARTICIPATION = [
     title: "Bring programming and partnerships",
     desc: "Help translate the connection between culture, community, and responsible AI. Bring events, programming, and field partnerships to the initiative.",
     cta: "Start the conversation →",
-    href: "mailto:hello@playa-ai.org?subject=Cultural%20Stewardship",
+    href: "/get-involved#stewards",
     highlight: false,
   },
   {
@@ -362,7 +362,7 @@ const PARTICIPATION = [
     title: "Become a Founding Adopter",
     desc: "Universities, museums, festivals, civic AI teams. Test EELP in real community settings. The Founding Adopter pathway is open.",
     cta: "Request adopter conversation →",
-    href: "mailto:hello@playa-ai.org?subject=Founding%20Adopter%20Inquiry",
+    href: "/get-involved#institutions",
     highlight: false,
   },
 ];
@@ -1018,16 +1018,14 @@ export default function Home() {
         </div>
 
         <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-10 max-w-3xl">
-          Choose the path closest to you. Each option opens a pre-addressed
-          email to{" "}
+          Choose the path closest to you. Each option takes you to the{" "}
           <a
-            href="mailto:hello@playa-ai.org"
+            href="/get-involved"
             className="border-b border-current pb-0.5 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
           >
-            hello@playa-ai.org
-          </a>
-          . Tell us what brings you to Playa AI and what you hope to contribute,
-          explore, or support.
+            Get Involved
+          </a>{" "}
+          page to introduce yourself and share what brings you to Playa AI.
         </p>
 
         <motion.div

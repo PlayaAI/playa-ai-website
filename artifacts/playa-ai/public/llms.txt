@@ -23,6 +23,7 @@ and planned governance work.
 /manifesto                Burner-AI Manifesto — founding cultural text on AI, creativity, consent, and human agency.
 /eelp                     EELP (Ethical Experience Lab Protocol) — public draft protocol for consent and disclosure in AI-mediated experiences.
 /living-trust-framework   Living Trust Framework — public working framework for consent, data dignity, privacy, and human agency.
+/get-involved             Get Involved — seven participation paths for builders, artists, researchers, funders, cultural stewards, institutions, and general participation.
 
 # Historical archives (not canonical current content)
 /privacy-toolkit          Archived earlier privacy-framework page. Retained for historical continuity. Not current content.

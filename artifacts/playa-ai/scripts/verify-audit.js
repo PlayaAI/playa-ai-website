@@ -65,6 +65,7 @@ const CANONICAL_ROUTES = [
   { path: "manifesto/index.html", label: "/manifesto" },
   { path: "eelp/index.html", label: "/eelp" },
   { path: "living-trust-framework/index.html", label: "/living-trust-framework" },
+  { path: "get-involved/index.html", label: "/get-involved" },
 ];
 
 const titles = new Set();
@@ -141,7 +142,7 @@ const sitemapPath = join(DIST, "sitemap.xml");
 check("sitemap.xml exists", existsSync(sitemapPath));
 if (existsSync(sitemapPath)) {
   const sitemap = readFileSync(sitemapPath, "utf-8");
-  const expectedRoutes = ["/", "/work", "/events", "/team", "/manifesto", "/eelp", "/living-trust-framework"];
+  const expectedRoutes = ["/", "/work", "/events", "/team", "/manifesto", "/eelp", "/living-trust-framework", "/get-involved"];
   for (const r of expectedRoutes) {
     check(`sitemap.xml — contains ${r}`, sitemap.includes(`playa-ai.org${r}`));
   }
@@ -275,6 +276,7 @@ const canonicalPageFiles = {
   "/manifesto": "src/pages/Manifesto.tsx",
   "/eelp": "src/pages/EELP.tsx",
   "/living-trust-framework": "src/pages/LivingTrustFramework.tsx",
+  "/get-involved": "src/pages/GetInvolved.tsx",
 };
 for (const [route, srcPath] of Object.entries(canonicalPageFiles)) {
   const src = readSrc(srcPath);
@@ -335,7 +337,122 @@ if (homeHtml) {
     !homeHtml.includes("philanthropic, public-interest"));
 }
 
-// ── 10. Summary ──────────────────────────────────────────────────────────────
+// ── 10. Get Involved page assertions ─────────────────────────────────────────
+console.log("\n── 10. Get Involved page assertions ─────────────────────────────");
+const giSrc = readSrc("src/pages/GetInvolved.tsx");
+if (!giSrc) {
+  check("/get-involved — GetInvolved.tsx exists in src/pages", false, "File not found.");
+} else {
+  // 7 anchored sections
+  const anchors = ["builders", "artists", "researchers", "funders", "stewards", "institutions", "general"];
+  for (const anchor of anchors) {
+    check(`GetInvolved.tsx — anchor #${anchor} present`,
+      giSrc.includes(`anchor: "${anchor}"`),
+      `Add a section with anchor: "${anchor}" to the SECTIONS array.`);
+  }
+
+  // 7 participation path options
+  const pathValues = ["builders", "artists", "researchers", "funders", "stewards", "institutions", "general"];
+  for (const v of pathValues) {
+    check(`GetInvolved.tsx — path option "${v}" present in PATHS`,
+      giSrc.includes(`value: "${v}"`),
+      `Add { value: "${v}", ... } to the PATHS array.`);
+  }
+
+  // Required form fields present
+  check('GetInvolved.tsx — name input present (name="name")',
+    giSrc.includes('name="name"'));
+  check('GetInvolved.tsx — email input present (name="email")',
+    giSrc.includes('name="email"'));
+  check('GetInvolved.tsx — participation_path select present',
+    giSrc.includes('name="participation_path"'));
+  check('GetInvolved.tsx — message textarea present (name="message")',
+    giSrc.includes('name="message"'));
+  check('GetInvolved.tsx — consent checkbox present',
+    giSrc.includes('name="consent"') && giSrc.includes('type="checkbox"'));
+
+  // Consent wording
+  check('GetInvolved.tsx — consent label wording present',
+    giSrc.includes("I understand that Playa AI may use this information to respond to my inquiry."),
+    "Exact consent wording missing — do not simplify it.");
+
+  // Privacy microcopy (no /privacy link — no route exists)
+  check('GetInvolved.tsx — privacy contact link to hello@playa-ai.org present',
+    giSrc.includes("privacy or deletion questions"));
+
+  // Form endpoint integration
+  check('GetInvolved.tsx — VITE_GET_INVOLVED_FORM_ENDPOINT referenced',
+    giSrc.includes("VITE_GET_INVOLVED_FORM_ENDPOINT"),
+    "The form must read VITE_GET_INVOLVED_FORM_ENDPOINT from import.meta.env.");
+
+  // Honest unconfigured state
+  check('GetInvolved.tsx — unconfigured state message present',
+    giSrc.includes("Online submission temporarily unavailable") ||
+    giSrc.includes("Online submission temporarily unavailable"),
+    "Show an honest unavailable state when the endpoint is not configured.");
+
+  // mailto fallback
+  check('GetInvolved.tsx — mailto fallback to hello@playa-ai.org present',
+    giSrc.includes("mailto:hello@playa-ai.org"),
+    "Provide a mailto:hello@playa-ai.org fallback.");
+
+  // Honeypot field
+  check('GetInvolved.tsx — honeypot field present',
+    giSrc.includes("honeypot") || giSrc.includes("_gotcha") || giSrc.includes("_website"),
+    "A honeypot hidden field is required for bot detection.");
+
+  // No localStorage or sessionStorage
+  check('GetInvolved.tsx — no localStorage usage',
+    !giSrc.includes("localStorage"),
+    "Do not persist form data to localStorage.");
+  check('GetInvolved.tsx — no sessionStorage usage',
+    !giSrc.includes("sessionStorage"),
+    "Do not persist form data to sessionStorage.");
+
+  // contentStatus and id="main-content" (already checked in 8e/8h — spot-check here too)
+  check('GetInvolved.tsx — contentStatus present',
+    giSrc.includes("Website content reviewed July 2026."));
+  check('GetInvolved.tsx — id="main-content" landmark present',
+    giSrc.includes('id="main-content"'));
+}
+
+// SiteHeader navigation links to /get-involved
+const headerSrc2 = readSrc("src/components/SiteHeader.tsx");
+if (headerSrc2) {
+  check('SiteHeader.tsx — nav links to /get-involved (not /#participate)',
+    headerSrc2.includes('href: "/get-involved"'),
+    "The Participate/Get Involved nav entry must point to /get-involved, not /#participate.");
+}
+
+// Home.tsx DOORS link to /get-involved anchors (homeSrc already declared in section 8)
+if (homeSrc) {
+  const homeAnchors = ["builders", "artists", "researchers", "funders", "stewards", "institutions"];
+  for (const anchor of homeAnchors) {
+    check(`Home.tsx — PARTICIPATION card links to /get-involved#${anchor}`,
+      homeSrc.includes(`/get-involved#${anchor}`),
+      `Change the ${anchor} PARTICIPATION card href from mailto: to /get-involved#${anchor}.`);
+  }
+  check('Home.tsx — no PARTICIPATION card uses a mailto: subject-line href',
+    !(homeSrc.includes("mailto:hello@playa-ai.org?subject=Working%20Group%20Interest") ||
+      homeSrc.includes("mailto:hello@playa-ai.org?subject=Artist%20Interest%20List") ||
+      homeSrc.includes("mailto:hello@playa-ai.org?subject=Research%20Collaboration") ||
+      homeSrc.includes("mailto:hello@playa-ai.org?subject=Donor%20Inquiry") ||
+      homeSrc.includes("mailto:hello@playa-ai.org?subject=Cultural%20Stewardship") ||
+      homeSrc.includes("mailto:hello@playa-ai.org?subject=Founding%20Adopter%20Inquiry")),
+    "All six PARTICIPATION card hrefs must be updated to /get-involved#<anchor>.");
+}
+
+// /get-involved in llms.txt
+const llmsSrc = existsSync(join(DIST, "llms.txt"))
+  ? readFileSync(join(DIST, "llms.txt"), "utf-8")
+  : null;
+if (llmsSrc) {
+  check("llms.txt — /get-involved canonical entry present",
+    llmsSrc.includes("/get-involved"),
+    "Add /get-involved to the canonical pages section of llms.txt.");
+}
+
+// ── 11. Summary ──────────────────────────────────────────────────────────────
 console.log(`\n${"─".repeat(64)}`);
 console.log(`  Passed: ${passed}   Failed: ${failed}`);
 if (failed > 0) {

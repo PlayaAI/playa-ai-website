@@ -1,0 +1,431 @@
+You are implementing the next production-ready Playa AI website release.
+
+## Objective
+
+Build a new canonical `/get-involved` page with seven participation paths and an accessible form that delivers submissions by email to:
+
+`hello@playa-ai.org`
+
+This work addresses original July 2026 audit item **#28**. Preserve that audit number in all documentation. Do not replace it with newly invented implementation-task numbering.
+
+## Repository and scope
+
+Work only in:
+
+`artifacts/playa-ai`
+
+Expected starting point:
+
+* Branch: `main`
+* Expected HEAD: `d66332b`
+* Stack: React 18, TypeScript, Vite, Tailwind, Wouter, Framer Motion
+* Existing build: 13 prerendered routes
+* Existing verification baseline: `176/176`
+* No deployment, push, tag, release, or external account creation is authorized.
+
+Before changing anything:
+
+1. Confirm the working directory is `artifacts/playa-ai`.
+2. Confirm HEAD and branch.
+3. Run `git status --short`.
+4. Do not modify unrelated repositories, `.agents/memory`, or task files in `attached_assets`.
+5. Preserve all existing user-approved wording and completed audit work.
+
+## Approved wording and exception
+
+Preserve this exact organizational wording everywhere it already appears:
+
+`Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)`
+
+The apostrophe in `Foundation’s` must be U+2019.
+
+Preserve the approved homepage exception:
+
+`Born on the Playa. Gifted to the Planet.`
+
+Do not restore old fiscal-sponsorship language or invent legal interpretations.
+
+## 1. Create the canonical route
+
+Create:
+
+`/get-involved`
+
+Add it to the canonical route system and all appropriate website infrastructure:
+
+* Wouter routing
+* Route metadata
+* Vite prerendering
+* Sitemap
+* `llms.txt`
+* Site navigation
+* Mobile navigation
+* Footer or participation links where appropriate
+* Copy and audit validators
+
+After this change, expected route totals are:
+
+* 8 canonical routes
+* 6 archive/alias routes
+* 14 total prerendered routes
+
+Add appropriate metadata:
+
+* Title: `Get Involved — Playa AI`
+* Canonical URL: `https://playa-ai.org/get-involved`
+* Open Graph URL and title
+* A concise, factual meta description
+* Exactly one page H1
+* Content review date using the project’s established format
+
+Do not add `/get-involved` to the archive/noindex list.
+
+## 2. Create seven anchored participation paths
+
+The page must contain these exact anchors:
+
+* `#builders`
+* `#artists`
+* `#researchers`
+* `#funders`
+* `#stewards`
+* `#institutions`
+* `#general`
+
+Create a distinct, accessible section for each:
+
+1. Builders
+2. Artists
+3. Researchers
+4. Funders
+5. Cultural Stewards
+6. Institutions
+7. General Participation
+
+Each section should include:
+
+* A clear heading
+* A concise explanation of how that audience could participate
+* An honest invitation
+* A button that selects the corresponding participation path in the form
+* Keyboard-accessible behavior
+* Visible focus styling
+
+Do not invent guaranteed opportunities, grants, access, partnerships, employment, funding, membership benefits, or formal programs.
+
+Use invitation language such as:
+
+* Share relevant experience
+* Propose a collaboration
+* Contribute perspective or research
+* Explore aligned support
+* Help shape responsible cultural practices
+* Discuss an institutional collaboration
+* Introduce yourself and your interests
+
+The visual design must match the existing Playa AI system.
+
+## 3. Update existing participation links
+
+Change relevant participation CTAs that currently open generic email drafts so that they lead to the appropriate anchored section:
+
+* Builders → `/get-involved#builders`
+* Artists → `/get-involved#artists`
+* Researchers → `/get-involved#researchers`
+* Funders → `/get-involved#funders`
+* Cultural stewards → `/get-involved#stewards`
+* Institutions → `/get-involved#institutions`
+* General participation → `/get-involved#general`
+
+Change the primary `Participate` navigation destination to `/get-involved`.
+
+Retain a direct `mailto:hello@playa-ai.org` fallback where it is useful, especially in the form’s unavailable/error state.
+
+Do not remove unrelated working links.
+
+## 4. Build the email-delivery form
+
+Create an accessible form with these fields:
+
+* Name — required
+* Email — required
+* Participation path — required, containing all seven paths
+* Organization — optional
+* Message — required
+* Consent checkbox — required
+* Hidden honeypot field — anti-spam
+
+Use reasonable length limits:
+
+* Name: maximum 120 characters
+* Email: maximum 254 characters
+* Organization: maximum 160 characters
+* Message: minimum 20 and maximum 2,000 characters
+
+Consent wording:
+
+`I understand that Playa AI may use this information to respond to my inquiry. I will not submit sensitive personal information.`
+
+Privacy microcopy:
+
+`Your submission will be delivered by email to hello@playa-ai.org and used to respond to your inquiry. Please do not include sensitive personal information.`
+
+Also provide:
+
+`For privacy or deletion questions, email hello@playa-ai.org.`
+
+Do not link to `/privacy`, because that destination does not currently exist.
+
+Do not invent retention periods, privacy guarantees, encryption claims, service-provider identities, or deletion policies.
+
+## 5. Implement provider-neutral email delivery
+
+The website is statically hosted, so do not invent a server route that cannot run in production.
+
+Use this public environment variable:
+
+`VITE_GET_INVOLVED_FORM_ENDPOINT`
+
+Add it to `.env.example` with a clear comment, but do not add a real endpoint or secret.
+
+Implement submission using `fetch()` and `FormData`. Send fields including:
+
+* `name`
+* `email`
+* `participation_path`
+* `organization`
+* `message`
+* `consent`
+* `_subject`
+* honeypot field
+
+Suggested subject:
+
+`Playa AI Get Involved — [Participation Path]`
+
+Use:
+
+`Accept: application/json`
+
+Do not manually set the multipart `Content-Type` header.
+
+Treat only a successful HTTP response as successful delivery.
+
+Never:
+
+* Hardcode credentials or API keys
+* Put secret API keys in `VITE_` variables
+* Store submissions in localStorage or sessionStorage
+* Send form contents to analytics
+* Create an unapproved database
+* Create an external form-provider account
+* Claim a submission was delivered when it was not
+* Log submitted personal information to the browser console
+
+If a proposed provider requires a secret inside frontend JavaScript, do not implement it. Report that provider as unsuitable for a static client-side integration.
+
+## 6. Honest unconfigured behavior
+
+When `VITE_GET_INVOLVED_FORM_ENDPOINT` is absent or blank:
+
+* Do not attempt a network request.
+* Do not show a fake success state.
+* Explain that online submission is temporarily unavailable.
+* Provide a portable fallback link:
+
+`mailto:hello@playa-ai.org`
+
+The fallback should populate a useful subject such as:
+
+`Playa AI Get Involved — [Participation Path]`
+
+It may populate a short body template, but must not silently transfer form values into another service.
+
+Audit item #28 must be classified as:
+
+* Locally implemented, endpoint configuration pending; or
+* Fully verified only if an approved endpoint is configured and a real delivery is confirmed.
+
+Do not mark email delivery fully complete based only on a mocked response.
+
+## 7. Form interaction and accessibility
+
+Implement all of the following:
+
+* Explicit labels for every field
+* Helpful descriptions connected with `aria-describedby`
+* Native HTML validation where appropriate
+* Clear inline error messages
+* An error summary for invalid submissions
+* Focus movement to the error summary after a failed validation
+* `aria-live` status messaging
+* Submitting/loading state
+* Delivery-error state
+* Success state
+* Duplicate-submit prevention
+* Preserve entered values when delivery fails
+* Reset the form only after confirmed success
+* Fully keyboard-accessible controls
+* Visible `focus-visible` styling
+* Responsive layout at mobile, tablet, and desktop widths
+* Reduced-motion compatibility
+
+When a visitor arrives through an anchor, preselect the matching participation path.
+
+When a participation-section button is activated:
+
+1. Select that path in the form.
+2. Move or scroll to the form.
+3. Place focus on the first appropriate field.
+4. Respect reduced-motion preferences.
+
+Hash navigation must also work when the page is opened directly.
+
+## 8. Validation and audit safeguards
+
+Update `check:copy` and `verify:audit` so they meaningfully verify the new implementation.
+
+Assertions should cover at least:
+
+* `/get-involved` exists
+* It is canonical and indexable
+* It is included in prerendering
+* It is included in `sitemap.xml`
+* It is represented accurately in `llms.txt`
+* Correct canonical and Open Graph metadata
+* Exactly one H1
+* All seven required anchors
+* All seven participation options
+* Required form fields
+* Consent checkbox and exact consent wording
+* Privacy microcopy
+* `VITE_GET_INVOLVED_FORM_ENDPOINT` integration
+* Honest missing-endpoint state
+* `mailto:hello@playa-ai.org` fallback
+* Honeypot field
+* No storage of form data
+* No hardcoded secret
+* Navigation points to `/get-involved`
+* Relevant homepage participation links use the correct anchors
+* Existing U+2019 organizational-copy requirements remain intact
+* Existing prohibited-copy checks continue to pass
+
+Do not inflate the assertion count with meaningless duplicate checks. Report the new total accurately.
+
+## 9. Documentation
+
+Update the existing audit continuity/status documentation and `BLOCKERS.md`.
+
+For original audit item #28, document:
+
+* Seven-section Get Involved page: implemented
+* Accessible form UI: implemented
+* Provider-neutral email submission integration: implemented
+* Final endpoint selection/configuration: pending if no endpoint is supplied
+* Confirmed receipt at `hello@playa-ai.org`: pending until a real approved delivery test succeeds
+
+Do not renumber the original audit.
+
+Document the exact remaining resolution criteria:
+
+1. Select an approved form endpoint/provider.
+2. Configure `VITE_GET_INVOLVED_FORM_ENDPOINT` in production.
+3. Redeploy.
+4. Submit clearly synthetic test data.
+5. Confirm receipt at `hello@playa-ai.org`.
+6. Confirm no unwanted personal-data logging or storage.
+7. Record the successful production test.
+
+Do not add invented owners or completion dates.
+
+## 10. Verification
+
+Run:
+
+```bash
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Run lint or automated tests only if scripts exist. Do not falsely report unavailable scripts as passing.
+
+Perform browser QA at:
+
+* 390 × 844
+* 768 × 1024
+* 1440 × 900
+
+Verify:
+
+* Full page layout
+* Mobile navigation
+* Every anchor
+* Every participation-selection button
+* Preselection from direct hash URLs
+* Required-field errors
+* Invalid email handling
+* Message length handling
+* Consent requirement
+* Loading state
+* Mocked successful response
+* Mocked failed response
+* Missing-endpoint state
+* Mailto fallback
+* Keyboard navigation
+* Focus management
+* No horizontal overflow
+* No application console errors
+
+If no approved live endpoint is configured, use controlled local mocks only. Do not transmit test data to an unknown external service.
+
+## 11. Source-control restrictions
+
+Create one focused local commit after all checks pass.
+
+Do not:
+
+* Push
+* Deploy
+* Publish
+* Tag
+* Create a GitHub release
+* Create an external service account
+* Modify unrelated files
+* Commit uploaded task instructions
+* Change `.agents/memory`
+
+## Required final report
+
+Return:
+
+1. Starting and final commit hashes
+2. Complete changed-file list with each file’s purpose
+3. Exact `/get-involved` route architecture
+4. Exact seven anchors and link destinations
+5. Exact form fields and validation rules
+6. Email-delivery implementation details
+7. Whether `VITE_GET_INVOLVED_FORM_ENDPOINT` was configured
+8. Whether a real email was sent and independently confirmed received
+9. Missing-endpoint and delivery-error behavior
+10. Accessibility verification
+11. Metadata, sitemap, `llms.txt`, and prerender results
+12. Browser QA results by route and viewport
+13. All command results and exit codes
+14. New verification assertion count
+15. New canonical and total route counts
+16. Bundle filenames and sizes
+17. Updated audit #28 classification
+18. Every remaining blocker and its exact resolution criteria
+19. Final `git status --short --branch`
+20. Explicit confirmation that nothing was pushed, deployed, tagged, released, or externally provisioned
+
+Use one of these final verdicts:
+
+* `LOCALLY COMPLETE — EMAIL ENDPOINT CONFIGURATION REQUIRED`
+* `READY FOR PRODUCTION EMAIL TEST`
+* `BLOCKED — [exact reason]`
+
+Do not use `FULLY COMPLETE` unless a real submission has been delivered through the approved production endpoint and receipt at `hello@playa-ai.org` has been independently confirmed.
