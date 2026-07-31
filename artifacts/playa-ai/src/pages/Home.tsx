@@ -1146,7 +1146,8 @@ export default function Home() {
               Legal structure
             </p>
             <p className="text-lg text-foreground">
-              Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)
+              Playa AI is a human-centered AI initiative, part of{" "}
+              <span className="font-bold">Mystic Arts Foundation</span>’s California 501(c)(3)
             </p>
           </div>
           <div>

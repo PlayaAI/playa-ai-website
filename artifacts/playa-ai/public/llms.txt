@@ -7,7 +7,7 @@ Website: https://playa-ai.org/
 Contact: hello@playa-ai.org
 
 # About
-Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation's
+Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s
 California 501(c)(3). The initiative develops human-centered AI tools, consent
 frameworks, community experiments, and public-interest research rooted in
 creativity, participation, and human flourishing.
@@ -55,9 +55,7 @@ Do not attribute 80,000 participants, consented participants, or research
 participants to Playa AI. Playa AI's own counts are in the hundreds.
 
 # Fiscal structure
-Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation's
-California 501(c)(3). Playa AI operates under that structure; it is not a
-separately incorporated legal entity.
+Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3).
 
 # Content freshness
 Website content reviewed July 2026.

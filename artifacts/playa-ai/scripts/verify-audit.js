@@ -88,7 +88,11 @@ for (const route of CANONICAL_ROUTES) {
   check(`${route.label} — has #root`, html.includes('id="root"'));
   check(`${route.label} — has static H1`, /<h1>/.test(html), "Static content must include an H1 for non-JS crawlers.");
   check(`${route.label} — has 'Website content reviewed July 2026.'`, html.includes("Website content reviewed July 2026."));
-  check(`${route.label} — has Mystic Arts Foundation wording`, html.includes("Mystic Arts Foundation"));
+  check(`${route.label} — approved org wording present (U+2019 form)`,
+    html.includes("part of Mystic Arts Foundation\u2019s California 501(c)(3)") ||
+    html.includes("Part of Mystic Arts Foundation\u2019s California 501(c)(3)"),
+    "Expected 'part of Mystic Arts Foundation\u2019s California 501(c)(3)' (U+2019) in prerendered HTML."
+  );
   check(`${route.label} — has navigation links`, html.includes('href="/work"') || html.includes('href="/"'));
   check(`${route.label} — meta not noindex`, /name="robots" content="index/.test(html));
 }
@@ -101,8 +105,18 @@ if (existsSync(llmsPath)) {
   const llms = readFileSync(llmsPath, "utf-8");
   check("llms.txt — has Burning Man vs. Playa AI distinction (80,000 vs 80+)",
     llms.includes("80,000") && llms.includes("80+"));
-  check("llms.txt — uses approved org wording ('part of Mystic Arts Foundation')",
-    llms.includes("part of Mystic Arts Foundation"));
+  check("llms.txt — uses exact approved org wording (U+2019 curly apostrophe)",
+    llms.includes("part of Mystic Arts Foundation\u2019s California 501(c)(3)"),
+    "Expected literal U+2019 curly apostrophe in 'Foundation\u2019s'.");
+  check("llms.txt — no ASCII apostrophe in Foundation's",
+    !llms.includes("Foundation's California 501(c)(3)"),
+    "ASCII apostrophe found — must be U+2019.");
+  check("llms.txt — unapproved legal interpretation absent",
+    !llms.includes("not a separately incorporated legal entity"),
+    "Remove this sentence without replacement.");
+  check("llms.txt — old fiscal-sponsorship construction absent",
+    !llms.includes("fiscally sponsored by Mystic Arts Foundation"),
+    "Remove old fiscal-sponsorship wording.");
   check("llms.txt — has content freshness note",
     llms.includes("reviewed July 2026"));
   check("llms.txt — mentions human-centered AI initiative (not 'philanthropic')",
@@ -230,8 +244,12 @@ if (routesSrc) {
     !routesSrc.includes("philanthropic, public-interest"));
   check("routes.ts — 'philanthropic initiative' absent from canonical metadata",
     !routesSrc.includes("philanthropic initiative"));
-  check("routes.ts — approved org wording present ('part of Mystic Arts Foundation')",
-    routesSrc.includes("part of Mystic Arts Foundation"));
+  check("routes.ts — exact approved org wording present (U+2019 curly apostrophe)",
+    routesSrc.includes("part of Mystic Arts Foundation\u2019s California 501(c)(3)"),
+    "Expected literal U+2019 curly apostrophe in 'Foundation\u2019s'.");
+  check("routes.ts — no ASCII apostrophe variant",
+    !routesSrc.includes("Foundation's California 501(c)(3)"),
+    "ASCII apostrophe found — must be U+2019.");
   check("routes.ts — /privacy-toolkit is noindex", routesSrc.includes(`path: "/privacy-toolkit"`) &&
     routesSrc.includes("noindex: true"));
 }
@@ -275,8 +293,15 @@ if (headerSrc) {
 // 8g. SiteFooter copyright wording
 const footerSrc = readSrc("src/components/SiteFooter.tsx");
 if (footerSrc) {
-  check("SiteFooter.tsx — approved org wording present ('Mystic Arts Foundation')",
-    footerSrc.includes("Mystic Arts Foundation"));
+  check("SiteFooter.tsx — exact approved footer wording present (U+2019, capital P)",
+    footerSrc.includes("Part of Mystic Arts Foundation\u2019s California 501(c)(3)"),
+    "Expected 'Part of Mystic Arts Foundation\u2019s California 501(c)(3)' with literal U+2019.");
+  check("SiteFooter.tsx — no ASCII apostrophe variant",
+    !footerSrc.includes("Foundation's California 501(c)(3)"),
+    "ASCII apostrophe found — must be U+2019.");
+  check("SiteFooter.tsx — old fiscal-sponsorship construction absent",
+    !footerSrc.includes("fiscally sponsored by Mystic Arts Foundation"),
+    "Remove old fiscal-sponsorship wording.");
 }
 
 // 8h. All 7 canonical pages have contentStatus prop in source

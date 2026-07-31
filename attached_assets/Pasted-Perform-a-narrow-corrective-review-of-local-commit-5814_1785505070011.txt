@@ -1,0 +1,130 @@
+Perform a narrow corrective review of local commit `5814950` in `artifacts/playa-ai`.
+
+Do not deploy, push, tag, release, amend history, or modify external repositories.
+
+FIRST: VERIFY THE ACTUAL COMMIT
+
+Run:
+
+```bash
+pwd
+git status --short
+git branch --show-current
+git log -3 --oneline
+git show --stat --name-only --format=fuller 5814950
+git show --check 5814950
+git diff --stat 3dadaef..5814950
+git diff --name-only 3dadaef..5814950
+```
+
+Report every changed file, including the unnamed “memory index” mentioned in the previous report.
+
+If that memory-index file is unrelated to this wording change, restore only that file to its pre-change state in a new corrective commit. Do not amend or rewrite the existing commit.
+
+APPROVED WORDING
+
+The approved sentence is:
+
+`Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)`
+
+The apostrophe in `Foundation’s` must be the actual Unicode character U+2019—not an ASCII apostrophe and not the literal text `\u2019`.
+
+CORRECTIONS REQUIRED
+
+1. Remove this unapproved legal interpretation from `public/llms.txt`:
+
+   `Playa AI operates under that structure; it is not a separately incorporated legal entity.`
+
+2. Do not replace it with another legal, corporate, sponsorship or governance interpretation.
+
+3. Ensure canonical content uses only the approved wording supplied above.
+
+4. Restore the original visible emphasis in the Home legal-structure section. Mystic Arts Foundation may remain inside the existing bold `<span>` while the rendered `textContent` still reads as the approved sentence.
+
+5. Verify whether the source contains:
+
+   * ASCII `Foundation's`
+   * literal `Foundation\\u2019s`
+   * actual `Foundation’s`
+
+   Canonical source must use the actual curly-apostrophe form only.
+
+6. Inspect all changed surfaces:
+
+   * `Home.tsx`
+   * `Team.tsx`
+   * `SiteFooter.tsx`
+   * `routes.ts`
+   * `public/llms.txt`
+   * `vite.config.ts`
+   * `check-copy.js`
+   * `verify-audit.js`
+
+VALIDATOR CORRECTIONS
+
+Do not use the generic presence of `Mystic Arts Foundation` as proof that the wording is correct.
+
+Update `check:copy` to:
+
+* prohibit the previous fiscal-sponsorship wording in canonical source;
+* prohibit stale philanthropic variants;
+* prohibit ASCII `Foundation's California 501(c)(3)` in canonical content;
+* assert the exact approved U+2019 wording on the required canonical surfaces;
+* assert the correct shortened footer construction where the full sentence is not appropriate;
+* preserve intentional noindex Classic archive exclusions.
+
+Update `verify:audit` to assert:
+
+* exact approved wording in canonical visible content;
+* exact approved wording in homepage and Team metadata;
+* exact approved wording in `llms.txt`;
+* correct footer wording using U+2019;
+* absence of the old fiscal-sponsorship construction;
+* absence of the unapproved “not a separately incorporated legal entity” claim;
+* absence of ASCII or literal-escape apostrophe variants.
+
+Do not weaken a precise assertion into a generic search for `Mystic Arts Foundation`.
+
+VALIDATION
+
+Run:
+
+```bash
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Also provide exact search results for:
+
+```bash
+rg -n -F "fiscally sponsored by Mystic Arts Foundation" src public vite.config.ts
+rg -n -F "California nonprofit and U.S. 501(c)(3) public charity" src public vite.config.ts
+rg -n -F "Foundation's California 501(c)(3)" src public vite.config.ts
+rg -n -F 'Foundation\\u2019s California 501(c)(3)' src public vite.config.ts
+rg -n -F "Foundation’s California 501(c)(3)" src public vite.config.ts
+rg -n -F "not a separately incorporated legal entity" src public vite.config.ts
+```
+
+Archive-only matches must be listed and classified separately.
+
+FINAL REPORT
+
+Return:
+
+1. Complete changed-file list for commit `5814950`.
+2. Identity and purpose of the “memory index” file.
+3. Exact corrective files changed.
+4. Exact wording on every canonical surface.
+5. Confirmation that U+2019 is the actual stored character.
+6. Confirmation that the unapproved legal interpretation was removed.
+7. Confirmation that the bold visual emphasis was restored.
+8. Validator assertions added.
+9. Validation results and exit codes.
+10. Route count and new bundle names.
+11. Final git status.
+12. Confirmation that nothing was deployed, pushed, tagged or released.
+
+Keep this correction strictly scoped.

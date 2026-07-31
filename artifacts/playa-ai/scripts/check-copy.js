@@ -98,6 +98,16 @@ const PROHIBITED = [
       "'Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3)'.",
   },
   {
+    pattern: "Foundation's California 501(c)(3)",
+    reason:
+      "ASCII apostrophe in org wording. Canonical source must use the actual U+2019 curly apostrophe: Foundation\u2019s California 501(c)(3).",
+  },
+  {
+    pattern: "not a separately incorporated legal entity",
+    reason:
+      "Unapproved legal interpretation. Remove without replacement.",
+  },
+  {
     pattern: "Sign it as",
     reason:
       "False pledge-signing wording. The pledge is an expression-of-interest flow, " +
@@ -195,6 +205,8 @@ for (const file of componentFiles) {
     "human-AI co-evolution",
     "fiscally sponsored by Mystic Arts Foundation",
     "California nonprofit and U.S. 501(c)(3) public charity",
+    "Foundation's California 501(c)(3)",
+    "not a separately incorporated legal entity",
   ];
   for (const pattern of llmsProhibited) {
     const idx = content.indexOf(pattern);
@@ -210,24 +222,51 @@ for (const file of componentFiles) {
 }
 
 // ── Positive organizational wording assertion ─────────────────────────────────
-// The approved org wording must appear in all required canonical surfaces.
-// Uses "part of Mystic Arts Foundation" as the match key (apostrophe-agnostic).
-// Use "Mystic Arts Foundation" as the key — matches regardless of apostrophe
-// style or sentence case ("Part of..." in footer vs "part of..." in body copy).
-const NEW_ORG_WORDING_KEY = "Mystic Arts Foundation";
-const ORG_ASSERTION_FILES = [
-  { path: join(PAGES_DIR, "Home.tsx"), label: "Home.tsx" },
-  { path: join(PAGES_DIR, "Team.tsx"), label: "Team.tsx" },
-  { path: join(COMPONENTS_DIR, "SiteFooter.tsx"), label: "SiteFooter.tsx" },
-  { path: ROUTES_FILE, label: "routes.ts" },
-  { path: LLMS_FILE, label: "llms.txt" },
+// The exact approved wording (with real U+2019 curly apostrophe) must appear
+// on each canonical surface. Per-surface strings are used to avoid accepting
+// a generic presence of "Mystic Arts Foundation" as proof of correct wording.
+// Body copy uses lowercase "part of"; footer uses capital "Part of".
+const APPROVED_BODY_WORDING = "part of Mystic Arts Foundation\u2019s California 501(c)(3)";
+const APPROVED_FOOTER_WORDING = "Part of Mystic Arts Foundation\u2019s California 501(c)(3)";
+
+const ORG_ASSERTION_SURFACES = [
+  {
+    path: join(PAGES_DIR, "Home.tsx"),
+    label: "Home.tsx",
+    expected: APPROVED_BODY_WORDING,
+    description: "approved body-copy wording (U+2019)",
+  },
+  {
+    path: join(PAGES_DIR, "Team.tsx"),
+    label: "Team.tsx",
+    expected: APPROVED_BODY_WORDING,
+    description: "approved body-copy wording (U+2019)",
+  },
+  {
+    path: join(COMPONENTS_DIR, "SiteFooter.tsx"),
+    label: "SiteFooter.tsx",
+    expected: APPROVED_FOOTER_WORDING,
+    description: "approved footer wording with capital P and U+2019",
+  },
+  {
+    path: ROUTES_FILE,
+    label: "routes.ts",
+    expected: APPROVED_BODY_WORDING,
+    description: "approved wording in route summaries (U+2019)",
+  },
+  {
+    path: LLMS_FILE,
+    label: "llms.txt",
+    expected: APPROVED_BODY_WORDING,
+    description: "approved wording in llms.txt (U+2019)",
+  },
 ];
-for (const { path: filePath, label } of ORG_ASSERTION_FILES) {
+for (const { path: filePath, label, expected, description } of ORG_ASSERTION_SURFACES) {
   const content = readFileSync(filePath, "utf-8");
-  if (!content.includes(NEW_ORG_WORDING_KEY)) {
+  if (!content.includes(expected)) {
     console.error(
-      `\n❌  ${label}\n   Missing approved org wording: "${NEW_ORG_WORDING_KEY}"\n` +
-      `   All canonical org surfaces must use the approved 'part of Mystic Arts Foundation\u2019s California 501(c)(3)' construction.\n`
+      `\n❌  ${label}\n   Missing ${description}: "${expected}"\n` +
+      `   Canonical source must use the exact U+2019 curly apostrophe in the approved construction.\n`
     );
     anyFailed = true;
   }
