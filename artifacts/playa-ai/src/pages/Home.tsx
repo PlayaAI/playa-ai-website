@@ -371,7 +371,7 @@ const TRUST_ITEMS = [
   {
     n: "01",
     title: "Fiscal sponsorship",
-    body: "Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3). Tax-deductible giving available. Infrastructure, not theater.",
+    body: "Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation's California 501(c)(3). Tax-deductible giving available. Infrastructure, not theater.",
   },
   {
     n: "02",
