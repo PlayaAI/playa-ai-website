@@ -383,7 +383,7 @@ export default function Events() {
           The archive grows. <i className="italic font-normal">The next room is already forming.</i>
         </h2>
         <a
-          href="mailto:hello@playa-ai.org?subject=Events%20%E2%80%94%20Propose%20or%20Partner"
+          href="mailto:team@playa-ai.org?subject=Events%20%E2%80%94%20Propose%20or%20Partner"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"

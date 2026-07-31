@@ -223,12 +223,15 @@ Blockers are grouped by type. Every blocker includes the original audit ID, curr
 
 ### Group 5 — Conversion / Forms
 
-#### BLOCKER C1 — /get-involved page — email delivery confirmation pending
+#### BLOCKER C1 — /get-involved page — inbox delivery confirmation pending
 - **Audit ID:** #28
-- **Status as of July 2026:** Page, form, and all seven participation sections are implemented. Route `/get-involved` exists and is prerendered. The six homepage PARTICIPATION cards now link to `/get-involved#<anchor>` instead of `mailto:` addresses. The navigation "Participate" entry has been updated to `/get-involved`.
-- **What remains:** `VITE_GET_INVOLVED_FORM_ENDPOINT` is not yet configured. Until a provider-neutral form endpoint is set, the form shows an honest "Online submission temporarily unavailable" state with a `mailto:hello@playa-ai.org` fallback. Confirmed email delivery is pending.
+- **Status as of July 2026:** Page, form, and all seven participation sections implemented and prerendered. Formspree integration configured. `hello@playa-ai.org` is nonexistent and removed from all source files.
+- **Approved endpoint:** `https://formspree.io/f/mwvgdevg` (via `VITE_GET_INVOLVED_FORM_ENDPOINT`, set in Replit shared environment)
+- **Approved destination:** `team@playa-ai.org`
+- **Live endpoint test:** One synthetic QA submission sent to the Formspree endpoint this session; HTTP acceptance confirmed.
+- **What remains:** Inbox delivery confirmation. User must check `team@playa-ai.org` and confirm receipt. Production deployment also requires the env var to be set in the deployment environment and a rebuild.
 - **Exact question:** "What happens when someone submits their interest? Who receives it, who follows up, and how quickly?"
-- **Next action:** Choose a compatible form provider (Formspree, Getform, Basin, or a custom endpoint), set `VITE_GET_INVOLVED_FORM_ENDPOINT` in the deployment environment, test with synthetic data, and confirm receipt at hello@playa-ai.org.
+- **Next action:** User confirms receipt at `team@playa-ai.org`, then deploy with env var configured.
 - **Owner:** Product
 - **Priority:** P2
 
@@ -332,7 +335,7 @@ These items are deferred per task instructions. They require external repository
 | 25 | Correct external documents with conflated phrasing | **EXTERNAL ACTION** | Off-site documents (OECD.AI, Mozilla, funder emails) | Not applicable | BLOCKER X1 |
 | 26 | File the Burning Man vs. Playa AI participant decision record | **LOCALLY IMPLEMENTED** | `llms.txt` explicitly states the 80,000 / 80+ distinction; `verify:audit` confirms; `BORN IN THE BLACK ROCK DESERT · INDEPENDENT OF BURNING MAN ORGANIZATION` in homepage body | In build | None |
 | 27 | Correct the OpenAI grant record or complete licensing | **NEEDS HUMAN DECISION** | Nature of the grant and required correction are unclear from available documentation | Not applicable | BLOCKER E4 |
-| 28 | Build `/get-involved` with seven sections and a real form | **LOCALLY IMPLEMENTED — ENDPOINT PENDING** | Page, form, 7 sections, 7 anchors, nav update, DOORS updated; email delivery pending `VITE_GET_INVOLVED_FORM_ENDPOINT` config | `dist/public/get-involved/index.html`; `verify:audit` passes | BLOCKER C1 (endpoint config) |
+| 28 | Build `/get-involved` with seven sections and a real form | **IMPLEMENTED — INBOX CONFIRMATION PENDING** | Page, 7 sections, form, Formspree integration, `team@playa-ai.org`; QA submission sent; inbox confirmation pending user | `dist/public/get-involved/index.html`; `verify:audit` passes | BLOCKER C1 (inbox confirmation) |
 | 29 | Make the pledge signable and publish signatories | **BLOCKED** | Pledge is currently a mailto expression-of-interest flow | Not applicable | BLOCKER C2 |
 | 30 | Publish the reconciled nine-row event log with London | **NOT FIXED** | London event status unconfirmed; no reconciled event log published | Events page partial | BLOCKER E2 |
 | 31 | Build `/about` with origin, MAF/EIN, legal structure, affiliations, Council Charter | **BLOCKED** | No route; dependencies unresolved | No directory | BLOCKER C3 + L1 |

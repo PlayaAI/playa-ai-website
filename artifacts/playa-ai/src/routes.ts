@@ -110,7 +110,7 @@ export const ROUTES: RouteEntry[] = [
       "Participate in building human-centered AI. Seven paths for builders, artists, researchers, funders, cultural stewards, institutions, and general participation.",
     canonical: `${SITE_URL}/get-involved`,
     summary:
-      "Playa AI invites builders, artists, researchers, funders, cultural stewards, and institutions to participate in building human-centered AI infrastructure. The Get Involved page provides seven participation paths — each with a concise invitation and a direct message form delivered to hello@playa-ai.org. Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3).",
+      "Playa AI invites builders, artists, researchers, funders, cultural stewards, and institutions to participate in building human-centered AI infrastructure. The Get Involved page provides seven participation paths — each with a concise invitation and a direct message form delivered to team@playa-ai.org. Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3).",
   },
 
   // ── Non-indexable archive routes ──────────────────────────────────────────

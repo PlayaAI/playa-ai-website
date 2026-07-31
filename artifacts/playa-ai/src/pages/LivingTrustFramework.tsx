@@ -1026,7 +1026,7 @@ export default function LivingTrustFramework() {
               View the v0.1.0 public-review draft on GitHub →
             </a>
             <a
-              href="mailto:hello@playa-ai.org?subject=Living%20Trust%20Framework%20Brief%20Request"
+              href="mailto:team@playa-ai.org?subject=Living%20Trust%20Framework%20Brief%20Request"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
@@ -1034,7 +1034,7 @@ export default function LivingTrustFramework() {
               Request the brief →
             </a>
             <a
-              href="mailto:hello@playa-ai.org?subject=Living%20Trust%20Framework%20Contribution"
+              href="mailto:team@playa-ai.org?subject=Living%20Trust%20Framework%20Contribution"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-border hover:bg-foreground hover:text-background transition-colors duration-300"

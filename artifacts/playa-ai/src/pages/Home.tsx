@@ -179,7 +179,7 @@ function PledgeModal({
                   Drafted Spring 2026 · Black Rock Desert origin
                 </div>
                 <a
-                  href="mailto:hello@playa-ai.org?subject=Playa%20AI%20Pledge%20Interest"
+                  href="mailto:team@playa-ai.org?subject=Playa%20AI%20Pledge%20Interest"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClose}
@@ -227,7 +227,7 @@ const OPERATING_MODEL = [
     title: "Publish",
     desc: "Each pilot is designed to produce public learning—such as field notes, consent patterns, methods, failures, and, where appropriate, a public field report that other communities can adapt.",
     cta: "Request field report updates →",
-    href: "mailto:hello@playa-ai.org?subject=Field%20Report%20Notification",
+    href: "mailto:team@playa-ai.org?subject=Field%20Report%20Notification",
   },
 ];
 
@@ -1258,7 +1258,7 @@ export default function Home() {
             className="flex flex-wrap items-center justify-center gap-4 font-mono text-sm uppercase"
           >
             <a
-              href="mailto:hello@playa-ai.org?subject=Join%20the%20Playa%20AI%20Initiative"
+              href="mailto:team@playa-ai.org?subject=Join%20the%20Playa%20AI%20Initiative"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
@@ -1266,7 +1266,7 @@ export default function Home() {
               Join the initiative
             </a>
             <a
-              href="mailto:hello@playa-ai.org?subject=Partner%20with%20Playa%20AI"
+              href="mailto:team@playa-ai.org?subject=Partner%20with%20Playa%20AI"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"

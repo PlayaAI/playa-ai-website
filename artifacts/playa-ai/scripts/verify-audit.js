@@ -376,9 +376,16 @@ if (!giSrc) {
     giSrc.includes("I understand that Playa AI may use this information to respond to my inquiry."),
     "Exact consent wording missing — do not simplify it.");
 
-  // Privacy microcopy (no /privacy link — no route exists)
-  check('GetInvolved.tsx — privacy contact link to hello@playa-ai.org present',
-    giSrc.includes("privacy or deletion questions"));
+  // Privacy microcopy — exact Formspree disclosure and deletion contact (no /privacy link — no route exists)
+  check('GetInvolved.tsx — exact Formspree privacy disclosure present',
+    giSrc.includes("processed through Formspree, delivered to Playa AI at") &&
+    giSrc.includes("available to authorized Playa AI administrators in the Formspree account"),
+    "Use the exact approved Formspree privacy disclosure on /get-involved.");
+  check('GetInvolved.tsx — exact privacy/deletion contact wording present',
+    giSrc.includes("For privacy or deletion questions related to this submission, email"),
+    "Use the exact approved privacy/deletion contact sentence.");
+  check('GetInvolved.tsx — privacy contact uses team@playa-ai.org',
+    giSrc.includes("mailto:team@playa-ai.org") && giSrc.includes("team@playa-ai.org"));
 
   // Form endpoint integration
   check('GetInvolved.tsx — VITE_GET_INVOLVED_FORM_ENDPOINT referenced',
@@ -391,10 +398,18 @@ if (!giSrc) {
     giSrc.includes("Online submission temporarily unavailable"),
     "Show an honest unavailable state when the endpoint is not configured.");
 
-  // mailto fallback
-  check('GetInvolved.tsx — mailto fallback to hello@playa-ai.org present',
-    giSrc.includes("mailto:hello@playa-ai.org"),
-    "Provide a mailto:hello@playa-ai.org fallback.");
+  // mailto fallback uses team@
+  check('GetInvolved.tsx — mailto fallback uses mailto:team@playa-ai.org',
+    giSrc.includes("mailto:team@playa-ai.org"),
+    "Provide a mailto:team@playa-ai.org fallback.");
+  // No hardcoded endpoint URL in the page component
+  check('GetInvolved.tsx — no hardcoded Formspree endpoint URL',
+    !giSrc.includes("formspree.io"),
+    "Access the endpoint only through import.meta.env.VITE_GET_INVOLVED_FORM_ENDPOINT.");
+  // No console.log with personal data
+  check('GetInvolved.tsx — no console.log calls',
+    !giSrc.includes("console.log"),
+    "Do not log form data or personal information to the console.");
 
   // Honeypot field
   check('GetInvolved.tsx — honeypot field present',
@@ -432,14 +447,14 @@ if (homeSrc) {
       homeSrc.includes(`/get-involved#${anchor}`),
       `Change the ${anchor} PARTICIPATION card href from mailto: to /get-involved#${anchor}.`);
   }
-  check('Home.tsx — no PARTICIPATION card uses a mailto: subject-line href',
-    !(homeSrc.includes("mailto:hello@playa-ai.org?subject=Working%20Group%20Interest") ||
-      homeSrc.includes("mailto:hello@playa-ai.org?subject=Artist%20Interest%20List") ||
-      homeSrc.includes("mailto:hello@playa-ai.org?subject=Research%20Collaboration") ||
-      homeSrc.includes("mailto:hello@playa-ai.org?subject=Donor%20Inquiry") ||
-      homeSrc.includes("mailto:hello@playa-ai.org?subject=Cultural%20Stewardship") ||
-      homeSrc.includes("mailto:hello@playa-ai.org?subject=Founding%20Adopter%20Inquiry")),
-    "All six PARTICIPATION card hrefs must be updated to /get-involved#<anchor>.");
+  check('Home.tsx — no PARTICIPATION card uses an obsolete mailto: subject-line href',
+    !(homeSrc.includes("mailto:team@playa-ai.org?subject=Working%20Group%20Interest") ||
+      homeSrc.includes("mailto:team@playa-ai.org?subject=Artist%20Interest%20List") ||
+      homeSrc.includes("mailto:team@playa-ai.org?subject=Research%20Collaboration") ||
+      homeSrc.includes("mailto:team@playa-ai.org?subject=Donor%20Inquiry") ||
+      homeSrc.includes("mailto:team@playa-ai.org?subject=Cultural%20Stewardship") ||
+      homeSrc.includes("mailto:team@playa-ai.org?subject=Founding%20Adopter%20Inquiry")),
+    "All six PARTICIPATION card hrefs must be /get-involved#<anchor>.");
 }
 
 // /get-involved in llms.txt
@@ -452,7 +467,63 @@ if (llmsSrc) {
     "Add /get-involved to the canonical pages section of llms.txt.");
 }
 
-// ── 11. Summary ──────────────────────────────────────────────────────────────
+// ── 11. Contact address consolidation ────────────────────────────────────────
+console.log("\n── 11. Contact address consolidation ────────────────────────────");
+
+// hello@playa-ai.org must be absent from all current source files
+// scripts/ is excluded: validator files legitimately reference the old address
+// as a literal string in order to check for its absence in production sources.
+const srcDirs = ["src/pages", "src/components", "public"];
+const obsoleteAddr = "hello@playa-ai.org";
+let helloFound = false;
+for (const dir of srcDirs) {
+  const absDir = join(ROOT, dir);
+  if (!existsSync(absDir)) continue;
+  for (const entry of readdirSync(absDir, { recursive: true })) {
+    const fullPath = join(absDir, String(entry));
+    try {
+      if (!statSync(fullPath).isFile()) continue;
+      const ext = fullPath.split(".").pop();
+      if (!["tsx", "ts", "js", "txt", "md"].includes(ext)) continue;
+      const content = readFileSync(fullPath, "utf-8");
+      if (content.includes(obsoleteAddr)) {
+        console.error(`  ❌  ${obsoleteAddr} found in: ${fullPath.replace(ROOT, "")}`);
+        helloFound = true;
+      }
+    } catch { /* skip unreadable */ }
+  }
+}
+check("No current source file contains hello@playa-ai.org",
+  !helloFound,
+  "All public contact addresses must be team@playa-ai.org.");
+
+// Check routes.ts and .env.example
+const routesSrc2 = readSrc("src/routes.ts");
+check("src/routes.ts — no hello@playa-ai.org",
+  routesSrc2 !== null && !routesSrc2.includes("hello@playa-ai.org"));
+const envExamplePath = join(ROOT, ".env.example");
+const envExample = existsSync(envExamplePath)
+  ? readFileSync(envExamplePath, "utf-8")
+  : null;
+check(".env.example — no hello@playa-ai.org",
+  envExample !== null && !envExample.includes("hello@playa-ai.org"));
+
+// SiteFooter uses team@playa-ai.org
+const footerSrc2 = readSrc("src/components/SiteFooter.tsx");
+check("SiteFooter.tsx — footer contact link uses team@playa-ai.org",
+  footerSrc2 !== null && footerSrc2.includes("mailto:team@playa-ai.org"),
+  "SiteFooter contact link must point to team@playa-ai.org.");
+
+// llms.txt uses team@playa-ai.org
+const llmsTxtPath = join(ROOT, "public/llms.txt");
+const llmsTxtSrc = existsSync(llmsTxtPath)
+  ? readFileSync(llmsTxtPath, "utf-8")
+  : null;
+check("public/llms.txt — Contact uses team@playa-ai.org",
+  llmsTxtSrc !== null && llmsTxtSrc.includes("team@playa-ai.org"),
+  "llms.txt Contact field must be team@playa-ai.org.");
+
+// ── 13. Summary ──────────────────────────────────────────────────────────────
 console.log(`\n${"─".repeat(64)}`);
 console.log(`  Passed: ${passed}   Failed: ${failed}`);
 if (failed > 0) {

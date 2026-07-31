@@ -317,7 +317,7 @@ const WORKSTREAMS: Workstream[] = [
       "Piloted with 80+ initial users and now being refined for camp-level use and the Joy Score research project.",
     people: "Alex Azzi · Raed Marji",
     cta: "Join pilot →",
-    href: "mailto:hello@playa-ai.org?subject=Connect%20App%20Pilot",
+    href: "mailto:team@playa-ai.org?subject=Connect%20App%20Pilot",
   },
   {
     n: "02",
@@ -374,7 +374,7 @@ const WORKSTREAMS: Workstream[] = [
       "Early personal experiments have tested Esther Perel, Gottman, and SCARF-inspired frameworks on recorded relationship conflicts.",
     people: "David Rock · Alana Winter · Raed Marji",
     cta: "Contact us →",
-    href: "mailto:hello@playa-ai.org?subject=Relationship%20Nurturer",
+    href: "mailto:team@playa-ai.org?subject=Relationship%20Nurturer",
     caution: "Research prototype only. Not a therapy product or clinical tool.",
   },
   {
@@ -394,7 +394,7 @@ const WORKSTREAMS: Workstream[] = [
       "A v0.9 draft of the Playa AI Accord and related privacy language is under review, with the framework now being applied to projects like Ikigai as a practical test case.",
     people: "Alex Azzi · Alina Latinina · Lino Velev · Raed Marji",
     cta: "Request the brief →",
-    href: "mailto:hello@playa-ai.org?subject=Privacy%20Toolkit%20Brief",
+    href: "mailto:team@playa-ai.org?subject=Privacy%20Toolkit%20Brief",
   },
   {
     n: "06",
@@ -410,7 +410,7 @@ const WORKSTREAMS: Workstream[] = [
     evidence: "Derived from field experiments across Connect, Ikigai, and Burning Man community gatherings. Draft framework in active development.",
     people: "Alex Azzi",
     cta: "Request the EELP brief →",
-    href: "mailto:hello@playa-ai.org?subject=EELP%20Brief%20Request",
+    href: "mailto:team@playa-ai.org?subject=EELP%20Brief%20Request",
   },
   {
     n: "07",
@@ -426,7 +426,7 @@ const WORKSTREAMS: Workstream[] = [
     evidence: "Currently in governance design phase. Derived from the Year-One framework and applied as a privacy layer to Connect Protocol and EELP.",
     people: "Alex Azzi",
     cta: "Contact us about the Data Trust →",
-    href: "mailto:hello@playa-ai.org?subject=Data%20Trust%20Inquiry",
+    href: "mailto:team@playa-ai.org?subject=Data%20Trust%20Inquiry",
   },
   {
     n: "08",
@@ -998,7 +998,7 @@ export default function Work() {
             className="flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase"
           >
             <a
-              href="mailto:hello@playa-ai.org?subject=Work%20Collaboration"
+              href="mailto:team@playa-ai.org?subject=Work%20Collaboration"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
@@ -1006,7 +1006,7 @@ export default function Work() {
               Collaborate on the work →
             </a>
             <a
-              href="mailto:hello@playa-ai.org?subject=Support%20Playa%20AI%20Work"
+              href="mailto:team@playa-ai.org?subject=Support%20Playa%20AI%20Work"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
@@ -1014,7 +1014,7 @@ export default function Work() {
               Support the work →
             </a>
             <a
-              href="mailto:hello@playa-ai.org?subject=Request%20Playa%20AI%20Work%20Briefs"
+              href="mailto:team@playa-ai.org?subject=Request%20Playa%20AI%20Work%20Briefs"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"

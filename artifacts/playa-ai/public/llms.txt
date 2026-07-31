@@ -4,7 +4,7 @@
 # Organization
 Organization: Playa AI
 Website: https://playa-ai.org/
-Contact: hello@playa-ai.org
+Contact: team@playa-ai.org
 
 # About
 Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s

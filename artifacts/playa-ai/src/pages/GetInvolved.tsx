@@ -265,7 +265,7 @@ export default function GetInvolved() {
   const hasErrors       = Object.keys(errors).length > 0;
   const msgLength       = fields.message.length;
   const pathLabel       = getPathLabel(selectedPath || "general");
-  const mailtoHref      = `mailto:hello@playa-ai.org?subject=${encodeURIComponent(
+  const mailtoHref      = `mailto:team@playa-ai.org?subject=${encodeURIComponent(
     `Playa AI Get Involved — ${selectedPath ? pathLabel : "General Inquiry"}`
   )}`;
 
@@ -437,23 +437,24 @@ export default function GetInvolved() {
           <div className="lg:col-span-6 flex items-end">
             <div className="space-y-3 text-base leading-relaxed text-muted-foreground">
               <p>
-                Your submission will be delivered by email to{" "}
+                Your submission is processed through Formspree, delivered to Playa AI at{" "}
                 <a
-                  href="mailto:hello@playa-ai.org"
+                  href="mailto:team@playa-ai.org"
                   className="text-foreground border-b border-current pb-0.5 hover:text-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
                 >
-                  hello@playa-ai.org
-                </a>{" "}
-                and used to respond to your inquiry. Please do not include sensitive personal
-                information.
+                  team@playa-ai.org
+                </a>
+                , and available to authorized Playa AI administrators in the Formspree account.
+                It will be used to respond to your inquiry. Please do not include sensitive
+                personal information.
               </p>
               <p className="text-sm">
-                For privacy or deletion questions, email{" "}
+                For privacy or deletion questions related to this submission, email{" "}
                 <a
-                  href="mailto:hello@playa-ai.org"
+                  href="mailto:team@playa-ai.org"
                   className="border-b border-current pb-0.5 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
                 >
-                  hello@playa-ai.org
+                  team@playa-ai.org
                 </a>
                 .
               </p>
@@ -781,7 +782,7 @@ export default function GetInvolved() {
                   href={mailtoHref}
                   className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors font-mono text-[11px] uppercase tracking-widest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
                 >
-                  Email hello@playa-ai.org →
+                  Email team@playa-ai.org →
                 </a>
               </div>
             ) : (

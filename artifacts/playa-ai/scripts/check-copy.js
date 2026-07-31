@@ -124,6 +124,11 @@ const PROHIBITED = [
     reason:
       "False pledge-signing wording. The pledge is an expression-of-interest flow.",
   },
+  {
+    pattern: "hello@playa-ai.org",
+    reason:
+      "Obsolete public contact address. All public contact surfaces must use team@playa-ai.org.",
+  },
 ];
 
 // ── Approved canonical exception ──────────────────────────────────────────────

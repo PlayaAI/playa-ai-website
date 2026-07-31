@@ -1,0 +1,548 @@
+You are completing the Playa AI website’s contact-address consolidation and `/get-involved` Formspree email-delivery integration.
+
+## Final approved decision
+
+`hello@playa-ai.org` does not exist and must no longer appear anywhere in the Playa AI website project.
+
+The single official Playa AI public contact and Get Involved delivery address is now:
+
+`team@playa-ai.org`
+
+Use this Formspree endpoint:
+
+`https://formspree.io/f/mwvgdevg`
+
+The Formspree form is configured to send submissions to:
+
+`team@playa-ai.org`
+
+This instruction supersedes all earlier instructions that preserved or used `hello@playa-ai.org`.
+
+## Repository and starting state
+
+Work only in:
+
+`artifacts/playa-ai`
+
+Expected state:
+
+* Branch: `main`
+* Expected starting HEAD: `1e81883`
+* Stack: React 18, TypeScript, Vite, Tailwind, Wouter and Framer Motion
+* `/get-involved` already exists
+* Seven participation sections already exist
+* Existing integration uses `VITE_GET_INVOLVED_FORM_ENDPOINT`
+* Previous reported result: `231/231` audit assertions
+
+Before changing anything:
+
+1. Confirm the working directory.
+2. Confirm branch and HEAD.
+3. Run `git status --short --branch`.
+4. Inspect the existing `/get-involved` implementation.
+5. Preserve unrelated user changes.
+6. Do not modify `.agents/memory`.
+7. Do not commit task instructions from `attached_assets`.
+8. Do not redesign or rebuild working pages unnecessarily.
+
+If HEAD differs from `1e81883`, inspect and report why before proceeding. Do not discard newer work.
+
+## 1. Inventory every email address
+
+Before editing, search the complete Playa AI project for:
+
+* `hello@playa-ai.org`
+* `mailto:`
+* Every string containing `@playa-ai.org`
+* Email addresses encoded inside URL parameters
+* Email addresses inside prerender/static-generation code
+* Email assertions inside validator scripts
+* Email references inside project documentation
+
+Search at least:
+
+* `src/`
+* `public/`
+* `scripts/`
+* `vite.config.ts`
+* Project configuration
+* `BLOCKERS.md`
+* Continuity/audit documentation
+* Other tracked Playa AI website files
+
+Do not search only React components. The project also contains static-generation content, route metadata, validators and machine-readable assets.
+
+Report the complete pre-change inventory with:
+
+* File
+* Line
+* Address
+* Purpose
+* Public, validator, documentation or historical classification
+
+Do not edit the original July 2026 audit PDF.
+
+## 2. Consolidate official contact addresses
+
+Replace every current Playa AI public contact use of:
+
+`hello@playa-ai.org`
+
+with:
+
+`team@playa-ai.org`
+
+This applies to all relevant surfaces, including:
+
+* Canonical pages
+* Archive/alias pages
+* Header and navigation
+* Footer
+* Homepage CTAs
+* Work page CTAs
+* Event contact links
+* Team page
+* Manifesto
+* EELP
+* Living Trust Framework page
+* `/get-involved`
+* Form fallback links
+* Privacy/deletion contact wording
+* Route metadata or summaries
+* `llms.txt`
+* Static/prerender templates
+* Email subject links
+* Validator expectations
+* `BLOCKERS.md`
+* Continuity/audit documentation
+* Other public Playa AI website copy
+
+After the change, there must be zero current-source matches for:
+
+`hello@playa-ai.org`
+
+Also inventory any other public role-based `@playa-ai.org` addresses. Consolidate general Playa AI contact destinations to `team@playa-ai.org` when they serve the same public-contact purpose.
+
+Do not replace:
+
+* Individual team members’ personal email addresses
+* Third-party email addresses
+* Technically required sender addresses outside the website
+* Historical quotations where alteration would make the historical record false
+
+If any exception remains, report it explicitly with its file, purpose and justification. Do not silently leave obsolete public contact links.
+
+Do not perform an unrestricted repository-wide string replacement without inspecting each occurrence.
+
+## 3. Preserve portable email links
+
+All public email links must use portable `mailto:` URLs.
+
+Use:
+
+`mailto:team@playa-ai.org`
+
+When a link represents a specific action, retain or add an appropriate encoded subject. Examples:
+
+* General contact: `Playa AI Inquiry`
+* Get Involved: `Playa AI Get Involved — [Participation Path]`
+* Pledge interest: retain the approved pledge-interest subject
+* Event inquiry: use an accurate event subject when already established
+
+Do not use Gmail-compose URLs.
+
+Verify that:
+
+* Email addresses render visibly without encoding artifacts.
+* Query parameters are URL-encoded correctly.
+* No literal `\u` escape text appears.
+* Links remain keyboard accessible.
+* Accessible names remain accurate after the address change.
+
+## 4. Configure Formspree delivery
+
+Use:
+
+`VITE_GET_INVOLVED_FORM_ENDPOINT=https://formspree.io/f/mwvgdevg`
+
+Requirements:
+
+* Continue accessing the endpoint through `import.meta.env.VITE_GET_INVOLVED_FORM_ENDPOINT`.
+* Do not hardcode the endpoint inside the page component.
+* Do not add a Formspree API key.
+* Do not commit `.env` or `.env.local`.
+* Keep `.env.example` documented with the variable name.
+* Configure the real value through Replit Secrets or the deployment environment when possible.
+* If the agent cannot configure deployment environment variables, report the exact manual UI step required.
+* Remember that Vite injects the variable during the build, so the site must be rebuilt after production configuration.
+
+The endpoint is a public frontend form endpoint, but preserve the environment-variable architecture.
+
+## 5. Verify the Formspree request
+
+Confirm the form submits using:
+
+* HTTP `POST`
+* `FormData`
+* `Accept: application/json`
+* No manually specified multipart `Content-Type`
+
+The submission must include:
+
+* `name`
+* `email`
+* `participation_path`
+* `organization`
+* `message`
+* `consent`
+* `_subject`
+* Honeypot field
+
+Use the subject format:
+
+`Playa AI Get Involved — [Participation Path]`
+
+Ensure the visitor’s email is available for appropriate reply-to behavior.
+
+Do not:
+
+* Put a secret in frontend JavaScript
+* Store submissions in localStorage or sessionStorage
+* Send form contents to analytics
+* Log personal information to the console
+* Create a database
+* Send form data anywhere besides the approved Formspree endpoint
+* Claim delivery after a failed, skipped or mocked request
+
+## 6. Final Formspree privacy disclosure
+
+Because Formspree processes and stores submissions in its account, use this exact disclosure on `/get-involved`:
+
+`Your submission is processed through Formspree, delivered to Playa AI at team@playa-ai.org, and available to authorized Playa AI administrators in the Formspree account. It will be used to respond to your inquiry. Please do not include sensitive personal information.`
+
+Use this exact follow-up sentence:
+
+`For privacy or deletion questions related to this submission, email team@playa-ai.org.`
+
+Make `team@playa-ai.org` a `mailto:` link.
+
+Do not invent:
+
+* A retention period
+* Automatic deletion
+* Encryption guarantees
+* Legal-compliance claims
+* A new privacy policy
+* A claim that Formspree does not retain submissions
+
+Do not link to `/privacy`, because that route does not currently exist.
+
+## 7. Preserve `/get-involved` functionality
+
+Do not regress the existing implementation.
+
+Preserve and verify:
+
+* Seven participation sections
+* Seven native anchors
+* URL-hash path preselection
+* Participation buttons that select the relevant path
+* Scroll and focus movement to the form
+* Reduced-motion behavior
+* Explicit labels
+* Field descriptions
+* Native and custom validation
+* Error summary with focus management
+* `aria-live` messaging
+* Character counter
+* Honeypot
+* Required consent
+* Loading state
+* Duplicate-submit prevention
+* Delivery-error state
+* Success state
+* Values preserved after errors
+* Reset only after confirmed success
+* Keyboard accessibility
+* Visible focus styling
+* Responsive layout
+* Honest missing-endpoint behavior
+
+Required anchors:
+
+* `#builders`
+* `#artists`
+* `#researchers`
+* `#funders`
+* `#stewards`
+* `#institutions`
+* `#general`
+
+## 8. Missing-endpoint and failure behavior
+
+When `VITE_GET_INVOLVED_FORM_ENDPOINT` is missing or blank:
+
+* Do not make a network request.
+* Do not display a success message.
+* Explain that online submission is temporarily unavailable.
+* Provide a `mailto:team@playa-ai.org` fallback.
+* Prepopulate the subject using the selected participation path.
+
+When Formspree returns a non-2xx response or the network request fails:
+
+* Display an accessible error.
+* Preserve entered values.
+* Re-enable submission.
+* Provide the `team@playa-ai.org` fallback.
+* Do not expose submitted personal information.
+* Do not claim successful delivery.
+
+When Formspree confirms success:
+
+* Display the accessible success state.
+* Move focus appropriately.
+* Reset only after confirmed success.
+* Prevent duplicate submissions.
+
+## 9. Validators
+
+Update `check:copy` and `verify:audit` to verify:
+
+* `hello@playa-ai.org` is absent from all current Playa AI website source and public assets
+* `team@playa-ai.org` appears on every intended public contact surface
+* All public contact `mailto:` links use the correct address
+* Exact Formspree privacy disclosure
+* Exact privacy/deletion contact
+* Correct Formspree endpoint environment integration
+* No hardcoded endpoint inside the React page
+* Missing-endpoint fallback
+* Delivery-error fallback
+* No false-success behavior
+* No local/session storage of submissions
+* No personal-data console logging
+* All seven participation anchors
+* All required fields
+* Required consent
+* Honeypot
+* Existing metadata and canonical-route checks
+* Existing organizational wording
+* Existing audit safeguards
+
+Generated build output should be tested after building, but do not manually edit generated HTML to hide source errors.
+
+Do not add meaningless duplicate assertions merely to increase the total.
+
+## 10. Reconcile the assertion count
+
+The earlier verification baseline was:
+
+`176/176`
+
+The latest report states:
+
+* `231/231` total
+* “31 new assertions”
+
+These figures do not reconcile:
+
+* `176 + 31 = 207`
+* `231 - 176 = 55`
+
+Inspect validator history and determine the correct explanation.
+
+Report:
+
+* Relevant baseline
+* Checks added by `1e81883`
+* Checks added by any intervening commits
+* Current accurate total
+* Which earlier statement was inaccurate
+
+Do not guess or silently repeat the discrepancy.
+
+## 11. Documentation
+
+Update `BLOCKERS.md` and the project continuity/audit status documentation.
+
+Preserve original audit numbering.
+
+For audit item **#28**, document accurately:
+
+* `/get-involved`: implemented
+* Seven participation paths: implemented
+* Accessible form UI: implemented
+* Formspree integration: implemented
+* Approved endpoint: `https://formspree.io/f/mwvgdevg`
+* Approved destination: `team@playa-ai.org`
+* `hello@playa-ai.org`: nonexistent and removed
+* Environment configuration: report actual status
+* Mock testing: report actual status
+* Live endpoint test: report actual status
+* Inbox delivery confirmation: pending until the user confirms receipt
+* Production deployment: pending unless separately authorized
+
+Do not claim #28 is fully complete until the real synthetic submission reaches `team@playa-ai.org` and the user confirms receipt.
+
+## 12. Validation
+
+Run:
+
+```bash
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Run lint or automated tests only if scripts actually exist.
+
+Report every exit code.
+
+Also report:
+
+* Canonical route count
+* Total prerender route count
+* Generated bundle filenames and sizes
+* `/get-involved` prerender result
+* Canonical metadata
+* Open Graph metadata
+* Sitemap entry
+* `llms.txt` entry
+* No accidental `noindex`
+* All remaining email-address occurrences
+* Application console results
+
+## 13. Browser QA
+
+Test `/get-involved` at:
+
+* 390 × 844
+* 768 × 1024
+* 1440 × 900
+
+Verify:
+
+* Header and navigation
+* Active state
+* Jump navigation
+* All seven anchors
+* All participation buttons
+* Direct hash loading
+* Path preselection
+* Field labels
+* Validation
+* Consent
+* Loading state
+* Success state
+* Failure state
+* Missing-endpoint state
+* `team@playa-ai.org` fallback
+* Keyboard navigation
+* Focus management
+* Reduced motion
+* No horizontal overflow
+* No application console errors
+
+Spot-check every other route containing an email link to ensure it now uses `team@playa-ai.org`.
+
+## 14. Testing sequence
+
+### Phase A: mocked tests
+
+Test without external delivery:
+
+* Successful 2xx response
+* Formspree-style non-2xx response
+* Network failure
+* Missing endpoint
+* Duplicate-submit prevention
+
+### Phase B: one authorized real test
+
+After all local validation passes, submit one clearly synthetic test to:
+
+`https://formspree.io/f/mwvgdevg`
+
+Use:
+
+* Name: `Playa AI QA Test`
+* Email: `team@playa-ai.org`
+* Participation path: `General Participation`
+* Organization: `Playa AI`
+* Message: `Synthetic QA submission to verify the Playa AI Get Involved email-delivery workflow. This is not a real participation inquiry.`
+* Consent: accepted
+* Subject: `Playa AI Get Involved — General Participation — QA TEST`
+
+Send exactly one real submission.
+
+Record:
+
+* UTC date and time
+* HTTP status
+* Formspree response
+* Whether the endpoint accepted it
+
+Do not claim inbox delivery was confirmed. The user must check `team@playa-ai.org` and independently confirm receipt.
+
+If Formspree requires activation, CAPTCHA, email verification or another account-side action, stop and report the exact requirement.
+
+## 15. Source control restrictions
+
+After the work passes:
+
+* Create one focused local commit.
+* Use a clear commit message.
+* Leave the working tree clean except for known untracked task files.
+
+Do not:
+
+* Push
+* Deploy
+* Publish
+* Tag
+* Create a GitHub release
+* Change DNS
+* Create another external account
+* Commit `.env` or `.env.local`
+* Commit task attachments
+* Modify unrelated files
+
+## Required final report
+
+Return:
+
+1. Starting commit and branch
+2. Final local commit
+3. Complete changed-file list and purpose
+4. Complete pre-change email inventory
+5. Complete post-change email inventory
+6. Confirmation that `hello@playa-ai.org` has zero current-source matches
+7. Every remaining public Playa AI email address and its purpose
+8. Confirmed Formspree endpoint
+9. Confirmed destination email
+10. Environment-variable configuration status
+11. Exact privacy wording
+12. Exact payload fields
+13. Missing-endpoint behavior
+14. Delivery-error behavior
+15. Mocked test results
+16. Real synthetic Formspree response
+17. Whether inbox confirmation is still required
+18. Accessibility and browser QA
+19. Validation commands and exit codes
+20. Correct assertion-count reconciliation
+21. Route counts
+22. Bundle filenames and sizes
+23. Updated audit item #28 status
+24. Remaining blockers and resolution criteria
+25. Final `git status --short --branch`
+26. Confirmation that nothing was pushed, deployed, tagged or released
+
+Use one of these verdicts:
+
+* `LIVE ENDPOINT ACCEPTED TEST — INBOX CONFIRMATION REQUIRED`
+* `READY FOR LIVE ENDPOINT TEST`
+* `BLOCKED — [exact reason]`
+
+Do not use `AUDIT ITEM #28 COMPLETE` until the user independently confirms receipt at `team@playa-ai.org`.

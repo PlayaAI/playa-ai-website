@@ -690,7 +690,7 @@ export default function Teams() {
               </h2>
             </div>
             <a
-              href="mailto:hello@playa-ai.org?subject=Working%20Group%20Interest"
+              href="mailto:team@playa-ai.org?subject=Working%20Group%20Interest"
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
