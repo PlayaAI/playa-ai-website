@@ -1,2 +1,3 @@
 - [Playa AI static hosting 404 limitation](playa-ai-404-limitation.md) — artifact.toml /*→/index.html returns HTTP 200 always; genuine 404 requires hosting config change
 - [Playa AI route inventory pattern](playa-ai-routes-pattern.md) — src/routes.ts is single source of truth for meta, prerender, and sitemap; always update it when adding routes
+- [Playa AI validation scripts](playa-ai-validation-scripts.md) — check-copy.js (15 files, 14 patterns, approved exception) and verify-audit.js (170 checks, source + build); workstream IDs are slug-format not numeric

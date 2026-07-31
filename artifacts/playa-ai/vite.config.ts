@@ -87,7 +87,7 @@ function patchHtml(template: string, route: RouteEntry): string {
     // content review date. React's createRoot() replaces this on mount.
     // This is deterministic HTML injection, not React SSR.
     const navHtml = `<nav aria-label="Site navigation"><a href="/">Overview</a> · <a href="/work">Work</a> · <a href="/events">Events</a> · <a href="/team">Team</a> · <a href="/manifesto">Manifesto</a></nav>`;
-    const footerHtml = `<footer><p>© 2026 Playa AI · Fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.</p><p>Website content reviewed July 2026.</p></footer>`;
+    const footerHtml = `<footer><p>© 2026 Playa AI · Part of Mystic Arts Foundation’s California 501(c)(3)</p><p>Website content reviewed July 2026.</p></footer>`;
     const summaryHtml = `<div data-static="1">${navHtml}<main id="main-content"><h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p></main>${footerHtml}</div>`;
     html = html.replace(
       '<div id="root"></div>',

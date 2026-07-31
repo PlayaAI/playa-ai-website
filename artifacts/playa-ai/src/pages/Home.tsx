@@ -371,7 +371,7 @@ const TRUST_ITEMS = [
   {
     n: "01",
     title: "Fiscal sponsorship",
-    body: "Fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity. Tax-deductible giving available. Infrastructure, not theater.",
+    body: "Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3). Tax-deductible giving available. Infrastructure, not theater.",
   },
   {
     n: "02",
@@ -494,7 +494,7 @@ export default function Home() {
               variants={fadeInUp}
               className="font-mono text-[11px] tracking-widest text-muted-foreground mt-5"
             >
-              Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.
+              Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)
             </motion.p>
           </motion.div>
         </div>
@@ -1146,9 +1146,7 @@ export default function Home() {
               Legal structure
             </p>
             <p className="text-lg text-foreground">
-              Playa AI is a human-centered AI initiative fiscally sponsored by{" "}
-              <span className="font-bold">Mystic Arts Foundation</span>, a
-              California nonprofit and U.S. 501(c)(3) public charity.
+              Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)
             </p>
           </div>
           <div>

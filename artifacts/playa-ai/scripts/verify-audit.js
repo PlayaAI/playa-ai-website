@@ -88,7 +88,7 @@ for (const route of CANONICAL_ROUTES) {
   check(`${route.label} — has #root`, html.includes('id="root"'));
   check(`${route.label} — has static H1`, /<h1>/.test(html), "Static content must include an H1 for non-JS crawlers.");
   check(`${route.label} — has 'Website content reviewed July 2026.'`, html.includes("Website content reviewed July 2026."));
-  check(`${route.label} — has California nonprofit wording`, html.includes("California nonprofit"));
+  check(`${route.label} — has Mystic Arts Foundation wording`, html.includes("Mystic Arts Foundation"));
   check(`${route.label} — has navigation links`, html.includes('href="/work"') || html.includes('href="/"'));
   check(`${route.label} — meta not noindex`, /name="robots" content="index/.test(html));
 }
@@ -101,8 +101,8 @@ if (existsSync(llmsPath)) {
   const llms = readFileSync(llmsPath, "utf-8");
   check("llms.txt — has Burning Man vs. Playa AI distinction (80,000 vs 80+)",
     llms.includes("80,000") && llms.includes("80+"));
-  check("llms.txt — mentions California nonprofit",
-    llms.includes("California nonprofit"));
+  check("llms.txt — uses approved org wording ('part of Mystic Arts Foundation')",
+    llms.includes("part of Mystic Arts Foundation"));
   check("llms.txt — has content freshness note",
     llms.includes("reviewed July 2026"));
   check("llms.txt — mentions human-centered AI initiative (not 'philanthropic')",
@@ -230,8 +230,8 @@ if (routesSrc) {
     !routesSrc.includes("philanthropic, public-interest"));
   check("routes.ts — 'philanthropic initiative' absent from canonical metadata",
     !routesSrc.includes("philanthropic initiative"));
-  check("routes.ts — California nonprofit wording present",
-    routesSrc.includes("California nonprofit"));
+  check("routes.ts — approved org wording present ('part of Mystic Arts Foundation')",
+    routesSrc.includes("part of Mystic Arts Foundation"));
   check("routes.ts — /privacy-toolkit is noindex", routesSrc.includes(`path: "/privacy-toolkit"`) &&
     routesSrc.includes("noindex: true"));
 }
@@ -275,8 +275,8 @@ if (headerSrc) {
 // 8g. SiteFooter copyright wording
 const footerSrc = readSrc("src/components/SiteFooter.tsx");
 if (footerSrc) {
-  check("SiteFooter.tsx — 'California nonprofit and U.S. 501(c)(3) public charity' present",
-    footerSrc.includes("California nonprofit and U.S. 501(c)(3) public charity"));
+  check("SiteFooter.tsx — approved org wording present ('Mystic Arts Foundation')",
+    footerSrc.includes("Mystic Arts Foundation"));
 }
 
 // 8h. All 7 canonical pages have contentStatus prop in source

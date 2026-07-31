@@ -86,13 +86,16 @@ const PROHIBITED = [
     reason: "Gmail compose URLs must be replaced with mailto: links.",
   },
   {
-    // Canonical approved wording requires "California nonprofit and" before
-    // "U.S. 501(c)(3)". Handled with proximity check below.
-    pattern: "a U.S. 501(c)(3) public charity",
+    pattern: "fiscally sponsored by Mystic Arts Foundation",
     reason:
-      "Must be preceded by 'California nonprofit and' in fiscal-sponsorship sentences. " +
-      "Approved form: '…Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.'",
-    _proximity501: true, // special handling flag — see proximity check below
+      "Obsolete fiscal-sponsorship construction. Use the approved wording: " +
+      "'Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3)'.",
+  },
+  {
+    pattern: "California nonprofit and U.S. 501(c)(3) public charity",
+    reason:
+      "Obsolete organizational description (old wording). Use the approved wording: " +
+      "'Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3)'.",
   },
   {
     pattern: "Sign it as",
@@ -130,25 +133,7 @@ function lineNumber(content, index) {
 function checkFile(filePath, content) {
   const name = basename(filePath);
 
-  for (const { pattern, reason, _proximity501 } of PROHIBITED) {
-    if (_proximity501) {
-      // Special proximity check: "a U.S. 501(c)(3) public charity" is only
-      // flagged when "California nonprofit and" does NOT appear within
-      // 35 characters before the pattern in the same file.
-      let idx = content.indexOf(pattern);
-      while (idx !== -1) {
-        const prefix = content.slice(Math.max(0, idx - 35), idx);
-        if (!prefix.includes("California nonprofit and")) {
-          console.error(
-            `\n❌  ${name}:${lineNumber(content, idx)}\n   Found: "${pattern}"\n   Reason: ${reason}\n`
-          );
-          anyFailed = true;
-        }
-        idx = content.indexOf(pattern, idx + 1);
-      }
-      continue;
-    }
-
+  for (const { pattern, reason } of PROHIBITED) {
     const idx = content.indexOf(pattern);
     if (idx !== -1) {
       console.error(
@@ -208,6 +193,8 @@ for (const file of componentFiles) {
     "philanthropic initiative",
     "philanthropic, public-interest",
     "human-AI co-evolution",
+    "fiscally sponsored by Mystic Arts Foundation",
+    "California nonprofit and U.S. 501(c)(3) public charity",
   ];
   for (const pattern of llmsProhibited) {
     const idx = content.indexOf(pattern);
@@ -220,6 +207,30 @@ for (const file of componentFiles) {
     }
   }
   scanned++;
+}
+
+// ── Positive organizational wording assertion ─────────────────────────────────
+// The approved org wording must appear in all required canonical surfaces.
+// Uses "part of Mystic Arts Foundation" as the match key (apostrophe-agnostic).
+// Use "Mystic Arts Foundation" as the key — matches regardless of apostrophe
+// style or sentence case ("Part of..." in footer vs "part of..." in body copy).
+const NEW_ORG_WORDING_KEY = "Mystic Arts Foundation";
+const ORG_ASSERTION_FILES = [
+  { path: join(PAGES_DIR, "Home.tsx"), label: "Home.tsx" },
+  { path: join(PAGES_DIR, "Team.tsx"), label: "Team.tsx" },
+  { path: join(COMPONENTS_DIR, "SiteFooter.tsx"), label: "SiteFooter.tsx" },
+  { path: ROUTES_FILE, label: "routes.ts" },
+  { path: LLMS_FILE, label: "llms.txt" },
+];
+for (const { path: filePath, label } of ORG_ASSERTION_FILES) {
+  const content = readFileSync(filePath, "utf-8");
+  if (!content.includes(NEW_ORG_WORDING_KEY)) {
+    console.error(
+      `\n❌  ${label}\n   Missing approved org wording: "${NEW_ORG_WORDING_KEY}"\n` +
+      `   All canonical org surfaces must use the approved 'part of Mystic Arts Foundation\u2019s California 501(c)(3)' construction.\n`
+    );
+    anyFailed = true;
+  }
 }
 
 // ── Result ────────────────────────────────────────────────────────────────────

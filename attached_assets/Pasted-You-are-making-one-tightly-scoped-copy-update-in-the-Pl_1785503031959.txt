@@ -1,0 +1,142 @@
+You are making one tightly scoped copy update in the Playa AI website.
+
+TARGET PROJECT
+
+* Work only inside: `artifacts/playa-ai`
+* Confirm this is the React/TypeScript/Vite Playa AI website before editing.
+* Do not work in `RSS-UPGRADED` or any unrelated repository.
+* Do not modify external GitHub repositories.
+* Do not deploy, publish, push, tag, or create a release.
+
+REQUIRED WORDING CHANGE
+
+Replace the previous approved wording:
+
+`Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.`
+
+With this newly approved wording:
+
+`Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)`
+
+The new wording supersedes the previous fiscal-sponsorship construction.
+
+SCOPE
+
+Search the complete website source for the old sentence and closely related variants, including:
+
+* `fiscally sponsored by Mystic Arts Foundation`
+* `California nonprofit and U.S. 501(c)(3)`
+* `U.S. 501(c)(3) public charity`
+* `philanthropic, public-interest initiative`
+* `philanthropic initiative fiscally sponsored`
+* any canonical metadata or footer variant describing Playa AI’s relationship with Mystic Arts Foundation
+
+Review and update all relevant current organizational descriptions across:
+
+* Homepage visible copy
+* Homepage trust or organizational sections
+* Team page
+* SiteFooter
+* `src/routes.ts`
+* Page titles and descriptions where applicable
+* Prerendered route summaries
+* Structured data
+* Open Graph descriptions where applicable
+* `public/llms.txt`
+* Copy-validation scripts
+* Audit-verification scripts
+* Any shared component containing the current organizational description
+* Archive pages only where they display the organization’s current legal/organizational status rather than clearly historical copy
+
+Do not blindly replace unrelated references to Mystic Arts Foundation.
+
+IMPLEMENTATION RULES
+
+1. Use the new sentence exactly as supplied.
+2. Preserve the curly apostrophe in `Foundation’s`.
+3. Do not rewrite, improve, expand, legally interpret, or add qualifications to the new sentence.
+4. Do not retain the old fiscal-sponsorship sentence in canonical content, metadata or machine-readable files.
+5. Do not change:
+
+   * “Born on the Playa. Gifted to the Planet.”
+   * participant figures
+   * privacy language
+   * microgrant language
+   * project status labels
+   * Manifesto copy
+   * event content
+   * licensing language
+   * unrelated design or functionality
+6. Preserve all existing routes, layout, styling and behavior.
+
+VALIDATOR UPDATES
+
+Update `check:copy` so canonical source fails if it contains obsolete organizational constructions, including:
+
+* `fiscally sponsored by Mystic Arts Foundation`
+* `California nonprofit and U.S. 501(c)(3) public charity`
+* `philanthropic initiative fiscally sponsored`
+* `philanthropic, public-interest initiative`
+
+Add a positive assertion that the newly approved wording appears in all required canonical organizational surfaces.
+
+Update `verify:audit` so it confirms:
+
+* The new wording is present in canonical source.
+* The old wording is absent from canonical generated output.
+* Homepage and Team metadata no longer use an obsolete variant.
+* `llms.txt` uses the new wording.
+* SiteFooter uses the new wording.
+* All seven canonical routes still build successfully.
+
+VERIFICATION
+
+Before editing, report:
+
+```bash
+pwd
+git status --short
+git branch --show-current
+git log -1 --oneline
+```
+
+After editing, run:
+
+```bash
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Also run searches proving:
+
+* Every occurrence of the old wording and listed obsolete variants.
+* Every occurrence of the new wording.
+* Whether any old variant remains and why.
+
+Confirm:
+
+* All expected 13 routes are generated.
+* No unrelated files changed.
+* Exact new JavaScript and CSS bundle names.
+* Build warnings.
+* Final `git status --short`.
+
+FINAL REPORT
+
+Return:
+
+1. Target-project confirmation.
+2. Exact files changed.
+3. Every old occurrence found.
+4. Every replacement made.
+5. Any intentionally retained archive occurrence and justification.
+6. Validator changes.
+7. Validation command results and exit codes.
+8. Route count and generated bundle names.
+9. Final diff summary.
+10. Confirmation that nothing was deployed, pushed, tagged or released.
+
+Do not perform any other remediation task during this pass.
