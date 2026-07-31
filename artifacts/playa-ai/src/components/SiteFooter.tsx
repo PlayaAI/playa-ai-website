@@ -36,7 +36,7 @@ export function SiteFooter({
         </div>
         <div className="text-[#A7A39A]">
           <div>© 2026 Playa AI · Fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.</div>
-          <div className="mt-2"><a href="mailto:hello@playa-ai.org?subject=General%20Inquiry" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">hello@playa-ai.org</a></div>
+          <div className="mt-2"><a href="mailto:hello@playa-ai.org?subject=General%20Inquiry" rel="noopener noreferrer" className="hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-1">hello@playa-ai.org</a></div>
         </div>
       </div>
     </footer>

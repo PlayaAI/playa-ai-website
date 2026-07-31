@@ -82,7 +82,13 @@ function patchHtml(template: string, route: RouteEntry): string {
   // Only injected for indexable routes that carry a summary; noindex/archive
   // routes get the noscript fallback only.
   if (route.summary && !route.noindex) {
-    const summaryHtml = `<main data-ssr="1"><h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p></main>`;
+    // Inject a static content skeleton into #root for non-JS crawlers and
+    // machine readers. Includes navigation, H1, summary, footer, and the
+    // content review date. React's createRoot() replaces this on mount.
+    // This is deterministic HTML injection, not React SSR.
+    const navHtml = `<nav aria-label="Site navigation"><a href="/">Overview</a> · <a href="/work">Work</a> · <a href="/events">Events</a> · <a href="/team">Team</a> · <a href="/manifesto">Manifesto</a></nav>`;
+    const footerHtml = `<footer><p>© 2026 Playa AI · Fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.</p><p>Website content reviewed July 2026.</p></footer>`;
+    const summaryHtml = `<div data-static="1">${navHtml}<main id="main-content"><h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p></main>${footerHtml}</div>`;
     html = html.replace(
       '<div id="root"></div>',
       `<div id="root">${summaryHtml}</div>`,

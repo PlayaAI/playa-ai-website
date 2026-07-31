@@ -78,6 +78,7 @@ export default function EELP() {
 
       {/* Hero */}
       <section
+        id="main-content"
         data-testid="eelp-hero"
         className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16"
       >

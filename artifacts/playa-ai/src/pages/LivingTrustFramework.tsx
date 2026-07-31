@@ -245,6 +245,7 @@ export default function LivingTrustFramework() {
 
       {/* Hero */}
       <section
+        id="main-content"
         data-testid="ltf-hero"
         className="relative px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16 overflow-visible"
       >

@@ -1,0 +1,522 @@
+You are performing the final website-only remediation and release-candidate pass for the Playa AI website.
+
+Your job is to finish every safe, evidence-based task that can be completed inside the website repository now, while producing a precise resolution register for everything that remains blocked.
+
+Do not work on external GitHub repositories, product repositories, licensing files, Hugging Face, or domain consolidation during this pass. Those will be handled later.
+
+PROJECT
+
+* Project path: `artifacts/playa-ai`
+* Stack: React 18, TypeScript, Vite, Tailwind, Wouter and Framer Motion
+* Latest reported remediation commit: `1d52ceb`
+* Production website: `https://playa-ai.org/`
+* Connect: `https://connect.playai.party`
+* Living Trust Framework repository: `https://github.com/PlayaAI/playa-ai-living-trust-framework`
+
+CANONICAL ROUTES
+
+* `/`
+* `/work`
+* `/events`
+* `/team`
+* `/manifesto`
+* `/eelp`
+* `/living-trust-framework`
+
+ARCHIVE/ALIAS ROUTES
+
+* `/privacy-toolkit`
+* `/classic`
+* `/classic/work`
+* `/classic/events`
+* `/classic/team`
+* `/playa-ai-living-trust-framework`
+
+PRIMARY SOURCES — USE IN THIS ORDER
+
+1. `Playa AI — Website Audit (July 2026).pdf`
+2. Current source and generated build
+3. Current production website
+4. `Playa-AI-Website-Continuity-and-Audit-Status-2026-07-30.md`
+5. `BLOCKERS.md`
+6. The forensic Replit report
+7. Meeting transcript and summary
+
+The PDF is authoritative for the original 36 audit actions. Do not renumber, replace or reinterpret them using newer implementation tasks.
+
+NON-NEGOTIABLE DECISIONS
+
+1. Keep this homepage wording exactly:
+
+   `Born on the Playa. Gifted to the Planet.`
+
+   This is a user-approved exception to original audit item 6. Record it as partial compliance. Do not remove it and do not count audit item 6 as fully fixed.
+
+2. Preserve this approved organizational construction unless a supplied primary document contradicts it:
+
+   `Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity.`
+
+3. Do not replace “fiscally sponsored by” with “a program of Mystic Arts Foundation.” That older meeting instruction requires documentary/legal confirmation.
+
+4. Keep the manifesto publication year as “First published 2025.”
+
+5. Preserve the distinction between Burning Man’s approximately 80,000 attendees and Playa AI’s own participant figures.
+
+6. The pledge is currently an expression-of-interest flow, not a legally stored or publicly rendered signature. Do not claim otherwise.
+
+7. Never invent privacy practices, retention periods, processors, licenses, participant totals, event facts, affiliations, grants, program status, legal classifications or organizational relationships.
+
+8. Do not publish, push, deploy or modify external repositories.
+
+9. Preserve archive content where historically appropriate, but keep archive routes `noindex`.
+
+PHASE 0 — ESTABLISH THE BASELINE
+
+Before editing, run and report:
+
+```bash
+pwd
+git status --short
+git branch --show-current
+git log -1 --oneline
+git diff --stat
+git diff --name-only
+git diff --check
+node --version
+pnpm --version
+```
+
+Inspect:
+
+* `package.json`
+* `src/routes.ts`
+* all canonical page files
+* shared header and footer components
+* application entry files
+* Vite/prerender configuration
+* `scripts/check-copy.js`
+* `scripts/verify-audit.js`
+* `public/llms.txt`
+* `public/robots.txt`
+* `public/sitemap.xml`
+* `BLOCKERS.md`
+* any existing CI configuration
+
+Do not expose secrets or `.env` values.
+
+PHASE 1 — FINISH DETERMINISTIC WEBSITE FIXES
+
+Implement the following safe website work.
+
+A. ORGANIZATIONAL AND METADATA CONSISTENCY
+
+* Fix the stale homepage metadata in `src/routes.ts`.
+* Remove the old “philanthropic, public-interest initiative” metadata construction from canonical metadata.
+* Use the approved human-centered AI/fiscal-sponsorship construction consistently across:
+
+  * visible canonical content;
+  * homepage metadata;
+  * Team metadata;
+  * route summaries;
+  * SiteFooter;
+  * structured data;
+  * prerendered content;
+  * `llms.txt`.
+* Do not alter intentional noindex archive history unless it creates a canonical or indexing conflict.
+
+B. SKIP LINK AND KEYBOARD ACCESS
+
+* Add a visible-on-focus “Skip to main content” link before repeated navigation.
+* Give every canonical page’s `<main>` a reliable `id="main-content"`.
+* Confirm the skip link works after direct navigation and client-side route changes.
+* Add explicit, design-consistent `focus-visible` styling to the three homepage initiative CTAs.
+* Audit every canonical link, button, mailto CTA, mobile-menu control and pledge-dialog control for visible focus.
+* Preserve the pledge dialog’s:
+
+  * initial focus;
+  * focus trap;
+  * Escape close;
+  * scroll lock;
+  * inert background;
+  * focus restoration.
+* Confirm mobile-menu keyboard operation and focus behavior.
+* Add accessible context to significant external links that open new tabs.
+* Add accessible context to mailto actions where the visible label does not make the email behavior clear.
+* Do not add noisy or repetitive screen-reader text where the existing label is already clear.
+
+C. LINK, SEMANTIC AND STRUCTURAL SWEEP
+
+Inspect all canonical pages for:
+
+* broken internal routes;
+* broken anchors;
+* empty `href`;
+* `href="#"`;
+* clickable non-semantic elements;
+* buttons that should be links;
+* links that should be buttons;
+* icon-only controls without names;
+* duplicate controls;
+* malformed mailto links;
+* missing `rel="noopener noreferrer"` on new-tab links;
+* more than one meaningful H1;
+* illogical heading hierarchy;
+* missing main/nav/footer landmarks;
+* keyboard traps;
+* responsive overflow.
+
+Fix every deterministic failure found.
+
+Do not create new forms or data-collection endpoints.
+
+D. COPY REGRESSION PROTECTION
+
+Expand `scripts/check-copy.js` so it scans appropriate canonical content in:
+
+* `src/pages/`
+* `src/components/`
+* `src/routes.ts`
+* appropriate text-based files in `public/`
+
+Intentionally exclude Classic/archive content where historical language is permitted.
+
+The script must detect stale or prohibited canonical copy, including:
+
+* `human-AI co-evolution`
+* `Artist Grant Interest`
+* `artist microgrants`
+* `Privacy Toolkit in review`
+* `MMXXVI`
+* `Agent Labs running monthly`
+* stale philanthropic organizational constructions
+* `Published 2026`
+* Gmail-compose URLs
+* Google Mail compose URLs
+* false pledge-signing wording
+* inconsistent fiscal-sponsorship wording
+
+Special handling:
+
+* The exact homepage sentence `Born on the Playa. Gifted to the Planet.` must be allowed as one documented canonical exception.
+* The validator should fail if it appears unexpectedly elsewhere in canonical source.
+* Archive occurrences may remain excluded.
+* Do not let validator string literals cause the validator to fail itself.
+
+If website CI already exists, add `check:copy` and the release verification command to it.
+
+If no CI system exists and adding one would require a new GitHub workflow, do not create external GitHub infrastructure during this pass. Mark original audit item 36 partial and state exactly what must be added during the later GitHub phase.
+
+E. STRENGTHEN `verify:audit`
+
+Extend the audit validator so it checks the implementation claims it currently misses:
+
+* exactly three featured homepage initiatives;
+* those initiatives are Connect, Living Trust Framework and EELP;
+* homepage wording says “Three of eight workstreams”;
+* Work contains eight canonical workstreams;
+* “What remains unresolved” appears after the Work index and before long-form work cards;
+* Manifesto intent disclosure is present;
+* Manifesto publication year is 2025;
+* content review date exists on all seven canonical pages;
+* pledge CTA uses interest wording, not signing wording;
+* pledge mailto subject is `Playa AI Pledge Interest`;
+* approved organizational wording appears in canonical source and metadata;
+* stale homepage metadata is absent;
+* `llms.txt` contains the Burning Man versus Playa AI distinction;
+* archive routes are `noindex`;
+* canonical routes remain indexable;
+* Gmail-compose URLs are absent;
+* sitemap contains exactly the intended canonical routes;
+* robots references the sitemap;
+* canonical URLs are correct;
+* each canonical route has one intended H1 in the rendered output.
+
+Keep the result honest. Do not inflate the check count or describe assertions as independent audit requirements.
+
+F. REAL STATIC RENDERING / PRERENDERING
+
+The current build reportedly patches metadata and injects `<noscript>` copy without server-rendering the React page body.
+
+Investigate and, if safely possible within the existing React/Vite/Wouter architecture, implement actual static rendering for the seven canonical routes without migrating to Next.js, Astro or another framework.
+
+Acceptance criteria for each canonical generated HTML file:
+
+* route-specific `<title>`;
+* description;
+* canonical;
+* Open Graph metadata;
+* meaningful H1;
+* primary page content;
+* navigation;
+* footer;
+* `Website content reviewed July 2026.`;
+* no dependency on `<noscript>` text to satisfy content-length assertions.
+
+Do not pretend metadata injection is SSR.
+
+If real static rendering cannot be implemented safely in this pass, do not create a fragile workaround. Document:
+
+* the exact technical blocker;
+* affected files;
+* viable implementation approaches;
+* estimated complexity;
+* risks;
+* recommended later approach.
+
+G. LOW-RISK PERFORMANCE IMPROVEMENT
+
+The reported JavaScript bundle is approximately 635 kB and triggers Vite’s chunk warning.
+
+Inspect whether safe route-level lazy loading or low-risk chunk separation can reduce the main bundle without breaking:
+
+* prerendering;
+* route navigation;
+* Framer Motion;
+* metadata;
+* accessibility;
+* archive routes.
+
+Only implement performance changes if they are low-risk and verifiably preserve behavior. Otherwise document this as performance debt, not an audit-compliance blocker.
+
+H. DOCUMENTATION ACCURACY
+
+Correct `BLOCKERS.md`:
+
+* Rename its current misleading “36-Item Compliance Summary” to:
+  `Comprehensive Implementation Matrix`
+* Do not present newer tasks A–L as the PDF’s original items 26–36.
+* Add or create a separate original-audit matrix preserving the PDF’s exact 1–36 numbering.
+* Record the homepage slogan as a user-approved exception.
+* Correct any blocker that source evidence proves resolved.
+* Add missing blockers found during this pass.
+* Keep local implementation, production verification and external decisions separate.
+
+PHASE 2 — ORIGINAL AUDIT MATRIX
+
+Create a faithful matrix using these original actions:
+
+1. Replace Gmail-compose URLs.
+2. Enable compression and immutable asset caching.
+3. Add the framework LICENSE.
+4. Remove “Privacy Toolkit in review.”
+5. Add reduced-motion support.
+6. Remove prohibited phrases, subject to the approved homepage exception.
+7. Convert Manifesto buttons into real links.
+8. Change the artist email subject.
+9. Remove `MMXXVI`.
+10. Remove unsupported microgrant language.
+11. Correct the Manifesto year.
+12. `noindex` archive routes.
+13. Publish `/privacy`.
+14. Rewrite Connect disclosure.
+15. Prerender canonical routes.
+16. Real 404s, sitemap and robots.
+17. Reconcile participant totals.
+18. Add permanent origin evidence at `/about#origin`.
+19. Pledge modal focus management.
+20. Upcoming Events, update stamps and Luma calendar.
+21. Reconcile the portfolio.
+22. Label Manifesto programs as intent and add CTA.
+23. Publish `llms.txt`.
+24. Mobile menu and durable Contact navigation.
+25. Correct external documents containing participant conflation.
+26. File the Burning Man attendance versus Playa AI participant decision record.
+27. Correct the OpenAI grant record or complete licensing.
+28. Build `/get-involved` with seven sections and a real form.
+29. Make the pledge signable and publish signatories.
+30. Publish the reconciled nine-row event log with London and a definition of “Playa AI public event.”
+31. Build `/about` with origin, MAF/EIN evidence, legal structure, people affiliations and Council Charter.
+32. Resolve MAF regranting in writing.
+33. Publish the crisis protocol.
+34. Rebuild the Work index and move unresolved work near the top.
+35. Consolidate product domains.
+36. Add prohibited-copy checking to CI.
+
+For every item provide:
+
+| Audit ID | Original action | Status | Source evidence | Build evidence | Browser evidence | Blocker | Exact resolution needed |
+
+Allowed statuses:
+
+* VERIFIED FIXED
+* LOCALLY IMPLEMENTED
+* PARTIALLY FIXED
+* NOT FIXED
+* BLOCKED
+* EXTERNAL ACTION
+* NEEDS HUMAN DECISION
+* POST-DEPLOYMENT REQUIRED
+* APPROVED EXCEPTION
+* NOT VERIFIED
+
+Do not mark an item production-complete using local source alone.
+
+PHASE 3 — BLOCKER RESOLUTION REGISTER
+
+Create a precise blocker register designed to help the Playa AI team actively solve each blocker.
+
+For every blocker include:
+
+* original audit ID;
+* blocker name;
+* current failure;
+* why code cannot safely solve it yet;
+* exact question that needs answering;
+* evidence or document required;
+* responsible owner;
+* affected website routes/files;
+* available resolution options;
+* recommended option, clearly labelled as a recommendation;
+* legal/privacy/product/hosting implications;
+* implementation task after the decision;
+* verification test for closure;
+* priority;
+* whether it can be resolved today, this week or externally.
+
+Group blockers into:
+
+1. Product/privacy
+2. Legal/organizational
+3. Evidence/metrics
+4. Hosting/infrastructure
+5. Conversion/forms
+6. External records
+7. GitHub/repositories — deferred
+8. Editorial/program decisions
+
+At minimum include resolution packets for:
+
+* Connect microphone/audio behavior
+* recording versus streaming
+* uploaded payload
+* transcription provider
+* raw-audio retention
+* transcript/summary retention
+* third-party processors
+* data controller/operator
+* deletion mechanism and owner
+* `/privacy`
+* real HTTP 404 status
+* compression and cache headers
+* Living Trust Framework license
+* organizational/fiscal-sponsorship wording
+* participant aggregate
+* event count and London inclusion
+* “Agent Labs running monthly”
+* Year-One microgrant statement
+* Connect “Live Pilot” status
+* `/get-involved`
+* stored pledge and signatory list
+* `/about`, MAF link, EIN, biographies and affiliations
+* MAF regranting
+* crisis protocol
+* product-domain consolidation
+* external grant/email corrections
+* prohibited-copy CI if deferred
+
+Do not resolve blockers by guessing. The purpose is to make every blocker answerable.
+
+PHASE 4 — VALIDATION
+
+After implementation, run:
+
+```bash
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Run lint and tests only if those scripts exist. If they do not exist, report `NOT AVAILABLE`.
+
+Verify:
+
+* all 13 expected routes are generated;
+* exact JS and CSS bundle names;
+* build warnings;
+* no unexpected route loss;
+* no unrelated file changes;
+* working tree status after validation.
+
+Perform real browser testing on all seven canonical routes at desktop and mobile widths.
+
+Test:
+
+* page rendering;
+* H1 and heading structure;
+* skip link;
+* Tab and Shift+Tab order;
+* visible focus;
+* mobile menu;
+* pledge dialog;
+* Escape behavior;
+* focus return;
+* internal links;
+* anchors;
+* external links;
+* mailto links;
+* horizontal overflow;
+* console errors;
+* reduced motion;
+* page titles and metadata.
+
+Do not claim browser verification if no browser was used.
+
+PHASE 5 — FINAL REPORT
+
+Return a complete report with exactly these sections:
+
+1. Executive verdict
+2. Repository baseline
+3. Files changed
+4. Safe website fixes completed
+5. Accessibility results
+6. Static-rendering result
+7. Performance result
+8. Validation command results
+9. Browser QA results
+10. Original 36-item audit matrix
+11. Comprehensive implementation matrix
+12. Blocker resolution register
+13. Production-versus-local distinction
+14. Deferred GitHub work
+15. Remaining human decisions
+16. Recommended deployment decision
+17. Exact next actions in priority order
+
+The report must include:
+
+* command exit codes;
+* check counts;
+* warnings;
+* exact changed files;
+* exact generated bundle names;
+* route count;
+* unresolved failures;
+* skipped tests;
+* post-deployment requirements.
+
+Do not truncate the report. If necessary, write the complete report to:
+
+`artifacts/playa-ai/FINAL-WEBSITE-REMEDIATION-REPORT.md`
+
+Then provide a concise chat summary and the report’s exact file path.
+
+FINAL SAFETY RULES
+
+* Do not deploy.
+* Do not push.
+* Do not edit external GitHub repositories.
+* Do not add a LICENSE.
+* Do not create privacy or legal copy from assumptions.
+* Do not invent participant or event figures.
+* Do not silently remove approved language.
+* Do not replace the PDF’s original numbering.
+* Do not count 83 implementation assertions as 83 audit requirements.
+* Do not hide warnings, accessibility failures or blockers.
+* Do not perform unrelated refactors.
+* Preserve the current design language unless a change is required for accessibility or audit compliance.
+* Keep all changes tightly scoped, reversible and evidence-backed.
+
+The goal is not to declare everything complete. The goal is to finish every website task that can honestly be completed now and transform every remaining blocker into a precise, solvable decision.

@@ -127,7 +127,7 @@ export default function ManifestoPage() {
         }
       />
 
-      <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
+      <section id="main-content" className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
         <div className="hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
           <span>Playa AI · Manifesto · 2026</span>
           <span className="text-muted-foreground">Published · Living Document</span>

@@ -243,7 +243,7 @@ export default function Events() {
       />
 
       {/* Intro */}
-      <section className="px-4 max-w-[1400px] mx-auto pt-12 md:pt-16 pb-10 md:pb-14">
+      <section id="main-content" className="px-4 max-w-[1400px] mx-auto pt-12 md:pt-16 pb-10 md:pb-14">
         <div className="hairline-b border-border pb-5 mb-10 md:mb-12 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
           <span>Public event archive</span>
           <span className="text-muted-foreground">Salons / Hackathons / Fundraisers / Field gatherings</span>

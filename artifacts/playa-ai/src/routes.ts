@@ -44,7 +44,7 @@ export const ROUTES: RouteEntry[] = [
     path: "/",
     title: "Playa AI — AI Needs Culture",
     description:
-      "Playa AI is a philanthropic, public-interest initiative developing human-centered AI tools, practices, frameworks, and community experiments.",
+      "Playa AI is a human-centered AI initiative developing consent frameworks, community experiments, tools, and public-interest research rooted in creativity and participation.",
     canonical: `${SITE_URL}/`,
     summary:
       "Playa AI is a human-centered AI initiative fiscally sponsored by Mystic Arts Foundation, a California nonprofit and U.S. 501(c)(3) public charity. We develop human-centered AI tools, consent frameworks, community experiments, and public-interest research rooted in creativity, participation, and human flourishing. Our work includes the EELP consent protocol, the Living Trust Framework for data dignity, field experiments, salons, and an open working group for builders, artists, researchers, and cultural stewards.",

@@ -410,7 +410,7 @@ export default function Home() {
       <SiteHeader active="home" />
 
       {/* ── 1. Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative pt-6 pb-6 md:pt-10 md:pb-8 px-4 max-w-[1400px] mx-auto min-h-[calc(100vh-80px)] flex items-center overflow-visible">
+      <section id="main-content" className="relative pt-6 pb-6 md:pt-10 md:pb-8 px-4 max-w-[1400px] mx-auto min-h-[calc(100vh-80px)] flex items-center overflow-visible">
         <div className="relative z-20 max-w-[760px] xl:max-w-[820px]">
           <motion.div
             initial="hidden"
@@ -443,11 +443,10 @@ export default function Home() {
               variants={fadeInUp}
               className="text-sm md:text-base max-w-2xl leading-relaxed mb-6 text-muted-foreground"
             >
-              Playa AI is a philanthropic initiative building cultural, ethical,
-              and technical infrastructure for human-centered AI — bringing
-              together builders, artists, researchers, funders, and community
-              stewards to shape AI around creativity, consent, participation,
-              and human flourishing.
+              Playa AI is a human-centered AI initiative building cultural, ethical,
+              and technical infrastructure — bringing together builders, artists,
+              researchers, funders, and community stewards to shape AI around
+              creativity, consent, participation, and human flourishing.
             </motion.p>
 
             <motion.p
@@ -470,21 +469,21 @@ export default function Home() {
             >
               <a
                 href="#participate"
-                className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background border border-foreground hover:bg-background hover:text-foreground transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
                 data-testid="link-join-initiative"
               >
                 Join the initiative
               </a>
               <a
                 href="/work"
-                className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-foreground hover:bg-foreground hover:text-background transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
                 data-testid="link-explore-work"
               >
                 Explore the work
               </a>
               <a
                 href="/manifesto"
-                className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                className="text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
                 data-testid="button-read-manifesto"
               >
                 Read the Manifesto
@@ -588,7 +587,7 @@ export default function Home() {
             <div className="border-t border-border pt-6">
               <a
                 href="/manifesto"
-                className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
               >
                 Read the full manifesto →
               </a>
@@ -662,7 +661,7 @@ export default function Home() {
                 {...(item.href.startsWith("http")
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
-                className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors w-fit mt-auto"
+                className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors w-fit mt-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
               >
                 {item.cta}
               </a>
@@ -686,7 +685,7 @@ export default function Home() {
               Three of eight workstreams.{" "}
               <a
                 href="/work"
-                className="border-b border-current pb-0.5 hover:text-foreground transition-colors"
+                className="border-b border-current pb-0.5 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
               >
                 Explore the full work index
               </a>
@@ -729,9 +728,9 @@ export default function Home() {
                 <a
                   href={item.href}
                   {...(item.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    ? { target: "_blank", rel: "noopener noreferrer", "aria-label": `${item.cta} — opens in a new tab` }
                     : {})}
-                  className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+                  className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-1"
                 >
                   {item.cta}
                 </a>
@@ -743,7 +742,7 @@ export default function Home() {
         <div className="mt-10 pt-6 border-t border-border">
           <a
             href="/work"
-            className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+            className="font-mono text-sm uppercase tracking-wider border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
           >
             Explore the full work index
           </a>

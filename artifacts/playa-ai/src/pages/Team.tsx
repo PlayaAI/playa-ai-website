@@ -415,7 +415,7 @@ export default function Teams() {
       />
 
       {/* Field guide intro */}
-      <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-32 pb-16 md:pb-24">
+      <section id="main-content" className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-32 pb-16 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7">
             <div className="flex items-center gap-4 mb-10">
@@ -456,7 +456,7 @@ export default function Teams() {
           <div className="lg:col-span-4">
             <MonoLabel className="mb-6">About Playa AI</MonoLabel>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[0.95] tracking-tight">
-              A philanthropic initiative building human-centered AI in public.
+              A human-centered AI initiative building in public.
             </h2>
           </div>
           <div className="lg:col-span-8 flex flex-col gap-5 lg:pt-1">
