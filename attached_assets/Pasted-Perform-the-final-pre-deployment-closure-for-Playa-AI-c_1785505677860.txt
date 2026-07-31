@@ -1,0 +1,95 @@
+Perform the final pre-deployment closure for Playa AI commit `79a996a`.
+
+Do not change approved copy, deploy, push, tag, release or rewrite Git history.
+
+1. REPOSITORY HYGIENE
+
+Run:
+
+```bash
+pwd
+git status --short
+git log -3 --oneline
+git ls-files attached_assets
+git show --stat --name-only 5814950
+git show --stat --name-only 79a996a
+```
+
+Determine whether this generated task attachment is still tracked:
+
+`attached_assets/Pasted-You-are-making-one-tightly-scoped-copy-update-in-the-Pl_1785503031959.txt`
+
+If it is tracked:
+
+* Remove only that generated task file from version control in a new corrective commit.
+* Do not amend or rewrite commits `5814950` or `79a996a`.
+* Do not remove the audit PDF, reports or any other attached asset.
+* Report the exact action taken.
+
+2. BROWSER VERIFICATION
+
+Start the local Playa AI preview and inspect the rendered website at desktop and mobile widths.
+
+Verify these surfaces:
+
+* Homepage hero organizational sentence
+* Homepage Trust section
+* Homepage Legal Structure section
+* Team page organizational paragraph
+* Footer on all seven canonical routes
+* Homepage metadata
+* Team metadata
+* `/llms.txt`
+
+The rendered sentence must read exactly:
+
+`Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)`
+
+Confirm:
+
+* No visible space before `’s`
+* No literal `\u2019`
+* No ASCII apostrophe
+* “Mystic Arts Foundation” remains bold in the Legal Structure section
+* No duplicated punctuation
+* No wrapping, clipping or mobile overflow
+* No console errors caused by this change
+
+3. GENERATED OUTPUT VERIFICATION
+
+Inspect the actual generated HTML for `/` and `/team`, plus the generated `llms.txt`.
+
+Confirm the exact U+2019 wording appears in generated output and that the old fiscal-sponsorship wording is absent from canonical output.
+
+4. VALIDATION
+
+Run:
+
+```bash
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Report:
+
+* Exit code for every command
+* Assertion count
+* Route count
+* JS and CSS bundle names
+* Build warnings
+* Browser routes tested
+* Console results
+* Complete final `git status --short`
+* Exact final commit hash
+
+Do not make any other website or content changes.
+
+Do not deploy or push. Return a final verdict of either:
+
+* `READY FOR DEPLOYMENT`
+* `NOT READY FOR DEPLOYMENT`
+
+If not ready, explain the exact remaining failure.
