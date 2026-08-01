@@ -17,125 +17,25 @@ localPort = 24278
 [services.development]
 run = "pnpm --filter @workspace/playa-ai run dev"
 
-[services.production]
-build = [ "pnpm", "--filter", "@workspace/playa-ai", "run", "build" ]
-publicDir = "artifacts/playa-ai/dist/public"
-serve = "static"
+# Production build — runs before the server starts.
+[services.production.build]
+args = ["pnpm", "--filter", "@workspace/playa-ai", "run", "build"]
 
-# Route-specific rewrites — both non-trailing-slash and trailing-slash forms
-# for every prerendered sub-route, ordered before the catch-all.
+# Production server — Node.js HTTP server that serves dist/public/ with
+# semantically correct HTTP statuses (200 for known routes, 308 for /privacy,
+# 404 for unknown routes). Replaces the previous static-file serve mode.
 #
-# Why both forms:
-#   - from="/work"  covers the canonical non-trailing-slash URL
-#   - from="/work/" covers browsers/links that append a trailing slash
-# Replit's static server applies rewrites before directory-index lookup,
-# so without these the catch-all intercepts and returns the homepage HTML.
-#
-# Query-string requests (e.g. /work?ref=test) are handled automatically:
-# path matching ignores query strings, so from="/work" already covers them.
+# Conflict removed: the earlier config used serve = "static" with publicDir
+# and a catch-all /* → /index.html rewrite. That caused Replit's built-in
+# static-file layer to handle ALL requests, bypassing server.js entirely.
+# Symptoms: /privacy → 200 (not 308), unknown routes → 200 (not 404),
+# hashed assets → cache-control: private (not immutable).
+[services.production.run]
+args = ["node", "artifacts/playa-ai/server.js"]
 
-[[services.production.rewrites]]
-from = "/work"
-to = "/work/index.html"
-
-[[services.production.rewrites]]
-from = "/work/"
-to = "/work/index.html"
-
-[[services.production.rewrites]]
-from = "/events"
-to = "/events/index.html"
-
-[[services.production.rewrites]]
-from = "/events/"
-to = "/events/index.html"
-
-[[services.production.rewrites]]
-from = "/team"
-to = "/team/index.html"
-
-[[services.production.rewrites]]
-from = "/team/"
-to = "/team/index.html"
-
-[[services.production.rewrites]]
-from = "/manifesto"
-to = "/manifesto/index.html"
-
-[[services.production.rewrites]]
-from = "/manifesto/"
-to = "/manifesto/index.html"
-
-[[services.production.rewrites]]
-from = "/eelp"
-to = "/eelp/index.html"
-
-[[services.production.rewrites]]
-from = "/eelp/"
-to = "/eelp/index.html"
-
-[[services.production.rewrites]]
-from = "/living-trust-framework"
-to = "/living-trust-framework/index.html"
-
-[[services.production.rewrites]]
-from = "/living-trust-framework/"
-to = "/living-trust-framework/index.html"
-
-[[services.production.rewrites]]
-from = "/playa-ai-living-trust-framework"
-to = "/playa-ai-living-trust-framework/index.html"
-
-[[services.production.rewrites]]
-from = "/playa-ai-living-trust-framework/"
-to = "/playa-ai-living-trust-framework/index.html"
-
-[[services.production.rewrites]]
-from = "/privacy-toolkit"
-to = "/privacy-toolkit/index.html"
-
-[[services.production.rewrites]]
-from = "/privacy-toolkit/"
-to = "/privacy-toolkit/index.html"
-
-[[services.production.rewrites]]
-from = "/classic"
-to = "/classic/index.html"
-
-[[services.production.rewrites]]
-from = "/classic/"
-to = "/classic/index.html"
-
-[[services.production.rewrites]]
-from = "/classic/work"
-to = "/classic/work/index.html"
-
-[[services.production.rewrites]]
-from = "/classic/work/"
-to = "/classic/work/index.html"
-
-[[services.production.rewrites]]
-from = "/classic/events"
-to = "/classic/events/index.html"
-
-[[services.production.rewrites]]
-from = "/classic/events/"
-to = "/classic/events/index.html"
-
-[[services.production.rewrites]]
-from = "/classic/team"
-to = "/classic/team/index.html"
-
-[[services.production.rewrites]]
-from = "/classic/team/"
-to = "/classic/team/index.html"
-
-# Catch-all SPA fallback — fires only for paths not matched above.
-# Client-side wouter handles unknown paths with branded 404 UI,
-# noindex/nofollow, and no canonical.
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
+[services.production.run.env]
+PORT = "24278"
+NODE_ENV = "production"
 
 [services.env]
 PORT = "24278"
