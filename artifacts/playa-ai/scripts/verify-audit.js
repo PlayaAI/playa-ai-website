@@ -681,7 +681,61 @@ if (aboutSrc) {
   check('About.tsx — scroll-mt-20 on anchor sections',
     (aboutSrc.match(/scroll-mt-20/g) || []).length >= 4,
     'All anchored sections must have scroll-mt-20 for sticky header offset.');
-}
+
+  // ── About wording: no unverified legal/governance/placeholder claims ─────────
+  check('About.tsx — "fiscal infrastructure" claim removed',
+    aboutSrc !== null && !aboutSrc.includes("fiscal infrastructure"),
+    'Remove "fiscal infrastructure" from About.tsx — unverified organizational claim.');
+  check('About.tsx — "tax-deductible" claim removed',
+    aboutSrc !== null && !aboutSrc.toLowerCase().includes("tax-deductible"),
+    'Remove tax-deductible claims from About.tsx — unverified until FSA and IRS docs confirmed.');
+  check('About.tsx — governance authority claim removed',
+    aboutSrc !== null && !aboutSrc.includes("governance authority"),
+    'Remove "governance authority" — unverified governance claim.');
+  check('About.tsx — "fiduciary duties" claim removed',
+    aboutSrc !== null && !aboutSrc.includes("fiduciary duties"),
+    'Remove "fiduciary duties" — unverified governance claim.');
+  check('About.tsx — "signing authority" claim removed',
+    aboutSrc !== null && !aboutSrc.includes("signing authority"),
+    'Remove "signing authority" — unverified governance claim.');
+  check('About.tsx — "pending confirmation" placeholder removed',
+    aboutSrc !== null && !aboutSrc.includes("pending confirmation"),
+    'Remove internal blocker language from the public About page.');
+  check('About.tsx — "official URL and EIN" placeholder removed',
+    aboutSrc !== null && !aboutSrc.includes("official URL and EIN"),
+    'Remove EIN/URL placeholder from the public About page.');
+  check('About.tsx — EELP/LTF framework framing present',
+    aboutSrc !== null && aboutSrc.includes("EELP proposes"),
+    'Principles must use EELP/LTF framework framing (e.g. "EELP proposes").');
+  check('About.tsx — working-framework disclaimer present',
+    aboutSrc !== null &&
+    aboutSrc.includes("working frameworks, not a claim that") &&
+    aboutSrc.includes("every current prototype has completed implementation"),
+    'Add the EELP/LTF working-framework disclaimer before the principles list.');
+  check('About.tsx — structure section contact line present',
+    aboutSrc !== null &&
+    aboutSrc.includes("organizational structure can be directed to"),
+    'Replace fiscal-infrastructure paragraph with approved contact sentence.');
+
+  // ── About HTML: no internal notes visible in prerendered output ───────────────
+  if (aboutHtml) {
+    check('/about HTML — no "pending confirmation" in rendered output',
+      !aboutHtml.toLowerCase().includes("pending confirmation"),
+      'Internal blocker note must not appear in prerendered About HTML.');
+    check('/about HTML — no "EIN" placeholder in rendered output',
+      !aboutHtml.includes('EIN:') && !aboutHtml.includes('"EIN"'),
+      'EIN placeholder must not appear in prerendered About HTML.');
+    check('/about HTML — no "fiscal infrastructure" in rendered output',
+      !aboutHtml.includes("fiscal infrastructure"),
+      'Unverified fiscal claim must not appear in prerendered About HTML.');
+    check('/about HTML — no "fiduciary" in rendered output',
+      !aboutHtml.toLowerCase().includes("fiduciary"),
+      'Unverified governance claim must not appear in prerendered About HTML.');
+    check('/about HTML — no "signing authority" in rendered output',
+      !aboutHtml.includes("signing authority"),
+      'Unverified governance claim must not appear in prerendered About HTML.');
+  }
+} // end if (aboutSrc)
 
 // Navigation
 const headerSrcForAbout = readSrc("src/components/SiteHeader.tsx");

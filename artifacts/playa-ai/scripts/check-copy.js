@@ -129,6 +129,42 @@ const PROHIBITED = [
     reason:
       "Obsolete public contact address. All public contact surfaces must use team@playa-ai.org.",
   },
+  // ── About-page unverified legal / organizational claims ─────────────────────
+  {
+    pattern: "pending confirmation",
+    reason:
+      "Internal blocker language belongs in BLOCKERS.md, not on the public website. " +
+      "Remove the phrase entirely; do not replace with another placeholder.",
+  },
+  {
+    pattern: "official URL and EIN",
+    reason:
+      "Internal blocker note visible on the public About page. Remove without replacement.",
+  },
+  {
+    pattern: "tax-deductible contributions",
+    reason:
+      "Unverified tax claim. Tax-deductibility has not been independently confirmed. " +
+      "Do not publish until a signed FSA and IRS determination letter are in hand.",
+  },
+  {
+    pattern: "fiduciary duties",
+    // Team.tsx contains "Council members have no fiduciary duties." — pre-existing,
+    // in scope per task spec ("Leadership Council may remain visible on /team").
+    // The prohibition applies to About.tsx and all other canonical pages.
+    allowedIn: new Set(["Team.tsx"]),
+    reason:
+      "Unverified governance claim. Do not publish assertions about fiduciary duties " +
+      "without an authoritative governance document.",
+  },
+  {
+    pattern: "signing authority",
+    // Team.tsx contains "Council members have no signing authority." — same exemption.
+    allowedIn: new Set(["Team.tsx"]),
+    reason:
+      "Unverified governance claim. Do not publish assertions about signing authority " +
+      "without an authoritative governance document.",
+  },
 ];
 
 // ── Approved canonical exception ──────────────────────────────────────────────
@@ -149,7 +185,10 @@ function lineNumber(content, index) {
 function checkFile(filePath, content) {
   const name = basename(filePath);
 
-  for (const { pattern, reason } of PROHIBITED) {
+  for (const { pattern, reason, allowedIn } of PROHIBITED) {
+    // allowedIn (optional Set<string>) — list of filenames where this pattern is
+    // permitted for historical or verified reasons. All other files are checked.
+    if (allowedIn && allowedIn.has(name)) continue;
     const idx = content.indexOf(pattern);
     if (idx !== -1) {
       console.error(

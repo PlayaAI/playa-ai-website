@@ -120,6 +120,13 @@ interface Errs {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function GetInvolved() {
+  // Detect a valid hash on the very first render (before effects run).
+  // Used to skip the hero entry animation so layout is stable immediately,
+  // preventing Framer Motion's y:20→0 transform from shifting sections after scroll.
+  const hasDirectHashNav =
+    typeof window !== "undefined" &&
+    PATHS.some((p) => p.value === window.location.hash.slice(1));
+
   const [selectedPath, setSelectedPath] = useState<PathValue | "">("");
   const [fields, setFields]   = useState<Fields>({ name: "", email: "", org: "", message: "" });
   const [consent, setConsent] = useState(false);
@@ -132,28 +139,82 @@ export default function GetInvolved() {
   const nameRef         = useRef<HTMLInputElement>(null);
   const errorSummaryRef = useRef<HTMLDivElement>(null);
 
-  // Preselect path and scroll to section from URL hash on mount
-  // (e.g. /get-involved#artists preselects Artists and scrolls to that section).
-  // Two nested requestAnimationFrame calls wait for React to commit the render
-  // AND for the browser to complete the first layout pass before scrolling.
-  // This avoids arbitrary timeouts while ensuring the target element is ready.
+  // ── Direct hash navigation: preselect path + bounded stability-loop scroll ──
+  //
+  // Root cause of the production failure: the hero's `initial="hidden"
+  // animate="visible"` animation fires after React hydration. Even though
+  // Framer Motion uses CSS transforms (which don't affect document flow),
+  // the browser's scroll-restoration and React's createRoot hydration can
+  // reset scrollY before useEffect fires. We solve this in two layers:
+  //
+  //  1. hasDirectHashNav → hero starts at initial="visible" (no entry anim),
+  //     so there is zero layout change after mount.
+  //  2. Bounded RAF stability loop: keeps measuring the target's actual
+  //     getBoundingClientRect().top and scrolls whenever it is outside the
+  //     acceptable range, until the position is stable and correct or the
+  //     2 000 ms budget is exhausted. This handles any residual browser
+  //     scroll-restoration interference.
   useEffect(() => {
     const hash = window.location.hash.replace("#", "") as PathValue;
     if (!PATHS.some((p) => p.value === hash)) return;
+
+    // Preselect immediately — no visual delay on the dropdown
     setSelectedPath(hash);
-    let raf2 = 0;
-    const raf1 = requestAnimationFrame(() => {
-      raf2 = requestAnimationFrame(() => {
-        const el = document.getElementById(hash);
-        if (!el) return;
-        const prefersReduced =
-          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
-      });
-    });
+
+    // Prevent the browser from fighting our scroll with its own restoration
+    if (typeof history !== "undefined") history.scrollRestoration = "manual";
+
+    const HEADER_OFFSET   = 80;  // matches scroll-mt-20 (5 rem = 80 px)
+    const ACCEPT_MIN      = 70;  // target top ≥ 70 px below viewport top
+    const ACCEPT_MAX      = 260; // target top ≤ 260 px below viewport top
+    const MAX_MS          = 2000;
+    const STABLE_FRAMES   = 4;   // consecutive frames within 1.5 px = settled
+    const SCROLL_COOLDOWN = 350; // ms between scroll commands (avoid fighting smooth)
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let rafId       = 0;
+    let prevTop: number | null = null;
+    let stableCount = 0;
+    let lastScrollMs = -Infinity;
+    const startMs = performance.now();
+
+    function tick() {
+      const el  = document.getElementById(hash);
+      const now = performance.now();
+
+      if (!el || now - startMs > MAX_MS) return;
+
+      const top = el.getBoundingClientRect().top;
+
+      // Track positional stability across frames
+      if (prevTop !== null && Math.abs(top - prevTop) < 1.5) {
+        stableCount++;
+      } else {
+        stableCount = 0;
+      }
+      prevTop = top;
+
+      const inRange = top >= ACCEPT_MIN && top <= ACCEPT_MAX;
+      const settled = stableCount >= STABLE_FRAMES;
+
+      if (settled && inRange) return; // target is visible and stable — done
+
+      // Only scroll once layout has settled (stable) and scroll cooldown passed
+      if (settled && !inRange && now - lastScrollMs > SCROLL_COOLDOWN) {
+        const targetY = Math.max(0, window.scrollY + top - HEADER_OFFSET);
+        window.scrollTo({ top: targetY, behavior: prefersReduced ? "instant" : "smooth" });
+        lastScrollMs = now;
+        stableCount  = 0; // reset — position will change as scroll animates
+      }
+
+      rafId = requestAnimationFrame(tick);
+    }
+
+    rafId = requestAnimationFrame(tick);
+
     return () => {
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
+      cancelAnimationFrame(rafId);
+      if (typeof history !== "undefined") history.scrollRestoration = "auto";
     };
   }, []);
 
@@ -333,7 +394,7 @@ export default function GetInvolved() {
         </div>
 
         <motion.div
-          initial="hidden"
+          initial={hasDirectHashNav ? "visible" : "hidden"}
           animate="visible"
           variants={stagger}
           className="max-w-4xl"

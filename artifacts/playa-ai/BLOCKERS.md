@@ -221,17 +221,13 @@ Blockers are grouped by type. Every blocker includes the original audit ID, curr
 
 ### Group 5 — Conversion / Forms
 
-#### BLOCKER C1 — /get-involved page — inbox delivery confirmation pending
+#### BLOCKER C1 — /get-involved page — RESOLVED
 - **Audit ID:** #28
-- **Status as of July 2026:** Page, form, and all seven participation sections implemented and prerendered. Formspree integration configured. `hello@playa-ai.org` is nonexistent and removed from all source files.
-- **Approved endpoint:** `https://formspree.io/f/mwvgdevg` (via `VITE_GET_INVOLVED_FORM_ENDPOINT`, set in Replit shared environment)
-- **Approved destination:** `team@playa-ai.org`
-- **Live endpoint test:** One synthetic QA submission sent to the Formspree endpoint this session; HTTP acceptance confirmed.
-- **What remains:** Inbox delivery confirmation. User must check `team@playa-ai.org` and confirm receipt. Production deployment also requires the env var to be set in the deployment environment and a rebuild.
-- **Exact question:** "What happens when someone submits their interest? Who receives it, who follows up, and how quickly?"
-- **Next action:** User confirms receipt at `team@playa-ai.org`, then deploy with env var configured.
-- **Owner:** Product
-- **Priority:** P2
+- **Resolution date:** 2026-08-01
+- **Confirmed by user:** Live form submission received at `team@playa-ai.org` via Formspree. Receipt confirmed. Delivery confirmed. End-to-end flow verified.
+- **Approved endpoint:** `https://formspree.io/f/mwvgdevg` (via `VITE_GET_INVOLVED_FORM_ENDPOINT`, Replit shared env)
+- **Status:** COMPLETE. No remaining action items for this blocker.
+- **Priority:** RESOLVED
 
 ---
 
@@ -247,7 +243,7 @@ Blockers are grouped by type. Every blocker includes the original audit ID, curr
 
 #### BLOCKER C3 — /about page — SUBSTANTIALLY IMPLEMENTED
 - **Audit ID:** #31
-- **Current state (2026-08-01):** `/about` route is live. Page covers seven sections: hero (org description + approved wording), origin (`#origin` — Burning Man framing, "Born on the Playa. Gifted to the Planet." approved exception), what Playa AI does, legal structure (`#structure` — MAF 501(c)(3), EIN and MAF URL omitted pending source confirmation), people (`#people` — four named leadership roles from Team.tsx, link to `/team`), how we work (`#governance`), and participate (`#contact` — `team@playa-ai.org`). Page passes all 22 assertions in `verify:audit` section 13. Navigation updated (Team → About). Sitemap and `llms.txt` updated.
+- **Current state (2026-08-01):** `/about` is production-live. Page covers seven sections: hero (approved org sentence), origin (`#origin` — Burning Man framing, approved slogan), what Playa AI does (8 workstreams with status labels), legal structure (`#structure` — approved MAF 501(c)(3) sentence + `team@playa-ai.org` contact; no EIN, no MAF URL, no fiscal/tax claims), people (`#people` — four named leadership roles, link to `/team`), how we work (`#governance` — neutral wording; no governance-authority claims; EELP/LTF as working-framework principles), and participate (`#contact`). All 5 prohibited strings now detected by `check:copy`. Page passes all assertions in `verify:audit` section 13.
 - **What remains:** MAF EIN (pending IRS lookup / signed FSA from BLOCKER L1). MAF official URL (pending confirmation). Council Charter (referenced in governance section as a future governance document). Full biography consent for each team member (BLOCKER C4 / Group 8).
 - **Dependencies (remaining):** BLOCKER L1 (EIN + FSA), BLOCKER L3 (MAF regranting), team consent for expanded bios.
 - **Owner:** Editorial + Leadership
@@ -334,7 +330,7 @@ These items are deferred per task instructions. They require external repository
 | 25 | Correct external documents with conflated phrasing | **EXTERNAL ACTION** | Off-site documents (OECD.AI, Mozilla, funder emails) | Not applicable | BLOCKER X1 |
 | 26 | File the Burning Man vs. Playa AI participant decision record | **LOCALLY IMPLEMENTED** | `llms.txt` explicitly states the 80,000 / 80+ distinction; `verify:audit` confirms; `BORN IN THE BLACK ROCK DESERT · INDEPENDENT OF BURNING MAN ORGANIZATION` in homepage body | In build | None |
 | 27 | Correct the OpenAI grant record or complete licensing | **NEEDS HUMAN DECISION** | Nature of the grant and required correction are unclear from available documentation | Not applicable | BLOCKER E4 |
-| 28 | Build `/get-involved` with seven sections and a real form | **IMPLEMENTED — INBOX CONFIRMATION PENDING** | Page, 7 sections, form, Formspree integration, `team@playa-ai.org`; QA submission sent; inbox confirmation pending user | `dist/public/get-involved/index.html`; `verify:audit` passes | BLOCKER C1 (inbox confirmation) |
+| 28 | Build `/get-involved` with seven sections and a real form | **COMPLETE** | Page, 7 sections, form, Formspree integration, `team@playa-ai.org`; user confirmed live submission received at `team@playa-ai.org` (2026-08-01) | `dist/public/get-involved/index.html`; `verify:audit` passes | None — resolved |
 | 29 | Make the pledge signable and publish signatories | **BLOCKED** | Pledge is currently a mailto expression-of-interest flow | Not applicable | BLOCKER C2 |
 | 30 | Publish the reconciled nine-row event log with London | **NOT FIXED** | London event status unconfirmed; no reconciled event log published | Events page partial | BLOCKER E2 |
 | 31 | Build `/about` with origin, MAF/EIN, legal structure, affiliations, Council Charter | **PARTIALLY IMPLEMENTED** | Route live; origin, legal structure, people (4 leaders), governance, participation all present; EIN + MAF URL pending source confirmation (L1); Council Charter referenced but not yet published | `dist/public/about/index.html`; `verify:audit` section 13 passes (22/22) | BLOCKER L1 (EIN/MAF URL), L3 (regranting docs) |

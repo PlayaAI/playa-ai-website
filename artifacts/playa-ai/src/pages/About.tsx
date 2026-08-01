@@ -43,13 +43,15 @@ const WORKSTREAMS = [
   { name: "Ikigai App 1",                         status: "Currently unavailable"   },
 ] as const;
 
-// ── Verified operating principles (source: Manifesto, EELP, LTF pages) ────────
+// ── Framework principles (source: EELP and Living Trust Framework pages) ──────
+// These describe what EELP and LTF propose — not operational guarantees across
+// every current prototype. See the relevant framework pages for full detail.
 const PRINCIPLES = [
-  { label: "Consent before capture",   body: "Informed, specific consent is a precondition for any data collection or AI-mediated experience — not a checkbox added after the fact." },
-  { label: "Human agency",             body: "People retain meaningful control over their participation, data, and how their contributions are used." },
-  { label: "Data minimization",        body: "We collect only what is necessary and hold it only as long as it serves a clear, consented purpose." },
-  { label: "Public learning",          body: "Findings, frameworks, and working drafts are shared publicly. Learning happens in the open." },
-  { label: "Early-stage transparency", body: "Work is labeled accurately: live pilot, working draft, prototype, or governance design phase. We do not present drafts as finished products." },
+  { label: "Consent before capture",   body: "EELP proposes informed, specific consent before data collection or an AI-mediated experience." },
+  { label: "Human agency",             body: "The frameworks are designed to preserve meaningful participant choice, explanation, and human override." },
+  { label: "Data minimization",        body: "The Living Trust Framework advocates collecting only what is necessary and defining clear purpose, access, retention, and deletion rules." },
+  { label: "Public learning",          body: "Playa AI publishes working drafts, field observations, and lessons where doing so is appropriate and consent permits." },
+  { label: "Early-stage transparency", body: "Work is labeled accurately as a live pilot, working draft, prototype, or governance design phase." },
 ] as const;
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -292,16 +294,15 @@ export default function About() {
                 {/* Approved organizational sentence — U+2019 apostrophe required */}
                 Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3).
               </motion.p>
-              <motion.div variants={fadeInUp} className="space-y-4 text-base text-muted-foreground leading-relaxed">
-                <p>
-                  Mystic Arts Foundation provides the fiscal infrastructure that allows
-                  Playa AI to accept tax-deductible contributions and operate within an
-                  established legal structure. Tax-deductible giving for funders aligned
-                  with the initiative's public-interest mission is available through this
-                  relationship.
-                </p>
-
-              </motion.div>
+              <motion.p variants={fadeInUp} className="text-base text-muted-foreground leading-relaxed">
+                Questions about Playa AI's organizational structure can be directed to{" "}
+                <a
+                  href="mailto:team@playa-ai.org"
+                  className="border-b border-current pb-0.5 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                >
+                  team@playa-ai.org
+                </a>.
+              </motion.p>
             </motion.div>
           </div>
         </section>
@@ -378,13 +379,22 @@ export default function About() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="text-base text-muted-foreground leading-relaxed max-w-xl mb-10"
+                className="text-base text-muted-foreground leading-relaxed max-w-xl mb-4"
               >
-                Playa AI's work is guided by a set of operating principles applied
-                consistently across its tools, field experiments, and published frameworks.
-                The Leadership Council is advisory only — providing perspective and
-                expertise with no governance authority, fiduciary duties, or signing
-                authority.
+                Playa AI brings together builders, researchers, and community practitioners.
+                Its working structures continue to develop alongside its tools, frameworks,
+                and community experiments.
+              </motion.p>
+              <motion.p
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="font-mono text-xs text-muted-foreground/70 leading-relaxed max-w-xl mb-8"
+              >
+                EELP and the Living Trust Framework set out principles Playa AI is developing
+                and testing across its work. They are working frameworks, not a claim that
+                every current prototype has completed implementation.
               </motion.p>
               <motion.div
                 variants={stagger}
