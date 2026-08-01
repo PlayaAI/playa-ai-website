@@ -1,0 +1,418 @@
+Complete the next tightly scoped Playa AI production-remediation pass.
+
+## Repository
+
+Work only in:
+
+`artifacts/playa-ai`
+
+Expected starting state:
+
+* Branch: `main`
+* Expected HEAD: `fa01f0f`
+* Production website: `https://playa-ai.org`
+* Current canonical routes: 8
+* Current total prerendered routes: 14
+* Current audit verification baseline: `240/240`
+
+Before editing:
+
+1. Confirm directory, branch and HEAD.
+2. Run `git status --short --branch`.
+3. Inspect newer commits if HEAD differs.
+4. Preserve unrelated user changes.
+5. Do not modify `.agents/memory`.
+6. Do not commit `attached_assets` task files.
+7. Do not push, deploy, tag or release.
+
+## Objective
+
+Implement exactly these four fixes:
+
+1. Fix direct `/get-involved#anchor` navigation.
+2. Remove the Manifesto 2026/2025 publication-date ambiguity.
+3. Redirect `/privacy` to the new Living Trust Framework page.
+4. Return genuine HTTP 404 responses for unknown URLs.
+
+Do not build `/about` yet. That will be the next separate phase.
+
+---
+
+## 1. Fix Get Involved direct anchors
+
+Current production behavior:
+
+* Opening `/get-involved#artists` correctly preselects “Artists.”
+* The page remains at `scrollY: 0`.
+* The Artists section stays approximately 1,244 pixels below the viewport.
+* The direct hash therefore does not visually navigate to its section.
+
+Required behavior:
+
+* `/get-involved#builders` scrolls to Builders.
+* `/get-involved#artists` scrolls to Artists.
+* `/get-involved#researchers` scrolls to Researchers.
+* `/get-involved#funders` scrolls to Funders.
+* `/get-involved#stewards` scrolls to Cultural Stewards.
+* `/get-involved#institutions` scrolls to Institutions.
+* `/get-involved#general` scrolls to General Participation.
+
+For every valid hash:
+
+* Preselect the matching participation path.
+* Wait until React hydration and the target element are ready.
+* Scroll the corresponding section into view.
+* Account for the sticky header using an appropriate `scroll-margin-top`.
+* Respect `prefers-reduced-motion`.
+* Do not move keyboard focus unexpectedly on initial page load.
+* Preserve the existing section-button behavior that selects a path, scrolls to the form and focuses the first appropriate field.
+* Listen for valid `hashchange` events after initial load.
+* Ignore unknown hashes safely.
+
+Test direct loading, refreshing, browser back/forward navigation and clicking every jump-navigation link.
+
+Do not solve this with arbitrary long timeouts. Use deterministic post-render behavior such as `requestAnimationFrame`, layout readiness and element existence.
+
+---
+
+## 2. Correct the Manifesto publication date
+
+Current production displays:
+
+`PLAYA AI · MANIFESTO · 2026`
+
+near the top, while the footer says:
+
+`MANIFESTO · PLAYA AI · FIRST PUBLISHED 2025`
+
+This is ambiguous and conflicts with the original audit requirement.
+
+Use the exact publication wording consistently:
+
+`FIRST PUBLISHED 2025`
+
+Replace the top Manifesto date line with an accurate form such as:
+
+`PLAYA AI · MANIFESTO · FIRST PUBLISHED 2025`
+
+Preserve:
+
+* “Published · Living Document”
+* The existing manifesto content
+* The intent/operating-expression disclosure
+* Existing metadata unless it incorrectly describes 2026 as the publication year
+* The footer wording
+* Current visual styling
+
+Do not remove legitimate 2026 copyright or website-review dates.
+
+Add validator assertions that:
+
+* The Manifesto public page contains `FIRST PUBLISHED 2025`.
+* It does not present `MANIFESTO · 2026` as the publication stamp.
+* `MMXXVI` remains absent.
+
+---
+
+## 3. Redirect `/privacy` to Living Trust Framework
+
+User-approved decision:
+
+`/privacy` should redirect visitors to:
+
+`/living-trust-framework`
+
+Preferred behavior:
+
+* `GET /privacy` → HTTP `308 Permanent Redirect`
+* `HEAD /privacy` → HTTP `308 Permanent Redirect`
+* `/privacy/` behaves the same way.
+* Preserve query strings where safe.
+* Redirect destination: `/living-trust-framework`
+* Do not create a redirect loop.
+
+If the current Replit deployment architecture cannot emit a genuine 301/308 redirect, implement the strongest technically correct fallback:
+
+* A dedicated `/privacy` alias rendering the Living Trust Framework content
+* Canonical URL: `https://playa-ai.org/living-trust-framework`
+* `noindex, follow`
+* Clear immediate client navigation using `window.location.replace`
+* A visible fallback link for JavaScript-disabled visitors
+
+However, because task 4 requires an HTTP-capable deployment, the final architecture should preferably provide the genuine 308 redirect at the HTTP server layer.
+
+Do not redirect `/privacy-toolkit`. It must remain a historical `noindex, follow` archive.
+
+Update:
+
+* Routes
+* Prerender/static output as appropriate
+* Metadata
+* Validators
+* `BLOCKERS.md`
+* Continuity/audit documentation
+
+Do not add `/privacy` to the sitemap. The canonical destination is already `/living-trust-framework`.
+
+Important documentation:
+
+* This redirect resolves the broken website destination.
+* It does not by itself create a complete legal privacy policy.
+* Audit item #13 therefore remains partial unless the Living Trust Framework contains every verified required fact about collection, processors, retention and deletion.
+* Connect disclosure item #14 remains separate.
+
+---
+
+## 4. Implement genuine HTTP 404 responses
+
+Current production behavior:
+
+* Unknown routes show the branded client-side 404.
+* The client correctly applies `noindex, nofollow`.
+* The client removes the canonical.
+* The HTTP server still returns status `200`.
+
+Required result:
+
+* Every known route returns HTTP `200`.
+* `/privacy` returns HTTP `308`.
+* Unknown routes return genuine HTTP `404`.
+* The branded Playa AI 404 page remains visible.
+* The 404 response contains `noindex, nofollow`.
+* The 404 response has no canonical tag.
+* Unknown routes remain absent from the sitemap.
+* Direct requests work with and without trailing slashes.
+* Query strings do not break route resolution.
+* Static assets and machine-readable files continue working.
+
+Do not merely alter the React page. Verify the actual HTTP status with `curl`.
+
+### Hosting architecture
+
+Inspect the current Replit deployment configuration before changing it.
+
+The existing static catch-all rewrite may be incapable of returning a genuine 404. If confirmed, replace it with a minimal production HTTP server deployment that serves the existing Vite/prerender output.
+
+The server must:
+
+* Serve files from the existing build-output directory.
+* Serve canonical prerendered route HTML with HTTP 200.
+* Serve archive/alias routes with HTTP 200 and their existing `noindex` metadata.
+* Return HTTP 308 for `/privacy` and `/privacy/`.
+* Return the branded prerendered 404 document with HTTP 404 for unknown routes.
+* Support `GET` and `HEAD`.
+* Use correct MIME types.
+* Prevent path traversal.
+* Preserve query strings correctly.
+* Serve `/sitemap.xml`, `/robots.txt` and `/llms.txt`.
+* Serve hashed JS, CSS, images and fonts correctly.
+* Keep Formspree entirely client-side.
+* Avoid unnecessary framework dependencies.
+* Use Replit’s assigned `PORT`.
+* Bind to `0.0.0.0`.
+* Shut down cleanly.
+* Log method, path and status without logging personal form data.
+
+Do not use an SPA fallback that returns `index.html` with status 200 for every unknown route.
+
+Update the Replit deployment configuration to start the production server after building.
+
+Do not migrate to another hosting company during this pass.
+
+If Replit cannot support the required server deployment within the current project type, stop and report the exact platform restriction instead of pretending the 404 is fixed.
+
+### Cache preservation
+
+Do not regress static delivery.
+
+At minimum:
+
+* HTML: no-cache or short-lived
+* Hashed `/assets/*`: `public, max-age=31536000, immutable`
+* Machine-readable text/XML: appropriate short-lived caching
+
+Compression may be implemented safely if supported, but do not let optional compression expand or block this scoped pass.
+
+---
+
+## Required route verification
+
+Verify all canonical routes:
+
+* `/`
+* `/work`
+* `/events`
+* `/team`
+* `/manifesto`
+* `/eelp`
+* `/living-trust-framework`
+* `/get-involved`
+
+Verify archive/alias routes:
+
+* `/privacy-toolkit`
+* `/classic`
+* `/classic/work`
+* `/classic/events`
+* `/classic/team`
+* `/playa-ai-living-trust-framework`
+
+Verify:
+
+* `/privacy`
+* `/privacy/`
+* `/this-route-does-not-exist`
+* `/nested/unknown/path`
+* Unknown route with a query string
+* Unknown route using `HEAD`
+
+Expected statuses:
+
+* Canonical routes: `200`
+* Archive/alias routes: `200`
+* `/privacy`: `308`
+* Unknown routes: `404`
+* Existing assets: `200`
+* `sitemap.xml`: `200`
+* `robots.txt`: `200`
+* `llms.txt`: `200`
+
+---
+
+## Protect all completed work
+
+Preserve:
+
+* `team@playa-ai.org` as the only public contact address
+* Formspree endpoint `https://formspree.io/f/mwvgdevg`
+* `/get-involved` form and privacy disclosure
+* Approved Mystic Arts Foundation wording with U+2019
+* “Born on the Playa. Gifted to the Planet.” as an approved exception
+* Eight canonical Work workstreams
+* Three homepage featured initiatives
+* Work unresolved section placement
+* Manifesto intent disclosure
+* Reduced-motion support
+* Mobile navigation
+* Skip links
+* Pledge focus management
+* Archive `noindex`
+* Event accessibility
+* Sitemap, robots and `llms.txt`
+* All canonical metadata
+* 14 existing prerendered routes unless an intentionally generated 404 document changes the build-output count; explain any count change
+
+Do not touch the GitHub Living Trust Framework repository in this pass.
+
+---
+
+## Validation
+
+Run:
+
+```bash
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Run lint or tests only if scripts exist.
+
+Also run production-server verification using the actual production start command and `curl`.
+
+Examples:
+
+```bash
+curl -sS -o /dev/null -w "%{http_code}\n" http://localhost:$PORT/
+curl -sS -o /dev/null -w "%{http_code}\n" http://localhost:$PORT/privacy
+curl -sS -o /dev/null -w "%{http_code}\n" http://localhost:$PORT/unknown-route
+curl -sSI http://localhost:$PORT/privacy
+curl -sSI http://localhost:$PORT/unknown-route
+```
+
+Confirm the redirect `Location` header exactly targets `/living-trust-framework`.
+
+Perform browser QA at:
+
+* 390 × 844
+* 768 × 1024
+* 1440 × 900
+
+Test:
+
+* Every Get Involved direct hash
+* Refresh while a hash is present
+* Jump-navigation links
+* Participation preselection
+* Manifesto date display
+* `/privacy` redirect
+* Branded 404 rendering
+* Mobile navigation
+* No horizontal overflow
+* No application console errors
+
+---
+
+## Documentation and audit statuses
+
+Preserve the original July 2026 audit numbering.
+
+Update:
+
+* **#11:** Complete only after the Manifesto publication stamp is unambiguous.
+* **#13:** Partial—broken destination resolved through Living Trust Framework redirect; complete policy facts remain unresolved.
+* **#16:** Complete only after genuine production-style HTTP 404 behavior is verified.
+* **#28:** Preserve its current Get Involved/Formspree status.
+* Do not substitute implementation tasks for original items #26–36.
+
+Update `BLOCKERS.md` accurately. Remove the genuine-404 blocker only if the production server actually returns 404 during verification.
+
+Do not claim the live production site has changed. This pass is local until the user republishes it.
+
+---
+
+## Source control
+
+After every validation passes:
+
+* Create one focused local commit.
+* Do not push.
+* Do not deploy.
+* Do not publish.
+* Do not tag.
+* Do not create a release.
+* Do not commit environment files or task attachments.
+
+## Final report
+
+Return:
+
+1. Starting and final commits
+2. Complete changed-file list
+3. Exact anchor bug cause and fix
+4. Direct-hash test results for all seven anchors
+5. Exact Manifesto wording before and after
+6. `/privacy` redirect implementation
+7. Redirect status and `Location` header
+8. Production server architecture
+9. Status table for every canonical, archive, redirect and unknown test route
+10. Branded 404 metadata verification
+11. Sitemap, robots and `llms.txt` verification
+12. Formspree regression check
+13. Cache-header results
+14. Browser QA by viewport
+15. All validation commands and exit codes
+16. Updated assertion count
+17. Bundle filenames and sizes
+18. Updated audit statuses for #11, #13 and #16
+19. Remaining blockers
+20. Final `git status --short --branch`
+21. Confirmation that nothing was pushed, deployed, tagged or released
+
+Final verdict must be one of:
+
+* `READY TO REPUBLISH — REDIRECT AND TRUE 404 VERIFIED LOCALLY`
+* `PARTIALLY READY — REDIRECT COMPLETE, TRUE 404 PLATFORM-BLOCKED`
+* `BLOCKED — [exact reason]`
