@@ -135,6 +135,30 @@ function prerenderPlugin(): Plugin {
       }
 
       console.log(`\n✓ Prerendered ${count} routes`);
+
+      // ── Generate dist/public/404.html ──────────────────────────────────
+      // The production HTTP server (server.js) serves this document with
+      // HTTP 404 for every unknown route. It must have:
+      //   • noindex, nofollow (stricter than the noindex, follow archive pages)
+      //   • no <link rel="canonical"> tag
+      //   • the branded Playa AI page title and description
+      // patchHtml normally emits "noindex, follow" for noindex routes, so we
+      // post-process the string to tighten it to "noindex, nofollow".
+      const notFoundRoute: RouteEntry = {
+        path:        "/404",
+        title:       "Page Not Found — Playa AI",
+        description: "The page you requested could not be found. Return to the Playa AI homepage.",
+        canonical:   "",   // patchHtml omits <link rel="canonical"> for empty canonical
+        noindex:     true,
+      };
+      let notFoundHtml = patchHtml(template, notFoundRoute);
+      // Upgrade noindex, follow → noindex, nofollow for the 404 document
+      notFoundHtml = notFoundHtml.replace(
+        /content="noindex,\s*follow"/g,
+        'content="noindex, nofollow"',
+      );
+      writeFileSync(join(distDir, "404.html"), notFoundHtml, "utf-8");
+      console.log(`✓ Generated 404.html`);
     },
   };
 }

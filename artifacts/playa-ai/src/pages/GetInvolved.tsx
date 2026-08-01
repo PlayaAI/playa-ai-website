@@ -132,12 +132,45 @@ export default function GetInvolved() {
   const nameRef         = useRef<HTMLInputElement>(null);
   const errorSummaryRef = useRef<HTMLDivElement>(null);
 
-  // Preselect path from URL hash on mount (e.g. /get-involved#builders)
+  // Preselect path and scroll to section from URL hash on mount
+  // (e.g. /get-involved#artists preselects Artists and scrolls to that section).
+  // Two nested requestAnimationFrame calls wait for React to commit the render
+  // AND for the browser to complete the first layout pass before scrolling.
+  // This avoids arbitrary timeouts while ensuring the target element is ready.
   useEffect(() => {
     const hash = window.location.hash.replace("#", "") as PathValue;
-    if (PATHS.some((p) => p.value === hash)) {
+    if (!PATHS.some((p) => p.value === hash)) return;
+    setSelectedPath(hash);
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => {
+        const el = document.getElementById(hash);
+        if (!el) return;
+        const prefersReduced =
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
+      });
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
+  }, []);
+
+  // Handle hashchange events: back/forward navigation and jump-nav link clicks
+  useEffect(() => {
+    function onHashChange() {
+      const hash = window.location.hash.replace("#", "") as PathValue;
+      if (!PATHS.some((p) => p.value === hash)) return;
       setSelectedPath(hash);
+      const el = document.getElementById(hash);
+      if (!el) return;
+      const prefersReduced =
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
     }
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
@@ -369,7 +402,7 @@ export default function GetInvolved() {
             key={section.anchor}
             id={section.anchor}
             aria-labelledby={`${section.anchor}-heading`}
-            className={`px-4 max-w-[1400px] mx-auto py-12 md:py-20${
+            className={`scroll-mt-20 px-4 max-w-[1400px] mx-auto py-12 md:py-20${
               i < SECTIONS.length - 1 ? " hairline-b border-border" : ""
             }`}
           >

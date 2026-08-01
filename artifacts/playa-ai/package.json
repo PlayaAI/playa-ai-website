@@ -9,6 +9,8 @@
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "check:copy": "node scripts/check-copy.js",
+    "serve:prod": "node server.js",
+    "start:prod": "pnpm run build && node server.js",
     "verify:audit": "pnpm run build && node scripts/verify-audit.js"
   },
   "devDependencies": {

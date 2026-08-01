@@ -1,6 +1,7 @@
 modules = ["nodejs-24", "python-3.11"]
 
 [deployment]
+run = ["sh", "-c", "cd artifacts/playa-ai && pnpm run build && node server.js"]
 router = "application"
 deploymentTarget = "autoscale"
 
@@ -44,3 +45,19 @@ timeoutMs = 20000
 
 [userenv.shared]
 VITE_GET_INVOLVED_FORM_ENDPOINT = "https://formspree.io/f/mwvgdevg"
+
+[[ports]]
+localPort = 5173
+externalPort = 80
+
+[[ports]]
+localPort = 8080
+externalPort = 8080
+
+[[ports]]
+localPort = 8081
+externalPort = 8081
+
+[[ports]]
+localPort = 24278
+externalPort = 3000

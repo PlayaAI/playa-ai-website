@@ -113,6 +113,22 @@ export const ROUTES: RouteEntry[] = [
       "Playa AI invites builders, artists, researchers, funders, cultural stewards, and institutions to participate in building human-centered AI infrastructure. The Get Involved page provides seven participation paths — each with a concise invitation and a direct message form delivered to team@playa-ai.org. Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3).",
   },
 
+  // ── /privacy — permanent redirect alias ──────────────────────────────────
+  // The production HTTP server emits HTTP 308 → /living-trust-framework.
+  // This entry causes a prerendered /privacy/index.html to be generated with:
+  //   • noindex, follow (search engines must not index this alias)
+  //   • canonical → /living-trust-framework (correct canonical signalled)
+  //   • client-side window.location.replace() via PrivacyRedirect component
+  // Do NOT add /privacy to the sitemap — the canonical destination is already there.
+  {
+    path: "/privacy",
+    title: "Privacy — Playa AI",
+    description:
+      "This address redirects to the Living Trust Framework, Playa AI's public framework for consent, data dignity, and privacy.",
+    canonical: `${SITE_URL}/living-trust-framework`,
+    noindex: true,
+  },
+
   // ── Non-indexable archive routes ──────────────────────────────────────────
   {
     path: "/privacy-toolkit",

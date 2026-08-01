@@ -1,6 +1,6 @@
 # Playa AI — Blocker Register and Audit Documentation
 
-_Updated: 2026-07-31. Owner: main agent (technical implementation)._
+_Updated: 2026-08-01. Owner: main agent (technical implementation)._
 _This document covers: (A) unresolved implementation blockers, (B) the original 36-item PDF audit matrix, and (C) the comprehensive implementation matrix for all engineering tasks._
 
 ---
@@ -44,18 +44,14 @@ Blockers are grouped by type. Every blocker includes the original audit ID, curr
 
 ---
 
-#### BLOCKER P2 — /privacy page (website side)
+#### BLOCKER P2 — /privacy page (website side) — REDIRECT IMPLEMENTED
 - **Audit ID:** #13
-- **Current failure:** `/privacy` route does not exist in `src/routes.ts`. The live Connect app links to it. Soft-404 (HTTP 200, branded 404 page).
-- **Why code cannot fix it yet:** Legal review required. Cannot publish invented privacy practices.
-- **Exact question:** "What data does Playa AI (and its fiscal sponsor, MAF) collect, how is it used, how long is it retained, and how can participants request deletion?"
+- **Previous failure:** `/privacy` returned HTTP 200 with the branded 404 page (soft-404).
+- **Current state (2026-08-01):** `/privacy` now returns HTTP **308 Permanent Redirect → /living-trust-framework** via the production server. A prerendered `/privacy/index.html` is also generated with `noindex` meta and canonical `https://playa-ai.org/living-trust-framework`, providing a client-side fallback via `window.location.replace()`.
+- **Audit item #13 status:** **Partial** — broken destination resolved; the Living Trust Framework serves as the privacy policy destination. A complete standalone `/privacy` page with verified data-collection, retention, processor, and deletion facts remains outstanding (see BLOCKER P1).
+- **What remains:** Full privacy policy with confirmed facts (data controller, processors, retention periods, deletion mechanism). The redirect is a necessary first step but does not complete audit item #13 on its own.
 - **Owner:** Legal + Product
-- **Affected files:** `src/routes.ts` (new route to add), `src/pages/Privacy.tsx` (to create), `src/App.tsx` (to add route)
-- **Resolution options:**
-  - Option A (Recommended): Write a factual privacy page once product/legal answers are in hand. Use a minimal structure: what is collected, why, how long, who sees it, how to contact.
-  - Option B: Publish a one-paragraph "in progress" notice at `/privacy` (removes the soft-404) while the full page is being written.
-- **Priority:** P0 (live Connect app links to it — every user who taps "privacy" gets a 404)
-- **Timeline:** Option B can be implemented today with a one-sentence holding page.
+- **Priority:** P1 (down from P0 — broken destination resolved; full policy still needed)
 
 ---
 
@@ -168,14 +164,16 @@ Blockers are grouped by type. Every blocker includes the original audit ID, curr
 
 ### Group 4 — Hosting / Infrastructure
 
-#### BLOCKER H1 — Genuine HTTP 404 status
+#### BLOCKER H1 — Genuine HTTP 404 status — RESOLVED LOCALLY
 - **Audit ID:** #16
-- **Current failure:** All unknown paths return HTTP 200 (not 404). Replit's static hosting serves every unrecognized URL via `/* → /index.html` catch-all. The branded 404 page renders client-side but the HTTP status code is always 200.
-- **Why code cannot fix it:** The `artifact.toml` `rewrites` table supports only `from`/`to` — no `status` field exists. Replit's static hosting does not support `404.html` documents.
-- **Resolution options:**
-  - Option A (Recommended): Migrate to Cloudflare Pages or Netlify. Both support `_redirects` or `netlify.toml` with real 404 status.
-  - Option B: Request Replit platform support for `404.html` document handling.
-- **Priority:** P2 (cosmetic SEO issue; not a user-facing problem)
+- **Previous failure:** All unknown paths returned HTTP 200. Replit static hosting catch-all.
+- **Current state (2026-08-01):** Replaced static-hosting deployment with a minimal Node.js production server (`server.js`). The server:
+  - Serves known prerendered routes with HTTP 200.
+  - Returns HTTP 308 → `/living-trust-framework` for `/privacy`.
+  - Returns genuine HTTP 404 with the branded `dist/public/404.html` for unknown routes.
+  - Verified locally with `curl` (see this session's final report).
+- **Production activation:** Requires the user to republish the app. The deployment run command has been updated to `cd artifacts/playa-ai && pnpm run build && node server.js`.
+- **Priority:** RESOLVED — pending user republish
 
 ---
 
@@ -318,12 +316,12 @@ These items are deferred per task instructions. They require external repository
 | 8 | Change the artist email subject | **LOCALLY IMPLEMENTED** | No `Artist%20Grant%20Interest` in canonical source; `check:copy` passes | Confirmed absent | None |
 | 9 | Remove MMXXVI | **LOCALLY IMPLEMENTED** | `check:copy` passes for `MMXXVI` | Absent from build | None |
 | 10 | Remove unsupported microgrant language | **PARTIALLY FIXED** | "artist microgrants" absent from canonical source ✅. "Year-One microgrant program is in development" remains in `Home.tsx:221` and `Home.tsx:331` — softened but unverified program claim. `check:copy` does not flag this form. | In build JS | BLOCKER E3 |
-| 11 | Correct the Manifesto year | **LOCALLY IMPLEMENTED** | `Manifesto.tsx` contextLine: "First published 2025"; `verify:audit` passes | In prerendered HTML | None |
+| 11 | Correct the Manifesto year | **LOCALLY IMPLEMENTED** | `Manifesto.tsx` top stamp changed to "First Published 2025" (was "2026"); footer contextLine: "First published 2025"; `verify:audit` passes; MMXXVI absent | In prerendered HTML | None |
 | 12 | `noindex` archive routes | **LOCALLY IMPLEMENTED** | `routes.ts` — `/privacy-toolkit` and `/classic*` have `noindex: true`; `verify:audit` confirms noindex in HTML for all archive routes | Confirmed in build | None |
-| 13 | Publish `/privacy` | **BLOCKED** | Route does not exist; soft-404 | No `dist/public/privacy/` directory | BLOCKER P1 + P2 |
+| 13 | Publish `/privacy` | **PARTIAL — REDIRECT IMPLEMENTED** | HTTP 308 → `/living-trust-framework` (production server); prerendered `/privacy/index.html` with noindex + canonical; complete policy page with verified facts remains outstanding | `dist/public/privacy/index.html` generated | BLOCKER P1 (full policy) |
 | 14 | Rewrite Connect disclosure | **BLOCKED** | Off-site (connect.playai.party); no consent screen reviewed | Not applicable | BLOCKER P1 |
-| 15 | Prerender canonical routes with per-route meta | **LOCALLY IMPLEMENTED** | Custom `prerenderPlugin` in `vite.config.ts` injects per-route title, description, og:url, og:title, canonical, nav, footer, H1, summary, and "Website content reviewed July 2026." into each HTML file | `verify:audit` confirms all 7 routes pass all content checks | Note: deterministic HTML injection, not React SSR — see BLOCKER H4 for full SSR path |
-| 16 | Real 404s, sitemap and robots | **PARTIALLY FIXED** | `sitemap.xml` ✅; `robots.txt` with `Sitemap:` ✅; real HTTP 404 status 🚫 | `verify:audit` passes sitemap and robots checks | BLOCKER H1 (real 404 status) |
+| 15 | Prerender canonical routes with per-route meta | **LOCALLY IMPLEMENTED** | Custom `prerenderPlugin` in `vite.config.ts` injects per-route title, description, og:url, og:title, canonical, nav, footer, H1, summary, and "Website content reviewed July 2026." into each HTML file; also generates `dist/public/404.html` | `verify:audit` confirms all 8 canonical routes pass all content checks | Note: deterministic HTML injection, not React SSR — see BLOCKER H4 for full SSR path |
+| 16 | Real 404s, sitemap and robots | **LOCALLY IMPLEMENTED — PENDING REPUBLISH** | `sitemap.xml` ✅; `robots.txt` ✅; production server returns genuine HTTP 404 + 308 for /privacy ✅; `dist/public/404.html` generated ✅; verified with `curl` locally | Production server (`server.js`) | None (publish to activate) |
 | 17 | Reconcile participant totals | **NOT FIXED** | Website still says "80+"; audit recommends ≈520; figure unverified | In build | BLOCKER E1 |
 | 18 | Add permanent origin evidence at `/about#origin` | **NOT FIXED** | No `/about` route | No `dist/public/about/` | BLOCKER C3 |
 | 19 | Pledge modal focus management | **LOCALLY IMPLEMENTED** | `Home.tsx` — `inert` on `#root`, focus trap, Escape key, initial focus, focus restoration, `role="dialog"`, `aria-modal`, `aria-labelledby` | In build JS | None |
