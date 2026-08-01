@@ -300,11 +300,7 @@ export default function About() {
                   with the initiative's public-interest mission is available through this
                   relationship.
                 </p>
-                <p className="font-mono text-xs uppercase tracking-widest text-foreground/50 pt-2">
-                  Note: Mystic Arts Foundation's official URL and EIN are omitted
-                  pending confirmation of the authoritative source. These will be
-                  added once verified.
-                </p>
+
               </motion.div>
             </motion.div>
           </div>
