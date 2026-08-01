@@ -77,6 +77,17 @@ function patchHtml(template: string, route: RouteEntry): string {
     );
   }
 
+  // Hide the static skeleton until React mounts to prevent FOUC.
+  // The [data-static="1"] div has no component class names so it renders as
+  // browser-default unstyled text. Hiding it produces a brief cream-background
+  // blank state (< ~100 ms) while React hydrates, which is far less jarring
+  // than raw unstyled content flashing in. The <noscript> variant (injected
+  // below) restores display for JS-disabled visitors and crawlers.
+  html = html.replace(
+    "</head>",
+    `  <style>[data-static="1"]{display:none}</style>\n  </head>`,
+  );
+
   // Inject meaningful visible content into #root for non-JS crawlers.
   // React's createRoot() replaces this content on mount — no hydration mismatch.
   // Only injected for indexable routes that carry a summary; noindex/archive
@@ -97,12 +108,14 @@ function patchHtml(template: string, route: RouteEntry): string {
 
   // Inject <noscript> — provides fallback text when JS is entirely disabled.
   // Includes the summary for indexable routes to give non-JS crawlers more signal.
+  // The leading <style> inside the noscript block counteracts the FOUC-prevention
+  // rule above so that [data-static="1"] is visible when JS is off.
   const noscriptBody = route.summary && !route.noindex
     ? `<h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p>`
     : `<h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p>`;
   html = html.replace(
     "</body>",
-    `  <noscript>${noscriptBody}</noscript>\n</body>`,
+    `  <noscript><style>[data-static="1"]{display:block}</style>${noscriptBody}</noscript>\n</body>`,
   );
 
   return html;
