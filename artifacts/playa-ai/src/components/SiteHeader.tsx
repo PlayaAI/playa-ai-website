@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import type { ReactNode } from "react";
 import { useState, useEffect, useRef } from "react";
 
-type ActivePage = "home" | "events" | "team" | "work" | "manifesto" | "get-involved";
+type ActivePage = "home" | "events" | "team" | "about" | "work" | "manifesto" | "get-involved";
 
 interface SiteHeaderProps {
   active?: ActivePage;
@@ -12,7 +12,7 @@ interface SiteHeaderProps {
 const NAV: { key: string; href: string; label: string }[] = [
   { key: "home", href: "/", label: "Overview" },
   { key: "events", href: "/events", label: "Events" },
-  { key: "team", href: "/team", label: "Team" },
+  { key: "about", href: "/about", label: "About" },
   { key: "work", href: "/work", label: "Work" },
   { key: "manifesto", href: "/manifesto", label: "Manifesto" },
   { key: "get-involved", href: "/get-involved", label: "Get Involved" },

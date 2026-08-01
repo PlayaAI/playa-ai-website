@@ -14,6 +14,7 @@ import HomeClassic from "@/pages/HomeClassic";
 import EventsClassic from "@/pages/EventsClassic";
 import TeamClassic from "@/pages/TeamClassic";
 import WorkClassic from "@/pages/WorkClassic";
+import About from "@/pages/About";
 import NotFound from "@/pages/NotFound";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -30,6 +31,7 @@ function App() {
         <Switch>
         <Route path="/" component={Home} />
         <Route path="/events" component={Events} />
+        <Route path="/about" component={About} />
         <Route path="/team" component={Teams} />
         <Route path="/work" component={Work} />
         <Route path="/privacy-toolkit" component={PrivacyToolkit} />

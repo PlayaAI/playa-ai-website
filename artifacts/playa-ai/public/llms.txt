@@ -17,6 +17,7 @@ and planned governance work.
 
 # Canonical pages
 /                         Overview — initiative summary, participation paths, current workstreams.
+/about                    About — origin, organizational structure, people, operating principles, and participation.
 /work                     Our Work — eight documented workstreams with public status labels.
 /events                   Events — archive of nine public events (salons, workshops, hackathons) 2025–2026.
 /team                     Team — people building, guiding, and operating Playa AI.

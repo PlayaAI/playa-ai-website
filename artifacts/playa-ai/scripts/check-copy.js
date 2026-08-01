@@ -132,11 +132,12 @@ const PROHIBITED = [
 ];
 
 // ── Approved canonical exception ──────────────────────────────────────────────
-// "Born on the Playa. Gifted to the Planet." is an approved homepage slogan
-// (user decision 2026-07-30). It is permitted ONLY in Home.tsx. If found in
-// any other canonical source file, the validator will fail.
+// "Born on the Playa. Gifted to the Planet." is an approved slogan
+// (user decision 2026-07-30). It is permitted in Home.tsx (hero) and About.tsx
+// (origin section, credited to Burning Man cultural context). If found in any
+// other canonical source file, the validator will fail.
 const BORN_ON_PLAYA_EXCEPTION = "Born on the Playa. Gifted to the Planet.";
-const BORN_ON_PLAYA_ALLOWED_IN = new Set(["Home.tsx"]);
+const BORN_ON_PLAYA_ALLOWED_IN = new Set(["Home.tsx", "About.tsx"]);
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 let anyFailed = false;

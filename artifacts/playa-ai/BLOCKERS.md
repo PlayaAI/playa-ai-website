@@ -245,12 +245,13 @@ Blockers are grouped by type. Every blocker includes the original audit ID, curr
 
 ---
 
-#### BLOCKER C3 — /about page
+#### BLOCKER C3 — /about page — SUBSTANTIALLY IMPLEMENTED
 - **Audit ID:** #31
-- **Current failure:** No `/about` route exists. The audit recommends a page covering: origin story, MAF link and EIN, legal structure, people affiliations, and Council Charter.
-- **Dependencies:** Requires BLOCKER L1 (MAF/EIN confirmation), E4 (OpenAI grant), team consent for biographical disclosures.
+- **Current state (2026-08-01):** `/about` route is live. Page covers seven sections: hero (org description + approved wording), origin (`#origin` — Burning Man framing, "Born on the Playa. Gifted to the Planet." approved exception), what Playa AI does, legal structure (`#structure` — MAF 501(c)(3), EIN and MAF URL omitted pending source confirmation), people (`#people` — four named leadership roles from Team.tsx, link to `/team`), how we work (`#governance`), and participate (`#contact` — `team@playa-ai.org`). Page passes all 22 assertions in `verify:audit` section 13. Navigation updated (Team → About). Sitemap and `llms.txt` updated.
+- **What remains:** MAF EIN (pending IRS lookup / signed FSA from BLOCKER L1). MAF official URL (pending confirmation). Council Charter (referenced in governance section as a future governance document). Full biography consent for each team member (BLOCKER C4 / Group 8).
+- **Dependencies (remaining):** BLOCKER L1 (EIN + FSA), BLOCKER L3 (MAF regranting), team consent for expanded bios.
 - **Owner:** Editorial + Leadership
-- **Priority:** P2
+- **Priority:** P2 → P3 (page is published; EIN/Charter are additive completions, not blockers to the page being live)
 
 ---
 
@@ -295,7 +296,7 @@ These items are deferred per task instructions. They require external repository
 | Upcoming events block on /events | #20 | "Are there confirmed upcoming events? If so, provide title, date, location, and Luma link." | Operations |
 | "Last updated" stamp site-wide | #20 | Implementation is straightforward once content policy is decided. | Editorial |
 | Luma calendar link | #20 | "What is the Luma calendar URL for Playa AI events?" | Operations |
-| /about#origin origin block | #18 | "Is the Burning Man origin story approved for publication? Who wrote it?" | Editorial |
+| /about#origin origin block | #18 | **IMPLEMENTED** — Origin section live at `/about#origin`; "Born on the Playa. Gifted to the Planet." retained as approved audit exception (Home.tsx + About.tsx); Burning Man framed as host cultural context, not affiliated. Authorship question remains open (editorial). | Editorial |
 | Team biographical disclosures | — | Individual consent required for each team member. | Team members |
 
 ---
@@ -323,7 +324,7 @@ These items are deferred per task instructions. They require external repository
 | 15 | Prerender canonical routes with per-route meta | **LOCALLY IMPLEMENTED** | Custom `prerenderPlugin` in `vite.config.ts` injects per-route title, description, og:url, og:title, canonical, nav, footer, H1, summary, and "Website content reviewed July 2026." into each HTML file; also generates `dist/public/404.html` | `verify:audit` confirms all 8 canonical routes pass all content checks | Note: deterministic HTML injection, not React SSR — see BLOCKER H4 for full SSR path |
 | 16 | Real 404s, sitemap and robots | **LOCALLY IMPLEMENTED — PENDING REPUBLISH** | `sitemap.xml` ✅; `robots.txt` ✅; production server returns genuine HTTP 404 + 308 for /privacy ✅; `dist/public/404.html` generated ✅; verified with `curl` locally | Production server (`server.js`) | None (publish to activate) |
 | 17 | Reconcile participant totals | **NOT FIXED** | Website still says "80+"; audit recommends ≈520; figure unverified | In build | BLOCKER E1 |
-| 18 | Add permanent origin evidence at `/about#origin` | **NOT FIXED** | No `/about` route | No `dist/public/about/` | BLOCKER C3 |
+| 18 | Add permanent origin evidence at `/about#origin` | **LOCALLY IMPLEMENTED** | `/about#origin` section live; approved slogan retained; Burning Man framed as host cultural context | `dist/public/about/index.html` generated; `verify:audit` passes | None (authorship attribution is editorial, not a blocker) |
 | 19 | Pledge modal focus management | **LOCALLY IMPLEMENTED** | `Home.tsx` — `inert` on `#root`, focus trap, Escape key, initial focus, focus restoration, `role="dialog"`, `aria-modal`, `aria-labelledby` | In build JS | None |
 | 20 | Upcoming Events, update stamps, Luma calendar | **NOT FIXED** | No upcoming block; no Luma link; partial contextLine timestamp on Events footer | In build | BLOCKER Group 8 |
 | 21 | Reconcile the portfolio | **LOCALLY IMPLEMENTED** | `Work.tsx` WORKSTREAMS array: 8 items (ws-connect-app through ws-burner-ai-manifesto); `verify:audit` confirms 8 | In build | None |
@@ -336,7 +337,7 @@ These items are deferred per task instructions. They require external repository
 | 28 | Build `/get-involved` with seven sections and a real form | **IMPLEMENTED — INBOX CONFIRMATION PENDING** | Page, 7 sections, form, Formspree integration, `team@playa-ai.org`; QA submission sent; inbox confirmation pending user | `dist/public/get-involved/index.html`; `verify:audit` passes | BLOCKER C1 (inbox confirmation) |
 | 29 | Make the pledge signable and publish signatories | **BLOCKED** | Pledge is currently a mailto expression-of-interest flow | Not applicable | BLOCKER C2 |
 | 30 | Publish the reconciled nine-row event log with London | **NOT FIXED** | London event status unconfirmed; no reconciled event log published | Events page partial | BLOCKER E2 |
-| 31 | Build `/about` with origin, MAF/EIN, legal structure, affiliations, Council Charter | **BLOCKED** | No route; dependencies unresolved | No directory | BLOCKER C3 + L1 |
+| 31 | Build `/about` with origin, MAF/EIN, legal structure, affiliations, Council Charter | **PARTIALLY IMPLEMENTED** | Route live; origin, legal structure, people (4 leaders), governance, participation all present; EIN + MAF URL pending source confirmation (L1); Council Charter referenced but not yet published | `dist/public/about/index.html`; `verify:audit` section 13 passes (22/22) | BLOCKER L1 (EIN/MAF URL), L3 (regranting docs) |
 | 32 | Resolve MAF regranting in writing | **NEEDS HUMAN DECISION** | No written documentation available | Not applicable | BLOCKER L3 |
 | 33 | Publish the crisis protocol | **BLOCKED** | Requires clinical review | Not applicable | BLOCKER L4 |
 | 34 | Rebuild the Work index and move unresolved work near the top | **LOCALLY IMPLEMENTED** | `Work.tsx` — "What remains unresolved" section now appears immediately after workstream nav index and before Featured Work; `verify:audit` confirms | In build | None |

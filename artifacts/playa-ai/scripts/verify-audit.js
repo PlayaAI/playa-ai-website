@@ -59,6 +59,7 @@ if (!existsSync(DIST)) {
 console.log("\n── 2. Canonical prerendered routes ─────────────────────────────");
 const CANONICAL_ROUTES = [
   { path: "index.html", label: "/" },
+  { path: "about/index.html", label: "/about" },
   { path: "work/index.html", label: "/work" },
   { path: "events/index.html", label: "/events" },
   { path: "team/index.html", label: "/team" },
@@ -270,6 +271,7 @@ if (manifestoTxt) {
 // 8e. Canonical pages have id="main-content"
 const canonicalPageFiles = {
   "/": "src/pages/Home.tsx",
+  "/about": "src/pages/About.tsx",
   "/work": "src/pages/Work.tsx",
   "/events": "src/pages/Events.tsx",
   "/team": "src/pages/Team.tsx",
@@ -594,7 +596,119 @@ check('dist/public/404.html — no <link rel="canonical"> tag',
   dist404 !== null && !dist404.includes('<link rel="canonical"'),
   '404.html must not carry a canonical link tag.');
 
-// ── 13. Summary ──────────────────────────────────────────────────────────────
+// ── 13. /about page assertions ───────────────────────────────────────────────
+console.log("\n── 13. /about page ──────────────────────────────────────────────");
+const aboutSrc = readSrc("src/pages/About.tsx");
+const aboutHtml = readHtml("about/index.html");
+
+// routes.ts
+check('/about — route present in routes.ts',
+  routesSrc !== null && routesSrc.includes('path: "/about"'),
+  'Add /about to ROUTES in src/routes.ts.');
+check('/about — not noindex (indexable)',
+  routesSrc !== null && !routesSrc.includes('path: "/about"') ||
+  (routesSrc !== null && routesSrc.includes('path: "/about"') && !routesSrc.match(/path: "\/about"[^}]*noindex: true/s)),
+  'Remove noindex from the /about route entry.');
+check('/about — canonical correct in routes.ts',
+  routesSrc !== null &&
+  (routesSrc.includes('"https://playa-ai.org/about"') ||
+   routesSrc.includes('`${SITE_URL}/about`')),
+  'Set canonical to https://playa-ai.org/about (or ${SITE_URL}/about) in routes.ts.');
+check('/about — title correct in routes.ts',
+  routesSrc !== null && routesSrc.includes('"About — Playa AI"'),
+  'Set title to "About — Playa AI" in routes.ts.');
+
+// Prerendered HTML
+check('/about — dist/public/about/index.html exists',
+  aboutHtml !== null,
+  'Build must generate dist/public/about/index.html.');
+check('/about — prerendered title correct',
+  aboutHtml !== null && aboutHtml.includes('About — Playa AI'),
+  'Prerendered HTML must have title "About — Playa AI".');
+check('/about — not noindex in prerendered HTML',
+  aboutHtml !== null && /name="robots" content="index/.test(aboutHtml),
+  '/about must be indexable (not noindex) in prerendered HTML.');
+
+// About.tsx source checks
+if (aboutSrc) {
+  check('About.tsx — exactly one H1 "About Playa AI"',
+    // Counts both <h1> and <motion.h1> tags; checks text appears once
+    (aboutSrc.match(/<(motion\.)?h1[\s>]/g) || []).length === 1 &&
+    aboutSrc.includes('About Playa AI'),
+    'About.tsx must contain exactly one H1 with text "About Playa AI".');
+  check('About.tsx — id="origin" present',
+    aboutSrc.includes('id="origin"'),
+    'Add a section with id="origin" to About.tsx.');
+  check('About.tsx — id="structure" present',
+    aboutSrc.includes('id="structure"'),
+    'Add a section with id="structure" to About.tsx.');
+  check('About.tsx — id="people" present',
+    aboutSrc.includes('id="people"'),
+    'Add a section with id="people" to About.tsx.');
+  check('About.tsx — id="governance" present',
+    aboutSrc.includes('id="governance"'),
+    'Add a section with id="governance" to About.tsx.');
+  check('About.tsx — id="contact" present',
+    aboutSrc.includes('id="contact"'),
+    'Add a section with id="contact" to About.tsx.');
+  check('About.tsx — approved org wording present (U+2019 or HTML entity)',
+    // Accept the actual U+2019 character, HTML entity &#x2019;, or JSX JSX escape {'\u2019'}
+    aboutSrc.includes("part of Mystic Arts Foundation\u2019s California 501(c)(3)") ||
+    aboutSrc.includes("part of Mystic Arts Foundation&#x2019;s California 501(c)(3)") ||
+    aboutSrc.includes("part of Mystic Arts Foundation&#8217;s California 501(c)(3)"),
+    "Expected approved org sentence with U+2019 or HTML entity &#x2019;.");
+  check('About.tsx — "fiscally sponsored" construction absent',
+    !aboutSrc.includes("fiscally sponsored"),
+    'Remove "fiscally sponsored" — use the approved org wording.');
+  check('About.tsx — /team link present',
+    aboutSrc.includes('href="/team"'),
+    'Add a link to /team ("Meet the full team") in the People section.');
+  check('About.tsx — team@playa-ai.org contact link present',
+    aboutSrc.includes('href="mailto:team@playa-ai.org"'),
+    'Add mailto:team@playa-ai.org in the contact section.');
+  check('About.tsx — "80,000" not attributed to Playa AI as participant count',
+    // Checks that "80,000" is not preceded by "Playa AI" (i.e., not Playa AI's count).
+    // Burning Man's 80,000 attendance figure is permitted when correctly attributed.
+    !aboutSrc.match(/Playa AI[^.]*80[,.]?000/i) &&
+    !aboutSrc.match(/80[,.]?000[^.]*Playa AI participant/i),
+    '"80,000" must not be described as Playa AI\'s participant count.');
+  check('About.tsx — no EIN placeholder',
+    !aboutSrc.match(/\d{2}-\d{7}/) && !aboutSrc.includes("EIN:"),
+    'Remove any EIN placeholder — EIN publication decision is pending.');
+  check('About.tsx — no invented MAF URL',
+    !aboutSrc.match(/mysticarts\.(org|com|net)/i),
+    'Remove any MAF URL — official URL is pending verification.');
+  check('About.tsx — scroll-mt-20 on anchor sections',
+    (aboutSrc.match(/scroll-mt-20/g) || []).length >= 4,
+    'All anchored sections must have scroll-mt-20 for sticky header offset.');
+}
+
+// Navigation
+const headerSrcForAbout = readSrc("src/components/SiteHeader.tsx");
+check('SiteHeader.tsx — navigation includes /about',
+  headerSrcForAbout !== null && headerSrcForAbout.includes('href: "/about"'),
+  'Add /about to the NAV array in SiteHeader.tsx.');
+check('SiteHeader.tsx — "Team" replaced by "About" in nav',
+  headerSrcForAbout !== null &&
+  !headerSrcForAbout.includes('href: "/team"') &&
+  headerSrcForAbout.includes('href: "/about"'),
+  'Replace the Team nav entry with About in the NAV array.');
+
+// llms.txt
+const llmsForAbout = readSrc("public/llms.txt");
+check('llms.txt — /about entry present',
+  llmsForAbout !== null && llmsForAbout.includes('/about'),
+  'Add /about to the canonical pages section of llms.txt.');
+
+// sitemap (re-use section-5 logic: just check presence in built HTML)
+const sitemapForAbout = existsSync(join(DIST, "sitemap.xml"))
+  ? readFileSync(join(DIST, "sitemap.xml"), "utf-8")
+  : null;
+check('sitemap.xml — /about URL present',
+  sitemapForAbout !== null && sitemapForAbout.includes("/about"),
+  'Add /about to INDEXABLE_ROUTES in routes.ts so it appears in the sitemap.');
+
+// ── 14. Summary ──────────────────────────────────────────────────────────────
 console.log(`\n${"─".repeat(64)}`);
 console.log(`  Passed: ${passed}   Failed: ${failed}`);
 if (failed > 0) {
