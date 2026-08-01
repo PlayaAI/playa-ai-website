@@ -1,0 +1,652 @@
+Complete the next Playa AI website phase in two controlled parts:
+
+1. Correct the production deployment so the custom Node server actually handles requests.
+2. Build the new canonical `/about` page using only verified information.
+
+Do not write or publish a privacy policy in this pass.
+
+## Repository and live site
+
+Work only in:
+
+`artifacts/playa-ai`
+
+Live website:
+
+`https://playa-ai.org`
+
+Expected starting state:
+
+* Branch: `main`
+* Expected code commit: `be3d46f`
+* Current production assets:
+
+  * `assets/index-CP2xxVfc.js`
+  * `assets/index-D_ijAthB.css`
+* Formspree endpoint:
+
+  * `https://formspree.io/f/mwvgdevg`
+* Official public email:
+
+  * `team@playa-ai.org`
+* Current verification baseline:
+
+  * `253/253`
+
+Before editing:
+
+1. Confirm working directory, branch and HEAD.
+2. Run `git status --short --branch`.
+3. Inspect all changes after `be3d46f` if HEAD differs.
+4. Preserve unrelated work.
+5. Do not modify `.agents/memory`.
+6. Do not commit task files from `attached_assets`.
+7. Do not push, publish, deploy, tag or release.
+
+---
+
+# Phase 1 — Make the production HTTP server actually run
+
+## Confirmed production problem
+
+The new frontend bundle is live, so commit `be3d46f` was included in the publication. However, the new `server.js` is not controlling production HTTP responses.
+
+Externally verified production behavior on 2026-08-01:
+
+| Request                      |                        Intended |                   Actual |
+| ---------------------------- | ------------------------------: | -----------------------: |
+| `/privacy`                   | 308 → `/living-trust-framework` |        301 → `/privacy/` |
+| `/privacy/`                  | 308 → `/living-trust-framework` |                      200 |
+| `/this-route-does-not-exist` |                             404 |                      200 |
+| Hashed JS/CSS cache          |                       immutable | `cache-control: private` |
+| Brotli/gzip                  |           expected if supported |                   absent |
+
+The same static-style behavior was observed on the custom domain and Replit deployment URL.
+
+This proves the code changes were published but Replit is still serving the Vite output through its static-serving layer instead of routing requests through `server.js`.
+
+Do not repeat local curl tests and claim the production issue is resolved. Diagnose why the published Autoscale deployment is bypassing the server.
+
+## Required investigation
+
+Inspect:
+
+* `.replit`
+* `replit.nix`, if present
+* `artifact.toml`, if present
+* `package.json`
+* `server.js`
+* Replit deployment/build configuration
+* Publishing configuration
+* Deployment logs
+* Current working directory used at build and runtime
+* Build command
+* Run command
+* Port binding
+* Health-check behavior
+* Any static deployment configuration still active
+* Any conflicting `deploymentTarget`, static output directory or rewrite configuration
+
+Determine whether:
+
+* The existing deployment is still registered internally as Static despite the UI showing Autoscale.
+* `.replit` uses the wrong configuration keys.
+* Publishing settings override the repository configuration.
+* The Run command is ignored.
+* `server.js` starts from the wrong working directory.
+* Replit detects the Vite project and serves `dist/public` automatically.
+* `artifact.toml` continues to force static fallback behavior.
+* A new Autoscale deployment must be created instead of republishing the old Static deployment.
+
+Do not guess. Use deployment logs and configuration evidence.
+
+## Required production configuration
+
+The intended commands are:
+
+Build command:
+
+```bash
+cd artifacts/playa-ai && pnpm run build
+```
+
+Run command:
+
+```bash
+cd artifacts/playa-ai && pnpm run start:prod
+```
+
+`start:prod` must run:
+
+```bash
+node server.js
+```
+
+The production server must:
+
+* Read Replit’s `PORT`.
+* Bind to `0.0.0.0`.
+* Serve `dist/public`.
+* Return 200 for known routes.
+* Return 308 for `/privacy` and `/privacy/`.
+* Return 404 for unknown routes.
+* Preserve the branded 404 document.
+* Serve static assets and machine-readable files.
+* Preserve Formspree frontend configuration.
+* Use immutable cache headers for hashed assets.
+* Use no-cache or short caching for HTML.
+* Avoid logging form data.
+
+Remove or disable any conflicting static catch-all rewrite that prevents the Node server from receiving requests.
+
+Do not remove configuration blindly. Explain the exact conflict before modifying it.
+
+## If Replit settings cannot be changed through code
+
+If Publishing configuration is stored outside the repository and cannot be changed by the agent:
+
+1. Make all necessary repository changes.
+2. Stop before claiming resolution.
+3. Provide exact user instructions for **Adjust settings**, including:
+
+   * Deployment type
+   * Root directory
+   * Build command
+   * Run command
+   * Port/health check
+   * Environment variables
+4. Explain whether the existing deployment must be replaced with a newly created Autoscale deployment.
+5. Do not claim the live 404 is fixed until external production verification succeeds.
+
+## Preserve production environment
+
+Ensure the deployment environment contains:
+
+```text
+VITE_GET_INVOLVED_FORM_ENDPOINT=https://formspree.io/f/mwvgdevg
+```
+
+Do not commit the value in `.env` or `.env.local`.
+
+Do not expose or request secret credentials.
+
+## Local server verification
+
+Run the real production server locally and verify:
+
+* `/` → 200
+* All canonical routes → 200
+* All archive/alias routes → 200
+* `/privacy` → 308
+* `/privacy/` → 308
+* `/this-route-does-not-exist` → 404
+* `/nested/unknown/path` → 404
+* Unknown HEAD request → 404
+* `/sitemap.xml` → 200
+* `/robots.txt` → 200
+* `/llms.txt` → 200
+* Hashed assets → 200 with immutable caching
+
+Do not perform a production deployment during this task.
+
+---
+
+# Phase 2 — Build the canonical `/about` page
+
+## Purpose
+
+Build a polished, evidence-based About page that helps visitors understand:
+
+* What Playa AI is
+* Where it came from
+* How it is structured
+* How its work is organized
+* Who is involved
+* Where to find its public work
+* How to contact or participate
+
+This begins original audit item **#31** and strengthens item **#18** through a permanent origin block.
+
+## Truthfulness rule
+
+Use only facts already verified in:
+
+1. Current canonical website source
+2. Current Team page
+3. Current `llms.txt`
+4. Current Work page
+5. Existing approved organizational wording
+6. Attached Playa AI meeting transcripts or continuity documents available in the workspace
+7. Public links already verified in project documentation
+
+Do not invent or infer:
+
+* Mystic Arts Foundation’s website URL
+* EIN
+* Legal relationship beyond approved wording
+* Board membership
+* Council membership
+* Governance authority
+* Team roles
+* Affiliations
+* Biographies
+* Credentials
+* Participant totals
+* Founding dates
+* Funding claims
+* Regranting arrangements
+* Privacy practices
+* Licensing status
+* Council Charter content
+* Statements attributed to individuals
+
+If a required fact is unavailable, omit it from public copy and record it as a blocker. Do not publish “TBD,” blanks or placeholder claims.
+
+## Approved organizational wording
+
+Use this exact sentence:
+
+`Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)`
+
+The apostrophe in `Foundation’s` must be U+2019.
+
+Do not use:
+
+* `fiscally sponsored by Mystic Arts Foundation`
+* `California nonprofit and U.S. 501(c)(3) public charity`
+* `not a separately incorporated legal entity`
+* Any invented legal interpretation
+
+## Route architecture
+
+Create the canonical route:
+
+`/about`
+
+Required metadata:
+
+* Title: `About — Playa AI`
+* Canonical: `https://playa-ai.org/about`
+* Robots: `index, follow`
+* Route-specific description
+* Route-specific Open Graph title, URL and description
+* Exactly one H1
+* Content review date using the established site format
+
+Add `/about` to:
+
+* Application routing
+* Prerendering
+* Sitemap
+* `llms.txt`
+* Canonical route registry
+* Metadata verification
+* Copy validation
+* Audit validation
+
+Expected result if `/team` remains canonical:
+
+* 10 canonical routes, including `/privacy` as a noindex redirect/alias
+* 16 total prerendered routes before the standalone `404.html`
+
+Report exact counts from the actual configuration rather than assuming these figures.
+
+## Navigation decision
+
+Replace the primary navigation item:
+
+`Team`
+
+with:
+
+`About`
+
+Link it to:
+
+`/about`
+
+Do not overcrowd the desktop or mobile navigation by adding both.
+
+Keep `/team` live and canonical during this pass to preserve existing links and search history.
+
+The About page should include a clear link to:
+
+`/team`
+
+Do not redirect or delete `/team` yet.
+
+This creates a safe transitional architecture:
+
+* `/about` explains the organization.
+* `/team` remains the detailed people page.
+
+A later approved phase may absorb `/team` into `/about#people`, but do not make that migration without explicit authorization.
+
+## Required About-page structure
+
+Match the existing Playa AI visual system: editorial serif display type, mono labels, restrained gold accent, generous spacing, hairline rules and strong responsive behavior.
+
+### 1. Hero
+
+H1:
+
+`About Playa AI`
+
+Provide a concise, factual introduction using verified current language.
+
+Include the approved organizational sentence.
+
+Avoid exaggerated mission language and unsupported claims.
+
+### 2. Origin
+
+Create a permanent anchored section:
+
+`id="origin"`
+
+This section must be reachable at:
+
+`/about#origin`
+
+Explain the Playa/Burning Man cultural origin using only language already verified in current public Playa AI material.
+
+Clearly distinguish:
+
+* Burning Man as the host cultural context
+* Playa AI as the initiative
+* Burning Man attendance from Playa AI participation
+
+Do not claim Burning Man affiliation, endorsement, ownership or sponsorship.
+
+Do not use 80,000 as a Playa AI participant count.
+
+Do not publish the disputed approximately-520 aggregate.
+
+Preserve the user-approved phrase where appropriate:
+
+`Born on the Playa. Gifted to the Planet.`
+
+Document it as the existing approved audit exception.
+
+### 3. What Playa AI does
+
+Summarize the verified work categories:
+
+* Human-centered AI tools
+* Consent frameworks
+* Community experiments
+* Public-interest research
+* EELP
+* Living Trust Framework
+* Current workstreams
+
+Link to:
+
+* `/work`
+* `/eelp`
+* `/living-trust-framework`
+* Living Trust Framework GitHub repository
+
+Do not claim every prototype is publicly available.
+
+Retain accurate public status labels.
+
+### 4. Legal and organizational structure
+
+Create:
+
+`id="structure"`
+
+Use the exact approved organizational sentence.
+
+Do not display an EIN unless it is found in an authoritative supplied source and explicitly documented as approved for publication.
+
+Do not link Mystic Arts Foundation unless its official URL is verified through an authoritative source already supplied or the agent pauses and requests approval for a verified URL.
+
+If the EIN or MAF URL cannot be established, omit them publicly and document:
+
+* `MAF official-link confirmation required`
+* `EIN publication decision required`
+
+Do not make the page look unfinished because these details are absent.
+
+### 5. People
+
+Create:
+
+`id="people"`
+
+Use the people and roles already published on `/team`.
+
+Do not add new biographies, employers, affiliations, credentials or roles without explicit evidence and consent.
+
+Provide a clear link:
+
+`Meet the full team → /team`
+
+If safe reusable components exist, reuse them rather than duplicating team data.
+
+### 6. How the work is organized
+
+Create:
+
+`id="governance"`
+
+Explain only verified operating principles already public, such as:
+
+* Consent before capture
+* Human agency
+* Data minimization
+* Public learning
+* Current work is early-stage or in draft where applicable
+
+Do not claim a formal board, Trust Council, voting structure or Council Charter publication unless verified.
+
+If a Council Charter exists in supplied source material but publication approval is absent, record it as a blocker instead of publishing it.
+
+### 7. Participate/contact
+
+Create:
+
+`id="contact"`
+
+Link to:
+
+* `/get-involved`
+* `mailto:team@playa-ai.org`
+* `/work`
+
+Do not create another form. Use the existing Get Involved form.
+
+## About-page language standards
+
+The page must feel credible and human, not corporate or promotional.
+
+Avoid:
+
+* “Revolutionizing AI”
+* “World-leading”
+* “Global movement” unless directly supported
+* “Official Burning Man initiative”
+* Unverified partner claims
+* Unsupported impact statistics
+* Legal claims beyond approved wording
+
+Use transparent language such as:
+
+* Early-stage initiative
+* Working drafts
+* Public-interest work
+* Community experiments
+* Participation
+* Consent
+* Human agency
+* Published learning
+
+## Accessibility and responsive behavior
+
+Require:
+
+* Exactly one H1
+* Logical heading hierarchy
+* Skip link
+* Semantic sections
+* Visible focus styles
+* Keyboard-accessible links
+* Reduced-motion compatibility
+* No horizontal overflow
+* Accurate accessible names
+* Decorative images marked correctly
+* Responsive QA at 390×844, 768×1024 and 1440×900
+
+All anchored sections must use sufficient `scroll-margin-top` for the sticky header.
+
+Direct URLs such as `/about#origin` must scroll correctly after hydration.
+
+Reuse the corrected deterministic hash-navigation behavior from `/get-involved` rather than duplicating fragile logic.
+
+## Validators
+
+Update `check:copy` and `verify:audit` to check:
+
+* `/about` route exists.
+* `/about` is canonical and indexable.
+* Correct title, description, canonical and Open Graph metadata.
+* Exactly one H1.
+* `#origin`, `#structure`, `#people`, `#governance` and `#contact`.
+* Approved organizational wording with U+2019.
+* Prohibited old organizational wording remains absent.
+* Burning Man attendance is not attributed to Playa AI.
+* `/team` remains available.
+* Navigation points to `/about`.
+* About appears in sitemap and `llms.txt`.
+* Direct hashes work.
+* No invented EIN placeholder.
+* No unapproved MAF URL.
+* No placeholder biography or affiliation text.
+* Formspree remains configured through its environment variable.
+* `/privacy` and 404 server behavior remain intact locally.
+
+Do not add meaningless duplicate assertions.
+
+## Documentation
+
+Update `BLOCKERS.md` and the audit-continuity document.
+
+Preserve original audit numbering.
+
+Classify:
+
+* **#18:** Substantially implemented when `/about#origin` is live and permanently linkable; participant aggregate remains separately blocked under #17.
+* **#31:** Partial until the MAF official link, EIN publication decision, complete approved biographies/affiliations and Council Charter decision are supplied.
+* **#13:** Remains partial; redirect exists, standalone privacy-policy facts remain unresolved.
+* **#16:** Locally implemented but production verification pending until the Node server truly controls the published deployment.
+
+Create a concise list of exact human inputs needed to finish #31:
+
+1. Official Mystic Arts Foundation URL
+2. Whether the EIN may be published and its verified value
+3. Approved biographies
+4. Approved affiliations
+5. Council Charter publication decision
+6. Any approved founding-story wording not already public
+
+Do not substitute new implementation tasks for original audit items #26–36.
+
+---
+
+# Validation
+
+Run:
+
+```bash
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+```
+
+Run lint or tests only if scripts exist.
+
+Run the actual local production server and verify:
+
+* `/about` → 200
+* `/about#origin` renders and scrolls
+* `/team` → 200
+* `/privacy` → 308
+* Unknown route → 404
+* Sitemap, robots and `llms.txt` → 200
+* Existing Formspree bundle configuration remains present
+
+Perform browser QA at:
+
+* 390 × 844
+* 768 × 1024
+* 1440 × 900
+
+Check:
+
+* Header and mobile navigation
+* About active state
+* Every About anchor
+* Direct hash loading
+* Team link
+* Work/EELP/LTF/Get Involved links
+* Footer
+* No overflow
+* No application console errors
+
+## Source control
+
+Create two focused local commits if practical:
+
+1. Deployment/server configuration correction
+2. About page implementation
+
+Do not:
+
+* Push
+* Publish
+* Deploy
+* Tag
+* Create a release
+* Commit `.env` files
+* Commit task attachments
+* Modify unrelated repositories
+
+## Required final report
+
+Return:
+
+1. Starting branch and commit
+2. Exact production-serving diagnosis
+3. Why `server.js` was bypassed
+4. Every deployment/configuration change
+5. Exact manual Replit setting required, if any
+6. Local HTTP status table
+7. About-page section structure and exact public copy
+8. Source attribution for every organizational claim
+9. Any omitted fact and why it was omitted
+10. Navigation changes
+11. Route, sitemap, `llms.txt` and metadata changes
+12. Direct-hash results
+13. Accessibility and viewport QA
+14. Formspree regression result
+15. Validation commands and exit codes
+16. Updated verification assertion count
+17. Bundle names and sizes
+18. Updated original-audit statuses
+19. Exact human inputs still required for #31
+20. Changed-file list
+21. Final commits
+22. Final `git status --short --branch`
+23. Confirmation that nothing was pushed, published, deployed, tagged or released
+
+Use one final verdict:
+
+* `READY TO REPUBLISH — SERVER CONFIGURATION CORRECTED AND ABOUT BUILT`
+* `ABOUT READY — MANUAL REPLIT DEPLOYMENT CHANGE REQUIRED`
+* `BLOCKED — [exact reason]`
+
+Do not claim the production 404 or redirect is fixed until external verification after republishing proves the Node server is actually handling requests.
