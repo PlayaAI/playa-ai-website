@@ -1,0 +1,114 @@
+You are making one tightly scoped copy correction to the Playa AI website.
+
+Project:
+
+`artifacts/playa-ai`
+
+## Objective
+
+Remove every instance on the canonical `/about` page that describes Playa AI itself as:
+
+* `early-stage`
+* `early stage`
+* `an early-stage initiative`
+* Any equivalent wording that characterizes the entire organization as early-stage
+
+For example, change:
+
+`Playa AI is an early-stage, human-centered AI initiative developing consent frameworks, community experiments, tools, and public-interest research rooted in creativity and participation.`
+
+to:
+
+`Playa AI is a human-centered AI initiative developing consent frameworks, community experiments, tools, and public-interest research rooted in creativity and participation.`
+
+## Scope
+
+Inspect all sources that contribute content to `/about`, including:
+
+* `src/pages/About.tsx`
+* Route summaries or metadata
+* Prerender/static HTML generation
+* No-JavaScript content
+* Open Graph and description content
+* Any shared About-page data
+* Validators covering the About page
+
+Update the source of truth and regenerate build output. Do not directly patch generated `dist` files.
+
+## Important distinction
+
+Remove “early-stage” only when it describes Playa AI as an organization or initiative on the About page.
+
+Do not remove accurate status labels describing individual projects, including:
+
+* `Early Stage`
+* `Prototype`
+* `Live Pilot`
+* `Working Draft`
+* `Draft`
+* `Governance Design Phase`
+* `Currently Unavailable`
+
+Do not replace “early-stage” with a stronger or unsupported maturity claim such as:
+
+* Established
+* Mature
+* Fully operational
+* Proven
+* Institution
+* Foundation
+* Production-ready
+
+Simply remove the maturity qualifier and preserve the rest of the approved wording.
+
+## Preserve
+
+Do not change:
+
+* `Born on the Playa. Gifted to the Planet.`
+* The Burning Man versus Playa AI distinction
+* `Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)`
+* The U+2019 apostrophe
+* Mystic Arts Foundation link
+* Team names or titles
+* Workstream status labels
+* About-page structure or design
+* Metadata unrelated to the prohibited description
+* Routes, navigation, forms or other pages
+
+## Validation
+
+After editing, verify:
+
+1. `/about` contains no organizational description using `early-stage` or `early stage`.
+2. Project-specific status labels remain unchanged.
+3. Raw initial HTML and hydrated `/about` content agree.
+4. No duplicate H1 or metadata regression was introduced.
+5. The page layout remains unchanged at mobile, tablet and desktop widths.
+
+Run and report exact exit codes for:
+
+* `git diff --check`
+* `pnpm run check:copy`
+* `pnpm run typecheck`
+* `pnpm run build`
+* `pnpm run verify:audit`
+
+Update validators only if necessary to prevent the removed organizational wording from returning. Do not prohibit legitimate project-level `Early Stage` status labels.
+
+## Final report
+
+Return:
+
+* Starting and final commit
+* Exact changed files
+* Every removed occurrence
+* Exact old and new wording
+* Confirmation that project status labels remain
+* Validation results and exit codes
+* Generated bundle names
+* Final worktree status
+
+Create one focused local commit after validation.
+
+Do not push, deploy, publish, republish, tag or release anything.
