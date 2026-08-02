@@ -47,7 +47,7 @@ type Block = ReturnType<typeof formatManifestoBlocks>[number];
 function renderBlock(block: Block, i: number, siblings: Block[]) {
   if (block.type === "heading" || block.type === "title") {
     return (
-      <h3
+      <h2
         key={block.id}
         className="w-full text-left font-serif leading-none tracking-tight text-accent-gold pt-10 text-2xl md:text-3xl"
       >
@@ -57,7 +57,7 @@ function renderBlock(block: Block, i: number, siblings: Block[]) {
             {li < block.text.split("\n").length - 1 && <br />}
           </span>
         ))}
-      </h3>
+      </h2>
     );
   }
   const prevBlock = i > 0 ? siblings[i - 1] : null;

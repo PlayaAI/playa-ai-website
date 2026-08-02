@@ -87,18 +87,17 @@ export function SiteHeader({ active, contextLine }: SiteHeaderProps) {
                 </Link>
               );
             })}
-          </nav>
-
-          <div className="flex items-center gap-4 shrink-0">
-            {/* Desktop Contact */}
+            {/* Desktop Contact — inside semantic nav per accessibility requirement */}
             <a
               href="/#contact"
-              className={`hidden md:inline-flex bg-foreground text-background px-4 py-2 hover:bg-background hover:text-foreground border border-foreground transition-colors ${NAV_LINK_BASE}`}
+              className={`bg-foreground text-background px-4 py-2 hover:bg-background hover:text-foreground border border-foreground transition-colors ${NAV_LINK_BASE}`}
               data-testid="link-contact"
             >
               Contact
             </a>
+          </nav>
 
+          <div className="flex items-center gap-4 shrink-0">
             {/* Mobile menu toggle — hidden at md and above */}
             <button
               ref={triggerRef}

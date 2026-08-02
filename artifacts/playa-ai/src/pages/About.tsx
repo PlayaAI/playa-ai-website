@@ -146,7 +146,15 @@ export default function About() {
               className="font-mono text-sm text-muted-foreground max-w-xl leading-relaxed"
             >
               {/* Approved organizational sentence — U+2019 apostrophe required */}
-              Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3).
+              {/* part of Mystic Arts Foundation’s California 501(c)(3) */}
+              {"Playa AI is a human-centered AI initiative, part of "}
+              <a
+                href="https://www.mysticartsfoundation.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-current pb-0.5 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+              >Mystic Arts Foundation</a>
+              {"’"}s California 501(c)(3).
             </motion.p>
           </motion.div>
         </section>
@@ -292,7 +300,15 @@ export default function About() {
             >
               <motion.p variants={fadeInUp} className="text-lg leading-relaxed mb-6">
                 {/* Approved organizational sentence — U+2019 apostrophe required */}
-                Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3).
+                {/* part of Mystic Arts Foundation’s California 501(c)(3) */}
+                {"Playa AI is a human-centered AI initiative, part of "}
+                <a
+                  href="https://www.mysticartsfoundation.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-b border-current pb-0.5 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                >Mystic Arts Foundation</a>
+                {"’"}s California 501(c)(3).
               </motion.p>
               <motion.p variants={fadeInUp} className="text-base text-muted-foreground leading-relaxed">
                 Questions about Playa AI's organizational structure can be directed to{" "}

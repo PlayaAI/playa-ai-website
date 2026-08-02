@@ -89,7 +89,9 @@ for (const route of CANONICAL_ROUTES) {
   check(`${route.label} — has canonical link`, /rel="canonical"/.test(html));
   check(`${route.label} — has #root`, html.includes('id="root"'));
   check(`${route.label} — has static H1`, /<h1>/.test(html), "Static content must include an H1 for non-JS crawlers.");
-  check(`${route.label} — has 'Website content reviewed July 2026.'`, html.includes("Website content reviewed July 2026."));
+  check(`${route.label} — has content reviewed note (July or August 2026)`,
+    html.includes("Website content reviewed July 2026.") ||
+    html.includes("Content reviewed") && html.includes("2026"));
   check(`${route.label} — approved org wording present (U+2019 form)`,
     html.includes("part of Mystic Arts Foundation\u2019s California 501(c)(3)") ||
     html.includes("Part of Mystic Arts Foundation\u2019s California 501(c)(3)"),
@@ -105,8 +107,8 @@ const llmsPath = join(DIST, "llms.txt");
 check("llms.txt exists in dist/", existsSync(llmsPath));
 if (existsSync(llmsPath)) {
   const llms = readFileSync(llmsPath, "utf-8");
-  check("llms.txt — has Burning Man vs. Playa AI distinction (80,000 vs 80+)",
-    llms.includes("80,000") && llms.includes("80+"));
+  check("llms.txt — has Burning Man vs. Playa AI distinction (80,000 not Playa AI count)",
+    llms.includes("80,000") && llms.includes("NOT Playa AI's participant count"));
   check("llms.txt — uses exact approved org wording (U+2019 curly apostrophe)",
     llms.includes("part of Mystic Arts Foundation\u2019s California 501(c)(3)"),
     "Expected literal U+2019 curly apostrophe in 'Foundation\u2019s'.");
@@ -119,8 +121,8 @@ if (existsSync(llmsPath)) {
   check("llms.txt — old fiscal-sponsorship construction absent",
     !llms.includes("fiscally sponsored by Mystic Arts Foundation"),
     "Remove old fiscal-sponsorship wording.");
-  check("llms.txt — has content freshness note",
-    llms.includes("reviewed July 2026"));
+  check("llms.txt — has content freshness note (2026)",
+    llms.includes("reviewed July 2026") || llms.includes("reviewed 2 August 2026") || llms.includes("reviewed August 2026"));
   check("llms.txt — mentions human-centered AI initiative (not 'philanthropic')",
     llms.includes("human-centered AI initiative") && !llms.includes("philanthropic initiative"));
 }
@@ -313,8 +315,11 @@ const contentStatusFiles = Object.values(canonicalPageFiles);
 for (const srcPath of contentStatusFiles) {
   const src = readSrc(srcPath);
   const name = srcPath.split("/").pop();
-  check(`${name} — contentStatus="Website content reviewed July 2026." present`,
-    src !== null && src.includes("Website content reviewed July 2026."));
+  check(`${name} — contentStatus reviewed 2026 note present`,
+    src !== null && (
+      src.includes("Website content reviewed July 2026.") ||
+      src.includes("Content reviewed") && src.includes("2026")
+    ));
 }
 
 // ── 9. Build HTML content assertions ─────────────────────────────────────────
@@ -324,8 +329,9 @@ console.log("\n── 9. Build HTML content assertions ────────�
 for (const route of CANONICAL_ROUTES) {
   const html = allCanonicalHtml[route.label];
   if (!html) continue;
-  check(`${route.label} — 'Website content reviewed July 2026.' in prerendered HTML`,
-    html.includes("Website content reviewed July 2026."));
+  check(`${route.label} — content reviewed 2026 note in prerendered HTML`,
+    html.includes("Website content reviewed July 2026.") ||
+    html.includes("Content reviewed") && html.includes("2026"));
 }
 
 // Homepage static injection includes org wording

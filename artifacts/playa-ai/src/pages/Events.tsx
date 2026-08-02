@@ -382,22 +382,33 @@ export default function Events() {
         <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl leading-[0.95] tracking-tight mb-12 max-w-5xl">
           The archive grows. <i className="italic font-normal">The next room is already forming.</i>
         </h2>
-        <a
-          href="mailto:team@playa-ai.org?subject=Events%20%E2%80%94%20Propose%20or%20Partner"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
-          data-testid="link-share-event"
-        >
-          Propose or partner on a gathering →
-        </a>
+        <div className="flex flex-wrap gap-4 items-center">
+          <a
+            href="mailto:team@playa-ai.org?subject=Events%20%E2%80%94%20Propose%20or%20Partner"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-background hover:text-foreground transition-colors"
+            data-testid="link-share-event"
+          >
+            Propose or partner on a gathering →
+          </a>
+          <a
+            href="https://luma.com/user/Playa_AI"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 border border-foreground font-mono text-sm uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors"
+            data-testid="link-luma-profile"
+          >
+            View Playa AI on Luma →
+          </a>
+        </div>
       </section>
 
       <ContinueExploring links={[
         { label: "Explore the work", href: "/work" },
         { label: "Join the initiative", href: "/#participate" },
       ]} />
-      <SiteFooter contextLine="Public event archive · Archive current through 30 March 2026" contentStatus="Website content reviewed July 2026." />
+      <SiteFooter contextLine="Public event archive · Archive current through 30 March 2026" contentStatus="Content reviewed 2 August 2026." />
     </main>
   );
 }

@@ -165,6 +165,36 @@ const PROHIBITED = [
       "Unverified governance claim. Do not publish assertions about signing authority " +
       "without an authoritative governance document.",
   },
+  // ── Connect / product copy ──────────────────────────────────────────────────
+  {
+    pattern: "Private by default",
+    reason:
+      "Unsupported privacy assurance. The complete technical and legal evidence for " +
+      "'Private by default' has not been independently verified. Remove without replacement; " +
+      "preserve accurate factual statements (e.g. 'Microphone access requires explicit permission').",
+  },
+  // ── Microgrant claims ──────────────────────────────────────────────────────
+  {
+    pattern: "Year-One microgrant program",
+    reason:
+      "Operational microgrant claim. No approved budget, eligibility rules, application " +
+      "process, or review process exists. Remove without replacement.",
+  },
+  {
+    pattern: "Tax-deductible giving",
+    reason:
+      "Unverified tax claim. Tax-deductibility has not been independently confirmed. " +
+      "Do not publish until a signed FSA and IRS determination letter are in hand.",
+  },
+  // ── Stale claims ──────────────────────────────────────────────────────────
+  {
+    pattern: "Updated continuously",
+    // EventsClassic.tsx contains this phrase and is in the SKIP_PAGE_FILES list.
+    // The check catches it in canonical (non-Classic) files only.
+    reason:
+      "Stale promise. Use a datestamped review line (e.g. 'Content reviewed 2 August 2026') " +
+      "rather than an open-ended 'Updated continuously' claim.",
+  },
 ];
 
 // ── Approved canonical exception ──────────────────────────────────────────────

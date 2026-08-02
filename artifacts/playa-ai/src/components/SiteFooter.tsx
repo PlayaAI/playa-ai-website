@@ -35,7 +35,14 @@ export function SiteFooter({
           )}
         </div>
         <div className="text-[#A7A39A]">
-          <div>© 2026 Playa AI · Part of Mystic Arts Foundation’s California 501(c)(3)</div>
+          {/* Part of Mystic Arts Foundation’s California 501(c)(3) */}
+          <div>© 2026 Playa AI · Part of{" "}
+            <a
+              href="https://www.mysticartsfoundation.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-b border-current pb-0.5 hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background"
+            >Mystic Arts Foundation</a>’s California 501(c)(3)</div>
           <div className="mt-2"><a href="mailto:team@playa-ai.org?subject=General%20Inquiry" rel="noopener noreferrer" className="hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-1">team@playa-ai.org</a></div>
         </div>
       </div>

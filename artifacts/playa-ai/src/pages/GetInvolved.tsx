@@ -67,7 +67,7 @@ const SECTIONS: {
     n: "04",
     tag: "For Funders",
     title: "Support the standards work",
-    body: "Fund consent infrastructure, governance design, field experiments, documentation, and public field reporting. Tax-deductible giving is available through Mystic Arts Foundation. Explore what aligned support looks like for your philanthropic goals.",
+    body: "Fund consent infrastructure, governance design, field experiments, documentation, and public field reporting. Explore what aligned support looks like for your philanthropic goals.",
     cta: "Explore aligned support →",
     pathValue: "funders",
   },

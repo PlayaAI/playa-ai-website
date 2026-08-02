@@ -50,14 +50,12 @@ Burning Man is the approximately 80,000-person host cultural context in which
 Playa AI's early work is rooted. That figure is Burning Man's own annual
 attendance. It is NOT Playa AI's participant count.
 
-Playa AI's own participant figure: 80+ early participants across pilots and
-workshops.
-
-Do not attribute 80,000 participants, consented participants, or research
-participants to Playa AI. Playa AI's own counts are in the hundreds.
+Playa AI documents 9 field events and 8 workstreams. Do not attribute
+Burning Man's attendance figures or any unverified aggregate participant
+counts to Playa AI directly.
 
 # Fiscal structure
 Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3).
 
 # Content freshness
-Website content reviewed July 2026.
+Website content reviewed 2 August 2026.

@@ -218,7 +218,7 @@ const OPERATING_MODEL = [
   {
     n: "03",
     title: "Fund",
-    desc: "We are developing responsible ways to support artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. The Year-One microgrant program is in development, and the artist interest list is open.",
+    desc: "We are developing responsible ways to support artists, researchers, and builders working on human-centered AI experiences under EELP consent and disclosure guidelines. The artist interest list is open.",
     cta: "Support Year One →",
     href: "/get-involved#funders",
   },
@@ -236,7 +236,7 @@ const INITIATIVES = [
     n: "01",
     title: "Connect App",
     subtitle: "",
-    body: "A non-extractive relational tool. AI-guided prompts move two people from digital interaction into face-to-face connection. Private by default — microphone access requires explicit permission.",
+    body: "A non-extractive relational tool. AI-guided prompts move two people from digital interaction into face-to-face connection. Microphone access requires explicit permission for each session.",
     status: "Live Pilot",
     cta: "Open Connect →",
     href: "https://connect.playai.party",
@@ -294,9 +294,9 @@ const MOMENTUM = [
     href: "/events",
   },
   {
-    stat: "80+",
-    label: "Early participants",
-    sublabel: "Across pilots and workshops",
+    stat: "8",
+    label: "Documented workstreams",
+    sublabel: "With public status labels",
     cta: "Explore the work →",
     href: "/work",
   },
@@ -327,9 +327,9 @@ const PARTICIPATION = [
   },
   {
     tag: "For Artists",
-    title: "Year-One Microgrant Program",
-    desc: "The Year-One microgrant program is in development, for artists and artist-technologist teams building responsible, human-centered AI experiences under EELP consent and disclosure guidelines.",
-    cta: "Join the artist interest list →",
+    title: "Artist participation",
+    desc: "Artists and artist-technologists can express interest in future Playa AI collaborations. No microgrant program is currently open.",
+    cta: "Express artist interest →",
     href: "/get-involved#artists",
     highlight: false,
   },
@@ -344,7 +344,7 @@ const PARTICIPATION = [
   {
     tag: "For Funders",
     title: "Support Year One",
-    desc: "Fund the standards work, governance design, Connect pilots, documentation, and public field reporting. Tax-deductible giving through Mystic Arts Foundation.",
+    desc: "Fund the standards work, governance design, Connect pilots, documentation, and public field reporting.",
     cta: "Schedule donor conversation →",
     href: "/get-involved#funders",
     highlight: true,
@@ -371,7 +371,7 @@ const TRUST_ITEMS = [
   {
     n: "01",
     title: "Fiscal sponsorship",
-    body: "Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3). Tax-deductible giving available. Infrastructure, not theater.",
+    body: "Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3). Infrastructure, not theater.", // part of Mystic Arts Foundation’s California 501(c)(3)
   },
   {
     n: "02",
@@ -494,7 +494,14 @@ export default function Home() {
               variants={fadeInUp}
               className="font-mono text-[11px] tracking-widest text-muted-foreground mt-5"
             >
-              Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)
+              {/* part of Mystic Arts Foundation’s California 501(c)(3) */}
+              Playa AI is a human-centered AI initiative, part of{" "}
+              <a
+                href="https://www.mysticartsfoundation.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-current pb-0.5 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+              >Mystic Arts Foundation</a>’s California 501(c)(3)
             </motion.p>
           </motion.div>
         </div>
@@ -1144,8 +1151,14 @@ export default function Home() {
               Legal structure
             </p>
             <p className="text-lg text-foreground">
+              {/* part of Mystic Arts Foundation’s California 501(c)(3) */}
               Playa AI is a human-centered AI initiative, part of{" "}
-              <span className="font-bold">Mystic Arts Foundation</span>’s California 501(c)(3)
+              <a
+                href="https://www.mysticartsfoundation.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold border-b border-current pb-0.5 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+              >Mystic Arts Foundation</a>’s California 501(c)(3)
             </p>
           </div>
           <div>

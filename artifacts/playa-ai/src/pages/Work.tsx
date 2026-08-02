@@ -57,9 +57,9 @@ const WORKSTREAMS: Workstream[] = [
     aiRole:
       "With consent, AI can synthesize the spoken conversation into an Oracle Card or digital poster, offering the pair a unique quest to carry the insight back into life.",
     consent:
-      "Private by default. Microphone access requires explicit permission for each session. Data should be processed as locally and ephemerally as possible, with deletion-first workflows explored to honor immediacy.",
+      "Microphone access requires explicit permission for each session. Data should be processed as locally and ephemerally as possible, with deletion-first workflows explored to honor immediacy.",
     evidence:
-      "Piloted with 80+ initial users and now being refined for camp-level use and the Joy Score research project.",
+      "Piloted in early field sessions and now being refined for camp-level use and the Joy Score research project.",
     people: "Alex Azzi · Raed Marji",
     cta: "Join pilot →",
     href: "mailto:team@playa-ai.org?subject=Connect%20App%20Pilot",
@@ -517,8 +517,8 @@ export default function Work() {
               { value: "8", label: "Workstreams" },
               { value: "3", label: "Modes: tools, research, protocols" },
               {
-                value: "80+",
-                label: "Early participants across pilots and workshops",
+                value: "9",
+                label: "Documented field events",
               },
               { value: "1", label: "Living manifesto" },
             ].map((s) => (

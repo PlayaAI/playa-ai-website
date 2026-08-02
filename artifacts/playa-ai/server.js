@@ -20,6 +20,7 @@
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
+import zlib from "node:zlib";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -75,33 +76,73 @@ function getCacheControl(filepath) {
   return "public, max-age=600";
 }
 
-// ── Response helpers ──────────────────────────────────────────────────────────
-function sendFile(res, filepath, status) {
-  const content = readFileSafe(filepath);
-  if (content === null) { send404(res); return; }
-  res.writeHead(status, {
-    "Content-Type":           getMime(filepath),
-    "Cache-Control":          getCacheControl(filepath),
-    "X-Content-Type-Options": "nosniff",
-  });
-  res.end(content);
+// ── Compression ───────────────────────────────────────────────────────────────
+// Compressible MIME type prefixes / substrings.
+const COMPRESSIBLE = /text\/|\/javascript|\/json|\/xml|\/svg\+xml|font\/(woff|woff2|ttf|otf)/;
+
+/**
+ * Synchronously compress `content` according to the request's Accept-Encoding.
+ * Prefers Brotli (best ratio for static assets), falls back to gzip.
+ * Returns { body: Buffer, encoding: string | null }.
+ */
+function compressContent(content, acceptEncoding) {
+  if (/\bbr\b/.test(acceptEncoding)) {
+    return { body: zlib.brotliCompressSync(content), encoding: "br" };
+  }
+  if (/\bgzip\b/.test(acceptEncoding)) {
+    return { body: zlib.gzipSync(content),            encoding: "gzip" };
+  }
+  return { body: content, encoding: null };
 }
 
-function send404(res) {
-  const content = readFileSafe(path.join(DIST, "404.html"))
+// ── Response helpers ──────────────────────────────────────────────────────────
+function sendFile(res, filepath, status, acceptEncoding = "") {
+  const raw = readFileSafe(filepath);
+  if (raw === null) { send404(res, acceptEncoding); return; }
+
+  const mime = getMime(filepath);
+  const shouldCompress = COMPRESSIBLE.test(mime);
+  const { body, encoding } = shouldCompress && acceptEncoding
+    ? compressContent(raw, acceptEncoding)
+    : { body: raw, encoding: null };
+
+  const headers = {
+    "Content-Type":           mime,
+    "Cache-Control":          getCacheControl(filepath),
+    "Vary":                   "Accept-Encoding",
+    "X-Content-Type-Options": "nosniff",
+  };
+  if (encoding) headers["Content-Encoding"] = encoding;
+
+  res.writeHead(status, headers);
+  res.end(body);
+}
+
+function send404(res, acceptEncoding = "") {
+  const raw = readFileSafe(path.join(DIST, "404.html"))
     ?? Buffer.from("<!doctype html><title>404</title><p>Page not found.</p>");
-  res.writeHead(404, {
+
+  const { body, encoding } = acceptEncoding
+    ? compressContent(raw, acceptEncoding)
+    : { body: raw, encoding: null };
+
+  const headers = {
     "Content-Type":           "text/html; charset=utf-8",
     "Cache-Control":          "no-cache, no-store, must-revalidate",
     "X-Robots-Tag":           "noindex, nofollow",
+    "Vary":                   "Accept-Encoding",
     "X-Content-Type-Options": "nosniff",
-  });
-  res.end(content);
+  };
+  if (encoding) headers["Content-Encoding"] = encoding;
+
+  res.writeHead(404, headers);
+  res.end(body);
 }
 
 // ── Request handler ───────────────────────────────────────────────────────────
 const server = http.createServer((req, res) => {
   const method = (req.method ?? "GET").toUpperCase();
+  const acceptEncoding = req.headers["accept-encoding"] ?? "";
 
   if (method !== "GET" && method !== "HEAD") {
     res.writeHead(405, { Allow: "GET, HEAD", "Content-Type": "text/plain" });
@@ -154,10 +195,11 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, {
         "Content-Type":  getMime(directFile),
         "Cache-Control": getCacheControl(directFile),
+        "Vary":          "Accept-Encoding",
       });
       res.end();
     } else {
-      sendFile(res, directFile, 200);
+      sendFile(res, directFile, 200, acceptEncoding);
     }
     return;
   }
@@ -176,10 +218,11 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, {
         "Content-Type":  "text/html; charset=utf-8",
         "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Vary":          "Accept-Encoding",
       });
       res.end();
     } else {
-      sendFile(res, htmlFile, 200);
+      sendFile(res, htmlFile, 200, acceptEncoding);
     }
     return;
   }
@@ -191,10 +234,11 @@ const server = http.createServer((req, res) => {
       "Content-Type":  "text/html; charset=utf-8",
       "X-Robots-Tag":  "noindex, nofollow",
       "Cache-Control": "no-cache, no-store, must-revalidate",
+      "Vary":          "Accept-Encoding",
     });
     res.end();
   } else {
-    send404(res);
+    send404(res, acceptEncoding);
   }
 });
 

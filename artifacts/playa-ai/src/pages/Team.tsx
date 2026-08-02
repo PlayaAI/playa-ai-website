@@ -461,7 +461,14 @@ export default function Teams() {
           </div>
           <div className="lg:col-span-8 flex flex-col gap-5 lg:pt-1">
             <p className="text-base md:text-lg leading-relaxed text-foreground">
-              Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3). We develop human-centered AI tools, consent frameworks, community experiments, and public-interest research rooted in creativity, participation, and human flourishing.
+              {/* part of Mystic Arts Foundation’s California 501(c)(3) */}
+              Playa AI is a human-centered AI initiative, part of{" "}
+              <a
+                href="https://www.mysticartsfoundation.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-current pb-0.5 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+              >Mystic Arts Foundation</a>’s California 501(c)(3). We develop human-centered AI tools, consent frameworks, community experiments, and public-interest research rooted in creativity, participation, and human flourishing.
             </p>
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
               Our work includes the EELP consent protocol, the Living Trust
