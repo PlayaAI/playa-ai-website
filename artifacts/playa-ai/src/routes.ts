@@ -174,7 +174,7 @@ export const ROUTES: RouteEntry[] = [
       "About Playa AI — origin, structure, the people behind the initiative, how the work is organized, and how to participate.",
     canonical: `${SITE_URL}/about`,
     summary:
-      "Playa AI is an early-stage, human-centered AI initiative developing consent frameworks, community experiments, tools, and public-interest research rooted in creativity and participation. Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3). The initiative grew out of field work at Burning Man and operates year-round, building open frameworks for consent-first AI design.",
+      "Playa AI is a human-centered AI initiative developing consent frameworks, community experiments, tools, and public-interest research rooted in creativity and participation. Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3). The initiative grew out of field work at Burning Man and operates year-round, building open frameworks for consent-first AI design.",
   },
 
   // ── Alias route ───────────────────────────────────────────────────────────

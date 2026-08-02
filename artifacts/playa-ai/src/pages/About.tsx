@@ -137,7 +137,7 @@ export default function About() {
               variants={fadeInUp}
               className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed mb-6"
             >
-              Playa AI is an early-stage, human-centered AI initiative developing
+              Playa AI is a human-centered AI initiative developing
               consent frameworks, community experiments, tools, and public-interest
               research rooted in creativity and participation.
             </motion.p>
