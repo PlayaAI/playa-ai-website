@@ -29,6 +29,7 @@ const SKIP_PAGE_FILES = new Set([
   "WorkClassic.tsx",
   "TeamClassic.tsx",
   "HomeClassic.tsx",
+  "PrivacyToolkit.tsx", // Historical archive — intentionally preserves pre-licensing language
 ]);
 
 // ── Prohibited patterns ───────────────────────────────────────────────────────
@@ -194,6 +195,28 @@ const PROHIBITED = [
     reason:
       "Stale promise. Use a datestamped review line (e.g. 'Content reviewed 2 August 2026') " +
       "rather than an open-ended 'Updated continuously' claim.",
+  },
+  // ── Stale licensing claims ─────────────────────────────────────────────────
+  {
+    pattern: "license is under review",
+    reason:
+      "Stale licensing claim. The Living Trust Framework is now openly licensed " +
+      "(CC BY-SA 4.0 for content, Apache 2.0 for software and code). " +
+      "Use the approved wording instead.",
+  },
+  {
+    pattern: "open licensing intended",
+    reason:
+      "Stale licensing placeholder. The Living Trust Framework is now openly licensed " +
+      "(CC BY-SA 4.0 for content, Apache 2.0 for software and code). " +
+      "Use the approved wording instead.",
+  },
+  {
+    pattern: "License under review",
+    reason:
+      "Stale licensing placeholder. The Living Trust Framework is now openly licensed " +
+      "(CC BY-SA 4.0 for content, Apache 2.0 for software and code). " +
+      "Use the approved wording instead.",
   },
 ];
 

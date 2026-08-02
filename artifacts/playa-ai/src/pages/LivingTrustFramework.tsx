@@ -198,7 +198,7 @@ const SPECIAL_PROTECTIONS = [
   },
 ];
 
-const IMPL_PHASES = [
+const IMPL_PHASES: { n: string; title: string; body: string; completed?: boolean }[] = [
   {
     n: "01",
     title: "Internal review",
@@ -216,8 +216,9 @@ const IMPL_PHASES = [
   },
   {
     n: "04",
-    title: "Public open-source release",
-    body: "Prepare the framework for public release under an approved open license with templates, adaptation guidance, versioning, and a public repository.",
+    title: "Openly licensed public-review release",
+    body: "Framework content is openly licensed under CC BY-SA 4.0; software and code under Apache 2.0. Public repository available with templates, adaptation guidance, versioning, and structured community feedback.",
+    completed: true,
   },
 ];
 
@@ -265,13 +266,20 @@ export default function LivingTrustFramework() {
 
           <motion.h1
             variants={fadeInUp}
-            className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight mb-8"
+            className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight mb-4"
           >
             A public working framework for consent, data dignity, and{" "}
             <i className="italic font-normal text-accent-gold">
               human agency.
             </i>
           </motion.h1>
+
+          <motion.p
+            variants={fadeInUp}
+            className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6"
+          >
+            Openly Licensed Public Working Draft · CC BY-SA 4.0 / Apache 2.0
+          </motion.p>
 
           <motion.p
             variants={fadeInUp}
@@ -287,12 +295,14 @@ export default function LivingTrustFramework() {
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed mb-8 text-muted-foreground max-w-2xl"
           >
-            The framework is already guiding Playa AI tools, with broader
-            integration planned across our tools over the next few weeks. ABAC,
-            DPIAs, policy-as-code, and comparable technical items described
-            here are target practices and implementation directions, not yet
-            fully deployed capabilities. Privacy Compass remains a future
-            concept. The open-source license is under review.
+            The framework is already guiding Playa AI tools. Broader
+            integration is planned across Playa AI tools as implementation work
+            progresses. ABAC, DPIAs, policy-as-code, and comparable technical
+            items described here are target practices and implementation
+            directions, not yet fully deployed capabilities. Privacy Compass
+            remains a future concept. The framework is openly licensed: CC
+            BY-SA 4.0 for framework content and Apache 2.0 for software and
+            code.
           </motion.p>
 
           <motion.div variants={fadeInUp}>
@@ -893,8 +903,8 @@ export default function LivingTrustFramework() {
                     "Adaptation guidance for different contexts",
                     "Versioning with community changelog",
                     "Structured feedback process",
-                    "Public repository (in progress)",
-                    "License under review — open licensing intended",
+                    "Public repository available",
+                    "Openly licensed: CC BY-SA 4.0 (content) · Apache 2.0 (code)",
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-2">
                       <span className="font-mono text-accent-gold text-xs shrink-0 mt-0.5">
@@ -929,9 +939,9 @@ export default function LivingTrustFramework() {
           </div>
           <div className="lg:col-span-6 flex items-center">
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
-              The framework moves from internal alignment to public open-source
-              release across four phases. Each phase includes structured
-              feedback and versioning before the next begins.
+              The framework moves from internal alignment to openly licensed
+              public-review release across four phases. Each phase includes
+              structured feedback and versioning before the next begins.
             </p>
           </div>
         </div>
@@ -958,6 +968,11 @@ export default function LivingTrustFramework() {
                 <h3 className="font-serif text-2xl md:text-3xl leading-tight">
                   {phase.title}
                 </h3>
+                {phase.completed && (
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-accent-gold mt-1.5 inline-block">
+                    ✓ Completed
+                  </span>
+                )}
               </div>
               <div className="md:col-span-7">
                 <p className="text-base leading-relaxed text-muted-foreground">
@@ -997,13 +1012,13 @@ export default function LivingTrustFramework() {
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed text-muted-foreground mb-4 max-w-2xl"
           >
-            This is a working framework guiding Playa AI tools today, with
-            broader integration planned over the next few weeks. It is not a
-            finished legal document or certified standard — technical practices
-            listed here are implementation directions. We welcome privacy
-            experts, AI builders, legal contributors, camp leads, researchers,
-            and community stewards who want to contribute to its ongoing
-            development.
+            This is a working framework guiding Playa AI tools today. Broader
+            integration is planned across Playa AI tools as implementation work
+            progresses. It is not a finished legal document or certified
+            standard — technical practices listed here are implementation
+            directions. We welcome privacy experts, AI builders, legal
+            contributors, camp leads, researchers, and community stewards who
+            want to contribute to its ongoing development.
           </motion.p>
 
           <motion.p
@@ -1040,6 +1055,14 @@ export default function LivingTrustFramework() {
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-border hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               Contribute →
+            </a>
+            <a
+              href="https://github.com/PlayaAI/playa-ai-living-trust-framework/blob/main/LICENSING.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-border hover:bg-foreground hover:text-background transition-colors duration-300"
+            >
+              View licensing details →
             </a>
           </motion.div>
         </motion.div>

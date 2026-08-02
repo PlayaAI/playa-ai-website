@@ -97,10 +97,10 @@ export const ROUTES: RouteEntry[] = [
     path: "/living-trust-framework",
     title: "Living Trust Framework — Playa AI",
     description:
-      "A public working framework for consent, data dignity, privacy, and human agency in AI-mediated experiences.",
+      "An openly licensed public working draft for consent, data dignity, privacy, and human agency in AI-mediated experiences. Licensed CC BY-SA 4.0 / Apache 2.0.",
     canonical: `${SITE_URL}/living-trust-framework`,
     summary:
-      "The Living Trust Framework is Playa AI's public working framework for consent, data dignity, privacy, and human agency in AI-mediated experiences. It provides principles, patterns, and implementation guidance for organizations that collect, process, or act on personal data in AI contexts. The framework is a living document — updated as community feedback and real-world implementation inform its development.",
+      "The Living Trust Framework is Playa AI's openly licensed public working draft for consent, data dignity, privacy, and human agency in AI-mediated experiences. Framework content is licensed under CC BY-SA 4.0; software and code under Apache 2.0. It provides principles, patterns, and implementation guidance for organizations that collect, process, or act on personal data in AI contexts. The framework is a living document — updated as community feedback and real-world implementation inform its development.",
   },
 
   {

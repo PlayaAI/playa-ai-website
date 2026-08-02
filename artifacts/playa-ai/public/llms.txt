@@ -23,7 +23,7 @@ and planned governance work.
 /team                     Team — people building, guiding, and operating Playa AI.
 /manifesto                Burner-AI Manifesto — founding cultural text on AI, creativity, consent, and human agency.
 /eelp                     EELP (Ethical Experience Lab Protocol) — public draft protocol for consent and disclosure in AI-mediated experiences.
-/living-trust-framework   Living Trust Framework — public working framework for consent, data dignity, privacy, and human agency.
+/living-trust-framework   Living Trust Framework — openly licensed public working draft for consent, data dignity, privacy, and human agency. Licensed CC BY-SA 4.0 (content) / Apache 2.0 (code).
 /get-involved             Get Involved — seven participation paths for builders, artists, researchers, funders, cultural stewards, institutions, and general participation.
 
 # Historical archives (not canonical current content)
@@ -40,7 +40,7 @@ Each workstream carries a public status label. Current list:
 2. Ikigai App 1 — currently unavailable
 3. Ikigai App 2 — prototype
 4. Relationship Nurturer — early stage
-5. Playa AI Living Trust Framework — working draft
+5. Playa AI Living Trust Framework — openly licensed public working draft (CC BY-SA 4.0 / Apache 2.0)
 6. EELP (Ethical Experience Lab Protocol) — draft
 7. Consent-First Data Trust — governance design phase
 8. Burner-AI Manifesto — published living document
