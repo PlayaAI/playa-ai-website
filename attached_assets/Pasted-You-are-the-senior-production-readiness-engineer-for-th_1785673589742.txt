@@ -1,0 +1,713 @@
+You are the senior production-readiness engineer for the Playa AI website.
+
+Your task is to inspect the current implementation, preserve completed remediation, implement every evidence-backed website change that is safe now, verify the resulting local production build, create focused local commits, and return a complete evidence report.
+
+Project:
+
+artifacts/playa-ai
+
+Production reference:
+
+https://playa-ai.org/
+
+Do not deploy, publish, republish, push, tag, release, merge, or modify any external organizational record.
+
+1. Non-negotiable safety rules
+Inspect before editing.
+Report the starting branch, HEAD, and worktree state.
+Preserve all unrelated user changes in a dirty worktree.
+Never use git reset --hard, broad checkout/revert commands, destructive cleaning, or history rewriting.
+Do not edit .agents/memory, task instructions, unrelated attachments, unrelated repositories, grant records, Drive documents, emails, or organizational records.
+Work only in the Playa AI website repository. A separately checked-out Connect website may be edited only if it is explicitly present in this workspace and clearly within the task’s website scope.
+Never invent privacy, legal, governance, biographical, participant, event, program, crisis-protocol, pledge, or domain facts.
+Continue independent implementation work when one factual item is blocked.
+Do not add public placeholders such as “pending confirmation.”
+Do not create fake forms, fake pledge success states, fabricated signatories, invented event attendance, or unsupported privacy assurances.
+Do not submit the production Formspree form or cause external side effects.
+Do not expose tokens, database credentials, private source names, personal telephone numbers, or confidential operational details.
+Use source comments sparingly. Public code and copy must not disclose confidential evidence sources.
+Create focused local commits with accurate messages only after the changes pass appropriate checks.
+Nothing may be pushed, deployed, published, tagged, or released.
+
+A successful build is not proof of audit compliance. Automated assertions are implementation checks, not audit requirements and not proof of total compliance.
+
+2. Authority and conflict rules
+
+Use this order when evidence conflicts:
+
+Signed legal or fiscal-sponsorship documents
+Approved organizational decisions
+Verified product and database configuration
+Current repository state
+Approved grants and submitted applications
+Dated event records and official Luma listings
+Meeting decisions and transcripts
+Draft documents
+Previous AI or Replit summaries
+
+Never treat a draft, proposed architecture, sample policy, or AI-generated memo as an approved fact.
+
+For every public factual change, retain an internal evidence record containing:
+
+Exact claim
+Source type
+Document or system name
+Date
+Approval or submission state
+Conflicting evidence
+Confidence level
+
+The final report must identify the usable public source without exposing confidential information.
+
+3. Original Section 12 checklist
+
+Preserve this original numbering, wording, grouping, and multi-part structure in every report. Do not replace items #26–36 with a later implementation matrix.
+
+Today — under an hour each, do all of them
+Replace all 45 Gmail-compose URLs with mailto:hello@playa-ai.org?subject=…
+Enable brotli/gzip; set cache-control: public, max-age=31536000, immutable on /assets/*
+Add the LICENSE file to the framework repo
+Delete “Privacy Toolkit in review” from the homepage
+Wrap the app root in <MotionConfig reducedMotion="user"> + CSS backstop
+Remove “Born on the Playa. Gifted to the Planet.” (×2) and “human-AI co-evolution” (×1)
+Convert the 7 manifesto <button>s to <a href="/manifesto">; delete the modal
+Change the artist Gmail subject from Artist Grant Interest to Artist Interest List
+Delete the MMXXVI span
+Remove “artist microgrants” from the donor CTA until the program exists
+Fix the manifesto year stamp (2026 → first published 2025)
+noindex on /privacy-toolkit and /classic/*
+This week
+Ship /privacy — what is collected, where it goes, retention, deletion contact; point the Connect app at it
+Rewrite the Connect disclosure screen — microphone, recording, upload, transcription, retention, deletion, before the button
+Prerender the seven routes with per-route <title>, description, og:url, og:image
+Real HTTP 404s; remove the self-canonical; publish sitemap.xml + Sitemap: in robots.txt
+Fix the participant aggregate — “≈520 across two pilots, a workshop series and monthly build sessions, 2025–26”
+Add the origin block at /about#origin with the Burning Man paragraph, permanently linkable
+Add focus management to the pledge modal
+“Upcoming” block on /events; “Last updated” stamps site-wide; Luma calendar link
+Reconcile the portfolio to one canonical list of eight
+Label /manifesto’s “What We’re Building” as intent; add a CTA at its foot
+Publish /llms.txt stating Playa AI’s own participant figures and the Burning Man distinction
+Add a mobile menu; move Contact inside <nav>
+Before the next funder conversation
+Rewrite the three outbound vectors carrying the conflated phrasing — the OECD.AI / Partnership on AI submission first (highest exposure, hardest to unwind), then the Mozilla email v1.2 whose subject line is the conflation, then confirm which March funder emails went out and issue corrections. Rewrite for accuracy, do not retract — the Burning Man context is true and belongs in all three.
+File the decision record in the vault stating the Burning-Man-attendance vs Playa-AI-participants distinction, so it cannot recur through a draft
+Correct the grant record with the OpenAI Foundation: the framework is a public working draft, licence pending — unless (3) has already made it true
+Build /get-involved with seven anchored sections and a real form
+Make the pledge signable and render the signatory list
+Publish the nine-row event log with London restored, plus a definition of “Playa AI public event”
+Build a real /about absorbing /team: origin, fiscal sponsorship with MAF linked and EIN stated, legal structure, people with affiliations, Council Charter
+Close the MAF regranting question in writing
+Publish the crisis protocol — the highest credibility-per-sentence asset the org owns
+Rebuild /work §01 as an actual index; move “What remains unresolved” to the top
+Consolidate product domains under playa-ai.org
+Add the prohibited-phrase list to the repo and grep it in CI
+
+Items #3, #25–27, and #32 are external, organizational, or unrelated-repository actions. Do not modify those records or repositories. Item #36 may be changed only inside the primary Playa AI website repository.
+
+4. Approved decisions that supersede parts of the audit
+Public email
+
+The only approved public recipient is:
+
+team@playa-ai.org
+
+hello@playa-ai.org does not exist. Do not restore it.
+
+Preserve portable mailto: links using team@playa-ai.org. Record audit item #1 as functionally resolved by portable mail links with a superseding approved recipient, provided no Gmail-compose URLs remain.
+
+Where an artist-specific email link exists, its subject must be:
+
+Artist Interest List
+
+Do not invent an artist email link merely to satisfy item #8 when the real Get Involved form is the active workflow.
+
+Formspree
+
+Preserve:
+
+https://formspree.io/f/mwvgdevg
+
+The configured recipient is:
+
+team@playa-ai.org
+
+Do not submit a production test. Verify the endpoint is present, enabled, and not replaced by an unavailable or fake state. Do not expose secrets.
+
+Approved brand exception
+
+Preserve exactly:
+
+Born on the Playa. Gifted to the Planet.
+
+Report audit item #6 as:
+
+USER-APPROVED EXCEPTION — NON-COMPLIANT WITH AUDIT
+
+Never count this exception as full audit compliance.
+
+The exception applies only to this approved phrase. Continue to prohibit:
+
+human-AI co-evolution
+Conscious Intelligence
+Pre-consent claims about how an Oracle “feels”
+Approved organizational wording
+
+Preserve exactly, including U+2019:
+
+Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3)
+
+Do not replace or legally expand this sentence.
+
+Do not add claims about:
+
+Separate incorporation
+Tax deductibility
+Fiscal infrastructure
+Fiduciary authority
+Signing authority
+Leadership Council governance authority
+
+The verified official Mystic Arts Foundation URL is:
+
+https://www.mysticartsfoundation.org/
+
+Link the existing words “Mystic Arts Foundation” to that URL wherever the approved sentence is presented as the primary organizational description. Preserve the sentence itself.
+
+EIN 83-0699561 is externally discoverable, but no approved evidence was found authorizing its publication on the Playa AI website. Do not publish the EIN. Document that clause of item #31 as blocked by missing publication approval.
+
+5. Inspect the implementation before changing it
+
+Report and inspect:
+
+Branch and HEAD
+Worktree status
+Route definitions
+Pages and shared components
+React, TypeScript, Vite, Tailwind, Wouter, and Framer Motion configuration
+Node production server and middleware order
+Deployment configuration
+Build, typecheck, lint, test, copy-check, audit-verification, and prerender scripts
+Metadata generation
+Static-generation or prerender process
+Sitemap, robots, and llms.txt
+Form integration and public environment configuration
+Existing validators and CI workflows
+Current build output
+Whether a Connect repository exists inside the authorized workspace
+
+Do not use an earlier Replit report as proof. Verify the current source and behavior.
+
+Before editing, run searches for at least:
+
+Gmail-compose URLs
+hello@playa-ai.org
+team@playa-ai.org
+80+
+≈520
+520
+80,000
+Privacy Toolkit
+Private by default
+human-AI co-evolution
+Conscious Intelligence
+MMXXVI
+Updated continuously
+artist microgrant
+Year-One microgrant
+Born on the Playa
+Built in the desert
+MotionConfig
+noindex
+/privacy
+Formspree endpoint
+Product domains
+Every event source URL
+
+Report all relevant occurrences before and after editing.
+
+6. Implement the safe, evidence-backed changes
+A. Participant figures
+
+Do not implement the audit’s ≈520 aggregate.
+
+The underlying records do not define duplicate participants, unique people, cumulative attendance, date boundaries, or the “358” build-session figure consistently. The audit itself notes missing overlap and sourcing methodology. The public 80+ organization-wide aggregate is also unsupported as an aggregate.
+
+Implement this safer correction:
+
+Remove every organization-wide 80+, ≈520, or similar aggregate from visible pages, metadata, structured data, and llms.txt.
+Preserve approximately 80,000 only as Burning Man attendance context.
+Ensure it is never described as Playa AI’s participants, research cohort, consented participants, field-test count, or deployment count.
+Preserve or publish a program-specific count only if the repository contains a traceable primary record with:
+Program name
+Definition of “participant” or “user”
+Date range
+Duplicate-handling rule
+Source record or verified database query
+If no such record exists, omit the count rather than weakening it with “approximately.”
+Replace an organization-wide participant metric card, where layout requires a card, with:
+Label: Documented workstreams
+Value: 8
+Supporting line: With public status labels
+In llms.txt, preserve this exact distinction:
+Burning Man’s approximately 80,000 annual attendees describe the host cultural context, not Playa AI participation, research, or deployment.
+Do not claim a Playa AI aggregate until the missing methodology and primary records exist.
+
+Record item #17 and the participant-count portion of #23 as blocked by missing approved facts, even though the unsafe aggregate has been removed.
+
+B. Microgrant language
+
+No approved Year-One microgrant budget, eligibility rules, application process, review process, decision authority, timeline, funding source, or MAF/regranting approval was found.
+
+Remove language suggesting an operational or forthcoming microgrant program.
+
+Where the existing homepage card currently implies a Year-One microgrant program, use:
+
+Heading: Artist participation
+Body: Artists and artist-technologists can express interest in future Playa AI collaborations. No microgrant program is currently open.
+CTA: Express artist interest
+Destination: /get-involved#artists
+
+Remove artist microgrants, Year-One microgrant program, and any promise that funds or applications will become available. Preserve the honest interest workflow.
+
+Do not invent funding details.
+
+C. About and organizational structure
+Preserve permanent /about#origin.
+Preserve the existing Burning Man versus Playa AI distinction and independence language.
+Preserve the approved organizational sentence exactly.
+Link “Mystic Arts Foundation” to https://www.mysticartsfoundation.org/.
+Do not add the EIN.
+Preserve current names and titles unless a higher-authority approved source in the repository proves a correction.
+Do not invent biographies, affiliations, profile links, legal roles, or governance authority.
+If a Leadership Council sentence implies current authority without an approved Charter or Terms of Reference, remove that unsupported implication.
+Do not publish a Council Charter unless the workspace contains the approved, publication-authorized version.
+Preserve the participation/contact section using team@playa-ai.org.
+Preserve existing /team, /about, canonical, and alias behavior. Do not delete or redirect /team merely to force item #31 to look complete.
+
+Item #31 must remain partial or blocked for the EIN, approved biographies/affiliations, and Council Charter until the missing approvals exist.
+
+D. Events
+
+Verified public sources include:
+
+Official Playa AI Luma profile: https://luma.com/user/Playa_AI
+Verified Playa AI-hosted New York event: https://luma.com/swo49pu6
+That event’s public record names Playa AI as host, identifies The National Arts Club, and currently displays 24 Went.
+
+Apply these rules:
+
+Recheck every current event’s individual official Luma record.
+Do not infer that the Luma user profile is an official calendar/subscription page.
+Add a clearly labelled link:
+Text: View Playa AI on Luma
+URL: https://luma.com/user/Playa_AI
+Do not label that link “Official calendar,” “Subscribe,” or equivalent unless an actual approved calendar URL is found.
+Add attendance only when the official event page displays a completed attendance figure such as 24 Went; record the retrieval date.
+Do not convert registration capacity, RSVPs, “going,” or community membership into attendance.
+London remains unverified. The available record describes a possible October 2025 London salon but lacks an approved event page, host record, exact date, location, attendance, or evidence that Playa AI formally organized or co-hosted it.
+Do not restore London without that evidence.
+Do not invent a definition of “Playa AI public event.” No approved definition was found.
+Do not classify founder travel or team attendance as an organizational event.
+Preserve the existing nine entries unless current individual source records prove a correction. Do not delete an entry solely because the central Luma profile was created later.
+Re-evaluate Upcoming against current official event records. Add a future event only when date, location or online format, host/co-host, and public URL are verified.
+If no future event qualifies from approved evidence, preserve an honest “No upcoming public events are currently listed” state.
+Replace stale generic review text only when the page has actually been rechecked. Use Content reviewed 2 August 2026 if the review occurs on that date; otherwise use the actual review date.
+Keep archive coverage phrasing tied to the latest individually verified event, not to the code-edit date.
+
+Item #30 remains blocked for London and the public-event definition until approved evidence exists. Item #20 remains partial unless a real official calendar/subscription URL is verified.
+
+E. Privacy and Connect
+
+The current Connect client behavior must be reverified, but current public implementation evidence shows:
+
+Microphone access through getUserMedia({audio:true})
+Recording through MediaRecorder
+Recording begins when the recording experience mounts
+A WebM audio blob is converted to data and sent to a connection API record
+Analysis returns a transcript and derived outputs including a summary, insights, and “memory” or oracle fields
+Optional email and feedback fields may be saved
+The current pre-experience screen does not disclose recording, upload, transcription, retention, or deletion
+Current marketing says “Private by default,” which is not adequately supported
+/privacy currently redirects to the Living Trust Framework
+The Living Trust Framework is a research/governance framework, not an operational Connect privacy notice
+
+The following remain unverified:
+
+Server-side processor and database
+Transcription provider
+AI/inference provider
+Whether original audio remains after processing
+Retention for audio, transcripts, summaries, insights, memories, email, and feedback
+Account, cookie, device, and analytics collection
+Internal access roles
+Deletion destination and responsible person or role
+Whether deletion covers audio, transcripts, and derived data
+Operator/controller identity
+Model-training use
+Withdrawal procedure
+
+Proceed as follows:
+
+Determine whether the Connect repository and server configuration are present inside the authorized workspace.
+If absent:
+Do not pretend the main-site repository can change Connect.
+Do not create a speculative privacy policy.
+Preserve the current /privacy handling until a complete operational policy can replace it.
+Report the Connect work as a separate repository blocker.
+If present:
+Inspect client code, server code, database schema, storage configuration, public environment configuration, and approved policy records.
+Never print secrets or private values.
+Publish a real /privacy page only if every required operational fact can be verified.
+If any required fact remains unknown, do not publish a partial policy with invented defaults or public placeholders.
+When all facts are verified, /privacy must:
+Return HTTP 200 directly, not redirect
+Be indexable
+Have exactly one visible H1
+State effective/review date
+Identify operator/controller and public contact
+Explain microphone recording and when recording starts
+Explain upload destination and receiving service
+Name transcription and AI/inference providers
+Enumerate stored data categories
+Explain purposes
+Name database/storage processors
+Explain access roles
+Give retention per data category
+Explain deletion destination, responsible role, scope, and expected process
+Explain participant choices and withdrawal
+State model-training use accurately
+Link to the Living Trust Framework separately as a framework
+Appear in metadata, sitemap, robots logic, and llms.txt
+If Connect is editable and the privacy facts are complete, update the disclosure before microphone access so it explicitly covers:
+Microphone use
+Recording
+When recording begins
+Upload
+Transcription
+AI processing
+Retention
+Deletion
+Link to https://playa-ai.org/privacy
+Do not use the phrase Private by default unless the complete technical and legal evidence supports it.
+Independently of the policy blocker, remove unsupported Private by default claims from the main Playa AI website. Preserve surrounding factual product description without replacing the claim with another assurance.
+
+Never adopt retention periods or processor names from draft architecture or sample microcopy.
+
+F. Pledge
+
+No approved signing workflow, public signatory registry, publication-consent system, moderation policy, correction/removal process, institutional signing authority, or signatory-retention policy was found.
+
+Therefore:
+
+Preserve the honest Express pledge interest flow.
+Preserve modal initial focus, focus trap, Escape handling, background inertness, and trigger-focus restoration.
+Do not build a public registry.
+Do not fabricate signatories.
+Do not change the interest action into a fake signing success state.
+Document item #29 as an intentional unresolved requirement blocked by missing approved policy and workflow facts.
+G. Crisis protocol
+
+No approved, professionally reviewed, operationally current, publication-authorized crisis or acute-distress protocol was found.
+
+Do not publish:
+
+An AI-generated crisis procedure
+Private operational steps
+Personal telephone numbers
+Unsupported assurances of human escalation
+A protocol not confirmed to apply to Connect
+
+Record item #33 as blocked by missing approved evidence. The exact resolution criteria are an approved public version, appropriate professional review, current operational confirmation, Connect applicability, and publication authorization.
+
+H. Product domains
+
+No approved or technically authorized domain plan was found for:
+
+Connect
+Ikigai App 1
+Ikigai App 2
+GitHub-hosted framework material
+
+Therefore:
+
+Preserve valid working external links.
+Do not create speculative DNS, proxy, redirect, or subdomain configuration.
+Do not remove valid GitHub links merely because GitHub is external.
+Inventory every product URL and its current status in the final report.
+Record item #35 as blocked until an approved domain map, DNS authority, redirect targets, and product-owner approval exist.
+I. Framework licensing
+
+The linked Living Trust Framework repository currently presents itself as a public-review research draft and states that licensing remains under review. A LICENSE file was not verified.
+
+Do not edit the external framework repository.
+Do not describe the framework as currently open source.
+Preserve accurate phrases such as public working draft and licence under review.
+Do not remove its valid GitHub link.
+Report item #3 as external-repository work and not completed by this website task.
+J. Navigation and heading repairs
+Move the Contact link inside the semantic desktop and mobile <nav> structures.
+Preserve its current destination and team@playa-ai.org behavior.
+Preserve mobile-menu opening, closing, Escape handling, focus behavior, and accessible labelling.
+Fix any canonical route whose heading hierarchy jumps from H1 directly to H3, including the Manifesto, by using the correct semantic H2 while preserving visual styling.
+Preserve exactly one visible H1 per canonical route.
+Do not redesign the navigation.
+K. Prerendering and metadata
+
+Ensure every canonical route returns meaningful, route-specific initial HTML without JavaScript.
+
+At minimum evaluate:
+
+/
+/about
+/work
+/events
+/team
+/manifesto
+/eelp
+/living-trust-framework
+/get-involved
+/privacy if the real policy is implementable
+
+Requirements:
+
+Initial HTML must include route-specific visible content, not a generic empty SPA shell.
+Provide route-specific title, description, canonical, robots metadata, Open Graph title, Open Graph URL, and Open Graph image.
+Avoid duplicate machine-readable page content or duplicate H1s caused by parallel static and <noscript> renderings.
+Hydration must not replace correct route content with different or stale copy.
+Archive and alias routes must retain their intended noindex and canonical behavior.
+/privacy must enter the sitemap only if it becomes a real HTTP 200 privacy page.
+Sitemap, robots, and llms.txt must agree with visible routes and claims.
+Unknown routes must remain genuine HTTP 404s with no self-canonical and with noindex, nofollow.
+Do not claim an automated prerender assertion proves substantive audit compliance.
+L. Compression and caching
+
+Where the Node server controls responses:
+
+Enable Brotli and/or GZIP content encoding for compressible assets.
+Honor Accept-Encoding.
+Send Vary: Accept-Encoding.
+For content-hashed /assets/*, send exactly:
+Cache-Control: public, max-age=31536000, immutable
+Do not use immutable caching for HTML or unhashed machine-readable records.
+Preserve correct content types.
+Put compression and static-serving middleware in the correct order.
+Verify representative JS, CSS, SVG, XML, text, and HTML responses from the local production server.
+If the hosting edge overrides local headers, document that deployment-level blocker. Do not claim production compliance from local headers alone.
+M. Website repository copy checks and CI
+
+Inside the primary website repository only:
+
+Preserve or create a machine-readable prohibited-phrase list containing:
+human-AI co-evolution
+Conscious Intelligence
+Pre-consent claims about how an Oracle “feels”
+Do not prohibit the approved exception Born on the Playa. Gifted to the Planet.
+Add checks for:
+Gmail-compose URLs
+hello@playa-ai.org
+MMXXVI
+Updated continuously
+Unsupported organization-wide participant aggregates
+Unsupported Private by default
+Operational microgrant claims
+Ensure pnpm run check:copy fails with useful file and occurrence information.
+If this repository already has GitHub CI, ensure the website checks run there without modifying unrelated workflows.
+Do not create or edit CI in the external Living Trust Framework repository.
+A local copy checker or CI success is an implementation safeguard, not proof of audit compliance.
+7. Preserve completed work
+
+Do not regress:
+
+Portable mailto: links
+team@playa-ai.org
+Working Formspree configuration
+Seven Get Involved participation sections
+Direct hash scrolling
+Participation-path preselection
+Form validation, consent, error summary, success and failure states
+Reduced-motion support
+Genuine Manifesto links
+First-published-2025 wording
+Absence of MMXXVI
+Archive noindex
+Genuine HTTP 404 behavior
+Existing /privacy handling until a complete real policy can replace it
+Sitemap and robots
+Per-route metadata
+llms.txt
+Event-image alternative text
+Pledge-modal focus management
+Mobile navigation
+Skip links
+Visible keyboard focus
+Three selected homepage initiatives
+Eight canonical Work workstreams
+Functional Work index
+“What remains unresolved” placement
+Manifesto intent disclosure
+Burning Man versus Playa AI distinction
+Approved brand exception
+Approved MAF wording
+Existing canonical and alias behavior
+Existing event source links unless evidence proves a correction
+8. Accessibility and responsive verification
+
+Verify locally in a production-like browser at exactly:
+
+390×844
+768×1024
+1440×900
+
+Check every canonical route for:
+
+Exactly one visible H1
+Logical heading order
+Working skip link
+Full keyboard navigation
+Visible focus styles
+Mobile-menu open, close, outside interaction if supported, and Escape behavior
+Modal initial focus
+Modal focus trap
+Escape handling
+Trigger-focus restoration
+Background inert behavior
+Form labels and descriptions
+Consent labelling
+Error-summary focus management
+aria-live success/error status
+Event-image alternatives
+Empty alternative text for decorative images
+Reduced-motion behavior
+Direct-hash destination visibility below the sticky header
+No page-level horizontal overflow
+No clipped controls or inaccessible off-screen content
+No website-origin console errors
+
+Do not submit the public form.
+
+9. Required technical verification
+
+Run all applicable commands and report exact exit codes:
+
+git diff --check
+pnpm run check:copy
+pnpm run typecheck
+pnpm run build
+pnpm run verify:audit
+Lint, unit tests, integration tests, and end-to-end tests if scripts exist
+
+Also report:
+
+Exact prerendered route count
+Canonical route count
+Output bundle filenames and byte/gzip/Brotli sizes where available
+Local production-server command
+HTTP status for every required route
+Redirect status and Location
+Content-Type
+Cache-Control
+Content-Encoding
+Vary
+X-Robots-Tag
+Two deliberately unknown-route 404 tests
+Raw initial-HTML title, description, canonical, robots, Open Graph metadata, H1, and route-specific-content checks
+Sitemap contents
+Robots contents
+llms.txt contents
+Representative asset headers
+Browser console results
+Keyboard QA
+Responsive overflow QA
+Form configuration without submission
+Direct-hash QA
+Modal-focus QA
+Reduced-motion QA
+
+If a requested script does not exist, report SCRIPT NOT PRESENT; do not fabricate a passing result.
+
+Production observations and local implementation results must be reported separately. Use VERIFIED IN PRODUCTION only for behavior directly rechecked on the live site. Never label an unpublished local change as production-verified.
+
+10. Local commits
+
+After verification:
+
+Review the complete diff.
+Ensure no unrelated file was changed.
+Create focused local commits with accurate messages.
+Do not amend or rewrite unrelated user commits.
+Do not push the commits.
+Report starting and final commit hashes.
+
+If unrelated dirty changes prevent a safe commit, preserve them and report the blocker rather than overwriting or including them.
+
+11. Required final report
+
+Return one complete report containing:
+
+Starting and final commit
+Branch and starting/final worktree status
+Exact changed-file list and why each changed
+Evidence source used for every public factual change
+Exact old and new copy
+Route changes
+Privacy and Connect changes, including whether Connect was a separate or unavailable repository
+Participant-number changes
+Events changes
+About changes
+Pledge decision
+Crisis-protocol decision
+Accessibility results at all three exact viewports
+HTTP and raw-initial-HTML results
+Validation commands and exit codes
+Canonical and prerender route counts
+Bundle filenames and sizes
+Remaining blockers with exact resolution criteria
+Updated original 36-item audit matrix in the original order and grouping
+Explicit confirmation that nothing was pushed, deployed, published, republished, tagged, merged, or released
+
+The audit matrix may use only:
+
+VERIFIED IN PRODUCTION
+IMPLEMENTED LOCALLY — REQUIRES REPUBLISH
+PARTIAL
+NON-COMPLIANT
+NOT VERIFIABLE FROM WEBSITE
+BLOCKED BY MISSING APPROVED FACT
+USER-APPROVED EXCEPTION — NON-COMPLIANT WITH AUDIT
+
+For every matrix row include:
+
+Original item number
+Original wording
+Status
+Production evidence
+Local implementation evidence
+Missing clause
+Exact resolution criterion
+
+Do not average multi-part requirements into compliance. Do not count the approved brand exception as compliant. Do not claim that a validator, build, assertion count, or CI job equals audit compliance.
+
+12. Final decision standard
+
+Do not say “production ready” merely because the build succeeds.
+
+You may say Ready to republish only if:
+
+Every implemented change passes verification
+No unsupported claim was introduced
+Privacy behavior is represented accurately
+Known routes and genuine 404 behavior work
+The Formspree form remains correctly configured
+Accessibility checks pass at all required viewports
+Metadata and machine-readable records agree with visible content
+Every unresolved factual dependency is documented
+No critical website regression remains
+
+If these conditions are not all met, state:
+
+NOT READY TO REPUBLISH
+
+Then identify the exact failing condition.
+
+Stop after the local commits and complete report. Do not deploy, publish, republish, push, tag, release, or merge anything.
