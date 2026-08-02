@@ -56,7 +56,7 @@ export const ROUTES: RouteEntry[] = [
       "Explore Playa AI tools, field experiments, research prototypes, consent protocols, governance work, and public learning.",
     canonical: `${SITE_URL}/work`,
     summary:
-      "Playa AI's work spans consent protocols, human connection research, community-governed data tools, and open frameworks. Active projects include the EELP (Ethical Experience Lifecycle Protocol) for AI consent and disclosure, the Living Trust Framework for data dignity and privacy, relational tools built under open consent standards, and facilitated community experiments. Our field notes, briefs, and working drafts are published as public learning resources.",
+      "Playa AI's work spans consent protocols, human connection research, community-governed data tools, and open frameworks. Active projects include the EELP (Ethical Experience Lab Protocol) for AI consent and disclosure, the Living Trust Framework for data dignity and privacy, relational tools built under open consent standards, and facilitated community experiments. Our field notes, briefs, and working drafts are published as public learning resources.",
   },
   {
     path: "/events",
@@ -91,7 +91,7 @@ export const ROUTES: RouteEntry[] = [
       "A public draft protocol for consent, disclosure, data minimization, and human override in AI-mediated experiences.",
     canonical: `${SITE_URL}/eelp`,
     summary:
-      "EELP (Ethical Experience Lifecycle Protocol) is a public draft protocol developed by Playa AI. It establishes principles and practices for consent, disclosure, data minimization, and human override in AI-mediated experiences. EELP is designed to be adopted by event organizers, community platforms, and AI practitioners who want to handle participant data with dignity and transparency. The full draft is available for community review and feedback.",
+      "EELP (Ethical Experience Lab Protocol) is a public draft protocol developed by Playa AI. It establishes principles and practices for consent, disclosure, data minimization, and human override in AI-mediated experiences. EELP is designed to be adopted by event organizers, community platforms, and AI practitioners who want to handle participant data with dignity and transparency. The full draft is available for community review and feedback.",
   },
   {
     path: "/living-trust-framework",

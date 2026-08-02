@@ -1299,7 +1299,7 @@ export default function Home() {
       <SiteFooter
         contextLine="Spring 2026 · Black Rock Desert origin · Public-interest AI field lab · Independent of Burning Man organization"
         showBackLink={false}
-        contentStatus="Website content reviewed July 2026."
+        contentStatus="Website content reviewed 2 August 2026."
       />
 
       <PledgeModal open={pledgeOpen} onClose={() => setPledgeOpen(false)} />

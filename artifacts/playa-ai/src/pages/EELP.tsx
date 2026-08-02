@@ -366,7 +366,7 @@ export default function EELP() {
         { label: "Review the Living Trust Framework", href: "/living-trust-framework" },
         { label: "Explore all work", href: "/work" },
       ]} />
-      <SiteFooter contextLine="EELP · Ethical Experience Lab Protocol · Govern" contentStatus="Website content reviewed July 2026." />
+      <SiteFooter contextLine="EELP · Ethical Experience Lab Protocol · Govern" contentStatus="Website content reviewed 2 August 2026." />
     </main>
   );
 }

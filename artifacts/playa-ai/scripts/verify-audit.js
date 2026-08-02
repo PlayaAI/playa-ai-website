@@ -89,9 +89,10 @@ for (const route of CANONICAL_ROUTES) {
   check(`${route.label} — has canonical link`, /rel="canonical"/.test(html));
   check(`${route.label} — has #root`, html.includes('id="root"'));
   check(`${route.label} — has static H1`, /<h1>/.test(html), "Static content must include an H1 for non-JS crawlers.");
-  check(`${route.label} — has content reviewed note (July or August 2026)`,
+  check(`${route.label} — has content reviewed note (2026)`,
     html.includes("Website content reviewed July 2026.") ||
-    html.includes("Content reviewed") && html.includes("2026"));
+    html.includes("Website content reviewed 2 August 2026.") ||
+    (html.includes("Content reviewed") && html.includes("2026")));
   check(`${route.label} — approved org wording present (U+2019 form)`,
     html.includes("part of Mystic Arts Foundation\u2019s California 501(c)(3)") ||
     html.includes("Part of Mystic Arts Foundation\u2019s California 501(c)(3)"),
@@ -318,7 +319,8 @@ for (const srcPath of contentStatusFiles) {
   check(`${name} — contentStatus reviewed 2026 note present`,
     src !== null && (
       src.includes("Website content reviewed July 2026.") ||
-      src.includes("Content reviewed") && src.includes("2026")
+      src.includes("Website content reviewed 2 August 2026.") ||
+      (src.includes("Content reviewed") && src.includes("2026"))
     ));
 }
 
@@ -331,7 +333,8 @@ for (const route of CANONICAL_ROUTES) {
   if (!html) continue;
   check(`${route.label} — content reviewed 2026 note in prerendered HTML`,
     html.includes("Website content reviewed July 2026.") ||
-    html.includes("Content reviewed") && html.includes("2026"));
+    html.includes("Website content reviewed 2 August 2026.") ||
+    (html.includes("Content reviewed") && html.includes("2026")));
 }
 
 // Homepage static injection includes org wording
@@ -434,7 +437,8 @@ if (!giSrc) {
 
   // contentStatus and id="main-content" (already checked in 8e/8h — spot-check here too)
   check('GetInvolved.tsx — contentStatus present',
-    giSrc.includes("Website content reviewed July 2026."));
+    giSrc.includes("Website content reviewed July 2026.") ||
+    giSrc.includes("Website content reviewed 2 August 2026."));
   check('GetInvolved.tsx — id="main-content" landmark present',
     giSrc.includes('id="main-content"'));
 }

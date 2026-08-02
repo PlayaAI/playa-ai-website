@@ -712,7 +712,7 @@ export default function Teams() {
         { label: "Explore the work", href: "/work" },
         { label: "Join the initiative", href: "/#participate" },
       ]} />
-      <SiteFooter contextLine="Field guide · Edition 01 · 2026" contentStatus="Website content reviewed July 2026." />
+      <SiteFooter contextLine="Field guide · Edition 01 · 2026" contentStatus="Website content reviewed 2 August 2026." />
     </main>
   );
 }

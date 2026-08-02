@@ -497,7 +497,7 @@ export default function About() {
 
       <SiteFooter
         contextLine="About · Playa AI · 2026"
-        contentStatus="Website content reviewed July 2026."
+        contentStatus="Website content reviewed 2 August 2026."
       />
     </>
   );

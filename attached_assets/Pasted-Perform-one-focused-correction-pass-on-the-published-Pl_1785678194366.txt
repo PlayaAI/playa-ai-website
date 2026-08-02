@@ -1,0 +1,113 @@
+Perform one focused correction pass on the published Playa AI website build based on commit 551f121.
+
+Work only inside artifacts/playa-ai. Inspect before editing. Preserve unrelated changes. Do not deploy, publish, push, tag, merge or release.
+
+1. Correct raw initial HTML duplication
+
+Every canonical route currently emits the same H1 and summary twice: once inside [data-static="1"] and again inside <noscript>.
+
+Fix the shared generator/template so:
+
+- Raw HTML contains exactly one H1.
+- The route summary appears exactly once.
+- Non-JavaScript visitors can still see the existing static fallback.
+- If retaining the current approach, <noscript> should contain only the CSS needed to reveal the existing static block—not a second copy of its content.
+- Do not create duplicate visible or machine-readable page content.
+- Do not call the short static fallback “full prerendering” unless the complete page is genuinely prerendered.
+
+Verify this across:
+
+/
+ /about
+ /work
+ /events
+ /team
+ /manifesto
+ /eelp
+ /living-trust-framework
+ /get-involved
+
+2. Eliminate static-versus-visible content drift
+
+Generate the static navigation and summaries from shared source data where practical.
+
+The raw navigation must agree with the current visible primary navigation, including About and Contact, while preserving canonical Team discoverability elsewhere.
+
+Resolve the EELP expansion using the approved current source of truth. The visible website and llms.txt currently use “Ethical Experience Lab Protocol,” while raw summaries use “Ethical Experience Lifecycle Protocol.” Do not leave both expansions published.
+
+Review every canonical page before changing its freshness stamp. If all nine pages are genuinely reviewed during this pass, align visible content, static HTML and llms.txt to:
+
+Website content reviewed 2 August 2026.
+
+Otherwise retain the actual per-page date and correct llms.txt so it does not overstate site-wide review.
+
+3. Correct the unavailable Ikigai link
+
+https://ikigai-rmarji.replit.app currently returns HTTP 404.
+
+On canonical current pages, replace the clickable CTA with a non-interactive status such as:
+
+Currently unavailable
+
+Do not invent a replacement URL. Preserve historical archive behavior unless a separate decision authorizes changing archived content.
+
+4. Correct production caching where controllable
+
+Hashed /assets/* responses currently return:
+
+Cache-Control: private, max-age=31536000, immutable
+
+Configure the application-controlled response to return:
+
+Cache-Control: public, max-age=31536000, immutable
+
+Keep HTML non-cacheable and machine-readable files short-lived. Verify Brotli/GZIP and Vary: Accept-Encoding.
+
+If the deployment edge overrides the correct local header, report this explicitly as a hosting-level blocker and do not claim production compliance.
+
+5. Preserve completed work
+
+Do not regress:
+
+- team@playa-ai.org
+- Portable mailto links
+- Formspree endpoint https://formspree.io/f/mwvgdevg
+- Seven Get Involved participation paths
+- Real HTTP 404s
+- Archive noindex
+- /privacy redirect until a complete operational policy exists
+- Reduced-motion support
+- Mobile navigation
+- Pledge-modal focus mechanisms
+- Approved “Born on the Playa. Gifted to the Planet.” exception
+- Approved Mystic Arts Foundation wording and link
+- Sitemap, robots and llms.txt
+- Existing canonical and alias behavior
+
+Do not modify Connect in this task. Record Connect privacy and recording disclosure as a separate unresolved critical blocker. Do not claim the full July audit is complete.
+
+6. Required verification
+
+Run and report:
+
+- git diff --check
+- pnpm run check:copy
+- pnpm run typecheck
+- pnpm run build
+- pnpm run verify:audit
+- All other existing lint/test scripts
+- Raw HTML H1 count for every canonical route
+- Raw HTML duplicate-summary check
+- Metadata and canonical checks
+- Static-versus-visible navigation comparison
+- EELP terminology search
+- Review-date consistency search
+- Two unknown-route 404 tests
+- /privacy redirect test
+- Archive noindex tests
+- Compression and cache-header tests
+- External-link check
+- Form configuration without submission
+- Browser QA at 390×844, 768×1024 and 1440×900, if a real browser is available
+
+Create focused local commits only. Return changed files, exact old/new copy, command exit codes, HTTP evidence, unresolved blockers and explicit confirmation that nothing was pushed or deployed.

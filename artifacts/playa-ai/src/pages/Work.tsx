@@ -37,7 +37,7 @@ type Workstream = {
   evidence: string;
   people: string;
   cta: string;
-  href: string;
+  href: string; // empty string = non-interactive status label
   caution?: string;
   secondaryCta?: string;
   secondaryHref?: string;
@@ -83,8 +83,8 @@ const WORKSTREAMS: Workstream[] = [
     evidence:
       "Piloted through the Menta Series in Miami with approximately 80 participants, showing strong engagement with the generated Ikigai statements and visual outputs.",
     people: "Raed Marji · Katya Vinnikova",
-    cta: "Open app — currently unavailable →",
-    href: "https://ikigai-rmarji.replit.app", /* TODO: Link currently unavailable — retained by explicit request. Verify or restore later. */
+    cta: "Currently unavailable",
+    href: "",
   },
   {
     id: "ws-ikigai-app-2",
@@ -326,13 +326,19 @@ function WorkBlock({
           )}
 
           <div className="hairline-t border-border pt-5 flex flex-wrap items-center gap-6">
-            <a
-              href={ws.href}
-              {...(ws.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
-            >
-              {ws.cta}
-            </a>
+            {ws.href ? (
+              <a
+                href={ws.href}
+                {...(ws.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
+              >
+                {ws.cta}
+              </a>
+            ) : (
+              <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                {ws.cta}
+              </span>
+            )}
             {ws.secondaryCta && ws.secondaryHref && (
               <a
                 href={ws.secondaryHref}
@@ -858,7 +864,7 @@ export default function Work() {
         { label: "Meet the team", href: "/team" },
         { label: "Read the Manifesto", href: "/manifesto" },
       ]} />
-      <SiteFooter contextLine="Our Work · Tools / Research / Protocols / Governance" contentStatus="Website content reviewed July 2026." />
+      <SiteFooter contextLine="Our Work · Tools / Research / Protocols / Governance" contentStatus="Website content reviewed 2 August 2026." />
     </main>
   );
 }

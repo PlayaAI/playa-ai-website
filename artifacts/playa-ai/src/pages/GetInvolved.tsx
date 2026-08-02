@@ -929,7 +929,7 @@ export default function GetInvolved() {
 
       <SiteFooter
         contextLine="Get Involved · Playa AI · 2026"
-        contentStatus="Website content reviewed July 2026."
+        contentStatus="Website content reviewed 2 August 2026."
       />
     </main>
   );

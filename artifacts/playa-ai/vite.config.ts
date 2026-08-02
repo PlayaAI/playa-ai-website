@@ -97,8 +97,8 @@ function patchHtml(template: string, route: RouteEntry): string {
     // machine readers. Includes navigation, H1, summary, footer, and the
     // content review date. React's createRoot() replaces this on mount.
     // This is deterministic HTML injection, not React SSR.
-    const navHtml = `<nav aria-label="Site navigation"><a href="/">Overview</a> · <a href="/work">Work</a> · <a href="/events">Events</a> · <a href="/team">Team</a> · <a href="/manifesto">Manifesto</a> · <a href="/get-involved">Get Involved</a></nav>`;
-    const footerHtml = `<footer><p>© 2026 Playa AI · Part of Mystic Arts Foundation’s California 501(c)(3)</p><p>Website content reviewed July 2026.</p></footer>`;
+    const navHtml = `<nav aria-label="Site navigation"><a href="/">Overview</a> · <a href="/events">Events</a> · <a href="/about">About</a> · <a href="/work">Work</a> · <a href="/manifesto">Manifesto</a> · <a href="/get-involved">Get Involved</a> · <a href="mailto:team@playa-ai.org">Contact</a></nav>`;
+    const footerHtml = `<footer><p>© 2026 Playa AI · Part of Mystic Arts Foundation’s California 501(c)(3)</p><p>Website content reviewed 2 August 2026.</p></footer>`;
     const summaryHtml = `<div data-static="1">${navHtml}<main id="main-content"><h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p></main>${footerHtml}</div>`;
     html = html.replace(
       '<div id="root"></div>',
@@ -106,17 +106,26 @@ function patchHtml(template: string, route: RouteEntry): string {
     );
   }
 
-  // Inject <noscript> — provides fallback text when JS is entirely disabled.
-  // Includes the summary for indexable routes to give non-JS crawlers more signal.
-  // The leading <style> inside the noscript block counteracts the FOUC-prevention
-  // rule above so that [data-static="1"] is visible when JS is off.
-  const noscriptBody = route.summary && !route.noindex
-    ? `<h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p>`
-    : `<h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p>`;
-  html = html.replace(
-    "</body>",
-    `  <noscript><style>[data-static="1"]{display:block}</style>${noscriptBody}</noscript>\n</body>`,
-  );
+  // Inject <noscript> — provides fallback when JS is entirely disabled.
+  // For indexable routes the [data-static="1"] div (injected above) already
+  // contains the full H1 + summary. The noscript only needs to un-hide that
+  // div — re-emitting the content would produce a second H1 in raw HTML.
+  // For noindex/archive routes no [data-static="1"] was injected, so noscript
+  // must carry the fallback content directly.
+  if (route.summary && !route.noindex) {
+    // Reveal the existing [data-static="1"] div — no duplicate content.
+    html = html.replace(
+      "</body>",
+      `  <noscript><style>[data-static="1"]{display:block}</style></noscript>\n</body>`,
+    );
+  } else {
+    // No static div exists for this route; noscript carries the only fallback.
+    const noscriptBody = `<h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p>`;
+    html = html.replace(
+      "</body>",
+      `  <noscript>${noscriptBody}</noscript>\n</body>`,
+    );
+  }
 
   return html;
 }
