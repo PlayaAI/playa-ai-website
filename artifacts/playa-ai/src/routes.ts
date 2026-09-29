@@ -42,28 +42,28 @@ export const ROUTES: RouteEntry[] = [
   // ── Indexable canonical routes ────────────────────────────────────────────
   {
     path: "/",
-    title: "Playa AI — AI Needs Culture",
+    title: "Home · Playa AI",
     description:
-      "Playa AI is a human-centered AI initiative developing consent frameworks, community experiments, tools, and public-interest research rooted in creativity and participation.",
+      "Playa AI brings artists, researchers, and communities together to build AI around human creativity, consent, and choice.",
     canonical: `${SITE_URL}/`,
     summary:
-      "Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation’s California 501(c)(3). We develop human-centered AI tools, consent frameworks, community experiments, and public-interest research rooted in creativity, participation, and human flourishing. Our work includes the EELP consent protocol, the Living Trust Framework for data dignity, field experiments, salons, and an open working group for builders, artists, researchers, and cultural stewards.",
+      "AI shaped by the people who live with it. Human-centered means people shape the experience and decide how their data is used. We convene. We build. We fund. We publish. Explore Connect, the Living Trust Framework research draft, and the EELP review candidate. Playa AI is part of Mystic Arts Foundation’s California 501(c)(3).",
   },
   {
-    path: "/work",
-    title: "Our Work — Playa AI",
+    path: "/build",
+    title: "Build · Playa AI",
     description:
       "Explore Playa AI tools, field experiments, research prototypes, consent protocols, governance work, and public learning.",
-    canonical: `${SITE_URL}/work`,
+    canonical: `${SITE_URL}/build`,
     summary:
       "Playa AI's work spans consent protocols, human connection research, community-governed data tools, and open frameworks. Active projects include the EELP (Ethical Experience Lab Protocol) for AI consent and disclosure, the Living Trust Framework for data dignity and privacy, relational tools built under open consent standards, and facilitated community experiments. Our field notes, briefs, and working drafts are published as public learning resources.",
   },
   {
-    path: "/events",
-    title: "Events — Playa AI",
+    path: "/convene",
+    title: "Convene · Playa AI",
     description:
       "Explore Playa AI salons, workshops, hackathons, and community gatherings focused on human-centered AI.",
-    canonical: `${SITE_URL}/events`,
+    canonical: `${SITE_URL}/convene`,
     summary:
       "Playa AI hosts salons, workshops, hackathons, and community gatherings that bring together builders, artists, researchers, and cultural stewards to explore human-centered AI. Events focus on practical consent design, creative AI applications, community governance, and the cultural conditions that make AI trustworthy. Past and upcoming gatherings are open to collaborators and the interested public.",
   },
@@ -112,6 +112,21 @@ export const ROUTES: RouteEntry[] = [
     summary:
       "Playa AI invites builders, artists, researchers, funders, cultural stewards, and institutions to participate in building human-centered AI infrastructure. The Get Involved page provides seven participation paths — each with a concise invitation and a direct message form delivered to team@playa-ai.org. Playa AI is a human-centered AI initiative, part of Mystic Arts Foundation\u2019s California 501(c)(3).",
   },
+
+  {
+    path: "/fund", title: "Fund · Playa AI",
+    description: "Support the people and initiatives developing AI around creativity, consent, and human choice.",
+    canonical: `${SITE_URL}/fund`,
+    summary: "Discuss funding a specific Playa AI initiative or supporting shared consent research, documentation, and community work. Start a conversation with team@playa-ai.org about the initiative, its needs, and a suitable contribution route.",
+  },
+  {
+    path: "/publish", title: "Publish · Playa AI",
+    description: "Read Playa AI’s openly licensed methods, research drafts, and implementation resources.",
+    canonical: `${SITE_URL}/publish`,
+    summary: "Read the Ethical Experience Lab Protocol (EELP) v0.1.0-rc.1 public review candidate, licensed CC BY 4.0, and the Living Trust Framework public-review research draft, licensed CC BY-SA 4.0 with code under Apache 2.0. Explore implementation resources and the founding Burner-AI Manifesto. No public dataset is listed.",
+  },
+  { path: "/events", title: "Convene · Playa AI", description: "Continue to Playa AI gatherings.", canonical: `${SITE_URL}/convene`, noindex: true },
+  { path: "/work", title: "Build · Playa AI", description: "Continue to Playa AI initiatives.", canonical: `${SITE_URL}/build`, noindex: true },
 
   // ── /privacy — permanent redirect alias ──────────────────────────────────
   // The production HTTP server emits HTTP 308 → /living-trust-framework.
@@ -169,7 +184,7 @@ export const ROUTES: RouteEntry[] = [
 
   {
     path: "/about",
-    title: "About — Playa AI",
+    title: "About · Playa AI",
     description:
       "About Playa AI — origin, structure, the people behind the initiative, how the work is organized, and how to participate.",
     canonical: `${SITE_URL}/about`,

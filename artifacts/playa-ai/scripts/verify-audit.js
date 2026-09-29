@@ -10,11 +10,12 @@
  * Usage: pnpm run build && node scripts/verify-audit.js
  *        pnpm run verify:audit
  */
+import { fileURLToPath } from "node:url";
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
-const DIST = new URL("../dist/public", import.meta.url).pathname;
-const ROOT = new URL("..", import.meta.url).pathname;
+const DIST = fileURLToPath(new URL("../dist/public", import.meta.url));
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
 let passed = 0;
 let failed = 0;
@@ -60,9 +61,11 @@ console.log("\n── 2. Canonical prerendered routes ────────�
 const CANONICAL_ROUTES = [
   { path: "index.html", label: "/" },
   { path: "about/index.html", label: "/about" },
-  { path: "work/index.html", label: "/work" },
-  { path: "events/index.html", label: "/events" },
+  { path: "build/index.html", label: "/build" },
+  { path: "convene/index.html", label: "/convene" },
   { path: "team/index.html", label: "/team" },
+  { path: "fund/index.html", label: "/fund" },
+  { path: "publish/index.html", label: "/publish" },
   { path: "manifesto/index.html", label: "/manifesto" },
   { path: "eelp/index.html", label: "/eelp" },
   { path: "living-trust-framework/index.html", label: "/living-trust-framework" },
@@ -146,7 +149,7 @@ const sitemapPath = join(DIST, "sitemap.xml");
 check("sitemap.xml exists", existsSync(sitemapPath));
 if (existsSync(sitemapPath)) {
   const sitemap = readFileSync(sitemapPath, "utf-8");
-  const expectedRoutes = ["/", "/work", "/events", "/team", "/manifesto", "/eelp", "/living-trust-framework", "/get-involved"];
+  const expectedRoutes = ["/", "/build", "/convene", "/fund", "/publish", "/team", "/manifesto", "/eelp", "/living-trust-framework", "/get-involved"];
   for (const r of expectedRoutes) {
     check(`sitemap.xml — contains ${r}`, sitemap.includes(`playa-ai.org${r}`));
   }
@@ -203,21 +206,11 @@ console.log("\n── 8. Source-file content assertions ────────
 // 8a. Homepage source claims
 const homeSrc = readSrc("src/pages/Home.tsx");
 if (homeSrc) {
-  check("Home.tsx — 'Three of eight workstreams' present",
-    homeSrc.includes("Three of eight workstreams"));
-  check("Home.tsx — pledge subject is 'Playa%20AI%20Pledge%20Interest'",
-    homeSrc.includes("Playa%20AI%20Pledge%20Interest"));
-  check("Home.tsx — pledge button uses interest wording ('Express pledge interest')",
-    homeSrc.includes("Express pledge interest"));
   check("Home.tsx — no 'Sign it as' (false pledge-signing wording)",
     !homeSrc.includes("Sign it as") && !homeSrc.includes("sign it as"));
-  check("Home.tsx — 'human-centered AI initiative' present (not 'philanthropic initiative')",
-    homeSrc.includes("human-centered AI initiative") && !homeSrc.includes("philanthropic initiative"));
-  // INITIATIVES array count: exactly 3 items (01, 02, 03 inside INITIATIVES array)
-  // We look for the section between 'const INITIATIVES' and the next 'const '
-  const initiativesMatch = homeSrc.match(/const INITIATIVES[\s\S]*?(?=\nconst [A-Z])/);
-  const initiativesBlock = initiativesMatch ? initiativesMatch[0] : "";
-  const initiativeCount = (initiativesBlock.match(/n:\s*"/g) || []).length;
+  const initiativesMatch = homeSrc.match(/const INITIATIVES = \[([\s\S]*?)\n\];/);
+  const initiativesBlock = initiativesMatch ? initiativesMatch[1] : "";
+  const initiativeCount = (initiativesBlock.match(/title:/g) || []).length;
   check(`Home.tsx — INITIATIVES array has exactly 3 items (found ${initiativeCount})`,
     initiativeCount === 3, "Expected exactly 3 initiatives: Connect, EELP, Living Trust Framework.");
   check("Home.tsx — Connect app initiative present",
@@ -226,8 +219,7 @@ if (homeSrc) {
     initiativesBlock.includes("EELP") || initiativesBlock.includes("Ethical Experience"));
   check("Home.tsx — Living Trust Framework initiative present",
     initiativesBlock.includes("Living Trust"));
-  check("Home.tsx — 'Born on the Playa. Gifted to the Planet.' present (approved homepage exception)",
-    homeSrc.includes("Born on the Playa. Gifted to the Planet."));
+
 }
 
 // 8b. Work.tsx — eight workstreams
@@ -316,6 +308,7 @@ const contentStatusFiles = Object.values(canonicalPageFiles);
 for (const srcPath of contentStatusFiles) {
   const src = readSrc(srcPath);
   const name = srcPath.split("/").pop();
+  if (name === "Home.tsx") continue; // Homepage freshness is in route metadata / prerendered HTML.
   check(`${name} — contentStatus reviewed 2026 note present`,
     src !== null && (
       src.includes("Website content reviewed July 2026.") ||
@@ -340,10 +333,10 @@ for (const route of CANONICAL_ROUTES) {
 // Homepage static injection includes org wording
 const homeHtml = allCanonicalHtml["/"];
 if (homeHtml) {
-  check("/ — static injection has 'human-centered AI initiative'",
-    homeHtml.includes("human-centered AI initiative"));
+  check("/ — static injection explains human-centered AI",
+    homeHtml.includes("Human-centered means people shape the experience"));
   check("/ — static H1 matches page title",
-    homeHtml.includes("<h1>Playa AI — AI Needs Culture</h1>"));
+    homeHtml.includes("<h1>Home · Playa AI</h1>"));
   check("/ — 'philanthropic' absent from prerendered metadata",
     !homeHtml.includes("philanthropic, public-interest"));
 }
@@ -443,30 +436,13 @@ if (!giSrc) {
     giSrc.includes('id="main-content"'));
 }
 
-// SiteHeader navigation links to /get-involved
+// The primary navigation now follows the four-part model. Participation forms
+// remain reachable on /get-involved through the relevant supporting pages.
 const headerSrc2 = readSrc("src/components/SiteHeader.tsx");
 if (headerSrc2) {
-  check('SiteHeader.tsx — nav links to /get-involved (not /#participate)',
-    headerSrc2.includes('href: "/get-involved"'),
-    "The Participate/Get Involved nav entry must point to /get-involved, not /#participate.");
-}
-
-// Home.tsx DOORS link to /get-involved anchors (homeSrc already declared in section 8)
-if (homeSrc) {
-  const homeAnchors = ["builders", "artists", "researchers", "funders", "stewards", "institutions"];
-  for (const anchor of homeAnchors) {
-    check(`Home.tsx — PARTICIPATION card links to /get-involved#${anchor}`,
-      homeSrc.includes(`/get-involved#${anchor}`),
-      `Change the ${anchor} PARTICIPATION card href from mailto: to /get-involved#${anchor}.`);
+  for (const route of ["/convene", "/build", "/fund", "/publish", "/about"]) {
+    check(`SiteHeader.tsx — navigation links to ${route}`, headerSrc2.includes(`href: "${route}"`));
   }
-  check('Home.tsx — no PARTICIPATION card uses an obsolete mailto: subject-line href',
-    !(homeSrc.includes("mailto:team@playa-ai.org?subject=Working%20Group%20Interest") ||
-      homeSrc.includes("mailto:team@playa-ai.org?subject=Artist%20Interest%20List") ||
-      homeSrc.includes("mailto:team@playa-ai.org?subject=Research%20Collaboration") ||
-      homeSrc.includes("mailto:team@playa-ai.org?subject=Donor%20Inquiry") ||
-      homeSrc.includes("mailto:team@playa-ai.org?subject=Cultural%20Stewardship") ||
-      homeSrc.includes("mailto:team@playa-ai.org?subject=Founding%20Adopter%20Inquiry")),
-    "All six PARTICIPATION card hrefs must be /get-involved#<anchor>.");
 }
 
 // /get-involved in llms.txt
@@ -625,16 +601,16 @@ check('/about — canonical correct in routes.ts',
    routesSrc.includes('`${SITE_URL}/about`')),
   'Set canonical to https://playa-ai.org/about (or ${SITE_URL}/about) in routes.ts.');
 check('/about — title correct in routes.ts',
-  routesSrc !== null && routesSrc.includes('"About — Playa AI"'),
-  'Set title to "About — Playa AI" in routes.ts.');
+  routesSrc !== null && routesSrc.includes('"About · Playa AI"'),
+  'Set title to "About · Playa AI" in routes.ts.');
 
 // Prerendered HTML
 check('/about — dist/public/about/index.html exists',
   aboutHtml !== null,
   'Build must generate dist/public/about/index.html.');
 check('/about — prerendered title correct',
-  aboutHtml !== null && aboutHtml.includes('About — Playa AI'),
-  'Prerendered HTML must have title "About — Playa AI".');
+  aboutHtml !== null && aboutHtml.includes('About · Playa AI'),
+  'Prerendered HTML must have title "About · Playa AI".');
 check('/about — not noindex in prerendered HTML',
   aboutHtml !== null && /name="robots" content="index/.test(aboutHtml),
   '/about must be indexable (not noindex) in prerendered HTML.');

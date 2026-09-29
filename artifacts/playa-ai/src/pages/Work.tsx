@@ -385,7 +385,7 @@ export default function Work() {
         className="relative px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16 overflow-visible"
       >
         <div className="relative z-20 hairline-b border-border pb-6 mb-10 md:mb-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest">
-          <span>A field guide · Our Work · 2026</span>
+          <span>Initiatives · Playa AI</span>
         </div>
 
         <motion.div
@@ -398,18 +398,16 @@ export default function Work() {
             variants={fadeInUp}
             className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.92] tracking-tight mb-8"
           >
-            The work is where the philosophy becomes{" "}
-            <i className="italic font-normal text-accent-gold">real.</i>
+            Build
           </motion.h1>
 
           <motion.p
             variants={fadeInUp}
             className="text-base md:text-lg leading-relaxed mb-5 text-foreground max-w-2xl"
           >
-            Playa AI is not only a manifesto. It is a set of tools, field
-            experiments, research prototypes, and consent-first protocols being
-            built in public, tested in community, and shaped by the people they
-            are meant to serve.
+            Our initiatives explore how AI can support creativity, connection, and
+            human choice. Each is shaped by the people who use it, with consent
+            and participation considered from the start.
           </motion.p>
 
           <motion.p
@@ -513,14 +511,14 @@ export default function Work() {
                 accountable.
               </p>
               <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
-                Together, these workstreams form one learning loop: community gatherings inform experiments, experiments test EELP and Living Trust safeguards, and the results become public learning.
+                Together, these initiatives form one learning loop: community gatherings inform experiments, experiments test EELP and Living Trust safeguards, and the results become public learning.
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 hairline-t border-border divide-x divide-border">
             {[
-              { value: "8", label: "Workstreams" },
+              { value: "8", label: "Initiatives" },
               { value: "3", label: "Modes: tools, research, protocols" },
               {
                 value: "9",
@@ -620,7 +618,7 @@ export default function Work() {
         </motion.div>
       </section>
 
-      {/* 5. Featured Work / Workstreams */}
+      {/* 5. Featured Work / Initiatives */}
       <section className="px-4 max-w-[1400px] mx-auto pt-16 md:pt-24 pb-12 md:pb-16">
         <div className="font-mono text-sm mb-10 text-muted-foreground">
           § 02 / Featured Work

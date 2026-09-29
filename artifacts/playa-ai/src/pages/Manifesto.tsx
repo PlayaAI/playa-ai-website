@@ -171,7 +171,7 @@ export default function ManifestoPage() {
       </section>
 
       <ContinueExploring links={[
-        { label: "Explore the work", href: "/work" },
+        { label: "Explore the work", href: "/build" },
         { label: "Review EELP", href: "/eelp" },
       ]} />
       <SiteFooter contextLine="Manifesto · Playa AI · First published 2025" contentStatus="Website content reviewed 2 August 2026." />

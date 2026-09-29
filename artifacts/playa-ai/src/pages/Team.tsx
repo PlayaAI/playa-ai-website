@@ -709,8 +709,8 @@ export default function Teams() {
       </section>
 
       <ContinueExploring links={[
-        { label: "Explore the work", href: "/work" },
-        { label: "Join the initiative", href: "/#participate" },
+        { label: "Explore the work", href: "/build" },
+        { label: "Join the initiative", href: "/get-involved" },
       ]} />
       <SiteFooter contextLine="Field guide · Edition 01 · 2026" contentStatus="Website content reviewed 2 August 2026." />
     </main>

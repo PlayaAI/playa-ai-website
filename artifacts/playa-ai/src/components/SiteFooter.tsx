@@ -1,18 +1,27 @@
 import { Link } from "wouter";
 
 interface SiteFooterProps {
+  compact?: boolean;
   contextLine?: string;
   showBackLink?: boolean;
   contentStatus?: string;
 }
 
 export function SiteFooter({
+  compact = false,
   contextLine = "Field guide · Edition 01 · 2026",
   showBackLink = true,
   contentStatus,
 }: SiteFooterProps) {
+  if (compact) return (
+    <footer className="editorial-footer page-width" id="contact">
+      <Link href="/" className="editorial-brand">Playa AI</Link>
+      <a href="mailto:team@playa-ai.org">team@playa-ai.org</a>
+      <p>Part of <a href="https://www.mysticartsfoundation.org/" target="_blank" rel="noopener noreferrer">Mystic Arts Foundation</a>’s California 501(c)(3)</p>
+    </footer>
+  );
   return (
-    <footer className="bg-foreground text-background px-4 pt-16 pb-12">
+    <footer id="contact" className="bg-foreground text-background px-4 pt-16 pb-12">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 font-mono text-xs uppercase tracking-widest">
         <div>
           <div className="mb-4 text-[#E2D9C5]">Playa AI</div>

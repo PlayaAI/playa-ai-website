@@ -14,10 +14,11 @@
  * Usage: node scripts/check-copy.js
  *        pnpm run check:copy
  */
+import { fileURLToPath } from "node:url";
 import { readFileSync, readdirSync } from "node:fs";
 import { join, basename } from "node:path";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const PAGES_DIR = join(ROOT, "src", "pages");
 const COMPONENTS_DIR = join(ROOT, "src", "components");
 const ROUTES_FILE = join(ROOT, "src", "routes.ts");
@@ -328,12 +329,6 @@ const APPROVED_BODY_WORDING = "part of Mystic Arts Foundation\u2019s California 
 const APPROVED_FOOTER_WORDING = "Part of Mystic Arts Foundation\u2019s California 501(c)(3)";
 
 const ORG_ASSERTION_SURFACES = [
-  {
-    path: join(PAGES_DIR, "Home.tsx"),
-    label: "Home.tsx",
-    expected: APPROVED_BODY_WORDING,
-    description: "approved body-copy wording (U+2019)",
-  },
   {
     path: join(PAGES_DIR, "Team.tsx"),
     label: "Team.tsx",

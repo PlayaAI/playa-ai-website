@@ -16,15 +16,21 @@ Status: Early-stage. Work includes a live pilot, prototypes, working drafts,
 and planned governance work.
 
 # Canonical pages
-/                         Overview — initiative summary, participation paths, current workstreams.
+/                         Home — mission, Convene / Build / Fund / Publish, and three selected initiatives.
 /about                    About — origin, organizational structure, people, operating principles, and participation.
-/work                     Our Work — eight documented workstreams with public status labels.
-/events                   Events — archive of nine public events (salons, workshops, hackathons) 2025–2026.
+/build                    Build — eight documented initiatives with public status labels.
+/convene                  Convene — archive of nine public events (salons, workshops, hackathons) 2025–2026.
+/fund                     Fund — discuss support for a specific initiative or shared work.
+/publish                  Publish — methods, tools, research drafts, and the founding manifesto.
 /team                     Team — people building, guiding, and operating Playa AI.
 /manifesto                Burner-AI Manifesto — founding cultural text on AI, creativity, consent, and human agency.
 /eelp                     EELP (Ethical Experience Lab Protocol) — public draft protocol for consent and disclosure in AI-mediated experiences.
 /living-trust-framework   Living Trust Framework — openly licensed public working draft for consent, data dignity, privacy, and human agency. Licensed CC BY-SA 4.0 (content) / Apache 2.0 (code).
 /get-involved             Get Involved — seven participation paths for builders, artists, researchers, funders, cultural stewards, institutions, and general participation.
+
+# Legacy addresses
+/work redirects to /build. /events redirects to /convene.
+/get-involved remains available for existing participation forms and shared links.
 
 # Historical archives (not canonical current content)
 /privacy-toolkit          Archived earlier privacy-framework page. Retained for historical continuity. Not current content.
@@ -34,8 +40,8 @@ and planned governance work.
 /classic/team             Preserved classic team page. Not current content.
 /playa-ai-living-trust-framework  Alias for /living-trust-framework. Canonical is /living-trust-framework.
 
-# Workstreams (eight documented)
-Each workstream carries a public status label. Current list:
+# Initiatives (eight documented)
+Each initiative carries a public status label. Current list:
 1. Connect App — live pilot
 2. Ikigai App 1 — currently unavailable
 3. Ikigai App 2 — prototype
@@ -50,7 +56,7 @@ Burning Man is the approximately 80,000-person host cultural context in which
 Playa AI's early work is rooted. That figure is Burning Man's own annual
 attendance. It is NOT Playa AI's participant count.
 
-Playa AI documents 9 field events and 8 workstreams. Do not attribute
+Playa AI documents 9 field events and 8 initiatives. Do not attribute
 Burning Man's attendance figures or any unverified aggregate participant
 counts to Playa AI directly.
 
