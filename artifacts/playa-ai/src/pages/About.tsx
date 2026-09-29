@@ -31,7 +31,7 @@ const LEADERSHIP = [
   { name: "Raed Marji",     role: "CTO, Programs & Operations"   },
 ] as const;
 
-// ── Verified workstreams (source: /work and llms.txt) ─────────────────────────
+// ── Verified initiatives (source: /work and llms.txt) ─────────────────────────
 const WORKSTREAMS = [
   { name: "Connect App",                          status: "Live pilot"              },
   { name: "EELP",                                 status: "Draft"                   },
@@ -208,6 +208,19 @@ export default function About() {
           </div>
         </section>
 
+        <section id="principles" className="scroll-mt-20 px-4 max-w-[1400px] mx-auto py-16 md:py-20 hairline-b border-border">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-20">
+            <MonoLabel>Principles in practice</MonoLabel>
+            <div className="max-w-2xl space-y-5 text-base leading-relaxed text-muted-foreground">
+              <h2 className="font-serif text-4xl text-foreground">People shape the systems they use.</h2>
+              <p>AI influences how people create, connect, and make decisions. We bring those people into the design process, so their choices and cultural values can shape how an initiative works.</p>
+              <p>Our approach draws on <a href="https://burningman.org/about/10-principles/" className="underline" target="_blank" rel="noopener noreferrer">Burning Man’s Ten Principles</a>, particularly participation, gifting, radical inclusion, decommodification, and leaving no trace.</p>
+              <p>In practice, that means designing with participants, sharing methods, making participation accessible, questioning extractive uses of data, and collecting only what an experience needs. These are design goals that our initiatives and draft frameworks put to the test.</p>
+              <a href="/publish" className="underline">Read the frameworks and founding manifesto</a>
+            </div>
+          </div>
+        </section>
+
         {/* ── What Playa AI Does ────────────────────────────────────────────── */}
         <section className="scroll-mt-20 px-4 max-w-[1400px] mx-auto py-16 md:py-20 hairline-b border-border">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-20">
@@ -249,10 +262,10 @@ export default function About() {
               </motion.div>
               <div className="mt-8 flex flex-wrap gap-5">
                 <a
-                  href="/work"
+                  href="/build"
                   className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
                 >
-                  Explore all workstreams →
+                  Explore all initiatives →
                 </a>
                 <a
                   href="/eelp"
@@ -476,7 +489,7 @@ export default function About() {
                     team@playa-ai.org
                   </a>
                   <a
-                    href="/work"
+                    href="/build"
                     className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
                   >
                     Explore the work →
@@ -490,7 +503,7 @@ export default function About() {
 
       <ContinueExploring
         links={[
-          { label: "Our Work", href: "/work" },
+          { label: "Our Work", href: "/build" },
           { label: "Get Involved", href: "/get-involved" },
         ]}
       />

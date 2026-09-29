@@ -984,7 +984,7 @@ export default function PrivacyToolkit() {
               Contribute to the toolkit →
             </a>
             <a
-              href="/work"
+              href="/build"
               className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground border border-border hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               See all our work →

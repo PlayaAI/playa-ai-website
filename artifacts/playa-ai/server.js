@@ -173,8 +173,9 @@ const server = http.createServer((req, res) => {
   }
 
   // ── 308 redirect for /privacy ─────────────────────────────────────────────
-  if (pathname === "/privacy") {
-    const dest = "/living-trust-framework";
+  const redirects = { "/privacy": "/living-trust-framework", "/events": "/convene", "/work": "/build" };
+  if (Object.hasOwn(redirects, pathname)) {
+    const dest = redirects[pathname] + new URL(req.url, "http://x").search;
     console.log(`${method} ${pathname} → 308 ${dest}`);
     res.writeHead(308, {
       Location:       dest,

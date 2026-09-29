@@ -97,7 +97,7 @@ function patchHtml(template: string, route: RouteEntry): string {
     // machine readers. Includes navigation, H1, summary, footer, and the
     // content review date. React's createRoot() replaces this on mount.
     // This is deterministic HTML injection, not React SSR.
-    const navHtml = `<nav aria-label="Site navigation"><a href="/">Overview</a> · <a href="/events">Events</a> · <a href="/about">About</a> · <a href="/work">Work</a> · <a href="/manifesto">Manifesto</a> · <a href="/get-involved">Get Involved</a> · <a href="mailto:team@playa-ai.org">Contact</a></nav>`;
+    const navHtml = `<nav aria-label="Site navigation"><a href="/">Home</a> · <a href="/convene">Convene</a> · <a href="/build">Build</a> · <a href="/fund">Fund</a> · <a href="/publish">Publish</a> · <a href="/about">About</a> · <a href="mailto:team@playa-ai.org">Contact</a></nav>`;
     const footerHtml = `<footer><p>© 2026 Playa AI · Part of Mystic Arts Foundation’s California 501(c)(3)</p><p>Website content reviewed 2 August 2026.</p></footer>`;
     const summaryHtml = `<div data-static="1">${navHtml}<main id="main-content"><h1>${escHtml(route.title)}</h1><p>${escHtml(route.description)}</p><p>${escHtml(route.summary)}</p></main>${footerHtml}</div>`;
     html = html.replace(

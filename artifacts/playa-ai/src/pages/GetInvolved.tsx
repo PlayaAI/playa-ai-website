@@ -922,7 +922,7 @@ export default function GetInvolved() {
 
       <ContinueExploring
         links={[
-          { label: "Explore all work", href: "/work" },
+          { label: "Explore all work", href: "/build" },
           { label: "Read the EELP protocol", href: "/eelp" },
         ]}
       />

@@ -255,7 +255,7 @@ export default function Events() {
           variants={fadeInUp}
           className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.92] tracking-tight max-w-[900px] mb-8"
         >
-          Rooms where AI <i className="italic font-normal text-accent-gold">stops chatting</i> and starts doing.
+          Convene
         </motion.h1>
 
         <motion.p
@@ -264,7 +264,7 @@ export default function Events() {
           variants={fadeInUp}
           className="text-base md:text-lg leading-relaxed max-w-2xl text-foreground mb-8"
         >
-          Playa AI events bring together builders, founders, researchers, artists, and operators to explore human-centered AI in practice. The archive below uses the real public descriptions from the Luma pages.
+          Our salons, workshops, and hackathons bring artists, researchers, and technologists together to explore AI through shared practice. Participants bring questions, try ideas, and learn from one another. Explore the gatherings below.
         </motion.p>
 
         <div className="hairline-t border-border pt-6 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3">
@@ -405,8 +405,8 @@ export default function Events() {
       </section>
 
       <ContinueExploring links={[
-        { label: "Explore the work", href: "/work" },
-        { label: "Join the initiative", href: "/#participate" },
+        { label: "Explore the work", href: "/build" },
+        { label: "Join the initiative", href: "/get-involved" },
       ]} />
       <SiteFooter contextLine="Public event archive · Archive current through 30 March 2026" contentStatus="Content reviewed 2 August 2026." />
     </main>

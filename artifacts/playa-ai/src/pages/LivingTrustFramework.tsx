@@ -1074,7 +1074,7 @@ export default function LivingTrustFramework() {
 
       <ContinueExploring links={[
         { label: "Review EELP", href: "/eelp" },
-        { label: "Explore all work", href: "/work" },
+        { label: "Explore all work", href: "/build" },
       ]} />
       <SiteFooter contextLine="Living Trust Framework · Consent / Data Dignity / Human Agency" contentStatus="Website content reviewed 2 August 2026." />
     </main>

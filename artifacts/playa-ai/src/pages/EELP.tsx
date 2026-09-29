@@ -364,7 +364,7 @@ export default function EELP() {
 
       <ContinueExploring links={[
         { label: "Review the Living Trust Framework", href: "/living-trust-framework" },
-        { label: "Explore all work", href: "/work" },
+        { label: "Explore all work", href: "/build" },
       ]} />
       <SiteFooter contextLine="EELP · Ethical Experience Lab Protocol · Govern" contentStatus="Website content reviewed 2 August 2026." />
     </main>

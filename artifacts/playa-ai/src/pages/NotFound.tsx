@@ -38,7 +38,7 @@ export default function NotFound() {
               </li>
               <li>
                 <Link
-                  href="/work"
+                  href="/build"
                   className="inline-block font-mono text-xs uppercase tracking-widest px-6 py-3 border border-foreground hover:bg-foreground hover:text-background transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                 >
                   Explore the work
@@ -46,7 +46,7 @@ export default function NotFound() {
               </li>
               <li>
                 <Link
-                  href="/events"
+                  href="/convene"
                   className="inline-block font-mono text-xs uppercase tracking-widest px-6 py-3 border border-foreground hover:bg-foreground hover:text-background transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                 >
                   View events

@@ -1,5 +1,9 @@
 import { Switch, Route, Router } from "wouter";
 import { MotionConfig } from "framer-motion";
+import { RouteScroll } from "@/components/RouteScroll";
+import Fund from "@/pages/Fund";
+import Publish from "@/pages/Publish";
+import { LegacyRouteRedirect } from "@/components/LegacyRouteRedirect";
 import Home from "@/pages/Home";
 import Events from "@/pages/Events";
 import Teams from "@/pages/Team";
@@ -28,12 +32,17 @@ function App() {
     <MotionConfig reducedMotion="user">
       <Router base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
         <PageMetaUpdater />
+        <RouteScroll />
         <Switch>
         <Route path="/" component={Home} />
-        <Route path="/events" component={Events} />
+        <Route path="/convene" component={Events} />
+        <Route path="/events"><LegacyRouteRedirect to="/convene" /></Route>
+        <Route path="/fund" component={Fund} />
+        <Route path="/publish" component={Publish} />
         <Route path="/about" component={About} />
         <Route path="/team" component={Teams} />
-        <Route path="/work" component={Work} />
+        <Route path="/build" component={Work} />
+        <Route path="/work"><LegacyRouteRedirect to="/build" /></Route>
         <Route path="/privacy-toolkit" component={PrivacyToolkit} />
         <Route path="/privacy" component={PrivacyRedirect} />
         <Route path="/eelp" component={EELPPage} />
